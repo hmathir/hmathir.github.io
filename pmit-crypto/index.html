@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cryptography Lecture 01 FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: narrow reading column; sticky tab bar (Study / Exam / Flashcards); each FAQ is a numbered row, answer set off in a key-coloured chip. */
+:root{
+  --bg:#f3f5f9;
+  --surface:#ffffff;
+  --ink:#141b2d;
+  --muted:#5b6478;
+  --line:#dde2ec;
+  --accent:#2f4fd8;
+  --accent-soft:#e7ebfc;
+  --key:#b26a00;
+  --key-soft:#fdf1de;
+  --good:#1d7a46; --good-soft:#e3f4ea;
+  --bad:#c0362c; --bad-soft:#fbe6e4;
+  --f-display:"Sora","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --f-bn:"Hind Siliguri","Noto Sans Bengali","Nirmala UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1220; --surface:#161b2c; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
+    --accent:#8ea2ff; --accent-soft:#222b4d; --key:#f0b35a; --key-soft:#3a2c16;
+    --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --surface:#161b2c; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
+  --accent:#8ea2ff; --accent-soft:#222b4d; --key:#f0b35a; --key-soft:#3a2c16;
+  --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header.top{padding-top:28px;padding-bottom:14px}
+.course{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+h1{font-family:var(--f-display);font-size:clamp(24px,5.5vw,34px);line-height:1.2;margin:6px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0;font-size:15px}
+.cipherline{font-family:var(--f-mono);font-size:13px;color:var(--accent);margin-top:10px}
+.cipherline b{color:var(--key);font-weight:500}
+
+nav.tabs{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:8px}
+nav.tabs .wrap{display:flex;gap:6px;padding-top:8px;padding-bottom:8px}
+.tab{flex:1;font:600 14.5px var(--f-body);color:var(--muted);background:transparent;border:1px solid transparent;border-radius:10px;padding:10px 8px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--accent);border-color:var(--line);box-shadow:0 1px 2px rgba(20,27,45,.06)}
+.tab:focus-visible,.btn:focus-visible,.opt:focus-visible,.chip:focus-visible,.fcard:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+main{padding:18px 0 60px}
+.view[hidden]{display:none}
+
+/* Study */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.search{flex:1 1 220px;font:15px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.toggle{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);cursor:pointer;user-select:none}
+.toggle input{width:18px;height:18px;accent-color:var(--accent)}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.chip{font:500 13px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;text-decoration:none}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+section.sec{margin-bottom:26px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
+.sec-head h2{font-family:var(--f-display);font-size:19px;margin:0;text-wrap:balance}
+.sec-head .range{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.sec-desc{color:var(--muted);font-size:14px;margin:-4px 0 10px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq{display:grid;grid-template-columns:38px 1fr;gap:4px 10px;padding:14px 16px;border-top:1px solid var(--line)}
+.faq:first-child{border-top:0}
+.num{font-family:var(--f-mono);font-size:13px;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
+.q{font-weight:500}
+.ans{grid-column:2;margin-top:4px;display:flex;gap:8px;align-items:flex-start}
+.ans .tag{flex:none;font:600 11px var(--f-mono);color:var(--key);background:var(--key-soft);border-radius:6px;padding:3px 6px;margin-top:2px;letter-spacing:.04em}
+.ans .txt{color:var(--ink)}
+.ans .txt strong{color:var(--key);font-weight:600}
+.ex{grid-column:2;margin-top:8px;font-family:var(--f-bn);font-size:15px;line-height:1.6;color:var(--ink);background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:8px 12px}
+.ex .exl{display:block;font:600 12px var(--f-bn);color:var(--accent);margin-bottom:2px}
+.ex b{font-weight:600}
+.fex{margin-top:14px;font-family:var(--f-bn);font-size:15px;line-height:1.6;background:var(--surface);border-left:3px solid var(--key);border-radius:0 8px 8px 0;padding:8px 12px;color:var(--ink)}
+.fex .exl{display:block;font:600 12px var(--f-bn);color:var(--key);margin-bottom:2px}
+.feedback .fbex{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-family:var(--f-bn);font-size:15px;line-height:1.6}
+.qbn{font-family:var(--f-bn);font-size:15.5px;line-height:1.55;color:var(--muted);margin-top:2px;font-weight:500}
+.lang-bn .q,.lang-bn .qtext{font-family:var(--f-bn)}
+.abn{font-family:var(--f-bn);font-weight:600;color:var(--key)}
+.ans .txt .abn{display:block;margin-top:2px}
+.langbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.langbar .lbl{font-size:13px;color:var(--muted)}
+.langbar .seg button{padding:6px 12px;font-size:13.5px}
+.qtext .qbn{font-size:16px;font-weight:500;margin-top:6px}
+.fcard .qbn{font-size:16.5px;margin-top:6px}
+.reveal{font:500 13px var(--f-body);color:var(--accent);background:var(--accent-soft);border:0;border-radius:8px;padding:5px 10px;cursor:pointer}
+.mono{font-family:var(--f-mono)}
+.empty{padding:20px;color:var(--muted);text-align:center}
+
+.compare{width:100%;border-collapse:collapse;font-size:14px}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+.compare th,.compare td{padding:10px 12px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.compare thead th{border-top:0;font-family:var(--f-display);font-size:14px;background:var(--accent-soft);color:var(--ink)}
+.compare td:first-child{color:var(--muted);font-weight:500;width:34%}
+
+/* Exam */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.setup h2,.result h2{font-family:var(--f-display);font-size:21px;margin:0 0 6px}
+.setup p{color:var(--muted);margin:0 0 16px;font-size:14.5px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label.lbl{font-weight:600;font-size:14px}
+select{font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:500 14px var(--f-body);background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#0e1220}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#0e1220}}
+.checks{display:grid;gap:10px;margin:6px 0 18px}
+.btn{font:600 15px var(--f-body);border-radius:12px;padding:12px 18px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn{color:#0e1220}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0e1220}}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+
+.progress{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:4px 0 14px}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.meta{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
+.meta .score{color:var(--good)}
+.qtext{font-size:18px;font-weight:600;line-height:1.45;margin:4px 0 16px;text-wrap:pretty}
+.qorig{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-bottom:4px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:15.5px var(--f-body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;width:100%}
+.opt .letter{flex:none;font:600 13px var(--f-mono);width:26px;height:26px;border-radius:7px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--good);background:var(--good-soft)}
+.opt.correct .letter{background:var(--good);color:#fff;border-color:var(--good)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .letter{background:var(--bad);color:#fff;border-color:var(--bad)}
+.feedback{margin-top:14px;border-radius:12px;padding:12px 14px;font-size:14.5px;border-left:4px solid}
+.feedback.ok{background:var(--good-soft);border-color:var(--good)}
+.feedback.no{background:var(--bad-soft);border-color:var(--bad)}
+.feedback b{display:block;margin-bottom:2px}
+.next{margin-top:16px;display:flex;justify-content:flex-end}
+
+.big{font-family:var(--f-display);font-size:44px;line-height:1;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.verdict{color:var(--muted);margin:0 0 16px}
+.review{margin-top:18px;display:grid;gap:10px}
+.rv{border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:10px 12px;font-size:14px;background:var(--bg)}
+.rv .rq{font-weight:600;margin-bottom:4px}
+.rv .ry{color:var(--bad)} .rv .rc{color:var(--good)}
+
+/* Flashcards */
+.fc-wrap{display:grid;gap:14px}
+.fcard{min-height:250px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.fcard .side{font:600 11px var(--f-mono);letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
+.fcard .fq{font-size:19px;font-weight:600;line-height:1.45}
+.fcard.back{background:var(--key-soft);border-color:var(--key)}
+.fcard.back .side{color:var(--key)}
+.fcard .hint{margin-top:16px;font-size:13px;color:var(--muted)}
+.fc-nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.fc-count{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+
+footer{color:var(--muted);font-size:12.5px;text-align:center;padding-top:10px;padding-bottom:30px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Print / PDF */
+@media print{
+  nav.tabs,.toolbar,.jump,#exam,#cards,footer .noprint{display:none!important}
+  body{background:#fff}
+  .faq{break-inside:avoid}
+  section.sec{break-inside:auto}
+  .sec-head{break-after:avoid}
+}
+body.pdf nav.tabs,body.pdf .toolbar,body.pdf .jump,body.pdf .langbar{display:none}
+</style>
+</head>
+<body>
+<header class="top wrap">
+  <div class="course">PMIT-6204 · Cryptography &amp; Steganography · IIT, JU</div>
+  <h1>Lecture 01: Overview of Cryptography</h1>
+  <p class="sub">All 53 frequently asked questions from the lecture slides, grouped by topic. Questions and answers in English and Bangla, each with a short Bangla example. The Exam tab lets you test yourself.</p>
+  <div class="cipherline">go back <b>→</b> hp cbdl &nbsp;·&nbsp; shift +1</div>
+  <div class="langbar"><span class="lbl">Question language / প্রশ্নের ভাষা</span>
+    <div class="seg" id="langSeg">
+      <button type="button" data-l="both" aria-pressed="true">English + বাংলা</button>
+      <button type="button" data-l="en" aria-pressed="false">English</button>
+      <button type="button" data-l="bn" aria-pressed="false">বাংলা</button>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Mode">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" id="tab-study" aria-controls="study" aria-selected="true" data-view="study">Study</button>
+    <button class="tab" role="tab" id="tab-exam" aria-controls="exam" aria-selected="false" data-view="exam">Exam</button>
+    <button class="tab" role="tab" id="tab-cards" aria-controls="cards" aria-selected="false" data-view="cards">Flashcards</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- STUDY -->
+  <div class="view" id="study" role="tabpanel" aria-labelledby="tab-study">
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="Search questions, e.g. private key" aria-label="Search questions">
+      <label class="toggle" for="hideAns"><input type="checkbox" id="hideAns"> Hide answers</label>
+    </div>
+    <div class="jump" id="jump"></div>
+    <div id="sections"></div>
+
+    <section class="sec" id="sec-compare">
+      <div class="sec-head"><h2>Symmetric vs asymmetric at a glance</h2><span class="range">Slides 34–36</span></div>
+      <div class="tbl">
+        <table class="compare">
+          <thead><tr><th>Point</th><th>Symmetric-key</th><th>Asymmetric-key</th></tr></thead>
+          <tbody>
+            <tr><td>Keys</td><td>1 shared secret key (E<sub>K</sub> = D<sub>K</sub>)</td><td>2 keys: public + private (E<sub>K</sub> ≠ D<sub>K</sub>)</td></tr>
+            <tr><td>Based on</td><td>Sharing secrecy</td><td>Personal secrecy</td></tr>
+            <tr><td>Invented</td><td>2000+ years ago (came earlier)</td><td>Mid-1970s</td></tr>
+            <tr><td>Key length</td><td>Shorter</td><td>Longer</td></tr>
+            <tr><td>Speed</td><td>Faster, simpler</td><td>Slower</td></tr>
+            <tr><td>Key distribution</td><td>Not so easy</td><td>Easy (only public key shared)</td></tr>
+            <tr><td>Secrets for n people</td><td class="mono">n(n−1)/2</td><td class="mono">n</td></tr>
+            <tr><td>Digital signature</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Non-repudiation</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Security</td><td>Less</td><td>More</td></tr>
+            <tr><td>Plaintext / ciphertext</td><td>Symbols (characters or bits)</td><td>Numbers</td></tr>
+            <tr><td>Examples</td><td>DES, AES</td><td>RSA, Rabin, ElGamal, ECC</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- EXAM -->
+  <div class="view" id="exam" role="tabpanel" aria-labelledby="tab-exam" hidden>
+    <div class="card setup" id="examSetup">
+      <h2>Test yourself</h2>
+      <p>Every question comes from the lecture FAQ. You see right or wrong as soon as you pick an answer, with a short explanation.</p>
+      <div class="field">
+        <span class="lbl">Number of questions</span>
+        <div class="seg" id="countSeg">
+          <button type="button" data-n="10" aria-pressed="false">10</button>
+          <button type="button" data-n="20" aria-pressed="true">20</button>
+          <button type="button" data-n="30" aria-pressed="false">30</button>
+          <button type="button" data-n="0" aria-pressed="false">All 53</button>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lbl" for="topicSel">Topic</label>
+        <select id="topicSel"><option value="all">All topics</option></select>
+      </div>
+      <div class="checks">
+        <label class="toggle" for="shufQ"><input type="checkbox" id="shufQ" checked> Shuffle question order</label>
+        <label class="toggle" for="shufO"><input type="checkbox" id="shufO" checked> Shuffle answer options</label>
+      </div>
+      <button class="btn" id="startBtn" type="button">Start exam</button>
+    </div>
+
+    <div class="card" id="examRun" hidden>
+      <div class="meta"><span id="qPos">Question 1 of 20</span><span class="score" id="qScore">0 correct</span></div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="qorig" id="qOrig"></div>
+      <div class="qtext" id="qText"></div>
+      <div class="opts" id="opts"></div>
+      <div id="fb"></div>
+      <div class="next"><button class="btn" id="nextBtn" type="button" hidden>Next question</button></div>
+    </div>
+
+    <div class="card result" id="examResult" hidden>
+      <h2>Your result</h2>
+      <div class="big" id="resBig"></div>
+      <p class="verdict" id="resVerdict"></p>
+      <div class="row">
+        <button class="btn" id="retryWrong" type="button">Retry wrong answers</button>
+        <button class="btn ghost" id="newExam" type="button">New exam</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div class="view" id="cards" role="tabpanel" aria-labelledby="tab-cards" hidden>
+    <div class="fc-wrap">
+      <div class="toolbar">
+        <select id="fcTopic" aria-label="Flashcard topic"><option value="all">All topics</option></select>
+        <button class="btn ghost" id="fcShuffle" type="button">Shuffle</button>
+      </div>
+      <button class="fcard" id="fcard" type="button" aria-live="polite"></button>
+      <div class="fc-nav">
+        <button class="btn ghost" id="fcPrev" type="button">Previous</button>
+        <span class="fc-count" id="fcCount"></span>
+        <button class="btn" id="fcNext" type="button">Next</button>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="wrap">Source: Lecture File 01, Overview of Cryptography, prepared by Professor K M Akkas Ali, IIT, JU. Recommended books: Forouzan and Stallings, <i>Cryptography and Network Security</i>.</footer>
+
+<script>
+const SECTIONS=[
+ {id:"basics",title:"What cryptography is",range:"FAQ 1–8",desc:"Meaning, origin of the word and its purpose."},
+ {id:"scramble",title:"Scrambling a message",range:"FAQ 9–11",desc:"Substitution, transposition and shifting letters."},
+ {id:"terms",title:"Encryption, decryption, algorithms and keys",range:"FAQ 12–21",desc:"Basic terminology of a cryptosystem."},
+ {id:"parts",title:"Components, security needs and cryptanalysis",range:"FAQ 22–25",desc:"The three parts, the four security services, and what a key is."},
+ {id:"types",title:"Symmetric and asymmetric keys",range:"FAQ 26–35",desc:"Definitions and which key does what."},
+ {id:"compare",title:"Comparing the two cryptosystems",range:"FAQ 36–53",desc:"Speed, security, signatures, examples and key counts."}
+];
+const SA=["Symmetric-key cryptography","Asymmetric-key cryptography"];
+const TF=["True","False"];
+// q, a (answer as on the slide), o (options, first is correct), e (explanation)
+const EX=[
+"ক্রিপ্টোগ্রাফি মেসেজের <b>অর্থ</b> লুকায়: চিঠি সবাই দেখে, কিন্তু পড়ে বোঝে না। আর মেসেজটাই লুকিয়ে ফেলা (যেমন ছবির ভেতরে লেখা গোপন রাখা) হলো স্টেগানোগ্রাফি, মানে hidden writing।",
+"bKash-এ টাকা পাঠানোর সময় আপনার PIN এনক্রিপ্ট হয়ে যায়, তাই মাঝপথে কেউ সেটা দেখতে পারে না। এটাই secure communication।",
+"রেলস্টেশনের পাবলিক Wi-Fi হলো un-trusted চ্যানেল। তবু সাইটে HTTPS থাকলে আপনার পাসওয়ার্ড শুধু আপনি আর ওয়েবসাইট দেখতে পায়।",
+"WhatsApp-এ end-to-end encryption আছে। WhatsApp কোম্পানি বা মাঝপথের কেউ মেসেজ পড়তে পারে না, পারে শুধু আপনি আর যাকে পাঠিয়েছেন।",
+"kryptos (গ্রিক, গোপন) + graphein (গ্রিক, লেখা) = cryptography।",
+"Geography, Biography, Cryptography: এই সব \"-graphy\" শব্দ গ্রিক থেকে আসা। তাই উত্তর Greek, Latin না।",
+"ছোটবেলায় বন্ধুরা মিলে নিজেদের বানানো সাংকেতিক ভাষায় চিরকুট লিখতেন? ওটাই \"secret writing\"।",
+"\"HELLO\"-র প্রতিটা অক্ষর এক ঘর সরালে হয় \"IFMMP\"। এভাবেই ক্রিপ্টোগ্রাফি তথ্য এলোমেলো (scramble) করে, তাই উত্তর False।",
+"<b>Substitution:</b> \"CAT\" → \"DBU\" (অক্ষরগুলোই বদলে গেছে)।<br><b>Transposition:</b> \"CAT\" → \"TAC\" (অক্ষর একই, শুধু জায়গা বদল)।",
+"ডানে সরানো মানে বর্ণমালার পরের অক্ষর: g→h, o→p, b→c, a→b, c→d, k→l। স্পেস যেমন ছিল তেমনই থাকে। তাই \"go back\" → \"hp cbdl\"।",
+"বামে সরানো মানে বর্ণমালার আগের অক্ষর: g→f, o→n, b→a, a→z (a-এর আগে ঘুরে z), c→b, k→j। তাই \"go back\" → \"fn azbj\"।",
+"\"Hello\" (plaintext) এনক্রিপ্ট হয়ে হলো \"Ifmmp\" (ciphertext)। আলমারিতে তালা দেওয়ার মতো।",
+"বন্ধু \"Ifmmp\" পেয়ে চাবি দিয়ে খুলে আবার \"Hello\" পড়ল। এটাই decrypt, মানে তালা খোলা।",
+"একটা অ্যালগরিদম তালা লাগায়: \"১ ঘর ডানে সরাও\"। আরেকটা তালা খোলে: \"১ ঘর বামে সরাও\"।",
+"অ্যালগরিদম: \"প্রতিটা অক্ষর key ঘর ডানে সরাও\"। key = 3 হলে \"HI\" → \"KL\"।",
+"অ্যালগরিদম: \"প্রতিটা অক্ষর key ঘর বামে সরাও\"। key = 3 হলে \"KL\" → আবার \"HI\"।",
+"Encryption key দিয়ে তালা লাগানো হয়, decryption key দিয়ে খোলা হয়। Symmetric-এ দুটো একই চাবি, asymmetric-এ আলাদা।",
+"প্রেরক (sender) মেসেজ পাঠানোর আগে তালা লাগায়, তাই encryption key থাকে sender-এর কাছে।",
+"প্রাপক (receiver) মেসেজ পেয়ে তালা খোলে, তাই decryption key থাকে receiver-এর কাছে।",
+"আপনি লিখলেন \"পরীক্ষা কাল সকাল ১০টায়\"। এই আসল, পড়ার মতো লেখাটাই plaintext।",
+"ইন্টারনেটে যায় \"Xk#9pL@2…\" এর মতো দুর্বোধ্য লেখা। মাঝপথে কেউ ধরলেও এটাই দেখবে। এটাই ciphertext।",
+"তালাবদ্ধ বাক্সের উদাহরণে চিঠি হলো <b>message</b>, তালা লাগানোর পদ্ধতি <b>algorithm</b>, আর চাবি <b>key</b>।",
+"অনলাইন ব্যাংকিংয়ে চারটাই দরকার:<br>• অন্য কেউ ব্যালেন্স দেখতে পারবে না (Confidentiality)<br>• টাকার অঙ্ক কেউ বদলাতে পারবে না (Integrity)<br>• আপনি নিশ্চিত হবেন যে এটা আসল ব্যাংক (Authentication)<br>• টাকা পাঠিয়ে পরে \"পাঠাইনি\" বলা যাবে না (Non-repudiation)",
+"চোর চাবি ছাড়াই তালা ভাঙার চেষ্টা করছে। ক্রিপ্টোগ্রাফি মানে তালা বানানো, cryptanalysis মানে তালা ভাঙা। ভালো তালা বানাতে হলে ভাঙার কৌশলও জানতে হয়।",
+"\"৩ ঘর সরাও\" নিয়মে 3 সংখ্যাটাই key। key জানলে মেসেজ খুলতে পারবেন, না জানলে পারবেন না। key যত বড়, ভাঙা তত কঠিন।",
+"চাবির ভিত্তিতে ভাগ: এক চাবি → symmetric, দুই চাবি → asymmetric। Substitution/transposition আর stream/block হলো অন্য ভিত্তিতে ভাগ।",
+"বাসার দরজার চাবির একই কপি আপনার আর আপনার ভাইয়ের কাছে আছে। একই চাবিতে তালা লাগানো ও খোলা যায়, মানে E<sub>K</sub> = D<sub>K</sub>।",
+"আপনি আর বন্ধু মিলে একটা গোপন নিয়ম ঠিক করলেন, যেমন \"৩ ঘর সরাও\"। দুজনেই জানে, আর কেউ জানে না। তাই এটা <b>shared</b> secret key।",
+"পোস্ট অফিসের লেটারবক্সে যে কেউ চিঠি ঢোকাতে পারে (public key), কিন্তু খুলতে পারে শুধু চাবিওয়ালা পোস্টমাস্টার (private key)। মানে E<sub>K</sub> ≠ D<sub>K</sub>।",
+"প্রত্যেক ইউজারের এক জোড়া চাবি থাকে। যেমন আপনার ইমেইল অ্যাড্রেস সবাই জানে (public), কিন্তু পাসওয়ার্ড জানেন শুধু আপনি (private)।",
+"রহিম করিমকে মেসেজ পাঠাবে। রহিম <b>করিমের public key</b> দিয়ে তালা দেয়, আর করিম <b>নিজের private key</b> দিয়ে খোলে।",
+"দুই রুমমেটের কাছে একই তালার একই চাবি থাকলে সেটা symmetric।",
+"Public key একটা খোলা তালার মতো, যে কাউকে দিতে পারেন। যেমন টাকা পাওয়ার জন্য bKash নম্বর সবাইকে দেন।",
+"Private key আপনার bKash PIN-এর মতো, কাউকেই বলা যাবে না।",
+"\"১ ঘর ডানে সরাও\" (encryption)-এর উল্টো হলো \"১ ঘর বামে সরাও\" (decryption)। একটা যা করে, অন্যটা ঠিক সেটাই বাতিল করে।",
+"দুজনের মধ্যে একটা গোপন জিনিস <b>ভাগাভাগি</b> (sharing) করা হয়। এটাই symmetric।",
+"আপনার private key থাকে শুধু আপনার কাছে, কারও সাথে ভাগ করেন না (personal secrecy)। এটাই asymmetric।",
+"কাগজের চিঠিতে আপনার সই যেমন প্রমাণ করে চিঠিটা আপনার, তেমনি private key দিয়ে করা digital signature প্রমাণ করে মেসেজটা আপনারই পাঠানো।",
+"আপনি private key দিয়ে সই করে ৫০০০ টাকা পাঠালেন। পরে \"আমি পাঠাইনি\" বলতে পারবেন না, কারণ ওই চাবি শুধু আপনার কাছেই আছে।",
+"আপনার public key দিয়ে বিক্রেতা মেসেজটা খুলতে পারলে সে নিশ্চিত হয় যে মেসেজটা আপনিই পাঠিয়েছেন (স্লাইড ৩৩-এর Rassel ও e-vendor উদাহরণ)।",
+"১ GB-এর ভিডিও ফাইল symmetric (যেমন AES) দিয়ে খুব দ্রুত এনক্রিপ্ট হয়। asymmetric দিয়ে করলে অনেক বেশি সময় লাগে।",
+"জুলিয়াস সিজার ২০০০ বছরেরও আগে symmetric cipher (Caesar cipher) ব্যবহার করতেন। Asymmetric এসেছে ১৯৭০-এর দশকে।",
+"AES-এর key 128 বা 256 bit। RSA-র key সাধারণত 1024 bit বা তার বেশি।",
+"একটা চাবি আর একটা নিয়ম (\"৩ ঘর সরাও\"), তাই বোঝা সহজ আর চালাতেও দ্রুত।",
+"DES আর AES দুটোর নামের শেষেই \"ES\" (Encryption Standard)। \"S\" দেখে মনে রাখুন: <b>S</b>ymmetric। Wi-Fi-এর WPA2 আর ফোনের ফাইল এনক্রিপশনে AES ব্যবহার হয়।",
+"ব্রাউজারে 🔒 https:// সাইটে কানেকশন শুরুর সময় RSA-জাতীয় asymmetric অ্যালগরিদম কাজ করে। RSA = Rivest, Shamir, Adleman।",
+"১. আলিফ বাক্সে নিজের তালা লাগিয়ে বাবুকে পাঠায়।<br>২. বাবু নিজের তালাও লাগিয়ে ফেরত দেয়।<br>৩. আলিফ নিজের তালা খুলে আবার পাঠায়।<br>৪. বাবু নিজের তালা খুলে চিঠি পড়ে।<br>কোনো চাবি কখনো আদান-প্রদান হয়নি।",
+"প্রতি জনে ২টা চাবি: public key (তালা দিতে) আর private key (খুলতে)।",
+"শুধু ১টা shared secret key, একই চাবিতে তালা লাগানো ও খোলা।",
+"মনে রাখার কৌশল: <b>S</b>ymmetric = <b>S</b>ame key, দুটোই S দিয়ে শুরু।",
+"মনে রাখার কৌশল: <b>A</b>symmetric = <b>আ</b>লাদা চাবি, দুটোই \"আ/A\" দিয়ে শুরু।",
+"আপনার ১০ জন ক্লায়েন্ট থাকলে symmetric-এ ১০টা আলাদা গোপন চাবি নিরাপদে পৌঁছাতে হবে। n জনের গ্রুপে লাগে n(n−1)/2টা চাবি, যেমন ৫ জনের জন্য ৫×৪/২ = ১০টা।",
+"Public key কেউ জেনে ফেললেও সমস্যা নেই, কারণ খুলতে লাগে private key, যা শুধু মালিকের কাছে থাকে। Symmetric-এ একমাত্র চাবিটা ফাঁস হলেই সব শেষ।"
+];
+const BN=[
+["ক্রিপ্টোগ্রাফি কি “গোপন লেখা” (Secret Writing) নাকি “লুকানো লেখা” (Hidden Writing)-এর কৌশল?","গোপন লেখা (Secret writing)"],
+["ক্রিপ্টোগ্রাফি কি “নিরাপদ যোগাযোগ কৌশল” নাকি “অনিরাপদ যোগাযোগ কৌশল”-এর বিদ্যা?","নিরাপদ যোগাযোগ কৌশল (Secure communications technique)"],
+["ক্রিপ্টোগ্রাফি হলো অবিশ্বস্ত (un-trusted) যোগাযোগ চ্যানেলের মাধ্যমে নিরাপদে যোগাযোগের কৌশল নিয়ে পড়াশোনা। সত্য না মিথ্যা?","সত্য (True)"],
+["ক্রিপ্টোগ্রাফি দিয়ে সুরক্ষিত মেসেজ অনাকাঙ্ক্ষিত কেউ পড়তে পারে। সত্য না মিথ্যা?","মিথ্যা (False)"],
+["‘Cryptography’ শব্দটি গ্রিক শব্দ kryptos থেকে এসেছে। সত্য না মিথ্যা?","সত্য (True)"],
+["‘Cryptography’ শব্দটি গ্রিক না ল্যাটিন শব্দ থেকে এসেছে?","গ্রিক শব্দ (Greek word)"],
+["‘Cryptography’ শব্দটি গ্রিক শব্দ kryptos থেকে এসেছে, যার অর্থ “গোপন লেখা”। সত্য না মিথ্যা?","সত্য (True)"],
+["ক্রিপ্টোগ্রাফি তথ্য এলোমেলো (scramble) করতে পারে না। সত্য না মিথ্যা?","মিথ্যা (False)"],
+["ক্রিপ্টোগ্রাফিতে কত উপায়ে তথ্য এলোমেলো করা যায়?","২ উপায়ে: (i) Substitution (অক্ষর বদল), (ii) Transposition (অক্ষরের জায়গা বদল)"],
+["“go back” মেসেজের প্রতিটা অক্ষর এক ঘর ডানে সরালে আউটপুট কী হবে?","hp cbdl"],
+["“go back” মেসেজের প্রতিটা অক্ষর এক ঘর বামে সরালে আউটপুট কী হবে?","fn azbj"],
+["Encrypt মানে কী?","Plaintext-কে ciphertext-এ রূপান্তর করা"],
+["Decrypt মানে কী?","Ciphertext-কে plaintext-এ রূপান্তর করা"],
+["ক্রিপ্টোগ্রাফিতে কয়টা অ্যালগরিদম থাকে?","২টা (Encryption ও Decryption অ্যালগরিদম)"],
+["Encryption অ্যালগরিদম কী কাজ করে?","Encryption key-এর সাহায্যে plaintext-কে ciphertext-এ রূপান্তর করে"],
+["Decryption অ্যালগরিদম কী কাজ করে?","Decryption key-এর সাহায্যে ciphertext-কে plaintext-এ রূপান্তর করে"],
+["ক্রিপ্টোগ্রাফিতে কয়টা key থাকে?","২টা (Encryption key ও Decryption key)"],
+["কোন key-কে প্রেরকের দিকের (sender side) key বলা হয়?","Encryption key"],
+["কোন key-কে প্রাপকের দিকের (receiver side) key বলা হয়?","Decryption key"],
+["প্রেরক থেকে প্রাপকের কাছে যাওয়া আসল মেসেজকে ________ বলে।","Plaintext"],
+["চ্যানেলের মধ্য দিয়ে যে মেসেজ পাঠানো হয় তাকে ________ বলে।","Ciphertext"],
+["ক্রিপ্টোগ্রাফির মৌলিক উপাদান কয়টি?","তিনটি (Message, Key ও Algorithm)"],
+["ক্রিপ্টোগ্রাফি কোন চারটি নিরাপত্তা চাহিদা পূরণ করে?","(i) Confidentiality (গোপনীয়তা), (ii) Integrity (অপরিবর্তনীয়তা), (iii) Authentication (পরিচয় যাচাই), (iv) Non-repudiation (অস্বীকার করতে না পারা)"],
+["Cryptanalysis মানে কী?","মেসেজের গোপনীয়তা ভাঙার কৌশল"],
+["Key কী?","Key হলো কিছু গাণিতিক মান, সূত্র বা পদ্ধতি। মেসেজ এনক্রিপ্ট করতে যে key লাগে তাকে encryption key বলে। আরেকটা বা একই key দিয়ে মেসেজ ডিক্রিপ্ট করা হয়।"],
+["Encryption ও decryption key-এর ভিত্তিতে ক্রিপ্টোগ্রাফি কয় প্রকার ও কী কী?","দুই প্রকার: (i) Symmetric-key, (ii) Asymmetric-key ক্রিপ্টোগ্রাফি"],
+["Symmetric-key ক্রিপ্টোগ্রাফির সংজ্ঞা দাও।","যে কৌশলে একই key দিয়ে encryption ও decryption করা হয়, তাকে symmetric-key ক্রিপ্টোগ্রাফি বলে। অর্থাৎ E<sub>K</sub> = D<sub>K</sub>।"],
+["Symmetric-key ক্রিপ্টোগ্রাফিতে encryption ও decryption-এর একমাত্র key-কে ________ বলে।","Shared secret key (ভাগাভাগি করা গোপন চাবি)"],
+["Asymmetric-key ক্রিপ্টোগ্রাফির সংজ্ঞা দাও।","যে কৌশলে আলাদা key দিয়ে encryption ও decryption করা হয়, তাকে asymmetric-key ক্রিপ্টোগ্রাফি বলে। অর্থাৎ E<sub>K</sub> ≠ D<sub>K</sub>।"],
+["Asymmetric-key ক্রিপ্টোগ্রাফিতে প্রত্যেক ইউজারের কয়টা key থাকতে হয়?","২টা (একটা public key, একটা private key)"],
+["Asymmetric-key ক্রিপ্টোগ্রাফিতে কোন key দিয়ে encryption আর কোন key দিয়ে decryption হয়?","প্রেরক প্রাপকের public key দিয়ে এনক্রিপ্ট করে। প্রাপক নিজের private key দিয়ে ডিক্রিপ্ট করে।"],
+["কোন ক্রিপ্টোগ্রাফিতে প্রেরক ও প্রাপকের কাছে একই key থাকে?","Symmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন key অন্যদের সাথে শেয়ার করতে হয়?","Public key"],
+["কোন key গোপন রাখতে হয়?","Private key"],
+["Encryption ও decryption অ্যালগরিদম একে অপরের বিপরীত (inverse)। সত্য না মিথ্যা?","সত্য (True)"],
+["কোন ক্রিপ্টোগ্রাফি গোপনীয়তা ভাগাভাগির (sharing secrecy) উপর ভিত্তি করে?","Symmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফি ব্যক্তিগত গোপনীয়তার (personal secrecy) উপর ভিত্তি করে?","Asymmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফি digital signature সাপোর্ট করে?","Asymmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফি non-repudiation সাপোর্ট করে?","Asymmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফি প্রেরকের পরিচয় যাচাই (sender authentication) সাপোর্ট করে?","Asymmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফি বেশি দ্রুত?","Symmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফি আগে এসেছে?","Symmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফিতে বড় (longer) key ব্যবহার হয়?","Asymmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফি সহজ ও দ্রুত?","Symmetric-key ক্রিপ্টোগ্রাফি"],
+["সবচেয়ে প্রচলিত symmetric-key অ্যালগরিদমের উদাহরণ দাও।","DES (Data Encryption Standard), AES (Advanced Encryption Standard)"],
+["সবচেয়ে প্রচলিত asymmetric-key অ্যালগরিদমের উদাহরণ দাও।","RSA, Rabin Crypto System"],
+["কোন প্রটোকলে কোনো key আদান-প্রদানের দরকার হয় না?","Three Pass Protocol"],
+["Asymmetric-key ক্রিপ্টোগ্রাফিতে encryption ও decryption-এ কয়টা key ব্যবহার হয়?","২টা (Public key ও Private key)"],
+["Symmetric-key ক্রিপ্টোগ্রাফিতে encryption ও decryption-এ কয়টা key ব্যবহার হয়?","১টা (Shared secret key)"],
+["কোন ক্রিপ্টোগ্রাফিক কৌশলে encryption ও decryption-এ একই key ব্যবহার হয়?","Symmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফিক কৌশলে encryption ও decryption-এ আলাদা key ব্যবহার হয়?","Asymmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফিক কৌশলে key বিতরণ (distribution) সহজ নয়?","Symmetric-key ক্রিপ্টোগ্রাফি"],
+["কোন ক্রিপ্টোগ্রাফিক কৌশল বেশি নিরাপত্তা দেয়?","Asymmetric-key ক্রিপ্টোগ্রাফি"]
+];
+const FAQ=[
+ ["basics","Is cryptography the art of “Secret Writing” or “Hidden Writing”?","Secret writing",["Secret writing","Hidden writing"],"Cryptography hides the meaning of a message. Hiding that a message exists at all is steganography."],
+ ["basics","Is cryptography the study of “Secure communications technique” or “Insecure communications techniques”?","Secure communications technique",["Secure communications technique","Insecure communications techniques"],"Cryptography studies how to communicate securely."],
+ ["basics","Cryptography is the study of secure communications techniques over un-trusted communication channel. True or False?","True",TF,"Only the sender and the intended recipient should be able to view the contents, even though the channel is not trusted."],
+ ["basics","While a message is secured using cryptography, an unwanted party can view its contents. True or False?","False",["False","True"],"A secured message can be read only by the sender and the intended recipient."],
+ ["basics","The term ‘cryptography’ is derived from the Greek word kryptos. True or False?","True",TF,"Kryptos is Greek."],
+ ["basics","The term ‘cryptography’ is derived from a Greek word or a Latin word?","Greek word",["Greek word","Latin word"],"It comes from the Greek word kryptos."],
+ ["basics","The term ‘cryptography’ is derived from the Greek word kryptos, which means “secret writing”. True or False?","True",TF,"Slide 14: kryptos means “secret writing”."],
+ ["basics","Cryptography cannot scramble information. True or False?","False",["False","True"],"Cryptography scrambles information by substitution and rearrangement so only the key holder can unscramble it."],
+ ["scramble","In cryptography, in how many ways can information be scrambled?","2 ways: (i) by substitution, (ii) by transposition",["2: substitution and transposition","2: encryption and decryption","3: substitution, transposition and compression","1: substitution only"],"Substitution replaces symbols. Transposition changes their positions."],
+ ["scramble","What will be the output if the message “go back” is shifted one character right?","hp cbdl",["hp cbdl","fn azbj","kcab og","hq cbdl"],"Each letter moves one step forward: g→h, o→p, b→c, a→b, c→d, k→l."],
+ ["scramble","What will be the output if the message “go back” is shifted one character left?","fn azbj",["fn azbj","hp cbdl","kcab og","fn bzaj"],"Each letter moves one step back: g→f, o→n, b→a, a→z, c→b, k→j."],
+ ["terms","What does encrypt mean?","To convert plaintext to ciphertext",["To convert plaintext to ciphertext","To convert ciphertext to plaintext","To break a cipher without the key","To generate a new key"],"Encrypt: plaintext → ciphertext."],
+ ["terms","What does decrypt mean?","To convert ciphertext to plaintext",["To convert ciphertext to plaintext","To convert plaintext to ciphertext","To hide a message inside an image","To share a key with the receiver"],"Decrypt: ciphertext → plaintext."],
+ ["terms","How many algorithms does cryptography have?","2 (encryption and decryption algorithm)",["2: encryption and decryption","1: encryption only","3: encryption, decryption and key generation","4"],"One algorithm encrypts, the other decrypts. They are inverses of each other."],
+ ["terms","What does an encryption algorithm do?","Converts plaintext to ciphertext with the help of the encryption key",["Converts plaintext to ciphertext using the encryption key","Converts ciphertext to plaintext using the decryption key","Recovers plaintext without any key","Sends the key over the channel"],"Encryption algorithm + encryption key turns plaintext into ciphertext."],
+ ["terms","What does a decryption algorithm do?","Converts ciphertext to plaintext with the help of the decryption key",["Converts ciphertext to plaintext using the decryption key","Converts plaintext to ciphertext using the encryption key","Creates the public key","Compresses the ciphertext"],"Decryption algorithm + decryption key turns ciphertext back into plaintext."],
+ ["terms","How many keys does cryptography have?","2 (encryption key and decryption key)",["2: encryption key and decryption key","1: master key","3: encryption, decryption and session key","4"],"In symmetric-key cryptography these two keys happen to be the same key."],
+ ["terms","Which key is called the sender side key?","Encryption key",["Encryption key","Decryption key"],"The sender encrypts, so the encryption key is on the sender side."],
+ ["terms","Which key is called the receiver side key?","Decryption key",["Decryption key","Encryption key"],"The receiver decrypts, so the decryption key is on the receiver side."],
+ ["terms","The original message from sender to receiver is called ________.","Plaintext",["Plaintext","Ciphertext","Keystream","Cryptanalysis"],"Plaintext (cleartext) is the original message being protected."],
+ ["terms","The message that is sent through the channel is called ________.","Ciphertext",["Ciphertext","Plaintext","Cleartext","Shared key"],"Only the encrypted ciphertext travels over the channel."],
+ ["parts","How many basic components does cryptography have?","Three (Message, Key and Algorithm)",["Three: message, key and algorithm","Two: key and algorithm","Three: sender, receiver and channel","Four: message, key, algorithm and channel"],"Slide 18: every cryptographic process has a message, a cryptographic algorithm and a key."],
+ ["parts","Which four security needs are provided by cryptography?","(i) Confidentiality, (ii) Integrity, (iii) Authentication, (iv) Non-repudiation",["Confidentiality, Integrity, Authentication, Non-repudiation","Confidentiality, Integrity, Availability, Authentication","Confidentiality, Compression, Authorization, Accounting","Integrity, Availability, Accounting, Non-repudiation"],"Availability is not one of the four listed in this lecture."],
+ ["parts","What does cryptanalysis mean?","It is the art of breaking confidentiality of a message",["The art of breaking the confidentiality of a message","The art of creating secret codes","Hiding a message inside another file","Delivering keys securely"],"Cryptography creates codes; cryptanalysis breaks them. Together they form cryptology."],
+ ["parts","What is a key?","A set of mathematical value, formula or process. One key encrypts the message (encryption key); another or the same key decrypts it.",["A set of mathematical value, formula or process used to encrypt and decrypt","The original readable message","The encrypted message sent over the channel","The untrusted communication channel"],"The key decides how the plaintext is encrypted or decrypted. A larger key is harder to break."],
+ ["types","What are the two types of cryptography according to the encryption and decryption key?","(i) Symmetric-key, (ii) Asymmetric-key cryptography",["Symmetric-key and asymmetric-key","Substitution and transposition","Stream and block","Traditional and modern"],"The other pairs are real classifications too, but by different criteria."],
+ ["types","Define symmetric-key cryptography.","Encryption and decryption are performed by the same key, i.e. when E<sub>K</sub> = D<sub>K</sub>.",["Same key for encryption and decryption (EK = DK)","Different keys for encryption and decryption (EK ≠ DK)","No key is used at all","Only the public key is used"],"Symmetric = same key on both sides."],
+ ["types","In symmetric-key cryptography, the single key used for encryption and decryption is termed ________.","Shared secret key",["Shared secret key","Public key","Private key","Keystream"],"Both parties share it, and it must stay secret from everyone else."],
+ ["types","Define asymmetric-key cryptography.","Encryption and decryption are performed by different keys, i.e. when E<sub>K</sub> ≠ D<sub>K</sub>.",["Different keys for encryption and decryption (EK ≠ DK)","Same key for encryption and decryption (EK = DK)","Keys are exchanged face to face","Messages are sent without any key"],"Asymmetric = two different but mathematically related keys."],
+ ["types","In asymmetric-key cryptography, how many keys must each user have?","2 (one public key and one private key)",["2: public key and private key","1: shared secret key","3","It depends on the number of users"],"Every user owns a key pair."],
+ ["types","In asymmetric-key cryptography, which key is used for encryption and which for decryption?","The sender uses the receiver’s public key to encrypt. The receiver uses his/her own private key to decrypt.",["Sender encrypts with the receiver’s public key; receiver decrypts with own private key","Sender encrypts with the receiver’s private key; receiver decrypts with own public key","Sender encrypts with own public key; receiver decrypts with sender’s private key","Both use one shared secret key"],"Alice locks with Bob’s open padlock (public key); only Bob’s private key opens it."],
+ ["types","In which cryptography do the sender and the receiver possess the same key?","Symmetric-key cryptography",SA,"Both hold the same shared secret key."],
+ ["types","Which key must be shared with other parties?","Public key",["Public key","Private key","Both keys","Neither key"],"The public key is open to all."],
+ ["types","Which key must be kept secret?","Private key",["Private key","Public key"],"Only the owner knows the private key."],
+ ["types","The encryption and decryption algorithms are inverse of each other. True or False?","True",TF,"Decryption undoes exactly what encryption did."],
+ ["compare","Which cryptography is based on sharing secrecy?","Symmetric-key cryptography",SA,"The secret (key) is shared between sender and receiver."],
+ ["compare","Which cryptography is based on personal secrecy?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Each person keeps their own private key."],
+ ["compare","Which cryptography supports digital signature?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Signing with your private key proves the message came from you."],
+ ["compare","Which cryptography supports non-repudiation?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"In symmetric-key both parties have the same key, so the sender could deny sending."],
+ ["compare","Which cryptography supports sender authentication?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Data encrypted with the sender’s private key can be checked by anyone with the sender’s public key."],
+ ["compare","Which cryptography is faster?","Symmetric-key cryptography",SA,"It is easy to implement in hardware. Asymmetric takes more time to compute."],
+ ["compare","Which cryptography came earlier?","Symmetric-key cryptography",SA,"Symmetric: over 2000 years old. Asymmetric: mid-1970s."],
+ ["compare","Which cryptography uses a longer key?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Symmetric uses shorter keys."],
+ ["compare","Which cryptography is simple and faster?","Symmetric-key cryptography",SA,"Symmetric is fast, convenient to set up, and simple to understand and use."],
+ ["compare","Give an example of the most common symmetric-key algorithm.","DES (Data Encryption Standard), AES (Advanced Encryption Standard)",["DES, AES","RSA, Rabin","ElGamal, ECC","RSA, DES"],"RSA, Rabin, ElGamal and ECC are asymmetric."],
+ ["compare","Give an example of the most common asymmetric-key algorithm.","RSA, Rabin Crypto System",["RSA, Rabin","DES, AES","3DES, IDEA","AES, RSA"],"RSA is named after Rivest, Shamir and Adleman."],
+ ["compare","In which protocol is there no need to exchange any key?","Three Pass Protocol",["Three-pass protocol","Symmetric-key cryptography","Asymmetric-key cryptography","Stream cipher"],"Alice and Bob each add and remove their own padlock, so no key travels over the network."],
+ ["compare","In asymmetric-key cryptography, how many keys are used for encryption and decryption?","2 (Public key and private key)",["2: public and private key","1: shared secret key","3","4"],"Public key to encrypt, private key to decrypt."],
+ ["compare","In symmetric-key cryptography, how many keys are used for encryption and decryption?","1 (Shared secret key)",["1: shared secret key","2: public and private key","3","It depends on message length"],"The same single key does both jobs."],
+ ["compare","Which cryptographic technique uses the same key for encryption and decryption?","Symmetric-key cryptography",SA,"Same key = symmetric."],
+ ["compare","Which cryptographic technique uses different keys for encryption and decryption?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Different keys = asymmetric."],
+ ["compare","In which cryptographic technique is key distribution not so easy?","Symmetric-key cryptography",SA,"The secret key must reach the other party safely, and n people need n(n−1)/2 keys."],
+ ["compare","Which cryptographic technique provides more security?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Only one party needs the private key; a third party knowing the public key does not compromise the message."]
+].map((r,i)=>({n:i+1,sec:r[0],q:r[1],a:r[2],opts:r[3],ok:r[3][0],exp:r[4],ex:EX[i],qb:BN[i][0],ab:BN[i][1]}));
+
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const fmtAns=a=>a.replace(/(\d+ ?\(|^\d+ )/,m=>m); // keep slide wording
+
+/* ---------- Tabs / hash ---------- */
+const VIEWS=["study","exam","cards"];
+function show(v){
+  if(!VIEWS.includes(v))v="study";
+  VIEWS.forEach(x=>{$("#"+x).hidden=x!==v;document.querySelector(`.tab[data-view="${x}"]`).setAttribute("aria-selected",x===v);});
+}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{show(b.dataset.view);try{history.replaceState(null,"","#"+b.dataset.view);}catch(e){location.hash=b.dataset.view;}}));
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+/* ---------- Language ---------- */
+let lang="both";
+try{const l=localStorage.getItem("crypto01-lang");if(["both","en","bn"].includes(l))lang=l;}catch(e){}
+const qHTML=f=>lang==="en"?esc(f.q):lang==="bn"?f.qb:`${esc(f.q)}<div class="qbn" lang="bn">${f.qb}</div>`;
+const aHTML=f=>lang==="en"?`<strong>${f.a}</strong>`:lang==="bn"?`<strong class="abn" lang="bn">${f.ab}</strong>`:`<strong>${f.a}</strong><span class="abn" lang="bn">${f.ab}</span>`;
+function setLang(l){
+  lang=l;document.body.classList.toggle("lang-bn",l==="bn");
+  $("#langSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.l===l));
+  try{localStorage.setItem("crypto01-lang",l);}catch(e){}
+  renderStudy();renderFC();
+  if(ex&&!$("#examRun").hidden){const f=ex.qs[ex.i];$("#qText").innerHTML=qHTML(f);}
+}
+$("#langSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setLang(b.dataset.l);});
+
+/* ---------- Study ---------- */
+function renderStudy(){
+  const term=$("#search").value.trim().toLowerCase();
+  const hide=$("#hideAns").checked;
+  let html="",total=0;
+  SECTIONS.forEach(s=>{
+    const items=FAQ.filter(f=>f.sec===s.id&&(!term||(f.q+" "+f.a+" "+f.qb+" "+f.ab).toLowerCase().includes(term)));
+    if(!items.length)return;
+    total+=items.length;
+    html+=`<section class="sec" id="s-${s.id}"><div class="sec-head"><h2>${s.title}</h2><span class="range">${s.range}</span></div><p class="sec-desc">${s.desc}</p><div class="list">`;
+    items.forEach(f=>{
+      const ans=`<span class="tag">ANS</span><span class="txt">${aHTML(f)}</span>`;
+      const exb=`<div class="ex" lang="bn"><span class="exl">উদাহরণ</span>${f.ex}</div>`;
+      html+=`<div class="faq"><span class="num">${String(f.n).padStart(2,"0")}</span><div class="q">${qHTML(f)}</div><div class="ans" data-n="${f.n}">${hide?`<button class="reveal" type="button" data-n="${f.n}">Show answer</button>`:ans}</div>${hide?"":exb}</div>`;
+    });
+    html+=`</div></section>`;
+  });
+  $("#sections").innerHTML=total?html:`<div class="list"><div class="empty">No question matches “${esc(term)}”.</div></div>`;
+}
+$("#jump").innerHTML=SECTIONS.map(s=>`<a class="chip" href="#study" data-target="s-${s.id}">${s.title.split(",")[0].replace(/ and .*/,"")}</a>`).join("")+`<a class="chip" href="#study" data-target="sec-compare">Comparison table</a>`;
+$("#jump").addEventListener("click",e=>{const a=e.target.closest("[data-target]");if(!a)return;e.preventDefault();const el=document.getElementById(a.dataset.target);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});});
+$("#search").addEventListener("input",renderStudy);
+$("#hideAns").addEventListener("change",renderStudy);
+$("#sections").addEventListener("click",e=>{
+  const b=e.target.closest(".reveal");if(!b)return;
+  const f=FAQ[b.dataset.n-1];
+  const box=b.parentElement;box.innerHTML=`<span class="tag">ANS</span><span class="txt">${aHTML(f)}</span>`;
+  box.insertAdjacentHTML("afterend",`<div class="ex" lang="bn"><span class="exl">উদাহরণ</span>${f.ex}</div>`);
+});
+
+/* ---------- Exam ---------- */
+const selOpts=SECTIONS.map(s=>`<option value="${s.id}">${s.title}</option>`).join("");
+$("#topicSel").insertAdjacentHTML("beforeend",selOpts);
+$("#fcTopic").insertAdjacentHTML("beforeend",selOpts);
+let count=20;
+$("#countSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;count=+b.dataset.n;$("#countSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));});
+
+let ex=null;
+function startExam(pool){
+  let qs=pool;
+  if($("#shufQ").checked)qs=shuffle(qs);
+  if(count&&!pool._retry)qs=qs.slice(0,count);
+  ex={qs,i:0,score:0,wrong:[],answered:false};
+  $("#examSetup").hidden=true;$("#examResult").hidden=true;$("#examRun").hidden=false;
+  renderQ();
+}
+$("#startBtn").addEventListener("click",()=>{
+  const t=$("#topicSel").value;
+  startExam(FAQ.filter(f=>t==="all"||f.sec===t));
+});
+function renderQ(){
+  const f=ex.qs[ex.i];ex.answered=false;
+  $("#qPos").textContent=`Question ${ex.i+1} of ${ex.qs.length}`;
+  $("#qScore").textContent=`${ex.score} correct`;
+  $("#bar").style.width=(ex.i/ex.qs.length*100)+"%";
+  $("#qOrig").textContent=`FAQ ${f.n} · ${SECTIONS.find(s=>s.id===f.sec).title}`;
+  $("#qText").innerHTML=qHTML(f);
+  let opts=f.opts.slice();
+  const isTF=opts.length===2&&opts.includes("True")&&opts.includes("False");
+  if(isTF)opts=["True","False"];
+  else if($("#shufO").checked)opts=shuffle(opts);
+  $("#opts").innerHTML=opts.map((o,k)=>`<button class="opt" type="button" data-v="${esc(o)}"><span class="letter">${"ABCD"[k]}</span><span>${esc(o)}</span></button>`).join("");
+  $("#fb").innerHTML="";$("#nextBtn").hidden=true;
+}
+$("#opts").addEventListener("click",e=>{
+  const b=e.target.closest(".opt");if(!b||ex.answered)return;
+  ex.answered=true;
+  const f=ex.qs[ex.i];const pick=b.dataset.v;const right=pick===f.ok;
+  document.querySelectorAll(".opt").forEach(o=>{o.disabled=true;if(o.dataset.v===f.ok)o.classList.add("correct");});
+  if(right)ex.score++;else{b.classList.add("wrong");ex.wrong.push({f,pick});}
+  $("#qScore").textContent=`${ex.score} correct`;
+  $("#fb").innerHTML=`<div class="feedback ${right?"ok":"no"}" role="status"><b>${right?"Correct. সঠিক!":"Not quite. Correct answer: "+esc(f.ok)}</b>${lang==="en"?"":`<div class="abn" lang="bn" style="font-weight:500">উত্তর: ${f.ab}</div>`}${f.exp}<div class="fbex" lang="bn">${f.ex}</div></div>`;
+  const nb=$("#nextBtn");nb.hidden=false;nb.textContent=ex.i===ex.qs.length-1?"See result":"Next question";nb.focus();
+});
+$("#nextBtn").addEventListener("click",()=>{ex.i++;if(ex.i<ex.qs.length)renderQ();else finish();});
+function finish(){
+  $("#examRun").hidden=true;$("#examResult").hidden=false;
+  const n=ex.qs.length,p=Math.round(ex.score/n*100);
+  $("#resBig").textContent=`${ex.score} / ${n}`;
+  $("#resVerdict").textContent=p===100?"Perfect score. You know this lecture.":p>=80?`${p}%. Strong. Review the few you missed below.`:p>=50?`${p}%. Getting there. Go through the missed ones and retry them.`:`${p}%. Read the Study tab once more, then retry.`;
+  $("#retryWrong").hidden=!ex.wrong.length;
+  $("#review").innerHTML=ex.wrong.length?`<div class="sec-head"><h2>Questions you missed</h2></div>`+ex.wrong.map(w=>`<div class="rv"><div class="rq">FAQ ${w.f.n}. ${esc(w.f.q)}</div><div class="ry">Your answer: ${esc(w.pick)}</div><div class="rc">Correct: ${esc(w.f.ok)}</div></div>`).join(""):"";
+  try{const best=+localStorage.getItem("crypto01-best")||0;if(p>best)localStorage.setItem("crypto01-best",p);}catch(e){}
+}
+$("#retryWrong").addEventListener("click",()=>{const pool=ex.wrong.map(w=>w.f);pool._retry=true;startExam(pool);});
+$("#newExam").addEventListener("click",()=>{$("#examResult").hidden=true;$("#examSetup").hidden=false;});
+
+/* ---------- Flashcards ---------- */
+let fc={list:FAQ.slice(),i:0,back:false};
+function renderFC(){
+  const f=fc.list[fc.i];const c=$("#fcard");
+  c.classList.toggle("back",fc.back);
+  c.innerHTML=fc.back?`<div class="side">ANSWER · FAQ ${f.n}</div><div class="fq">${aHTML(f)}</div><div class="fex" lang="bn"><span class="exl">উদাহরণ</span>${f.ex}</div>`:`<div class="side">QUESTION · FAQ ${f.n}</div><div class="fq">${qHTML(f)}</div><div class="hint">Tap the card to see the answer</div>`;
+  $("#fcCount").textContent=`${fc.i+1} / ${fc.list.length}`;
+  $("#fcPrev").disabled=fc.i===0;$("#fcNext").disabled=fc.i===fc.list.length-1;
+}
+$("#fcard").addEventListener("click",()=>{fc.back=!fc.back;renderFC();});
+$("#fcNext").addEventListener("click",()=>{if(fc.i<fc.list.length-1){fc.i++;fc.back=false;renderFC();}});
+$("#fcPrev").addEventListener("click",()=>{if(fc.i>0){fc.i--;fc.back=false;renderFC();}});
+$("#fcShuffle").addEventListener("click",()=>{fc.list=shuffle(fc.list);fc.i=0;fc.back=false;renderFC();});
+$("#fcTopic").addEventListener("change",e=>{const t=e.target.value;fc.list=FAQ.filter(f=>t==="all"||f.sec===t);fc.i=0;fc.back=false;renderFC();});
+document.addEventListener("keydown",e=>{if($("#cards").hidden||e.target.tagName==="SELECT")return;if(e.key==="ArrowRight")$("#fcNext").click();if(e.key==="ArrowLeft")$("#fcPrev").click();});
+
+setLang(lang);show(location.hash.slice(1));
+</script>
+</body>
+</html>
