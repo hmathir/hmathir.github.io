@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="বাংলাদেশি ফ্রিল্যান্সারদের কমান্ড সেন্টার — ক্লায়েন্টের দেশের সময় ও ছুটি, কোন ইভেন্টে কোন কাজের চাহিদা, অর্ডার কমার কারণ, টিপস আর আয়ের হিসাব।">
+<meta property="og:title" content="FreelanceRadar BD — ফ্রিল্যান্সারদের কমান্ড সেন্টার">
+<meta property="og:description" content="ক্লায়েন্ট কখন জেগে আছে, কোথায় ছুটি, কোন কাজের চাহিদা আসছে — Fiverr, Upwork, Freelancer.com">
+<meta name="theme-color" content="#060912">
+<title>FreelanceRadar BD — ফ্রিল্যান্সারদের কমান্ড সেন্টার</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060912; --bg2:#0b1120; --card:rgba(255,255,255,.035); --card2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --tx:#e9eef8; --mut:#8b97ad; --dim:#5d6880;
+  --lime:#c6ff4d; --cyan:#4de1ff; --vio:#8b7bff; --amber:#ffb84d; --red:#ff5c7a; --green:#3ee6a0;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Hind Siliguri','Space Grotesk',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.num,.mono{font-family:'Space Grotesk',system-ui,sans-serif;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:
+   radial-gradient(900px 500px at 85% -10%,rgba(77,225,255,.13),transparent 60%),
+   radial-gradient(800px 500px at -10% 20%,rgba(139,123,255,.12),transparent 60%),
+   radial-gradient(700px 400px at 50% 110%,rgba(198,255,77,.07),transparent 60%),var(--bg)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 0%,#000 20%,transparent 75%);opacity:.5}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(6,9,18,.7);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:-.02em;white-space:nowrap}
+.logo i{width:30px;height:30px;border-radius:9px;background:conic-gradient(from 200deg,var(--lime),var(--cyan),var(--vio),var(--lime));display:grid;place-items:center;position:relative}
+.logo i::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--bg);box-shadow:0 0 0 3px rgba(6,9,18,.4)}
+.logo b{color:var(--lime)}
+.navlinks{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks button{background:none;border:0;color:var(--mut);font:inherit;font-size:14.5px;padding:7px 12px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.navlinks button:hover{color:var(--tx);background:var(--card2)}
+.bdclock{font-family:'Space Grotesk';font-size:13px;color:var(--mut);white-space:nowrap;padding:6px 10px;border:1px solid var(--line);border-radius:10px}
+.bdclock b{color:var(--tx)}
+
+/* hero */
+.hero{padding:64px 0 36px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--lime);border:1px solid rgba(198,255,77,.25);background:rgba(198,255,77,.06);padding:5px 12px;border-radius:99px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-size:clamp(34px,5vw,58px);line-height:1.12;letter-spacing:-.01em;margin:18px 0 16px;font-weight:700}
+h1 .grad{background:linear-gradient(95deg,var(--lime),var(--cyan) 55%,var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:18px;max-width:560px}
+.hero-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);background:var(--card2);color:var(--tx);font:inherit;font-weight:600;font-size:15px;padding:11px 18px;border-radius:12px;cursor:pointer;transition:.2s}
+.btn:hover{border-color:rgba(255,255,255,.3);transform:translateY(-1px)}
+.btn.pri{background:var(--lime);color:#0a0f02;border-color:var(--lime)}
+.btn.pri:hover{box-shadow:0 8px 30px rgba(198,255,77,.25)}
+.btn.sm{padding:7px 12px;font-size:13.5px;border-radius:10px}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* radar */
+.radar-box{position:relative;aspect-ratio:1;max-width:430px;width:100%;margin-left:auto}
+.radar{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line2);
+  background:radial-gradient(circle,transparent 24%,var(--line) 24.3%,transparent 24.8%,transparent 49%,var(--line) 49.3%,transparent 49.8%,transparent 74%,var(--line) 74.3%,transparent 74.8%),
+  radial-gradient(circle,rgba(77,225,255,.08),transparent 70%);overflow:hidden}
+.radar::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(198,255,77,.35),transparent 18%);animation:sweep 4s linear infinite}
+.radar::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+@keyframes sweep{to{transform:rotate(360deg)}}
+.blip{position:absolute;transform:translate(-50%,-50%);font-family:'Space Grotesk';font-size:11px;font-weight:600;padding:3px 7px;border-radius:7px;background:rgba(6,9,18,.85);border:1px solid var(--line2);white-space:nowrap}
+.blip::before{content:"";position:absolute;left:50%;top:-9px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor}
+.pulse-center{position:absolute;inset:34%;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(6,9,18,.95) 60%,rgba(6,9,18,.6));border:1px solid var(--line2)}
+.pulse-center .big{font-family:'Space Grotesk';font-size:40px;font-weight:700;line-height:1}
+.pulse-center small{display:block;color:var(--mut);font-size:12.5px;margin-top:4px}
+
+/* stat strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.stat .k{color:var(--mut);font-size:13px}
+.stat .v{font-size:20px;font-weight:700;margin-top:2px;line-height:1.35}
+.stat .v.num{font-size:26px}
+
+/* sections */
+section{padding:70px 0 10px;scroll-margin-top:70px}
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap}
+.sec-h .tag{font-family:'Space Grotesk';font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.sec-h h2{font-size:clamp(26px,3vw,36px);line-height:1.2;margin-top:6px;font-weight:700}
+.sec-h p{color:var(--mut);max-width:520px;font-size:15.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.grid{display:grid;gap:14px}
+
+/* clocks */
+.clocks{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))}
+.clock{position:relative;overflow:hidden;padding:16px 16px 14px}
+.clock .top{display:flex;align-items:center;gap:10px}
+.cc{font-family:'Space Grotesk';font-weight:700;font-size:12px;width:34px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--card2);border:1px solid var(--line2)}
+.clock .nm{font-weight:600;font-size:15px}
+.clock .city{color:var(--dim);font-size:12px;font-family:'Space Grotesk'}
+.clock .t{font-family:'Space Grotesk';font-size:30px;font-weight:600;margin:10px 0 2px;letter-spacing:-.02em}
+.clock .t small{font-size:14px;color:var(--mut);font-weight:500;margin-left:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:3px 10px;border-radius:99px;border:1px solid;font-weight:500}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-office{color:var(--green);border-color:rgba(62,230,160,.3);background:rgba(62,230,160,.07)}
+.s-edge{color:var(--cyan);border-color:rgba(77,225,255,.3);background:rgba(77,225,255,.07)}
+.s-sleep{color:var(--dim);border-color:var(--line2)}
+.s-week{color:var(--amber);border-color:rgba(255,184,77,.3);background:rgba(255,184,77,.07)}
+.s-hol{color:var(--red);border-color:rgba(255,92,122,.3);background:rgba(255,92,122,.07)}
+.clock .bar{position:absolute;left:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--lime),var(--cyan));opacity:.8}
+.clock .hnote{font-size:12px;color:var(--red);margin-top:6px}
+
+/* golden hours */
+.gh{margin-top:16px;overflow-x:auto}
+.gh-inner{min-width:760px}
+.gh-row{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:10px;margin:5px 0}
+.gh-row .lbl{font-size:13.5px;display:flex;gap:8px;align-items:center}
+.gh-cells{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;position:relative}
+.gh-cells span{height:22px;border-radius:5px;background:rgba(255,255,255,.04)}
+.gh-cells span.on{background:linear-gradient(180deg,rgba(62,230,160,.85),rgba(62,230,160,.55))}
+.gh-cells span.edge{background:rgba(77,225,255,.28)}
+.gh-cells span.wk{background:rgba(255,184,77,.18)}
+.gh-axis{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;font-family:'Space Grotesk';font-size:11px;color:var(--dim);text-align:center}
+.gh-now{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--lime);box-shadow:0 0 10px var(--lime);border-radius:2px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--mut);margin-top:12px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+
+/* chips */
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line2);background:transparent;color:var(--mut);font:inherit;font-size:13px;padding:5px 11px;border-radius:99px;cursor:pointer;transition:.15s}
+.chip:hover{color:var(--tx)}
+.chip.on{background:var(--tx);color:var(--bg);border-color:var(--tx);font-weight:600}
+
+/* holiday list */
+.hlist{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.hitem{display:grid;grid-template-columns:86px 1fr auto;gap:16px;align-items:center;padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);transition:.15s}
+.hitem:hover{border-color:var(--line2);background:var(--card2)}
+.hdate{text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.hdate .d{font-family:'Space Grotesk';font-size:26px;font-weight:700;line-height:1}
+.hdate .m{font-size:12px;color:var(--mut);font-family:'Space Grotesk';text-transform:uppercase;letter-spacing:.08em}
+.hname{font-weight:600;font-size:16px}
+.hmeta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.hmeta .cc{width:auto;padding:0 7px;height:21px;font-size:11px}
+.himp{font-size:13px;color:var(--mut);margin-top:6px}
+.cd{font-family:'Space Grotesk';font-size:13px;color:var(--mut);text-align:right;white-space:nowrap}
+.cd b{display:block;font-size:20px;color:var(--tx)}
+.tag-i{font-size:12px;padding:2px 9px;border-radius:7px;font-weight:600}
+.i-slow{background:rgba(255,92,122,.12);color:var(--red)}
+.i-mid{background:rgba(255,184,77,.12);color:var(--amber)}
+.i-low{background:rgba(77,225,255,.1);color:var(--cyan)}
+.more{margin-top:12px}
+
+/* opportunities */
+.opps{grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.opp{display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.opp.hot{border-color:rgba(198,255,77,.35);background:linear-gradient(160deg,rgba(198,255,77,.07),var(--card) 45%)}
+.opp .row1{display:flex;justify-content:space-between;align-items:start;gap:10px}
+.opp h3{font-size:20px;line-height:1.25}
+.opp .when{font-family:'Space Grotesk';color:var(--mut);font-size:13.5px;margin-top:2px}
+.opp .st{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:99px;white-space:nowrap}
+.st-now{background:var(--lime);color:#0a0f02}
+.st-prep{background:rgba(77,225,255,.12);color:var(--cyan)}
+.st-later{background:var(--card2);color:var(--mut)}
+.opp ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.opp li{font-size:13px;padding:4px 10px;border-radius:8px;background:var(--card2);border:1px solid var(--line)}
+.opp .note{font-size:14px;color:var(--mut)}
+.prog{height:6px;border-radius:9px;background:rgba(255,255,255,.06);overflow:hidden}
+.prog i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--cyan),var(--lime))}
+.opp .pitch{font-size:13px;color:var(--mut);display:flex;justify-content:space-between}
+.opp .pitch b{color:var(--tx);font-family:'Space Grotesk'}
+
+/* heatmap */
+.heat{overflow-x:auto}
+table.hm{border-collapse:separate;border-spacing:4px;width:100%;min-width:760px;table-layout:fixed}
+.hm th:first-child{width:190px}
+.hm th{font-family:'Space Grotesk';font-weight:500;font-size:12px;color:var(--mut);padding:4px}
+.hm th.cur{color:var(--lime)}
+.hm td.cat{font-size:14px;white-space:nowrap;padding-right:10px;color:var(--tx)}
+.hm td.v{height:38px;border-radius:8px;text-align:center;font-family:'Space Grotesk';font-size:12px;font-weight:600;color:rgba(6,9,18,.75);transition:.15s;cursor:default}
+.hm td.v:hover{transform:scale(1.08)}
+.hm td.v.cur{outline:2px solid var(--lime);outline-offset:1px}
+.caveat{font-size:13px;color:var(--dim);margin-top:12px}
+
+/* doctor */
+.doc{grid-template-columns:1fr 1.15fr;align-items:start}
+.symp{display:flex;flex-direction:column;gap:8px}
+.symp label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02);cursor:pointer;transition:.15s;font-size:15px}
+.symp label:hover{border-color:var(--line2)}
+.symp input{appearance:none;-webkit-appearance:none;width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line2);flex:none;margin-top:2px;display:grid;place-items:center;cursor:pointer}
+.symp input:checked{background:var(--lime);border-color:var(--lime)}
+.symp input:checked::after{content:"✓";color:#0a0f02;font-size:13px;font-weight:700}
+.symp label:has(input:checked){border-color:rgba(198,255,77,.4);background:rgba(198,255,77,.05)}
+.symp small{display:block;color:var(--dim);font-size:12.5px}
+.diag{display:flex;flex-direction:column;gap:12px}
+.dx{border-left:3px solid var(--cyan);padding:14px 16px;background:var(--card);border-radius:0 14px 14px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dx.season{border-left-color:var(--amber)}
+.dx h4{font-size:16px}
+.dx p{color:var(--mut);font-size:14.5px;margin-top:4px}
+.dx ol{margin:8px 0 0 20px;font-size:14.5px}
+.dx ol li{margin:3px 0}
+.empty{color:var(--dim);text-align:center;padding:40px 20px;border:1px dashed var(--line2);border-radius:14px}
+textarea,input[type=text],input[type=number],select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line2);border-radius:12px;color:var(--tx);font:inherit;font-size:15px;padding:11px 13px;outline:none;transition:.15s}
+textarea:focus,input:focus,select:focus{border-color:var(--cyan);background:rgba(77,225,255,.04)}
+select option{background:var(--bg2)}
+textarea{resize:vertical;min-height:90px}
+.ai-box{margin-top:14px;padding:18px;border-radius:16px;border:1px solid rgba(139,123,255,.3);background:linear-gradient(160deg,rgba(139,123,255,.08),transparent 60%)}
+.ai-box .hd{display:flex;align-items:center;gap:8px;font-weight:600;margin-bottom:10px}
+.ai-badge{font-family:'Space Grotesk';font-size:11px;padding:2px 8px;border-radius:6px;background:var(--vio);color:#fff;font-weight:600;letter-spacing:.04em}
+.ai-out{margin-top:14px;font-size:15px;line-height:1.75}
+.ai-out ul{margin:6px 0 6px 20px}
+.ai-out strong{color:var(--lime);font-weight:600}
+.ai-out h5{font-size:15.5px;margin:12px 0 4px;color:var(--cyan)}
+.muted{color:var(--mut)}
+.err{color:var(--red);font-size:14px}
+
+/* tips */
+.tips{grid-template-columns:1.2fr 1fr}
+.tip-card{min-height:250px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(150deg,rgba(77,225,255,.08),rgba(139,123,255,.06) 50%,var(--card));position:relative;overflow:hidden}
+.tip-card::after{content:"“";position:absolute;right:18px;top:-30px;font-size:200px;font-family:Georgia,serif;color:rgba(255,255,255,.04);line-height:1}
+.tip-card .plat{font-family:'Space Grotesk';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.tip-card .txt{font-size:21px;font-weight:600;line-height:1.5;margin:14px 0}
+.tip-card .why{color:var(--mut);font-size:15px}
+.tip-nav{display:flex;align-items:center;gap:10px;margin-top:18px}
+.tip-nav .num{color:var(--dim);font-size:13px;margin-left:auto}
+.forums{grid-template-columns:1fr 1fr;margin-top:14px}
+.forum{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);text-decoration:none;transition:.15s}
+.forum:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.forum b{font-size:15px}
+.forum span{font-size:12.5px;color:var(--mut)}
+.forum em{font-style:normal;font-family:'Space Grotesk';font-size:11.5px;color:var(--dim)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.fl{font-size:13px;color:var(--mut);margin-bottom:5px;display:block}
+
+/* calc */
+.calc{grid-template-columns:1fr 1fr;align-items:stretch}
+.res{display:flex;flex-direction:column;justify-content:center;gap:14px;background:linear-gradient(160deg,rgba(198,255,77,.08),var(--card) 55%)}
+.res .line{display:flex;justify-content:space-between;font-size:15px;color:var(--mut);border-bottom:1px dashed var(--line);padding-bottom:10px}
+.res .line b{color:var(--tx);font-family:'Space Grotesk'}
+.res .total{font-family:'Space Grotesk';font-size:44px;font-weight:700;color:var(--lime);line-height:1}
+.res .total small{font-size:16px;color:var(--mut);font-weight:500;margin-left:6px}
+
+/* roadmap/footer */
+.road{grid-template-columns:repeat(4,1fr)}
+.road .card h4{font-size:16px;margin:10px 0 4px}
+.road .card p{font-size:14px;color:var(--mut)}
+.road .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--card2);border:1px solid var(--line2);font-size:18px}
+footer{margin-top:80px;padding:30px 0 40px;border-top:1px solid var(--line);color:var(--dim);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.skel{height:76px;border-radius:14px;background:linear-gradient(90deg,var(--card) 0,var(--card2) 50%,var(--card) 100%);background-size:200% 100%;animation:sk 1.3s infinite}
+@keyframes sk{to{background-position:-200% 0}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;padding-top:40px}
+  .radar-box{margin:0 auto;max-width:340px}
+  .strip{grid-template-columns:1fr 1fr}
+  .doc,.tips,.calc{grid-template-columns:1fr}
+  .road{grid-template-columns:1fr 1fr}
+  .bdclock{display:none}
+}
+@media (max-width:560px){
+  .hitem{grid-template-columns:64px 1fr;gap:12px}
+  .hitem .cd{grid-column:2;text-align:left}
+  .hitem .cd b{display:inline;font-size:15px;margin-right:4px}
+  .forums,.form-row,.road{grid-template-columns:1fr}
+  .opps{grid-template-columns:1fr}
+  .clocks{grid-template-columns:1fr 1fr;gap:10px}
+  .clock{padding:12px}
+  .clock .t{font-size:22px}
+  .clock .t small{display:none}
+  .clock .nm{font-size:13.5px}
+  .pill{font-size:11.5px;padding:2px 8px}
+  .stat .v.num{font-size:20px}
+  .logo span.full{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><i></i><span>Freelance<b>Radar</b> <span class="full">BD</span></span></div>
+    <div class="navlinks">
+      <button data-go="clocks">লাইভ ক্লক</button>
+      <button data-go="radar">ছুটির রাডার</button>
+      <button data-go="opps">সুযোগ</button>
+      <button data-go="season">মৌসুম</button>
+      <button data-go="doctor">অর্ডার ডক্টর</button>
+      <button data-go="tips">টিপস</button>
+      <button data-go="calc">আয় হিসাব</button>
+    </div>
+    <div class="bdclock">ঢাকা <b class="num" id="bdNow">--:--</b></div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> লাইভ মার্কেট রাডার · Fiverr · Upwork · Freelancer.com</span>
+      <h1>ক্লায়েন্ট কখন জেগে আছে, কোথায় ছুটি, <span class="grad">কোন কাজের চাহিদা আসছে</span> — সব এক জায়গায়।</h1>
+      <p class="lead">বাংলাদেশি ফ্রিল্যান্সারদের জন্য একটা কমান্ড সেন্টার। ক্লায়েন্টদের দেশের সময় আর ছুটি, সামনের কোন উৎসবে কোন কাজের চাহিদা বাড়ে, অর্ডার কেন কমছে আর কীভাবে বাড়ানো যায় — সব এখানে।</p>
+      <div class="hero-cta">
+        <button class="btn pri" data-go="opps">সামনের সুযোগ দেখুন →</button>
+        <button class="btn" data-go="doctor">অর্ডার কমেছে? চেক করুন</button>
+      </div>
+    </div>
+    <div class="radar-box" id="radarBox">
+      <div class="radar"></div>
+      <div class="pulse-center"><div><div class="big num" id="pulseScore">--</div><small>মার্কেট এখন সক্রিয়</small></div></div>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div class="stat"><div class="k">এখন অফিস টাইমে আছে</div><div class="v" id="stOpen">—</div></div>
+    <div class="stat"><div class="k">পরের বড় ছুটি</div><div class="v" id="stNextHol">লোড হচ্ছে…</div></div>
+    <div class="stat"><div class="k">সবচেয়ে কাছের সুযোগ</div><div class="v" id="stNextOpp">—</div></div>
+    <div class="stat"><div class="k">মেসেজ পাঠানোর সেরা সময় (US)</div><div class="v num" id="stBest">—</div></div>
+  </div>
+
+  <!-- CLOCKS -->
+  <section id="clocks" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Live client clock</div><h2>ক্লায়েন্টের দেশে এখন কয়টা বাজে?</h2></div>
+      <p>সবুজ মানে অফিস টাইম — রিপ্লাই দ্রুত আসে। ছুটি আর উইকেন্ড আলাদা করে দেখানো আছে, ছুটির তথ্য প্রতিটা দেশের ক্যালেন্ডার থেকে নেওয়া।</p>
+    </div>
+    <div class="grid clocks" id="clockGrid"></div>
+
+    <div class="card gh">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px">
+        <div><b>গোল্ডেন আওয়ার ম্যাপ</b> <span class="muted" style="font-size:14px">— বাংলাদেশ সময়ে (০০–২৩) কোন মার্কেট কখন অফিসে থাকে</span></div>
+      </div>
+      <div class="gh-inner" id="ghMap"></div>
+      <div class="legend">
+        <span><i style="background:rgba(62,230,160,.8)"></i>অফিস টাইম (৯–৬)</span>
+        <span><i style="background:rgba(77,225,255,.35)"></i>সকাল/সন্ধ্যা — মেসেজ দেখে</span>
+        <span><i style="background:rgba(255,184,77,.25)"></i>উইকেন্ড</span>
+        <span><i style="background:var(--lime)"></i>এখন</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOLIDAY RADAR -->
+  <section id="radar" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Holiday radar</div><h2>সামনের ৯০ দিনে কোন দেশে ছুটি</h2></div>
+      <p>ক্লায়েন্টের দেশে ছুটি মানে রিপ্লাই দেরিতে আসে, অর্ডার কমে, আবার ছুটির আগে প্রায়ই তাড়াহুড়োর কাজ আসে। ডেলিভারি আর ফলো-আপ সেভাবে প্ল্যান করুন।</p>
+    </div>
+    <div class="chips" id="countryChips"></div>
+    <div class="hlist" id="holList"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+    <div class="more"><button class="btn sm" id="holMore" style="display:none">আরও দেখুন</button></div>
+  </section>
+
+  <!-- OPPORTUNITIES -->
+  <section id="opps" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Opportunity calendar</div><h2>কোন ইভেন্টে কোন কাজের চাহিদা বাড়ে</h2></div>
+      <p>ক্লায়েন্টরা ইভেন্টের কয়েক সপ্তাহ আগে কাজ দেয়। প্রতিটা কার্ডে বলা আছে কবে থেকে গিগ আপডেট বা প্রপোজাল পাঠানো শুরু করা উচিত।</p>
+    </div>
+    <div class="grid opps" id="oppGrid"></div>
+  </section>
+
+  <!-- SEASON -->
+  <section id="season" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Seasonal demand</div><h2>কোন মাসে কোন ক্যাটাগরিতে চাপ বেশি</h2></div>
+      <p>বছরের কোন মাসে কোন ধরনের কাজ বেশি আসে তার একটা ধারণা। চলতি মাস সবুজ দাগে চিহ্নিত।</p>
+    </div>
+    <div class="card heat"><table class="hm" id="heatmap"></table>
+      <div class="caveat">* এই স্কোরগুলো মার্কেটের সাধারণ প্রবণতা থেকে করা অনুমান (৫ = সবচেয়ে বেশি চাহিদা), কোনো প্ল্যাটফর্মের অফিশিয়াল ডেটা না। নিজের অর্ডারের হিসাবের সাথে মিলিয়ে নিন।</div>
+    </div>
+  </section>
+
+  <!-- DOCTOR -->
+  <section id="doctor" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Order drop doctor</div><h2>অর্ডার কমে গেছে? কারণটা খুঁজে বের করুন</h2></div>
+      <p>আপনার সাথে যা যা মিলে যায় টিক দিন। সম্ভাব্য কারণ আর কী করতে হবে সাথে সাথে দেখাবে। চাইলে নিজের অবস্থা লিখে AI দিয়ে বিশ্লেষণও করাতে পারবেন।</p>
+    </div>
+    <div class="grid doc">
+      <div class="card">
+        <div class="symp" id="sympList"></div>
+      </div>
+      <div>
+        <div class="diag" id="diagOut"></div>
+        <div class="ai-box" id="aiDocBox" style="display:none">
+          <div class="hd"><span class="ai-badge">AI</span> নিজের অবস্থা লিখে বিশ্লেষণ করান</div>
+          <textarea id="aiDocIn" placeholder="যেমন: Fiverr-এ লোগো ডিজাইনের গিগ, ১ বছরের লেভেল ১ সেলার। গত ৩ সপ্তাহ ধরে ইমপ্রেশন ৬০% কমেছে, ক্লিক আসে কিন্তু মেসেজ আসে না…"></textarea>
+          <div style="display:flex;gap:10px;margin-top:10px;align-items:center;flex-wrap:wrap">
+            <button class="btn pri sm" id="aiDocBtn">বিশ্লেষণ করুন</button>
+            <span class="muted" style="font-size:12.5px">টিক দেওয়া লক্ষণ আর সামনের ছুটির তথ্যও সাথে যাবে</span>
+          </div>
+          <div class="ai-out" id="aiDocOut"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Daily playbook</div><h2>আজকের টিপস আর ফোরামের খবর</h2></div>
+      <p>প্রতিদিন একটা নতুন টিপ আসবে। নিজের ক্যাটাগরি লিখে দিলে AI চলতি সপ্তাহের ছুটি আর মৌসুম মাথায় রেখে আলাদা টিপসও বানিয়ে দেবে।</p>
+    </div>
+    <div class="grid tips">
+      <div>
+        <div class="card tip-card">
+          <div>
+            <div class="plat" id="tipPlat">—</div>
+            <div class="txt" id="tipTxt">—</div>
+            <div class="why" id="tipWhy"></div>
+          </div>
+          <div class="tip-nav">
+            <button class="btn sm" id="tipPrev">← আগের</button>
+            <button class="btn sm" id="tipNext">পরের →</button>
+            <span class="num" id="tipNum"></span>
+          </div>
+        </div>
+        <div class="grid forums" id="forumGrid"></div>
+      </div>
+      <div class="card" id="aiTipCard">
+        <div style="display:flex;align-items:center;gap:8px;font-weight:600;margin-bottom:14px"><span class="ai-badge">AI</span> আমার জন্য এই সপ্তাহের টিপস</div>
+        <div class="form-row">
+          <div><label class="fl">প্ল্যাটফর্ম</label>
+            <select id="tipPlatSel"><option>Fiverr</option><option>Upwork</option><option>Freelancer.com</option><option>সব প্ল্যাটফর্ম</option></select></div>
+          <div><label class="fl">আপনার ক্যাটাগরি</label>
+            <input type="text" id="tipNiche" placeholder="যেমন: KDP বই ফরম্যাটিং"></div>
+        </div>
+        <button class="btn pri sm" id="aiTipBtn">টিপস বানাও</button>
+        <div class="ai-out" id="aiTipOut"><p class="muted" style="font-size:14px">এই সপ্তাহে কোন দেশে ছুটি আর কোন ইভেন্ট আসছে, সেটা মাথায় রেখে AI আপনার ক্যাটাগরির জন্য ৫টা কাজের টিপস দেবে।</p></div>
+        <p class="muted" id="aiOff" style="display:none;margin-top:10px;font-size:14px">🚧 AI টিপস শীঘ্রই চালু হচ্ছে। ততদিন বাম পাশের প্রতিদিনের টিপস আর উপরের অর্ডার ডক্টর ব্যবহার করুন।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALC -->
+  <section id="calc" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Earnings calculator</div><h2>হাতে কত টাকা আসবে?</h2></div>
+      <p>অর্ডারের ডলার থেকে প্ল্যাটফর্ম ফি আর উইথড্র খরচ বাদ দিয়ে টাকায় কত দাঁড়ায় দেখুন। ফি আর রেট বদলায়, তাই সব ঘর নিজে এডিট করা যায়।</p>
+    </div>
+    <div class="grid calc">
+      <div class="card">
+        <div class="form-row">
+          <div><label class="fl">অর্ডারের দাম (USD)</label><input type="number" id="cAmt" value="100" min="0"></div>
+          <div><label class="fl">প্ল্যাটফর্ম</label>
+            <select id="cPlat"><option value="20">Fiverr (২০%)</option><option value="10">Upwork (আনুমানিক ১০%)</option><option value="10">Freelancer.com (১০%)</option><option value="0">সরাসরি ক্লায়েন্ট (০%)</option></select></div>
+        </div>
+        <div class="form-row">
+          <div><label class="fl">প্ল্যাটফর্ম ফি (%)</label><input type="number" id="cFee" value="20" min="0" max="100" step="0.5"></div>
+          <div><label class="fl">উইথড্র/ট্রান্সফার খরচ (USD)</label><input type="number" id="cWd" value="3" min="0" step="0.5"></div>
+        </div>
+        <div class="form-row">
+          <div><label class="fl">ডলার রেট (১ USD = ? টাকা) <span id="rateSrc" style="color:var(--green)"></span></label><input type="number" id="cRate" value="120" min="0" step="0.1"></div>
+          <div><label class="fl">মাসে এমন কয়টা অর্ডার</label><input type="number" id="cN" value="10" min="0"></div>
+        </div>
+        <p class="caveat" style="margin-top:4px">ডলার রেট আর ফি আজকের হিসাবে বসিয়ে নিন। ডিফল্ট সংখ্যাগুলো শুধু উদাহরণ।</p>
+      </div>
+      <div class="card res">
+        <div class="line"><span>প্ল্যাটফর্ম ফি</span><b id="rFee">—</b></div>
+        <div class="line"><span>উইথড্র খরচ</span><b id="rWd">—</b></div>
+        <div class="line"><span>হাতে আসবে (USD)</span><b id="rNet">—</b></div>
+        <div><div class="muted" style="font-size:14px">প্রতি অর্ডারে হাতে আসবে</div><div class="total" id="rBdt">—</div></div>
+        <div class="line" style="border:0;padding:0"><span>মাসিক আনুমানিক</span><b id="rMonth" style="color:var(--cyan);font-size:18px">—</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="road" class="reveal">
+    <div class="sec-h"><div><div class="tag">Coming next</div><h2>লাইভ ভার্সনে যা যোগ হবে</h2></div></div>
+    <div class="grid road">
+      <div class="card"><div class="ic">📡</div><h4>লাইভ ফোরাম ফিড</h4><p>Reddit আর কমিউনিটি ফোরাম থেকে সবচেয়ে আলোচিত পোস্টের বাংলা সারাংশ, প্রতিদিন।</p></div>
+      <div class="card"><div class="ic">💱</div><h4>লাইভ ডলার রেট</h4><p>ফ্রি API থেকে প্রতিদিনের USD→BDT রেট, আয় হিসাবে নিজে থেকেই বসে যাবে।</p></div>
+      <div class="card"><div class="ic">🔔</div><h4>টেলিগ্রাম/ইমেইল অ্যালার্ট</h4><p>"৭ দিন পর US-এ Thanksgiving" — এমন রিমাইন্ডার নিজের ক্যাটাগরি অনুযায়ী।</p></div>
+      <div class="card"><div class="ic">👥</div><h4>কমিউনিটি বোর্ড</h4><p>বাংলাদেশি ফ্রিল্যান্সাররা নিজেদের অর্ডার কম-বেশির অভিজ্ঞতা শেয়ার করবে।</p></div>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  <span>FreelanceRadar BD · বাংলাদেশি ফ্রিল্যান্সারদের জন্য তৈরি 🇧🇩</span>
+  <span>ছুটির তথ্য: date-holidays ওপেন-সোর্স ক্যালেন্ডার · ইসলামিক ছুটি চাঁদ দেখার ওপর নির্ভর করে, তাই আনুমানিক</span>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/date-holidays@3.39.1/dist/umd.min.js"></script>
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const BN="০১২৩৪৫৬৭৮৯"; const bn=n=>String(n).replace(/\d/g,d=>BN[d]);
+const MON_BN=["জানু","ফেব্রু","মার্চ","এপ্রি","মে","জুন","জুলা","আগ","সেপ্টে","অক্টো","নভে","ডিসে"];
+const MON_EN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+/* ---------- markets ---------- */
+const MARKETS=[
+ {c:"US",n:"যুক্তরাষ্ট্র (পূর্ব)",city:"New York",tz:"America/New_York",w:30,we:[0,6]},
+ {c:"US",n:"যুক্তরাষ্ট্র (পশ্চিম)",city:"Los Angeles",tz:"America/Los_Angeles",w:10,we:[0,6],alt:1},
+ {c:"GB",n:"যুক্তরাজ্য",city:"London",tz:"Europe/London",w:10,we:[0,6]},
+ {c:"CA",n:"কানাডা",city:"Toronto",tz:"America/Toronto",w:7,we:[0,6]},
+ {c:"AU",n:"অস্ট্রেলিয়া",city:"Sydney",tz:"Australia/Sydney",w:7,we:[0,6]},
+ {c:"DE",n:"জার্মানি",city:"Berlin",tz:"Europe/Berlin",w:6,we:[0,6]},
+ {c:"FR",n:"ফ্রান্স",city:"Paris",tz:"Europe/Paris",w:3,we:[0,6]},
+ {c:"NL",n:"নেদারল্যান্ডস",city:"Amsterdam",tz:"Europe/Amsterdam",w:3,we:[0,6]},
+ {c:"AE",n:"আমিরাত",city:"Dubai",tz:"Asia/Dubai",w:5,we:[0,6]},
+ {c:"SA",n:"সৌদি আরব",city:"Riyadh",tz:"Asia/Riyadh",w:3,we:[5,6]},
+ {c:"SG",n:"সিঙ্গাপুর",city:"Singapore",tz:"Asia/Singapore",w:3,we:[0,6]},
+ {c:"IE",n:"আয়ারল্যান্ড",city:"Dublin",tz:"Europe/Dublin",w:2,we:[0,6]},
+ {c:"CH",n:"সুইজারল্যান্ড",city:"Zurich",tz:"Europe/Zurich",w:2,we:[0,6]},
+ {c:"NZ",n:"নিউজিল্যান্ড",city:"Auckland",tz:"Pacific/Auckland",w:2,we:[0,6]}
+];
+const GH_MARKETS=["America/New_York","America/Los_Angeles","Europe/London","Europe/Berlin","Australia/Sydney","Asia/Dubai","Asia/Singapore"];
+const CNAME={US:"যুক্তরাষ্ট্র",GB:"যুক্তরাজ্য",CA:"কানাডা",AU:"অস্ট্রেলিয়া",DE:"জার্মানি",FR:"ফ্রান্স",NL:"নেদারল্যান্ডস",AE:"আমিরাত",SA:"সৌদি আরব",SG:"সিঙ্গাপুর",IE:"আয়ারল্যান্ড",CH:"সুইজারল্যান্ড",NZ:"নিউজিল্যান্ড"};
+const COUNTRIES=[...new Set(MARKETS.map(m=>m.c))];
+
+function partsIn(tz,d){
+  const p={}; new Intl.DateTimeFormat("en-US",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",weekday:"short",hourCycle:"h23"}).formatToParts(d).forEach(x=>p[x.type]=x.value);
+  const wd=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday);
+  return {ymd:`${p.year}-${p.month}-${p.day}`,h:+p.hour%24,m:+p.minute,wd};
+}
+const fmtTime=(tz,d)=>new Intl.DateTimeFormat("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit",hour12:true}).format(d);
+function statusOf(m,d){
+  const p=partsIn(m.tz,d);
+  const hol=holidayOn(m.c,p.ymd);
+  if(hol) return {k:"hol",t:"ছুটি",p,hol};
+  if(m.we.includes(p.wd)) return {k:"week",t:"উইকেন্ড",p};
+  if(p.h>=9&&p.h<18) return {k:"office",t:"অফিস টাইম",p};
+  if((p.h>=7&&p.h<9)||(p.h>=18&&p.h<23)) return {k:"edge",t:p.h<9?"সকাল — দিন শুরু":"সন্ধ্যা — মেসেজ দেখে",p};
+  return {k:"sleep",t:"ঘুমের সময়",p};
+}
+
+/* ---------- holidays ---------- */
+let HD=null; const HCACHE={};
+function initHD(){ try{ const M=window.Holidays; HD=M&&(M.default||M); if(typeof HD!=="function")HD=null; }catch(e){HD=null} }
+function holidaysFor(c){
+  if(HCACHE[c]) return HCACHE[c];
+  if(!HD) return [];
+  const Y=new Date().getFullYear(); let out=[];
+  try{
+    const h=new HD(c,{languages:["en"],types:["public","bank"]});
+    [Y,Y+1].forEach(y=>{(h.getHolidays(y)||[]).forEach(x=>out.push({c,date:x.date.slice(0,10),name:x.name,type:x.type,sub:/substitute/i.test(x.name)}))});
+  }catch(e){}
+  const seen=new Set(); out=out.filter(x=>{const k=x.date+x.name; if(seen.has(k))return false; seen.add(k); return true});
+  return HCACHE[c]=out;
+}
+function holidayOn(c,ymd){ return holidaysFor(c).find(x=>x.date===ymd)||null }
+function islamic(name){ // from AE calendar
+  if(!HD) return []; const Y=new Date().getFullYear(); const r=[];
+  try{const h=new HD("AE",{languages:["en"]});[Y,Y+1].forEach(y=>(h.getHolidays(y)||[]).forEach(x=>{if(name.test(x.name))r.push(x.date.slice(0,10))}))}catch(e){}
+  return r;
+}
+function impactOf(name){
+  const n=name.toLowerCase();
+  if(/christmas|new year|thanksgiving|eid|fitr|adha|boxing|national day/.test(n)) return ["i-slow","বড় মন্দা — অর্ডার ও রিপ্লাই কমে"];
+  if(/easter|good friday|ramadan|independence|labou?r|memorial|bank holiday|whit|pentecost|ascension|australia day|canada day|king|queen/.test(n)) return ["i-mid","লং উইকেন্ড — রিপ্লাই ধীর"];
+  return ["i-low","স্থানীয় ছুটি — হালকা প্রভাব"];
+}
+const NOTE={
+ "thanksgiving":"US ক্লায়েন্টরা পরিবারের সাথে থাকে। সপ্তাহের শুরুতেই ডেলিভারি শেষ করুন, বৃহস্পতি-শুক্রবার রিপ্লাই আশা করবেন না।",
+ "christmas":"২০ ডিসেম্বরের পর থেকে ২ জানুয়ারি পর্যন্ত বছরের সবচেয়ে ধীর সময়। এই ফাঁকে গিগ, পোর্টফোলিও আর নতুন স্কিলে কাজ করুন।",
+ "new year":"জানুয়ারির ২য় সপ্তাহ থেকে নতুন বাজেটে নতুন প্রজেক্ট শুরু হয়। পুরনো ক্লায়েন্টদের \"Happy New Year\" লিখে ফলো-আপ করুন।",
+ "boxing":"UK/AU/CA-তে ছুটি। ক্রিসমাসের পরের এই সপ্তাহে কাজ খুব কম থাকে।",
+ "eid":"মধ্যপ্রাচ্যের ক্লায়েন্টরা ছুটিতে থাকে। আপনার নিজের ঈদের ছুটির কথাও আগে থেকে ক্লায়েন্টদের জানিয়ে রাখুন।",
+ "good friday":"ইউরোপ, UK আর AU-তে ৪ দিনের ছুটি। ডেডলাইন বৃহস্পতিবারের আগে রাখুন।"
+};
+function noteFor(name){const n=name.toLowerCase();for(const k in NOTE) if(n.includes(k)) return NOTE[k];return ""}
+
+/* ---------- date helpers ---------- */
+const todayBD=()=>partsIn("Asia/Dhaka",new Date()).ymd;
+const dObj=ymd=>{const [y,m,d]=ymd.split("-").map(Number);return new Date(Date.UTC(y,m-1,d))};
+const daysBetween=(a,b)=>Math.round((dObj(b)-dObj(a))/864e5);
+const ymdOf=d=>d.toISOString().slice(0,10);
+const addDays=(ymd,n)=>{const d=dObj(ymd);d.setUTCDate(d.getUTCDate()+n);return ymdOf(d)};
+function nthWd(y,m,wd,n){const d=new Date(Date.UTC(y,m,1));const off=(wd-d.getUTCDay()+7)%7;d.setUTCDate(1+off+7*(n-1));return ymdOf(d)}
+const fixed=(y,m,d)=>ymdOf(new Date(Date.UTC(y,m,d)));
+const prettyDate=ymd=>{const d=dObj(ymd);return bn(d.getUTCDate())+" "+MON_BN[d.getUTCMonth()]}
+const inDays=n=>n===0?"আজ":n===1?"আগামীকাল":bn(n)+" দিন পর";
+
+/* ---------- clocks render ---------- */
+function renderClocks(){
+  const now=new Date();
+  $("#bdNow").textContent=fmtTime("Asia/Dhaka",now);
+  let html="",open=0,tot=0,openNames=[];
+  MARKETS.forEach(m=>{
+    const s=statusOf(m,now); tot+=m.w;
+    if(s.k==="office"){open+=m.w;openNames.push(m.n.replace(/ \(.+\)/,""))} else if(s.k==="edge") open+=m.w*.4;
+    const pct=((s.p.h*60+s.p.m)/1440*100).toFixed(1);
+    const dayLbl=s.p.ymd===todayBD()?"আজ":(s.p.ymd<todayBD()?"গতকাল":"আগামীকাল");
+    html+=`<div class="card clock"><div class="top"><span class="cc">${m.c}</span><div><div class="nm">${m.n}</div><div class="city">${m.city}</div></div></div>
+      <div class="t">${fmtTime(m.tz,now)}<small>${dayLbl}</small></div>
+      <span class="pill s-${s.k}">${s.t}</span>${s.hol?`<div class="hnote">${esc(s.hol.name)}</div>`:""}
+      <div class="bar" style="width:${pct}%"></div></div>`;
+  });
+  $("#clockGrid").innerHTML=html;
+  const score=Math.round(open/tot*100);
+  $("#pulseScore").textContent=score+"%";
+  const uniq=[...new Set(openNames)];
+  $("#stOpen").textContent=uniq.length?uniq.slice(0,3).join(", ")+(uniq.length>3?" +"+bn(uniq.length-3):""):"এখন প্রায় সবাই অফিসের বাইরে";
+  renderBlips(now);
+  renderGH(now);
+}
+function renderBlips(now){
+  const box=$("#radarBox"); box.querySelectorAll(".blip").forEach(b=>b.remove());
+  const col={office:"var(--green)",edge:"var(--cyan)",sleep:"var(--dim)",week:"var(--amber)",hol:"var(--red)"};
+  MARKETS.filter(m=>!m.alt).forEach((m,i,arr)=>{
+    const s=statusOf(m,now); const a=(i/arr.length)*Math.PI*2-Math.PI/2;
+    const r=s.k==="office"?28:s.k==="edge"?37:44;
+    const el=document.createElement("div"); el.className="blip";
+    el.style.left=(50+r*Math.cos(a))+"%"; el.style.top=(50+r*Math.sin(a))+"%"; el.style.color=col[s.k];
+    el.innerHTML=`<span style="color:var(--tx)">${m.c}</span>`; box.appendChild(el);
+  });
+}
+function renderGH(now){
+  const bd=partsIn("Asia/Dhaka",now); const [y,mo,d]=bd.ymd.split("-").map(Number);
+  let html=`<div class="gh-row"><div></div><div class="gh-axis">${Array.from({length:24},(_,h)=>`<span>${h%3===0?String(h).padStart(2,"0"):""}</span>`).join("")}</div></div>`;
+  let bestStart=null;
+  GH_MARKETS.forEach(tz=>{
+    const m=MARKETS.find(x=>x.tz===tz); let cells="";
+    for(let h=0;h<24;h++){
+      const inst=new Date(Date.UTC(y,mo-1,d,h-6,30));
+      const p=partsIn(tz,inst); let cls="";
+      if(m.we.includes(p.wd)) cls="wk"; else if(p.h>=9&&p.h<18) cls="on"; else if((p.h>=7&&p.h<9)||(p.h>=18&&p.h<23)) cls="edge";
+      if(tz==="America/New_York"&&cls==="on"&&bestStart===null) bestStart=h;
+      cells+=`<span class="${cls}" title="BD ${String(h).padStart(2,"0")}:00 → ${m.city} ${String(p.h).padStart(2,"0")}:30"></span>`;
+    }
+    const left=((bd.h+bd.m/60)/24*100).toFixed(2);
+    html+=`<div class="gh-row"><div class="lbl"><span class="cc">${m.c}</span>${m.city}</div><div class="gh-cells">${cells}<i class="gh-now" style="left:calc(${left}% - 1px)"></i></div></div>`;
+  });
+  $("#ghMap").innerHTML=html;
+  // best US window: compute independent of weekend
+  const nyNow=partsIn("America/New_York",now); const off=((bd.h-nyNow.h)+24)%24; // BD ahead by off hours
+  const s=(9+off)%24, e=(12+off)%24;
+  $("#stBest").textContent=`${fmt12(s)} – ${fmt12(e)}`;
+}
+const fmt12=h=>{const a=h>=12?"PM":"AM";const x=h%12||12;return x+" "+a};
+
+/* ---------- holiday radar ---------- */
+let selC=new Set(COUNTRIES), holLimit=12;
+function renderChips(){
+  const all=selC.size===COUNTRIES.length;
+  $("#countryChips").innerHTML=`<button class="chip ${all?"on":""}" data-c="ALL">সব দেশ</button>`+COUNTRIES.map(c=>`<button class="chip ${!all&&selC.has(c)?"on":""}" data-c="${c}">${CNAME[c]}</button>`).join("");
+}
+$("#countryChips").addEventListener("click",e=>{
+  const b=e.target.closest(".chip"); if(!b) return; const c=b.dataset.c;
+  if(c==="ALL") selC=new Set(COUNTRIES);
+  else if(selC.size===COUNTRIES.length) selC=new Set([c]);
+  else { selC.has(c)?selC.delete(c):selC.add(c); if(!selC.size) selC=new Set(COUNTRIES); }
+  holLimit=12; renderChips(); renderHolidays();
+});
+function upcomingGrouped(days){
+  const t=todayBD(), end=addDays(t,days); const map=new Map();
+  COUNTRIES.forEach(c=>holidaysFor(c).forEach(h=>{
+    if(h.date<t||h.date>end) return;
+    const key=h.date+"|"+h.name.replace(/\s*\(.*?\)\s*/g,"").toLowerCase();
+    if(!map.has(key)) map.set(key,{date:h.date,name:h.name.replace(/\s*\(substitute day\)/i," (বিকল্প ছুটি)"),cs:new Set()});
+    map.get(key).cs.add(c);
+  }));
+  return [...map.values()].sort((a,b)=>a.date<b.date?-1:a.date>b.date?1:b.cs.size-a.cs.size);
+}
+function renderHolidays(){
+  if(!HD){ $("#holList").innerHTML=`<div class="empty">ছুটির ক্যালেন্ডার লোড করা যায়নি। ইন্টারনেট কানেকশন চেক করে পেজটা রিফ্রেশ করুন।</div>`; return; }
+  const list=upcomingGrouped(90).filter(x=>[...x.cs].some(c=>selC.has(c)));
+  const t=todayBD();
+  $("#holList").innerHTML=list.slice(0,holLimit).map(x=>{
+    const d=dObj(x.date); const n=daysBetween(t,x.date); const [cls,lbl]=impactOf(x.name); const note=noteFor(x.name);
+    return `<div class="hitem"><div class="hdate"><div class="d num">${d.getUTCDate()}</div><div class="m">${MON_EN[d.getUTCMonth()]}</div></div>
+      <div><div class="hname">${esc(x.name)}</div>
+        <div class="hmeta"><span class="tag-i ${cls}">${lbl}</span>${[...x.cs].map(c=>`<span class="cc" title="${CNAME[c]}">${c}</span>`).join("")}</div>
+        ${note?`<div class="himp">💡 ${note}</div>`:""}</div>
+      <div class="cd"><b>${n===0?"আজ":bn(n)}</b>${n===0?"":"দিন বাকি"}</div></div>`;
+  }).join("")||`<div class="empty">এই দেশগুলোতে সামনের ৯০ দিনে কোনো সরকারি ছুটি নেই।</div>`;
+  const mb=$("#holMore"); mb.style.display=list.length>holLimit?"inline-flex":"none";
+  // next big holiday stat
+  const big=upcomingGrouped(120).find(x=>impactOf(x.name)[0]==="i-slow");
+  if(big) $("#stNextHol").innerHTML=`${esc(big.name)} <span class="muted" style="font-size:14px;font-weight:500">· ${inDays(daysBetween(t,big.date))}</span>`;
+}
+$("#holMore").addEventListener("click",()=>{holLimit+=12;renderHolidays()});
+
+/* ---------- opportunities ---------- */
+function thanksgiving(y){return nthWd(y,10,4,4)}
+function lastMon(y,m){const d=new Date(Date.UTC(y,m+1,0));d.setUTCDate(d.getUTCDate()-((d.getUTCDay()+6)%7));return ymdOf(d)}
+const EVENTS=[
+ {n:"Black Friday",en:"Black Friday",d:y=>addDays(thanksgiving(y),1),lead:45,mk:"US · UK · CA · AU",
+  niche:["ই-কমার্স ব্যানার ও অ্যাড","Shopify/WooCommerce সেটআপ","ইমেইল টেমপ্লেট","প্রোডাক্ট ভিডিও","ল্যান্ডিং পেজ"],
+  note:"অক্টোবরেই বড় ক্লায়েন্টরা কাজ দিয়ে দেয়। শেষ দুই সপ্তাহে আসে তাড়াহুড়োর অর্ডার, তখন এক্সপ্রেস ডেলিভারি এক্সট্রা রাখুন।"},
+ {n:"Cyber Monday",en:"Cyber Monday",d:y=>addDays(thanksgiving(y),4),lead:40,mk:"US · গ্লোবাল অনলাইন",
+  niche:["SaaS/অ্যাপ প্রোমো গ্রাফিক্স","সোশ্যাল মিডিয়া অ্যাড","ডিসকাউন্ট পপ-আপ","ইমেইল সিকোয়েন্স"],
+  note:"ডিজিটাল প্রোডাক্ট আর সফটওয়্যারের ডিল বেশি হয়। ওয়েব ডেভ আর মার্কেটিংয়ের কাজ ভালো আসে।"},
+ {n:"ক্রিসমাস",en:"Christmas",d:y=>fixed(y,11,25),lead:60,mk:"পশ্চিমা সব মার্কেট",
+  niche:["গিফট বুক/চিলড্রেনস বুক (KDP)","হলিডে কার্ড ও প্রিন্ট","POD টি-শার্ট/মগ","সোশ্যাল পোস্ট প্যাক"],
+  note:"প্রিন্ট বইয়ের কাজ নভেম্বরের মধ্যে শেষ হওয়া দরকার, কারণ শিপিংয়েও সময় লাগে। ১৮–২০ ডিসেম্বরের পর অর্ডার অনেক কমে যায়।"},
+ {n:"নতুন বছর",en:"New Year",d:y=>fixed(y+1,0,1),lead:45,mk:"গ্লোবাল",
+  niche:["প্ল্যানার/জার্নাল (low-content)","ফিটনেস ও কোচিং ওয়েবসাইট","নতুন ব্র্যান্ড আইডেন্টিটি","কোর্স ও ই-বুক"],
+  note:"জানুয়ারির ২য় সপ্তাহ থেকে নতুন বাজেটে কাজ আসে। অনেক ক্যাটাগরিতে এটা বছরের সবচেয়ে ভালো সময়।",yearShift:true},
+ {n:"ভ্যালেন্টাইনস ডে",en:"Valentine's Day",d:y=>fixed(y,1,14),lead:35,mk:"US · UK · EU",
+  niche:["রোমান্স বুক কভার","গিফট প্রোডাক্ট ডিজাইন","POD ডিজাইন","ই-কমার্স অ্যাড"],
+  note:"POD আর গিফট শপগুলো জানুয়ারির শুরু থেকেই ডিজাইন চায়।"},
+ {n:"রমজান শুরু",en:"Ramadan begins",d:()=>null,isl:/First day of Ramadan/i,lead:30,mk:"UAE · KSA · GCC",
+  niche:["রমজান ক্যাম্পেইন গ্রাফিক্স","আরবি/ইংরেজি সোশ্যাল কনটেন্ট","ইসলামিক বুক ও জার্নাল","রেস্টুরেন্ট মেনু/অফার"],
+  note:"GCC-তে অফিস টাইম কমে যায়, কিন্তু মার্কেটিংয়ের কাজ বাড়ে। মেসেজ পাঠানোর সেরা সময় ইফতারের পর।"},
+ {n:"ঈদুল ফিতর",en:"Eid al-Fitr",d:()=>null,isl:/Eid al-Fitr|End of Ramadan/i,lead:25,mk:"মধ্যপ্রাচ্য · মুসলিম মার্কেট",
+  niche:["ঈদ অফার ব্যানার","গ্রিটিং কার্ড ও ভিডিও","ফ্যাশন ই-কমার্স"],
+  note:"ঈদের আগের ২ সপ্তাহে কাজের চাপ সবচেয়ে বেশি। ঈদের ছুটির কথা ক্লায়েন্টদের আগেই জানিয়ে রাখুন।"},
+ {n:"US ট্যাক্স ডে",en:"US Tax Day",d:y=>fixed(y,3,15),lead:75,mk:"US",
+  niche:["বুককিপিং/অ্যাকাউন্টিং","ডেটা এন্ট্রি ও Excel","ট্যাক্স ফার্মের ওয়েবসাইট ও অ্যাড"],
+  note:"জানুয়ারি থেকে এপ্রিল পর্যন্ত ফাইন্যান্সের কাজের মৌসুম। QuickBooks/Xero জানা থাকলে বাড়তি সুবিধা।"},
+ {n:"মাদার্স ডে (US)",en:"Mother's Day",d:y=>nthWd(y,4,0,2),lead:35,mk:"US · CA · AU",
+  niche:["গিফট শপ অ্যাড","POD ডিজাইন","ফটো এডিটিং","কাস্টম কার্ড"],note:"ছোট ব্যবসাগুলো এপ্রিল থেকে প্রোমোশন শুরু করে।"},
+ {n:"ফাদার্স ডে",en:"Father's Day",d:y=>nthWd(y,5,0,3),lead:30,mk:"US · UK · CA",
+  niche:["POD টি-শার্ট","গিফট প্রোডাক্ট ফটো","সোশ্যাল অ্যাড"],note:"মে মাসের মাঝামাঝি থেকে ডিজাইনের অর্ডার আসে।"},
+ {n:"ব্যাক টু স্কুল",en:"Back to School",d:y=>fixed(y,7,1),lead:45,mk:"US · CA · UK",
+  niche:["ওয়ার্কবুক ও টিচার রিসোর্স","কোর্স স্লাইড ও ভিডিও","এডুকেশন অ্যাপ/ওয়েবসাইট","কালারিং ও অ্যাক্টিভিটি বুক"],
+  note:"জুলাই-আগস্টে এডটেক আর কনটেন্টের কাজ বাড়ে। একই সময়ে ইউরোপে গ্রীষ্মের ছুটি, তাই EU ক্লায়েন্ট কম থাকে।"},
+ {n:"হ্যালোইন",en:"Halloween",d:y=>fixed(y,9,31),lead:40,mk:"US · CA · UK",
+  niche:["POD ডিজাইন","কালারিং বুক","ইভেন্ট ফ্লায়ার","থাম্বনেইল ও ভিডিও এডিট"],
+  note:"সেপ্টেম্বর থেকে ডিজাইনের চাহিদা শুরু হয়, আর এখান থেকেই Q4-এর ব্যস্ত সময়ের শুরু।"}
+];
+function nextOcc(ev){
+  const t=todayBD(), Y=+t.slice(0,4);
+  let cands=[];
+  if(ev.isl) cands=islamic(ev.isl); else for(let y=Y-1;y<=Y+1;y++) cands.push(ev.d(y));
+  cands=cands.filter(Boolean).filter(d=>d>=t).sort();
+  return cands[0]||null;
+}
+function renderOpps(){
+  const t=todayBD();
+  const list=EVENTS.map(e=>({...e,date:nextOcc(e)})).filter(e=>e.date).map(e=>{
+    const n=daysBetween(t,e.date); const pitch=addDays(e.date,-e.lead); const pn=daysBetween(t,pitch);
+    const st=n<=e.lead?"now":n<=e.lead+30?"prep":"later"; return {...e,n,pitch,pn,st};
+  }).sort((a,b)=>a.n-b.n);
+  const ST={now:["st-now","এখনই পিচ করুন"],prep:["st-prep","প্রস্তুতি নিন"],later:["st-later","পরে"]};
+  $("#oppGrid").innerHTML=list.map(e=>{
+    const prog=Math.max(4,Math.min(100,100-(e.n/(e.lead+30))*100));
+    return `<div class="card opp ${e.st==="now"?"hot":""}">
+      <div class="row1"><div><h3>${e.n===0?"🔥 ":""}${e.nm}</h3><div class="when">${prettyDate(e.date)} · ${inDays(e.n)} · ${e.mk}</div></div><span class="st ${ST[e.st][0]}">${ST[e.st][1]}</span></div>
+      <ul>${e.niche.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div class="note">${e.note}${e.isl?" <i class='muted'>(তারিখ আনুমানিক)</i>":""}</div>
+      <div><div class="prog"><i style="width:${prog}%"></i></div>
+      <div class="pitch" style="margin-top:6px"><span>${e.pn<=0?"পিচ করার সময় চলছে":"গিগ আপডেট/পিচ শুরু"}</span><b>${e.pn<=0?"শেষ দিকে":prettyDate(e.pitch)}</b></div></div>
+    </div>`;
+  }).join("");
+  window.__OPPS=list;
+  const first=list.find(e=>e.st==="now")||list[0];
+  if(first) $("#stNextOpp").innerHTML=`${first.nm} <span class="muted" style="font-size:14px;font-weight:500">· ${inDays(first.n)}</span>`;
+}
+EVENTS.forEach(e=>{e.nm=e.n});
+
+/* ---------- heatmap ---------- */
+const HEAT=[
+ ["গ্রাফিক ও অ্যাড ডিজাইন",[3,3,3,3,3,3,3,3,4,5,5,3]],
+ ["ই-কমার্স / Shopify",[3,2,3,3,3,3,4,4,4,5,5,2]],
+ ["ওয়েব ডেভেলপমেন্ট",[4,4,4,4,3,3,3,3,4,4,3,2]],
+ ["বই ফরম্যাটিং / KDP",[5,4,4,3,3,3,3,3,4,5,4,2]],
+ ["ভিডিও এডিটিং",[3,3,3,3,3,3,3,3,4,4,5,4]],
+ ["SEO ও ডিজিটাল মার্কেটিং",[5,4,4,3,3,3,3,3,4,4,3,2]],
+ ["অ্যাকাউন্টিং / ডেটা এন্ট্রি",[4,5,5,5,3,3,3,3,3,3,3,4]],
+ ["মোবাইল অ্যাপ",[4,4,4,3,3,3,3,3,4,4,3,2]],
+ ["কনটেন্ট রাইটিং",[5,4,4,3,3,3,2,3,4,4,3,2]]
+];
+const HCOL=["","#2a3550","#3a6d87","#4fb0b4","#8fdc7f","#c6ff4d"];
+function renderHeat(){
+  const cm=+todayBD().slice(5,7)-1;
+  let h=`<tr><th></th>${MON_BN.map((m,i)=>`<th class="${i===cm?"cur":""}">${m}</th>`).join("")}</tr>`;
+  HEAT.forEach(([cat,v])=>{
+    h+=`<tr><td class="cat">${cat}</td>${v.map((x,i)=>`<td class="v ${i===cm?"cur":""}" style="background:${HCOL[x]};${x<=2?"color:rgba(255,255,255,.6)":""}" title="${cat} · ${MON_BN[i]}: ${bn(x)}/৫">${bn(x)}</td>`).join("")}</tr>`;
+  });
+  $("#heatmap").innerHTML=h;
+}
+
+/* ---------- doctor ---------- */
+const SYMP=[
+ {id:"impr",t:"ইমপ্রেশন/ভিউ হঠাৎ কমে গেছে",s:"গিগ বা প্রোফাইল সার্চে কম দেখাচ্ছে"},
+ {id:"click",t:"ইমপ্রেশন আছে, কিন্তু ক্লিক কম",s:"মানুষ দেখে, কিন্তু ভেতরে ঢোকে না"},
+ {id:"conv",t:"ক্লিক আসে, কিন্তু মেসেজ বা অর্ডার আসে না",s:"গিগ পেজ পর্যন্ত এসে চলে যায়"},
+ {id:"msg",t:"মেসেজ আসে, কিন্তু অর্ডার কনফার্ম হয় না",s:"কথা হয়, কিন্তু ডিল হয় না"},
+ {id:"resp",t:"রেসপন্স টাইম ধীর বা অনেকদিন অফলাইন ছিলাম",s:"ভ্যাকেশন মোড, অ্যাপ নোটিফিকেশন বন্ধ"},
+ {id:"review",t:"সম্প্রতি খারাপ রিভিউ বা ক্যান্সেলেশন হয়েছে",s:"রেটিং বা কমপ্লিশন রেট কমেছে"},
+ {id:"edit",t:"কিছুদিন আগে গিগ/প্রোফাইল বড় করে এডিট করেছি",s:"টাইটেল, ট্যাগ, ক্যাটাগরি বদলেছি"},
+ {id:"upwork",t:"Upwork-এ প্রপোজাল কেউ খোলে না",s:"Connects খরচ হয়, ইন্টারভিউ আসে না"},
+ {id:"price",t:"আশেপাশের সেলাররা অনেক কম দামে কাজ করছে",s:"দামের প্রতিযোগিতা বেড়েছে"}
+];
+const DX={
+ impr:{h:"সার্চে র‍্যাঙ্কিং কমে গেছে",p:"প্ল্যাটফর্মের অ্যালগরিদম অ্যাক্টিভিটি, রেসপন্স রেট, অর্ডার কমপ্লিশন আর সাম্প্রতিক রিভিউ দেখে গিগ সাজায়। এগুলোর যেকোনোটা কমলে অথবা নতুন সেলার বাড়লে ইমপ্রেশন পড়ে যায়।",
+  f:["টাইটেলে বায়ারের ভাষায় লেখা মূল কিওয়ার্ড রাখুন (সার্চ বারের অটো-সাজেশন দেখে ঠিক করুন)","প্রতিদিন নির্দিষ্ট সময় অনলাইন থাকুন, মেসেজের উত্তর ১ ঘণ্টার মধ্যে দিন","একই ক্যাটাগরিতে আরেকটা আলাদা কিওয়ার্ডের গিগ খুলে দেখুন","Fiverr-এ ছোট বাজেট দিয়ে Promoted Gigs চালিয়ে দেখুন কোন কিওয়ার্ডে সাড়া আসে"]},
+ click:{h:"থাম্বনেইল বা দাম চোখে পড়ছে না",p:"সার্চ রেজাল্টে বায়ার শুধু ছবি, টাইটেল, দাম আর রিভিউ সংখ্যা দেখে। এগুলো আশেপাশের গিগের চেয়ে দুর্বল হলে ক্লিক আসে না।",
+  f:["প্রথম ছবিতে \"আগে/পরে\" বা আসল ফলাফল দেখান, স্টক ইমেজ বাদ দিন","ছবিতে ৩–৪ শব্দের বড় হেডলাইন দিন (যেমন \"KDP Ready in 24h\")","বেসিক প্যাকেজের দাম প্রতিযোগীদের কাছাকাছি রাখুন, লাভটা নিন প্রিমিয়াম প্যাকেজে","২ সপ্তাহ পর থাম্বনেইল বদলে দেখুন ক্লিক বাড়ে কিনা"]},
+ conv:{h:"গিগ পেজ বায়ারকে আস্থা দিতে পারছে না",p:"বায়ার গিগ খুলে দেখে কাজের নমুনা, প্যাকেজ কতটা পরিষ্কার, আর ডেলিভারিতে কত দিন লাগবে। সন্দেহ থাকলে অন্য সেলারের কাছে চলে যায়।",
+  f:["ডেসক্রিপশনের শুরুতে লিখুন বায়ার কী পাবে, নিজের পরিচয় পরে দিন","৩টা প্যাকেজের পার্থক্য এক নজরে বোঝা যায় এমনভাবে লিখুন","FAQ-তে ফাইল ফরম্যাট, রিভিশন আর ডেলিভারি কীভাবে হবে তা লিখে দিন","১–২টা ছোট ভিডিও বা পোর্টফোলিও PDF যোগ করুন"]},
+ msg:{h:"কথা বলার ধরন বা অফার দেরিতে যাচ্ছে",p:"অনেক বায়ার একসাথে কয়েকজন সেলারকে মেসেজ করে। যে দ্রুত আর পরিষ্কার একটা অফার পাঠায়, কাজটা সাধারণত সে-ই পায়।",
+  f:["প্রথম রিপ্লাইতেই বায়ারের প্রজেক্ট নিয়ে নির্দিষ্ট ১–২টা প্রশ্ন করুন","রিপ্লাই ছোট রাখুন, লম্বা টেমপ্লেট পাঠাবেন না","২–৩টা মেসেজের মধ্যেই কাস্টম অফার পাঠিয়ে দিন","২৪ ঘণ্টা পর একবার ভদ্রভাবে ফলো-আপ করুন"]},
+ resp:{h:"রেসপন্স রেট আর অ্যাক্টিভিটি কমে গেছে",p:"অনেকদিন অফলাইন থাকলে বা দেরিতে উত্তর দিলে প্ল্যাটফর্ম আপনার গিগ কম দেখায়।",
+  f:["মোবাইল অ্যাপের নোটিফিকেশন চালু রাখুন","ক্লায়েন্টদের দেশের অফিস টাইমে অনলাইন থাকুন (উপরের গোল্ডেন আওয়ার দেখুন)","Quick response-এর জন্য সেভ করা রিপ্লাই রাখুন, তবে প্রতিবার একটু নিজের মতো বদলে নিন"]},
+ review:{h:"খারাপ রিভিউর কারণে র‍্যাঙ্কিং কমেছে",p:"সাম্প্রতিক নেগেটিভ রিভিউ, ক্যান্সেলেশন বা দেরিতে ডেলিভারি সাময়িকভাবে র‍্যাঙ্কিং কমিয়ে দেয়।",
+  f:["রিভিউর উত্তরে শান্তভাবে আর পেশাদারভাবে লিখুন","কয়েকটা ছোট, নিশ্চিত অর্ডার নিখুঁতভাবে শেষ করে নতুন ভালো রিভিউ আনুন","কাজ শুরুর আগেই স্কোপ লিখিতভাবে ঠিক করে নিন, তাতে ক্যান্সেলেশন কমবে"]},
+ edit:{h:"এডিটের পর গিগ আবার নতুন করে ইনডেক্স হচ্ছে",p:"টাইটেল, ট্যাগ বা ক্যাটাগরি বড় করে বদলালে গিগ কিছুদিন নতুন গিগের মতো টেস্ট হয়, তখন ইমপ্রেশন ওঠানামা করে।",
+  f:["২–৩ সপ্তাহ আর কিছু বদলাবেন না, তারপর ফলাফল দেখুন","একবারে একটা জিনিস বদলান, যাতে বোঝা যায় কোনটায় কাজ হলো","ভালো চলা গিগে বড় পরিবর্তন না করে নতুন গিগ খুলে টেস্ট করুন"]},
+ upwork:{h:"প্রপোজাল বেছে নেওয়ার আর লেখার পদ্ধতিতে সমস্যা",p:"ক্লায়েন্ট শুধু প্রপোজালের প্রথম ২ লাইন দেখে খোলে কিনা ঠিক করে। আর জব পোস্টের প্রথম কয়েক ঘণ্টায় পাঠানো প্রপোজালই সবচেয়ে বেশি খোলা হয়।",
+  f:["প্রথম লাইনে ক্লায়েন্টের সমস্যার কথা লিখুন, নিজের পরিচয় দিয়ে শুরু করবেন না","জব পোস্ট হওয়ার ১–২ ঘণ্টার মধ্যে অ্যাপ্লাই করুন (সেভ করা সার্চে নোটিফিকেশন চালু রাখুন)","পেমেন্ট ভেরিফায়েড আর ভালো হায়ার রেটের ক্লায়েন্ট বেছে নিন","গুরুত্বপূর্ণ জবে Connects দিয়ে প্রপোজাল বুস্ট করুন"]},
+ price:{h:"দাম দিয়ে প্রতিযোগিতার ফাঁদে পড়ছেন",p:"সবচেয়ে কম দামে কাজ করে টিকে থাকা কঠিন। যে বায়ার মানের জন্য টাকা দিতে রাজি, তাকে টার্গেট করলে লাভ বেশি।",
+  f:["একটা নির্দিষ্ট নিশ বেছে নিন (যেমন \"children's book formatting\")","প্যাকেজে এমন কিছু দিন যা অন্যরা দেয় না (ফাস্ট ডেলিভারি, সোর্স ফাইল, বেশি রিভিশন)","দাম কমানোর বদলে বেসিক প্যাকেজের কাজ কমিয়ে দাম ঠিক রাখুন"]}
+};
+function seasonDx(){
+  const t=todayBD(), md=t.slice(5);
+  const near=upcomingGrouped(10).filter(x=>impactOf(x.name)[0]==="i-slow");
+  if(md>="12-18"||md<="01-06") return {h:"এটা বছরের সবচেয়ে ধীর মৌসুম",p:"ক্রিসমাস থেকে নতুন বছর পর্যন্ত পশ্চিমের বেশিরভাগ ক্লায়েন্ট ছুটিতে থাকে। এ সময় অর্ডার কমা স্বাভাবিক, আপনার গিগে সমস্যা নাও থাকতে পারে।",f:["এই সময়টা গিগ, পোর্টফোলিও আর নতুন স্কিলে কাজ করার জন্য ভালো","জানুয়ারির ২য় সপ্তাহে পুরনো ক্লায়েন্টদের ফলো-আপ মেসেজ পাঠান"]};
+  if(near.length) return {h:`সামনে ছুটি: ${near.map(x=>x.name).slice(0,2).join(", ")}`,p:"বড় ছুটির আগের আর পরের কয়েক দিন অর্ডার কমে আসাটা স্বাভাবিক। আগে বোঝার চেষ্টা করুন সমস্যাটা মৌসুমের কারণে, নাকি গিগের কারণে।",f:["গত বছর একই সময়ে আপনার অর্ডার কেমন ছিল মিলিয়ে দেখুন","ছুটির পরের সপ্তাহের জন্য ফলো-আপ মেসেজ এখনই লিখে রাখুন"]};
+  if(md>="07-10"&&md<="08-25") return {h:"ইউরোপে গ্রীষ্মের ছুটির মৌসুম",p:"জুলাই-আগস্টে EU আর UK-এর অনেক ক্লায়েন্ট ছুটিতে থাকে। এ সময় US আর অস্ট্রেলিয়ার ক্লায়েন্টদের দিকে বেশি নজর দিন।",f:["US-এর অফিস টাইমে (বাংলাদেশে রাতে) বেশি অনলাইন থাকুন"]};
+  return null;
+}
+function renderSymp(){
+  $("#sympList").innerHTML=SYMP.map(s=>`<label><input type="checkbox" value="${s.id}"><span>${s.t}<small>${s.s}</small></span></label>`).join("");
+  $("#sympList").addEventListener("change",renderDiag);
+}
+function selectedSymp(){return [...document.querySelectorAll("#sympList input:checked")].map(i=>i.value)}
+function renderDiag(){
+  const sel=selectedSymp(); const sd=seasonDx(); let h="";
+  if(sd) h+=dxHtml(sd,"season","📅 মৌসুম চেক");
+  sel.forEach(id=>h+=dxHtml(DX[id],"",""));
+  if(!sel.length) h+=`<div class="empty">বাম পাশ থেকে আপনার সাথে মেলে এমন লক্ষণে টিক দিন।<br>সম্ভাব্য কারণ আর কী করবেন, এখানে দেখাবে।</div>`;
+  $("#diagOut").innerHTML=h;
+}
+const dxHtml=(d,cls,pre)=>`<div class="dx ${cls}">${pre?`<div style="font-size:12px;color:var(--amber);margin-bottom:2px">${pre}</div>`:""}<h4>${esc(d.h)}</h4><p>${esc(d.p)}</p><ol>${d.f.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`;
+
+/* ---------- tips ---------- */
+const TIPS=[
+ ["Fiverr","গিগ টাইটেল বায়ারের ভাষায় লিখুন, নিজের ভাষায় না।","Fiverr সার্চ বারে আপনার সার্ভিসের নাম লিখলে যে সাজেশন আসে, বায়াররা আসলে সেগুলোই খোঁজে।"],
+ ["Upwork","প্রপোজালের প্রথম লাইনে \"Hi, I am…\" লিখবেন না।","ক্লায়েন্ট প্রিভিউতে প্রথম দুই লাইনই দেখে। ওখানে তার সমস্যার কথা লিখুন।"],
+ ["সব প্ল্যাটফর্ম","US ক্লায়েন্টকে বাংলাদেশ সময় রাত ৮টা থেকে ১১টার মধ্যে মেসেজ দিন।","তখন ওদের সকাল, ইনবক্স খোলে আর প্রথম উত্তরটা দ্রুত আসে।"],
+ ["Fiverr","ডেলিভারির সাথে ছোট একটা ভিডিও দিয়ে কাজটা বুঝিয়ে দিন।","ক্লায়েন্ট খুশি হয়, ভালো রিভিউ দেয়, আর রিভিশন কম চায়।"],
+ ["সব প্ল্যাটফর্ম","প্রতিটা কাজ শেষে ক্লায়েন্টকে জিজ্ঞেস করুন পরের কাজ কী।","নতুন ক্লায়েন্ট খোঁজার চেয়ে পুরনো ক্লায়েন্টের কাছে আবার কাজ পাওয়া সহজ।"],
+ ["Upwork","পেমেন্ট ভেরিফায়েড নয় এমন ক্লায়েন্টে Connects খরচ করবেন না।","হায়ার রেট আর খরচের ইতিহাস দেখে ক্লায়েন্ট বাছুন।"],
+ ["Fiverr","গিগের প্রথম ছবিতে আসল কাজের \"আগে/পরে\" দেখান।","স্টক ছবির চেয়ে নিজের কাজের ছবিতে ক্লিক বেশি আসে।"],
+ ["সব প্ল্যাটফর্ম","ক্লায়েন্টের দেশে বড় ছুটির আগে ডেলিভারি শেষ করুন।","ছুটির মধ্যে ডেলিভারি দিলে রিভিউ আর পেমেন্ট দুটোই আটকে থাকে।"],
+ ["Fiverr","একটা গিগে সব সার্ভিস না রেখে আলাদা আলাদা গিগ খুলুন।","প্রতিটা গিগ আলাদা কিওয়ার্ডে র‍্যাঙ্ক করতে পারে।"],
+ ["Upwork","প্রপোজালের শেষে একটা প্রশ্ন রাখুন।","প্রশ্ন থাকলে ক্লায়েন্ট উত্তর দেয়, আর তখন থেকেই কথোপকথন শুরু হয়।"],
+ ["সব প্ল্যাটফর্ম","ডিসেম্বরের শেষ সপ্তাহটা পোর্টফোলিও আর গিগ আপডেটের জন্য রাখুন।","তখন কাজ কম থাকে, আর জানুয়ারিতে নতুন বাজেটের কাজ আসে।"],
+ ["Fiverr","বেসিক প্যাকেজ সস্তা রাখুন, লাভটা নিন স্ট্যান্ডার্ড আর প্রিমিয়ামে।","কম দাম দেখে বায়ার ঢোকে, তারপর অনেকেই বড় প্যাকেজ নেয়।"],
+ ["সব প্ল্যাটফর্ম","কাজের স্কোপ লিখিতভাবে ঠিক করে তারপর শুরু করুন।","বেশিরভাগ ক্যান্সেলেশন আর খারাপ রিভিউ আসে স্কোপ নিয়ে ভুল বোঝাবুঝি থেকে।"],
+ ["Upwork","প্রোফাইল টাইটেলে নির্দিষ্ট নিশ লিখুন, যেমন \"Shopify Speed Optimization\"।","সাধারণ টাইটেল দিলে হাজার জনের ভিড়ে হারিয়ে যাবেন।"],
+ ["Fiverr","গিগ বড় করে এডিট করার পর অন্তত ২ সপ্তাহ অপেক্ষা করুন।","বারবার বদলালে অ্যালগরিদম গিগটাকে ঠিকমতো বুঝতে পারে না।"],
+ ["সব প্ল্যাটফর্ম","রমজানে GCC ক্লায়েন্টকে ইফতারের পর মেসেজ দিন।","রমজানে ওদের অফিস টাইম কমে যায়, সন্ধ্যার পর ওরা বেশি সক্রিয় থাকে।"],
+ ["Freelancer.com","কন্টেস্টে অংশ নিয়ে প্রথম কয়েকটা রিভিউ আনুন।","নতুন অ্যাকাউন্টের জন্য কন্টেস্ট জেতা পোর্টফোলিও বানানোর ভালো উপায়।"],
+ ["Fiverr","Buyer Request বা Brief দেখার পর ১০ মিনিটের মধ্যে অফার পাঠান।","যে আগে আর পরিষ্কারভাবে অফার দেয়, সে-ই বেশি কাজ পায়।"],
+ ["সব প্ল্যাটফর্ম","প্রতি মাসে নিজের ইমপ্রেশন, ক্লিক আর অর্ডার একটা শিটে লিখে রাখুন।","তাহলে অর্ডার কমলে বুঝতে পারবেন সমস্যাটা মৌসুমের কারণে, নাকি গিগের কারণে।"],
+ ["Upwork","প্রথম কয়েকটা কাজে ছোট ফিক্সড-প্রাইস প্রজেক্ট নিন।","দ্রুত Job Success Score আর রিভিউ তৈরি হয়।"],
+ ["সব প্ল্যাটফর্ম","কাজ চলার সময় ক্লায়েন্টকে নিয়মিত আপডেট দিন।","ক্লায়েন্ট জিজ্ঞেস করার আগেই আপডেট পেলে ভরসা পায়।"],
+ ["Fiverr","গিগ ভিডিও ৩০–৬০ সেকেন্ডের মধ্যে রাখুন, শুরুতেই ফলাফল দেখান।","বেশিরভাগ বায়ার প্রথম কয়েক সেকেন্ড দেখেই সিদ্ধান্ত নেয়।"]
+];
+let tipIdx=0;
+function dayOfYear(){const t=dObj(todayBD());return Math.floor((t-Date.UTC(t.getUTCFullYear(),0,0))/864e5)}
+function renderTip(){const [p,t,w]=TIPS[tipIdx];$("#tipPlat").textContent=p+(tipIdx===dayOfYear()%TIPS.length?" · আজকের টিপ":"");$("#tipTxt").textContent=t;$("#tipWhy").textContent=w;$("#tipNum").textContent=bn(tipIdx+1)+" / "+bn(TIPS.length)}
+$("#tipPrev").onclick=()=>{tipIdx=(tipIdx-1+TIPS.length)%TIPS.length;renderTip()};
+$("#tipNext").onclick=()=>{tipIdx=(tipIdx+1)%TIPS.length;renderTip()};
+const FORUMS=[
+ ["r/Fiverr","Reddit · সেলারদের অভিজ্ঞতা আর আপডেট","https://www.reddit.com/r/Fiverr/","reddit.com"],
+ ["r/Upwork","Reddit · প্রপোজাল আর ক্লায়েন্ট নিয়ে আলোচনা","https://www.reddit.com/r/Upwork/","reddit.com"],
+ ["Fiverr Community","অফিশিয়াল ফোরাম ও ঘোষণা","https://community.fiverr.com/","community.fiverr.com"],
+ ["Upwork Community","অফিশিয়াল ফোরাম ও পলিসি আপডেট","https://community.upwork.com/","community.upwork.com"],
+ ["r/freelance","Reddit · প্ল্যাটফর্মের বাইরের ফ্রিল্যান্সিং","https://www.reddit.com/r/freelance/","reddit.com"],
+ ["Freelancer.com Community","অফিশিয়াল কমিউনিটি","https://www.freelancer.com/community","freelancer.com"]
+];
+function renderForums(){$("#forumGrid").innerHTML=FORUMS.map(f=>`<a class="forum" href="${f[2]}" target="_blank" rel="noopener"><b>${f[0]} ↗</b><span>${f[1]}</span><em>${f[3]}</em></a>`).join("")}
+
+/* ---------- AI (sample) ---------- */
+let sample=null;
+function md(s){
+  const lines=esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").split("\n"); let out="",inUl=false;
+  lines.forEach(l=>{const t=l.trim();
+    if(/^[-*•]\s+/.test(t)){if(!inUl){out+="<ul>";inUl=true}out+="<li>"+t.replace(/^[-*•]\s+/,"")+"</li>";return}
+    if(inUl){out+="</ul>";inUl=false}
+    if(/^#{1,4}\s+/.test(t)) out+="<h5>"+t.replace(/^#{1,4}\s+/,"")+"</h5>"; else if(/^\d+[.)]\s+/.test(t)) out+="<p>"+t+"</p>"; else if(t) out+="<p>"+t+"</p>";
+  }); if(inUl) out+="</ul>"; return out;
+}
+function context(){
+  const t=todayBD(); const hol=upcomingGrouped(21).slice(0,10).map(x=>`${x.date} ${x.name} (${[...x.cs].join(",")})`).join("; ");
+  const ops=(window.__OPPS||[]).slice(0,4).map(e=>`${e.en} ${e.date}`).join("; ");
+  return `আজকের তারিখ (বাংলাদেশ): ${t}. সামনের ৩ সপ্তাহে ক্লায়েন্ট দেশগুলোর ছুটি: ${hol||"উল্লেখযোগ্য নেই"}. সামনের ইভেন্ট: ${ops}.`;
+}
+async function runAI(prompt,out,btn){
+  if(!sample){$("#aiOff").style.display="block";return}
+  btn.disabled=true; const old=btn.textContent; btn.textContent="ভাবছে…"; out.innerHTML=`<p class="muted">ভাবছে…</p>`;
+  try{
+    const r=await sample(prompt,{modelTier:"default",onText:({text})=>{out.innerHTML=md(text)}});
+    out.innerHTML=md(r.text);
+  }catch(e){
+    out.innerHTML=`<p class="err">${e&&e.code==="rate_limited"?"একটু পরে আবার চেষ্টা করুন।":e&&e.code==="not_granted"?"AI ব্যবহারের অনুমতি দেওয়া হয়নি।":"এই মুহূর্তে উত্তর আনা যায়নি। আবার চেষ্টা করুন।"}</p>`;
+  }finally{btn.disabled=false;btn.textContent=old}
+}
+$("#aiDocBtn").onclick=()=>{
+  const txt=$("#aiDocIn").value.trim(); const sel=selectedSymp().map(id=>SYMP.find(s=>s.id===id).t);
+  if(!txt&&!sel.length){$("#aiDocOut").innerHTML=`<p class="err">আগে নিজের অবস্থা লিখুন অথবা অন্তত একটা লক্ষণে টিক দিন।</p>`;return}
+  const p=`তুমি একজন অভিজ্ঞ ফ্রিল্যান্সিং কোচ, বাংলাদেশি ফ্রিল্যান্সারদের (Fiverr, Upwork, Freelancer.com) সাহায্য করো। সহজ, স্বাভাবিক বাংলায় লেখো। ইংরেজি টার্ম (gig, impression, proposal) ইংরেজিতেই রাখতে পারো।
+${context()}
+ফ্রিল্যান্সারের লক্ষণ: ${sel.join("; ")||"উল্লেখ নেই"}
+তার নিজের বর্ণনা: ${txt||"নেই"}
+
+উত্তরের ফরম্যাট:
+### সম্ভাব্য মূল কারণ
+(২–৩টা কারণ, সবচেয়ে সম্ভাব্যটা আগে, প্রতিটা এক লাইনে কেন)
+### এই সপ্তাহে যা করবেন
+(৪–৬টা নির্দিষ্ট কাজ, বুলেটে)
+### যা করবেন না
+(২টা বুলেট)
+মৌসুম বা ছুটির কারণে অর্ডার কমার সম্ভাবনা থাকলে সেটা বলো। কোনো প্ল্যাটফর্মের নিয়ম বা সংখ্যা নিয়ে নিশ্চিত না হলে বানিয়ে বলবে না। ৩০০ শব্দের মধ্যে রাখো।`;
+  runAI(p,$("#aiDocOut"),$("#aiDocBtn"));
+};
+$("#aiTipBtn").onclick=()=>{
+  const plat=$("#tipPlatSel").value, niche=$("#tipNiche").value.trim()||"সাধারণ ফ্রিল্যান্সিং";
+  const p=`তুমি একজন অভিজ্ঞ ফ্রিল্যান্সিং কোচ। একজন বাংলাদেশি ফ্রিল্যান্সারের জন্য সহজ বাংলায় এই সপ্তাহের ৫টা টিপস লেখো।
+প্ল্যাটফর্ম: ${plat}. ক্যাটাগরি: ${niche}.
+${context()}
+প্রতিটা টিপ হবে নির্দিষ্ট আর এই সপ্তাহেই কাজে লাগানোর মতো, সামনের ছুটি বা ইভেন্ট মাথায় রেখে। ফরম্যাট: প্রতিটা "- **শিরোনাম** — এক-দুই লাইনে কী আর কেন"। শেষে এক লাইনে বাংলাদেশ সময়ে মেসেজ পাঠানোর সেরা সময় বলো। বানানো পরিসংখ্যান দেবে না। ২২০ শব্দের মধ্যে।`;
+  runAI(p,$("#aiTipOut"),$("#aiTipBtn"));
+};
+async function initAI(){
+  try{ if(window.claude&&typeof claude.use==="function"){ sample=await claude.use("sample"); } }catch(e){sample=null}
+  if(sample){$("#aiDocBox").style.display="block"} else {$("#aiOff").style.display="block";$("#aiTipBtn").disabled=true}
+}
+
+/* ---------- calc ---------- */
+function calc(){
+  const a=+$("#cAmt").value||0, fee=+$("#cFee").value||0, wd=+$("#cWd").value||0, rate=+$("#cRate").value||0, n=+$("#cN").value||0;
+  const f=a*fee/100, net=Math.max(0,a-f-wd), bdt=net*rate;
+  const money=v=>"$"+v.toFixed(2);
+  $("#rFee").textContent="− "+money(f); $("#rWd").textContent="− "+money(wd); $("#rNet").textContent=money(net);
+  $("#rBdt").innerHTML="৳"+Math.round(bdt).toLocaleString("en-IN")+"<small>টাকা</small>";
+  $("#rMonth").textContent="৳"+Math.round(bdt*n).toLocaleString("en-IN");
+}
+$("#cPlat").onchange=e=>{$("#cFee").value=e.target.value;calc()};
+["cAmt","cFee","cWd","cRate","cN"].forEach(id=>$("#"+id).addEventListener("input",calc));
+
+/* ---------- nav, reveal ---------- */
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{const el=document.getElementById(b.dataset.go);if(el)el.scrollIntoView({behavior:"smooth",block:"start"})}));
+const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.06}):null;
+document.querySelectorAll(".reveal").forEach(el=>io?io.observe(el):el.classList.add("in"));
+
+/* ---------- boot ---------- */
+function boot(){
+  initHD();
+  renderChips(); renderClocks(); renderHolidays(); renderOpps(); renderHeat(); renderSymp(); renderDiag();
+  tipIdx=dayOfYear()%TIPS.length; renderTip(); renderForums(); calc();
+  setInterval(renderClocks,30000);
+  initAI();
+  // লাইভ ডলার রেট (ফ্রি API) — না পেলে ডিফল্ট থাকবে
+  fetch("https://open.er-api.com/v6/latest/USD").then(r=>r.json()).then(j=>{
+    if(j&&j.result==="success"&&j.rates&&j.rates.BDT){ $("#cRate").value=j.rates.BDT.toFixed(2); $("#rateSrc").innerHTML='· লাইভ মিড-মার্কেট রেট (<a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">ExchangeRate-API</a>)'; calc(); }
+  }).catch(()=>{});
+}
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
+})();
+</script>
+</body>
+</html>
