@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,208 +8,219 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Layout: narrow reading column; sticky tab bar (Study / Exam / Flashcards); each FAQ is a numbered row, answer set off in a key-coloured chip. */
+/* Layout: app-style single column. Home screen with three big mode cards; fixed bottom nav (Home / Study / Exam / Cards); study list = collapsible question cards. */
 :root{
-  --bg:#f3f5f9;
-  --surface:#ffffff;
-  --ink:#141b2d;
-  --muted:#5b6478;
-  --line:#dde2ec;
-  --accent:#2f4fd8;
-  --accent-soft:#e7ebfc;
-  --key:#b26a00;
-  --key-soft:#fdf1de;
-  --good:#1d7a46; --good-soft:#e3f4ea;
-  --bad:#c0362c; --bad-soft:#fbe6e4;
+  --bg:#f3f5f9; --surface:#ffffff; --ink:#141b2d; --muted:#5b6478; --line:#dde2ec;
+  --accent:#2f4fd8; --accent-soft:#e8ecfd; --on-accent:#ffffff;
+  --key:#b26a00; --key-soft:#fdf1de;
+  --good:#1d7a46; --good-soft:#e3f4ea; --bad:#c0362c; --bad-soft:#fbe6e4;
   --f-display:"Sora","Segoe UI",system-ui,sans-serif;
-  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-body:"Hind Siliguri","IBM Plex Sans","Noto Sans Bengali","Segoe UI",system-ui,sans-serif;
+  --f-en:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-  --f-bn:"Hind Siliguri","Noto Sans Bengali","Nirmala UI",sans-serif;
+  --nav-h:66px;
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0e1220; --surface:#161b2c; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
-    --accent:#8ea2ff; --accent-soft:#222b4d; --key:#f0b35a; --key-soft:#3a2c16;
-    --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a;
-    color-scheme:dark;
-  }
-}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
+  --accent:#8ea2ff; --accent-soft:#222b4d; --on-accent:#0e1220; --key:#f0b35a; --key-soft:#3a2c16;
+  --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a; color-scheme:dark;}}
 :root[data-theme="dark"]{
-  --bg:#0e1220; --surface:#161b2c; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
-  --accent:#8ea2ff; --accent-soft:#222b4d; --key:#f0b35a; --key-soft:#3a2c16;
-  --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a;
-  color-scheme:dark;
-}
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
+  --accent:#8ea2ff; --accent-soft:#222b4d; --on-accent:#0e1220; --key:#f0b35a; --key-soft:#3a2c16;
+  --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a; color-scheme:dark;}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px}
-header.top{padding-top:28px;padding-bottom:14px}
-.course{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);letter-spacing:.02em}
-h1{font-family:var(--f-display);font-size:clamp(24px,5.5vw,34px);line-height:1.2;margin:6px 0 6px;text-wrap:balance}
-.sub{color:var(--muted);margin:0;font-size:15px}
-.cipherline{font-family:var(--f-mono);font-size:13px;color:var(--accent);margin-top:10px}
-.cipherline b{color:var(--key);font-weight:500}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + 16px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:720px;margin:0 auto;padding-left:16px;padding-right:16px}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.en{font-family:var(--f-en)}
+.mono{font-family:var(--f-mono)}
 
-nav.tabs{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:8px}
-nav.tabs .wrap{display:flex;gap:6px;padding-top:8px;padding-bottom:8px}
-.tab{flex:1;font:600 14.5px var(--f-body);color:var(--muted);background:transparent;border:1px solid transparent;border-radius:10px;padding:10px 8px;cursor:pointer}
-.tab[aria-selected="true"]{background:var(--surface);color:var(--accent);border-color:var(--line);box-shadow:0 1px 2px rgba(20,27,45,.06)}
-.tab:focus-visible,.btn:focus-visible,.opt:focus-visible,.chip:focus-visible,.fcard:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* Top bar */
+.topbar{background:var(--surface);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.brand .course{font:500 12px var(--f-mono);color:var(--muted)}
+.brand .name{font:600 16px var(--f-display);line-height:1.3}
+.langbtn{flex:none;display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.langbtn button{border:0;background:transparent;color:var(--muted);font-size:13px;font-weight:600;padding:7px 10px;cursor:pointer}
+.langbtn button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
 
-main{padding:18px 0 60px}
+main{padding-top:20px}
 .view[hidden]{display:none}
+h2.vtitle{font-size:22px;font-weight:600;margin:0 0 4px;text-wrap:balance}
+p.vsub{color:var(--muted);margin:0 0 18px;font-size:15px}
+
+/* Home */
+.hello{margin-bottom:18px}
+.hello h1{font:700 clamp(24px,6vw,30px)/1.25 var(--f-display);margin:0 0 6px;text-wrap:balance}
+.hello p{margin:0;color:var(--muted);font-size:15.5px}
+.modes{display:grid;gap:12px}
+.mode{display:grid;grid-template-columns:52px 1fr 20px;align-items:center;gap:14px;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;color:inherit;transition:border-color .15s,transform .15s}
+.mode:hover{border-color:var(--accent)}
+.mode:active{transform:scale(.99)}
+.mode .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
+.mode .ic svg{width:26px;height:26px}
+.mode.m1 .ic{background:var(--accent-soft);color:var(--accent)}
+.mode.m2 .ic{background:var(--good-soft);color:var(--good)}
+.mode.m3 .ic{background:var(--key-soft);color:var(--key)}
+.mode .t{display:block;font-size:18px;font-weight:600;line-height:1.3}
+.mode .t small{font:500 12.5px var(--f-en);color:var(--muted);margin-left:6px}
+.mode .d{display:block;font-size:14.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+.mode .arr{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font:600 22px var(--f-display);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.tip{margin-top:16px;font-size:14px;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:10px 12px}
 
 /* Study */
-.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
-.search{flex:1 1 220px;font:15px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.toggle{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);cursor:pointer;user-select:none}
-.toggle input{width:18px;height:18px;accent-color:var(--accent)}
-.jump{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
-.chip{font:500 13px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;text-decoration:none}
-.chip:hover{border-color:var(--accent);color:var(--accent)}
-
-section.sec{margin-bottom:26px}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
-.sec-head h2{font-family:var(--f-display);font-size:19px;margin:0;text-wrap:balance}
-.sec-head .range{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
-.sec-desc{color:var(--muted);font-size:14px;margin:-4px 0 10px}
-.list{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.faq{display:grid;grid-template-columns:38px 1fr;gap:4px 10px;padding:14px 16px;border-top:1px solid var(--line)}
-.faq:first-child{border-top:0}
-.num{font-family:var(--f-mono);font-size:13px;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
-.q{font-weight:500}
-.ans{grid-column:2;margin-top:4px;display:flex;gap:8px;align-items:flex-start}
-.ans .tag{flex:none;font:600 11px var(--f-mono);color:var(--key);background:var(--key-soft);border-radius:6px;padding:3px 6px;margin-top:2px;letter-spacing:.04em}
-.ans .txt{color:var(--ink)}
-.ans .txt strong{color:var(--key);font-weight:600}
-.ex{grid-column:2;margin-top:8px;font-family:var(--f-bn);font-size:15px;line-height:1.6;color:var(--ink);background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:8px 12px}
-.ex .exl{display:block;font:600 12px var(--f-bn);color:var(--accent);margin-bottom:2px}
-.ex b{font-weight:600}
-.fex{margin-top:14px;font-family:var(--f-bn);font-size:15px;line-height:1.6;background:var(--surface);border-left:3px solid var(--key);border-radius:0 8px 8px 0;padding:8px 12px;color:var(--ink)}
-.fex .exl{display:block;font:600 12px var(--f-bn);color:var(--key);margin-bottom:2px}
-.feedback .fbex{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-family:var(--f-bn);font-size:15px;line-height:1.6}
-.qbn{font-family:var(--f-bn);font-size:15.5px;line-height:1.55;color:var(--muted);margin-top:2px;font-weight:500}
-.lang-bn .q,.lang-bn .qtext{font-family:var(--f-bn)}
-.abn{font-family:var(--f-bn);font-weight:600;color:var(--key)}
-.ans .txt .abn{display:block;margin-top:2px}
-.langbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
-.langbar .lbl{font-size:13px;color:var(--muted)}
-.langbar .seg button{padding:6px 12px;font-size:13.5px}
-.qtext .qbn{font-size:16px;font-weight:500;margin-top:6px}
-.fcard .qbn{font-size:16.5px;margin-top:6px}
-.reveal{font:500 13px var(--f-body);color:var(--accent);background:var(--accent-soft);border:0;border-radius:8px;padding:5px 10px;cursor:pointer}
-.mono{font-family:var(--f-mono)}
-.empty{padding:20px;color:var(--muted);text-align:center}
-
-.compare{width:100%;border-collapse:collapse;font-size:14px}
-.tbl{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto}
+.studybar{position:sticky;top:0;z-index:4;background:var(--bg);padding:10px 0 8px;margin:-10px 0 6px}
+.search{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font-size:14px;font-weight:500;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.listhead{display:flex;justify-content:space-between;align-items:center;margin:6px 0 10px;font-size:14px;color:var(--muted)}
+.linkbtn{background:none;border:0;color:var(--accent);font-weight:600;font-size:14px;cursor:pointer;padding:4px 0}
+.sec-title{font-size:15px;font-weight:600;color:var(--muted);margin:22px 0 8px;display:flex;gap:8px;align-items:baseline}
+.sec-title:first-child{margin-top:4px}
+.sec-title .cnt{font:500 12px var(--f-mono)}
+.qcards{display:grid;gap:10px}
+.qc{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.qc>button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:34px 1fr 18px;gap:10px;width:100%;padding:14px;cursor:pointer;align-items:start}
+.qc>button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:14px}
+.qn{font:500 12.5px var(--f-mono);color:var(--muted);background:var(--bg);border-radius:8px;text-align:center;padding:3px 0;margin-top:2px}
+.qq{font-weight:600;font-size:15.5px;line-height:1.5}
+.qq .qen{font-family:var(--f-en)}
+.qq .qbn{display:block;font-weight:500;color:var(--muted);margin-top:3px;font-size:15px}
+.chev{color:var(--muted);transition:transform .2s;margin-top:3px}
+.qc.open .chev{transform:rotate(180deg)}
+.qbody{display:none;padding:0 14px 14px 58px}
+.qc.open .qbody{display:block}
+.ansbox{background:var(--good-soft);border-radius:10px;padding:10px 12px}
+.lbl{display:block;font-size:12.5px;font-weight:600;letter-spacing:.02em;margin-bottom:2px}
+.ansbox .lbl{color:var(--good)}
+.ansbox .aen{font:600 15px var(--f-en)}
+.ansbox .abn{display:block;font-weight:600;margin-top:2px}
+.exbox{margin-top:8px;background:var(--accent-soft);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.6}
+.exbox .lbl{color:var(--accent)}
+.empty{padding:28px;text-align:center;color:var(--muted);background:var(--surface);border-radius:14px;border:1px solid var(--line)}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto;margin-top:10px}
+.compare{width:100%;border-collapse:collapse;font-size:14px;font-family:var(--f-en)}
 .compare th,.compare td{padding:10px 12px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
-.compare thead th{border-top:0;font-family:var(--f-display);font-size:14px;background:var(--accent-soft);color:var(--ink)}
+.compare thead th{border-top:0;background:var(--accent-soft);font-weight:600}
 .compare td:first-child{color:var(--muted);font-weight:500;width:34%}
 
-/* Exam */
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
-.setup h2,.result h2{font-family:var(--f-display);font-size:21px;margin:0 0 6px}
-.setup p{color:var(--muted);margin:0 0 16px;font-size:14.5px}
-.field{display:grid;gap:6px;margin-bottom:14px}
-.field label.lbl{font-weight:600;font-size:14px}
-select{font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px}
-.seg{display:flex;flex-wrap:wrap;gap:6px}
-.seg button{font:500 14px var(--f-body);background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
-:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#0e1220}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#0e1220}}
-.checks{display:grid;gap:10px;margin:6px 0 18px}
-.btn{font:600 15px var(--f-body);border-radius:12px;padding:12px 18px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:#fff}
-:root[data-theme="dark"] .btn{color:#0e1220}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0e1220}}
+/* Buttons and fields */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.btn{font-size:16px;font-weight:600;border-radius:12px;padding:13px 18px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent)}
 .btn.ghost{background:transparent;color:var(--accent)}
+.btn.block{width:100%}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.row{display:flex;flex-wrap:wrap;gap:10px}
+.field{margin-bottom:18px}
+.field>.fl{display:block;font-weight:600;font-size:15px;margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{flex:1 1 0;min-width:64px;font-size:15px;font-weight:600;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 8px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+select{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;cursor:pointer}
+.switch input{width:20px;height:20px;accent-color:var(--accent)}
 
-.progress{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:4px 0 14px}
+/* Exam run */
+.meta{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.meta .score{color:var(--good);font-weight:600}
+.progress{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 16px}
 .progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
-.meta{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
-.meta .score{color:var(--good)}
-.qtext{font-size:18px;font-weight:600;line-height:1.45;margin:4px 0 16px;text-wrap:pretty}
-.qorig{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-bottom:4px}
+.qorig{font-size:13px;color:var(--muted);margin-bottom:6px}
+.qtext{font-size:18px;font-weight:600;line-height:1.45;margin:0 0 16px}
+.qtext .qen{font-family:var(--f-en)}
+.qtext .qbn{display:block;font-size:16px;font-weight:500;color:var(--muted);margin-top:6px}
 .opts{display:grid;gap:10px}
-.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:15.5px var(--f-body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;width:100%}
-.opt .letter{flex:none;font:600 13px var(--f-mono);width:26px;height:26px;border-radius:7px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;font:15.5px var(--f-en);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;width:100%}
+.opt .letter{flex:none;font:600 13px var(--f-mono);width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
 .opt:hover:not(:disabled){border-color:var(--accent)}
 .opt:disabled{cursor:default}
 .opt.correct{border-color:var(--good);background:var(--good-soft)}
 .opt.correct .letter{background:var(--good);color:#fff;border-color:var(--good)}
 .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
 .opt.wrong .letter{background:var(--bad);color:#fff;border-color:var(--bad)}
-.feedback{margin-top:14px;border-radius:12px;padding:12px 14px;font-size:14.5px;border-left:4px solid}
+.feedback{margin-top:14px;border-radius:12px;padding:12px 14px;font-size:15px;border-left:4px solid}
 .feedback.ok{background:var(--good-soft);border-color:var(--good)}
 .feedback.no{background:var(--bad-soft);border-color:var(--bad)}
-.feedback b{display:block;margin-bottom:2px}
-.next{margin-top:16px;display:flex;justify-content:flex-end}
-
-.big{font-family:var(--f-display);font-size:44px;line-height:1;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.feedback .fh{font-weight:600;font-size:16px;margin-bottom:4px}
+.feedback .fexp{font-family:var(--f-en);font-size:14.5px}
+.feedback .fbex{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);line-height:1.6}
+.next{margin-top:16px}
+.quit{display:block;margin:12px auto 0}
+.big{font:700 48px/1 var(--f-display);margin:8px 0 6px;font-variant-numeric:tabular-nums}
 .verdict{color:var(--muted);margin:0 0 16px}
+.res-btns{display:grid;gap:10px}
 .review{margin-top:18px;display:grid;gap:10px}
-.rv{border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:10px 12px;font-size:14px;background:var(--bg)}
-.rv .rq{font-weight:600;margin-bottom:4px}
-.rv .ry{color:var(--bad)} .rv .rc{color:var(--good)}
+.rv{border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:10px 12px;font-size:14.5px;background:var(--bg)}
+.rv .rq{font-weight:600;margin-bottom:4px;font-family:var(--f-en)}
+.rv .ry{color:var(--bad);font-family:var(--f-en)} .rv .rc{color:var(--good);font-family:var(--f-en)}
 
 /* Flashcards */
-.fc-wrap{display:grid;gap:14px}
-.fcard{min-height:250px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
-.fcard .side{font:600 11px var(--f-mono);letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
+.fc-top{display:flex;gap:10px;margin-bottom:12px}
+.fc-top select{flex:1}
+.fc-top .btn{flex:none;padding:10px 14px;font-size:14.5px}
+.fcard{min-height:280px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;text-align:left;color:inherit;font:inherit}
+.fcard .side{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:10px}
 .fcard .fq{font-size:19px;font-weight:600;line-height:1.45}
-.fcard.back{background:var(--key-soft);border-color:var(--key)}
-.fcard.back .side{color:var(--key)}
-.fcard .hint{margin-top:16px;font-size:13px;color:var(--muted)}
-.fc-nav{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.fc-count{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.fcard .fq .qen,.fcard .fq .aen{font-family:var(--f-en)}
+.fcard .fq .qbn,.fcard .fq .abn{display:block;font-size:16.5px;font-weight:500;margin-top:6px}
+.fcard .fq .qbn{color:var(--muted)}
+.fcard.back{background:var(--good-soft);border-color:var(--good)}
+.fcard.back .side{color:var(--good)}
+.fcard .hint{margin-top:18px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.fcard .exbox{background:var(--surface)}
+.fc-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:12px}
+.fc-count{font:500 14px var(--f-mono);color:var(--muted);text-align:center}
 
-footer{color:var(--muted);font-size:12.5px;text-align:center;padding-top:10px;padding-bottom:30px}
+/* Bottom nav */
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bnav .wrap{display:grid;grid-template-columns:repeat(4,1fr);height:var(--nav-h)}
+.bnav button{border:0;background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12.5px;font-weight:600;cursor:pointer}
+.bnav svg{width:22px;height:22px}
+.bnav button[aria-current="page"]{color:var(--accent)}
+.bnav button[aria-current="page"] .pill{background:var(--accent-soft)}
+.bnav .pill{display:grid;place-items:center;width:52px;height:28px;border-radius:999px}
 
 /* Intro overlay */
 .intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(14,18,32,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-y:auto}
 .intro[hidden]{display:none}
-.intro-card{width:100%;max-width:460px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:22px 20px 20px;box-shadow:0 20px 50px rgba(0,0,0,.25);font-family:var(--f-bn);animation:pop .35s ease-out}
+.intro-card{width:100%;max-width:440px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:22px 20px 20px;box-shadow:0 20px 50px rgba(0,0,0,.25);animation:pop .35s ease-out}
 @keyframes pop{from{transform:translateY(12px) scale(.98);opacity:.6}to{transform:none;opacity:1}}
 .cipher-box{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;text-align:center}
 .cipher-txt{font:500 24px var(--f-mono);letter-spacing:.06em;color:var(--accent)}
 .cipher-txt.done{color:var(--key)}
 .cipher-hint{font-size:13px;color:var(--muted);margin-top:4px}
-.intro-card h2{font-family:var(--f-bn);font-size:21px;font-weight:600;margin:16px 0 6px}
+.intro-card h2{font-size:21px;font-weight:600;margin:16px 0 6px}
 .intro-card p{margin:0 0 10px;font-size:15.5px;line-height:1.6}
 .rules{list-style:none;padding:0;margin:0 0 12px;display:grid;gap:8px}
 .rules li{font-size:15px;line-height:1.55;padding:9px 12px;border-radius:10px;background:var(--bg);border-left:3px solid var(--line)}
-.rules li.good{border-left-color:var(--good)}
-.rules li.bad{border-left-color:var(--bad)}
-.rules li.mid{border-left-color:var(--key)}
+.rules li.good{border-left-color:var(--good)} .rules li.bad{border-left-color:var(--bad)} .rules li.mid{border-left-color:var(--key)}
 .sign{font-size:15px;color:var(--muted);text-align:right}
 .sign b{color:var(--ink);font-weight:600}
-.intro-btns{display:grid;gap:8px;margin-top:6px}
-.intro-btns .btn{font-family:var(--f-bn);width:100%}
+.intro-btns{display:grid;gap:8px;margin-top:8px}
 .thanks{margin-top:10px;font-size:14.5px;text-align:center;color:var(--good);min-height:1.2em}
 body.noscroll{overflow:hidden}
-body.pdf .intro{display:none!important}
-@media print{.intro{display:none!important}}
+
+footer{color:var(--muted);font-size:12.5px;text-align:center;padding:28px 0 10px;font-family:var(--f-en)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-
-/* Print / PDF */
-@media print{
-  nav.tabs,.toolbar,.jump,#exam,#cards,footer .noprint{display:none!important}
-  body{background:#fff}
-  .faq{break-inside:avoid}
-  section.sec{break-inside:auto}
-  .sec-head{break-after:avoid}
-}
-body.pdf nav.tabs,body.pdf .toolbar,body.pdf .jump,body.pdf .langbar{display:none}
+/* PDF export */
+body.pdf{padding-bottom:0}
+body.pdf .bnav,body.pdf .studybar,body.pdf .listhead,body.pdf .intro,body.pdf .langbtn,body.pdf #home,body.pdf .chev{display:none!important}
+body.pdf .qbody{display:block!important}
+body.pdf .qc{break-inside:avoid}
+@media print{.bnav,.intro{display:none!important}}
 </style>
 </head>
 <body>
-<div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle" lang="bn">
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
   <div class="intro-card">
     <div class="cipher-box">
       <div class="cipher-txt" id="cipherTxt" aria-live="polite">Uibolt Buijs</div>
@@ -224,53 +235,76 @@ body.pdf nav.tabs,body.pdf .toolbar,body.pdf .jump,body.pdf .langbar{display:non
     </ul>
     <p class="sign">— <b>Athir</b>, PMIT 39 · Section A<br><small>প্রথম প্রথম তো, তাই নোট শেয়ার করছি। এরপর নিজেই ফেল করলে অন্তত সান্ত্বনার ফুলটা যেন পাই।</small></p>
     <div class="intro-btns">
-      <button class="btn" type="button" id="thanksBtn">ধন্যবাদ দিয়ে ঢুকি</button>
-      <button class="btn ghost" type="button" id="skipBtn">ধন্যবাদ পরে, আগে পড়ি</button>
+      <button class="btn block" type="button" id="thanksBtn">ধন্যবাদ দিয়ে ঢুকি</button>
+      <button class="btn ghost block" type="button" id="skipBtn">ধন্যবাদ পরে, আগে পড়ি</button>
     </div>
     <div class="thanks" id="thanksMsg" role="status"></div>
   </div>
 </div>
-<header class="top wrap">
-  <div class="course">PMIT-6204 · Cryptography &amp; Steganography · IIT, JU</div>
-  <h1>Lecture 01: Overview of Cryptography</h1>
-  <p class="sub">All 53 frequently asked questions from the lecture slides, grouped by topic. Questions and answers in English and Bangla, each with a short Bangla example. The Exam tab lets you test yourself.</p>
-  <div class="cipherline">go back <b>→</b> hp cbdl &nbsp;·&nbsp; shift +1</div>
-  <div class="langbar"><span class="lbl">Question language / প্রশ্নের ভাষা</span>
-    <div class="seg" id="langSeg">
-      <button type="button" data-l="both" aria-pressed="true">English + বাংলা</button>
-      <button type="button" data-l="en" aria-pressed="false">English</button>
-      <button type="button" data-l="bn" aria-pressed="false">বাংলা</button>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="course">PMIT-6204 · IIT, JU</div>
+      <div class="name">Lecture 01: Overview of Cryptography</div>
+    </div>
+    <div class="langbtn" id="langSeg" role="group" aria-label="প্রশ্নের ভাষা">
+      <button type="button" data-l="both" aria-pressed="true" title="English + বাংলা">EN+বাং</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+      <button type="button" data-l="bn" aria-pressed="false">বাং</button>
     </div>
   </div>
 </header>
 
-<nav class="tabs" aria-label="Mode">
-  <div class="wrap" role="tablist">
-    <button class="tab" role="tab" id="tab-study" aria-controls="study" aria-selected="true" data-view="study">Study</button>
-    <button class="tab" role="tab" id="tab-exam" aria-controls="exam" aria-selected="false" data-view="exam">Exam</button>
-    <button class="tab" role="tab" id="tab-cards" aria-controls="cards" aria-selected="false" data-view="cards">Flashcards</button>
-  </div>
-</nav>
-
 <main class="wrap">
-  <!-- STUDY -->
-  <div class="view" id="study" role="tabpanel" aria-labelledby="tab-study">
-    <div class="toolbar">
-      <input class="search" id="search" type="search" placeholder="Search questions, e.g. private key" aria-label="Search questions">
-      <label class="toggle" for="hideAns"><input type="checkbox" id="hideAns"> Hide answers</label>
+  <!-- HOME -->
+  <section class="view" id="home">
+    <div class="hello">
+      <h1>কী করতে চান?</h1>
+      <p>লেকচার ১-এর ৫৩টা FAQ, ইংরেজি আর বাংলায়, প্রতিটার সাথে বাংলা উদাহরণ।</p>
     </div>
-    <div class="jump" id="jump"></div>
-    <div id="sections"></div>
+    <div class="modes">
+      <button class="mode m1" type="button" data-go="study">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>
+        <span><span class="t">পড়ুন<small>Study</small></span><span class="d">প্রশ্নে ট্যাপ করলে উত্তর আর উদাহরণ খুলবে</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
+      <button class="mode m2" type="button" data-go="exam">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+        <span><span class="t">পরীক্ষা দিন<small>Exam</small></span><span class="d">MCQ, সাথে সাথে ঠিক-ভুল আর শেষে স্কোর</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
+      <button class="mode m3" type="button" data-go="cards">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 6V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-3"/></svg></span>
+        <span><span class="t">ফ্ল্যাশকার্ড<small>Flashcards</small></span><span class="d">দ্রুত রিভিশন: কার্ড উল্টে উত্তর দেখুন</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>53</b><span>প্রশ্ন</span></div>
+      <div class="stat"><b>6</b><span>টপিক</span></div>
+      <div class="stat"><b id="bestScore">–</b><span>আপনার সেরা স্কোর</span></div>
+    </div>
+    <div class="tip">নিচের বার থেকে যেকোনো সময় এক মোড থেকে আরেক মোডে যেতে পারবেন। উপরের ডানে <b>EN / বাং</b> চেপে প্রশ্নের ভাষা বদলান।</div>
+  </section>
 
-    <section class="sec" id="sec-compare">
-      <div class="sec-head"><h2>Symmetric vs asymmetric at a glance</h2><span class="range">Slides 34–36</span></div>
+  <!-- STUDY -->
+  <section class="view" id="study" hidden>
+    <div class="studybar">
+      <input class="search" id="search" type="search" placeholder="প্রশ্ন খুঁজুন… যেমন: private key" aria-label="প্রশ্ন খুঁজুন">
+      <div class="chips" id="chips" role="group" aria-label="টপিক"></div>
+    </div>
+    <div class="listhead"><span id="countTxt"></span><button class="linkbtn" type="button" id="toggleAll">সব উত্তর খুলুন</button></div>
+    <div id="sections"></div>
+    <div id="compareWrap">
+      <div class="sec-title">এক নজরে: Symmetric vs Asymmetric</div>
       <div class="tbl">
         <table class="compare">
           <thead><tr><th>Point</th><th>Symmetric-key</th><th>Asymmetric-key</th></tr></thead>
           <tbody>
             <tr><td>Keys</td><td>1 shared secret key (E<sub>K</sub> = D<sub>K</sub>)</td><td>2 keys: public + private (E<sub>K</sub> ≠ D<sub>K</sub>)</td></tr>
             <tr><td>Based on</td><td>Sharing secrecy</td><td>Personal secrecy</td></tr>
-            <tr><td>Invented</td><td>2000+ years ago (came earlier)</td><td>Mid-1970s</td></tr>
+            <tr><td>Invented</td><td>2000+ years ago</td><td>Mid-1970s</td></tr>
             <tr><td>Key length</td><td>Shorter</td><td>Longer</td></tr>
             <tr><td>Speed</td><td>Faster, simpler</td><td>Slower</td></tr>
             <tr><td>Key distribution</td><td>Not so easy</td><td>Easy (only public key shared)</td></tr>
@@ -283,73 +317,82 @@ body.pdf nav.tabs,body.pdf .toolbar,body.pdf .jump,body.pdf .langbar{display:non
           </tbody>
         </table>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <!-- EXAM -->
-  <div class="view" id="exam" role="tabpanel" aria-labelledby="tab-exam" hidden>
-    <div class="card setup" id="examSetup">
-      <h2>Test yourself</h2>
-      <p>Every question comes from the lecture FAQ. You see right or wrong as soon as you pick an answer, with a short explanation.</p>
-      <div class="field">
-        <span class="lbl">Number of questions</span>
-        <div class="seg" id="countSeg">
-          <button type="button" data-n="10" aria-pressed="false">10</button>
-          <button type="button" data-n="20" aria-pressed="true">20</button>
-          <button type="button" data-n="30" aria-pressed="false">30</button>
-          <button type="button" data-n="0" aria-pressed="false">All 53</button>
+  <section class="view" id="exam" hidden>
+    <div id="examSetup">
+      <h2 class="vtitle">পরীক্ষা দিন</h2>
+      <p class="vsub">প্রতিটা উত্তর দেওয়ার সাথে সাথে দেখবেন ঠিক না ভুল, সাথে ব্যাখ্যা।</p>
+      <div class="card">
+        <div class="field"><span class="fl">কয়টা প্রশ্ন?</span>
+          <div class="seg" id="countSeg">
+            <button type="button" data-n="10" aria-pressed="true">10</button>
+            <button type="button" data-n="20" aria-pressed="false">20</button>
+            <button type="button" data-n="30" aria-pressed="false">30</button>
+            <button type="button" data-n="0" aria-pressed="false">সব (53)</button>
+          </div>
         </div>
+        <div class="field"><label class="fl" for="topicSel">কোন টপিক থেকে?</label>
+          <select id="topicSel"><option value="all">সব টপিক</option></select>
+        </div>
+        <label class="switch" for="shufQ"><span>প্রশ্ন এলোমেলো করুন (shuffle)</span><input type="checkbox" id="shufQ" checked></label>
+        <label class="switch" for="shufO"><span>অপশন এলোমেলো করুন</span><input type="checkbox" id="shufO" checked></label>
+        <button class="btn block" id="startBtn" type="button" style="margin-top:14px">পরীক্ষা শুরু করুন</button>
       </div>
-      <div class="field">
-        <label class="lbl" for="topicSel">Topic</label>
-        <select id="topicSel"><option value="all">All topics</option></select>
-      </div>
-      <div class="checks">
-        <label class="toggle" for="shufQ"><input type="checkbox" id="shufQ" checked> Shuffle question order</label>
-        <label class="toggle" for="shufO"><input type="checkbox" id="shufO" checked> Shuffle answer options</label>
-      </div>
-      <button class="btn" id="startBtn" type="button">Start exam</button>
     </div>
 
     <div class="card" id="examRun" hidden>
-      <div class="meta"><span id="qPos">Question 1 of 20</span><span class="score" id="qScore">0 correct</span></div>
+      <div class="meta"><span id="qPos"></span><span class="score" id="qScore"></span></div>
       <div class="progress"><i id="bar"></i></div>
       <div class="qorig" id="qOrig"></div>
       <div class="qtext" id="qText"></div>
       <div class="opts" id="opts"></div>
       <div id="fb"></div>
-      <div class="next"><button class="btn" id="nextBtn" type="button" hidden>Next question</button></div>
+      <div class="next"><button class="btn block" id="nextBtn" type="button" hidden>পরের প্রশ্ন</button></div>
+      <button class="linkbtn quit" id="quitBtn" type="button">পরীক্ষা বাদ দিন</button>
     </div>
 
-    <div class="card result" id="examResult" hidden>
-      <h2>Your result</h2>
+    <div class="card" id="examResult" hidden>
+      <h2 class="vtitle">আপনার ফলাফল</h2>
       <div class="big" id="resBig"></div>
       <p class="verdict" id="resVerdict"></p>
-      <div class="row">
-        <button class="btn" id="retryWrong" type="button">Retry wrong answers</button>
-        <button class="btn ghost" id="newExam" type="button">New exam</button>
+      <div class="res-btns">
+        <button class="btn block" id="retryWrong" type="button">শুধু ভুলগুলো আবার দিন</button>
+        <button class="btn ghost block" id="newExam" type="button">নতুন পরীক্ষা</button>
       </div>
       <div class="review" id="review"></div>
     </div>
-  </div>
+  </section>
 
   <!-- FLASHCARDS -->
-  <div class="view" id="cards" role="tabpanel" aria-labelledby="tab-cards" hidden>
-    <div class="fc-wrap">
-      <div class="toolbar">
-        <select id="fcTopic" aria-label="Flashcard topic"><option value="all">All topics</option></select>
-        <button class="btn ghost" id="fcShuffle" type="button">Shuffle</button>
-      </div>
-      <button class="fcard" id="fcard" type="button" aria-live="polite"></button>
-      <div class="fc-nav">
-        <button class="btn ghost" id="fcPrev" type="button">Previous</button>
-        <span class="fc-count" id="fcCount"></span>
-        <button class="btn" id="fcNext" type="button">Next</button>
-      </div>
+  <section class="view" id="cards" hidden>
+    <h2 class="vtitle">ফ্ল্যাশকার্ড</h2>
+    <p class="vsub">কার্ডে ট্যাপ করলে উল্টে যাবে।</p>
+    <div class="fc-top">
+      <select id="fcTopic" aria-label="টপিক"><option value="all">সব টপিক</option></select>
+      <button class="btn ghost" id="fcShuffle" type="button">এলোমেলো</button>
     </div>
-  </div>
+    <button class="fcard" id="fcard" type="button" aria-live="polite"></button>
+    <div class="fc-nav">
+      <button class="btn ghost" id="fcPrev" type="button">‹ আগের</button>
+      <span class="fc-count" id="fcCount"></span>
+      <button class="btn" id="fcNext" type="button">পরের ›</button>
+    </div>
+  </section>
+
+  <footer>Source: Lecture File 01, Overview of Cryptography, Professor K M Akkas Ali, IIT, JU.</footer>
 </main>
-<footer class="wrap">Source: Lecture File 01, Overview of Cryptography, prepared by Professor K M Akkas Ali, IIT, JU. Recommended books: Forouzan and Stallings, <i>Cryptography and Network Security</i>.</footer>
+
+<nav class="bnav" aria-label="মেনু">
+  <div class="wrap">
+    <button type="button" data-go="home"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>হোম</button>
+    <button type="button" data-go="study"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>পড়ুন</button>
+    <button type="button" data-go="exam"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>পরীক্ষা</button>
+    <button type="button" data-go="cards"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 6V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-3"/></svg></span>কার্ড</button>
+  </div>
+</nav>
 
 <script>
 const SECTIONS=[
@@ -529,127 +572,118 @@ const FAQ=[
  ["compare","Which cryptographic technique provides more security?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Only one party needs the private key; a third party knowing the public key does not compromise the message."]
 ].map((r,i)=>({n:i+1,sec:r[0],q:r[1],a:r[2],opts:r[3],ok:r[3][0],exp:r[4],ex:EX[i],qb:BN[i][0],ab:BN[i][1]}));
 
+
+const SEC_BN={basics:"ক্রিপ্টোগ্রাফি কী",scramble:"মেসেজ এলোমেলো করা",terms:"Encryption, Decryption ও Key",parts:"উপাদান ও নিরাপত্তা",types:"Symmetric ও Asymmetric",compare:"দুইটার তুলনা"};
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
-const fmtAns=a=>a.replace(/(\d+ ?\(|^\d+ )/,m=>m); // keep slide wording
-
-/* ---------- Tabs / hash ---------- */
-const VIEWS=["study","exam","cards"];
-function show(v){
-  if(!VIEWS.includes(v))v="study";
-  VIEWS.forEach(x=>{$("#"+x).hidden=x!==v;document.querySelector(`.tab[data-view="${x}"]`).setAttribute("aria-selected",x===v);});
-}
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{show(b.dataset.view);try{history.replaceState(null,"","#"+b.dataset.view);}catch(e){location.hash=b.dataset.view;}}));
-window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+const store={get(k){try{return localStorage.getItem(k);}catch(e){return null;}},set(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
 
 /* ---------- Language ---------- */
-let lang="both";
-try{const l=localStorage.getItem("crypto01-lang");if(["both","en","bn"].includes(l))lang=l;}catch(e){}
-const qHTML=f=>lang==="en"?esc(f.q):lang==="bn"?f.qb:`${esc(f.q)}<div class="qbn" lang="bn">${f.qb}</div>`;
-const aHTML=f=>lang==="en"?`<strong>${f.a}</strong>`:lang==="bn"?`<strong class="abn" lang="bn">${f.ab}</strong>`:`<strong>${f.a}</strong><span class="abn" lang="bn">${f.ab}</span>`;
-function setLang(l){
-  lang=l;document.body.classList.toggle("lang-bn",l==="bn");
-  $("#langSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.l===l));
-  try{localStorage.setItem("crypto01-lang",l);}catch(e){}
-  renderStudy();renderFC();
-  if(ex&&!$("#examRun").hidden){const f=ex.qs[ex.i];$("#qText").innerHTML=qHTML(f);}
+let lang=["both","en","bn"].includes(store.get("crypto01-lang"))?store.get("crypto01-lang"):"both";
+const qHTML=f=>lang==="en"?`<span class="qen">${esc(f.q)}</span>`:lang==="bn"?`<span>${f.qb}</span>`:`<span class="qen">${esc(f.q)}</span><span class="qbn">${f.qb}</span>`;
+const aHTML=f=>lang==="en"?`<span class="aen">${f.a}</span>`:lang==="bn"?`<span class="abn" style="margin-top:0">${f.ab}</span>`:`<span class="aen">${f.a}</span><span class="abn">${f.ab}</span>`;
+
+/* ---------- Navigation ---------- */
+const VIEWS=["home","study","exam","cards"];
+function show(v,push){
+  if(!VIEWS.includes(v))v="home";
+  VIEWS.forEach(x=>{$("#"+x).hidden=x!==v;});
+  document.querySelectorAll(".bnav button").forEach(b=>{if(b.dataset.go===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
+  if(push){try{history.replaceState(null,"","#"+v);}catch(e){}}
+  window.scrollTo(0,0);
 }
-$("#langSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setLang(b.dataset.l);});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)show(b.dataset.go,true);});
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
 
 /* ---------- Study ---------- */
+let curTopic="all",allOpen=false;const openSet=new Set();
+$("#chips").innerHTML=`<button class="chip" type="button" data-t="all" aria-pressed="true">সব</button>`+SECTIONS.map(s=>`<button class="chip" type="button" data-t="${s.id}" aria-pressed="false">${SEC_BN[s.id]}</button>`).join("");
+$("#chips").addEventListener("click",e=>{const c=e.target.closest(".chip");if(!c)return;curTopic=c.dataset.t;$("#chips").querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===c));renderStudy();});
+function cardHTML(f){
+  const open=allOpen||openSet.has(f.n);
+  return `<div class="qc${open?" open":""}" data-n="${f.n}"><button type="button" aria-expanded="${open}"><span class="qn">${f.n}</span><span class="qq">${qHTML(f)}</span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="qbody"><div class="ansbox"><span class="lbl">উত্তর</span>${aHTML(f)}</div><div class="exbox"><span class="lbl">উদাহরণ</span>${f.ex}</div></div></div>`;
+}
 function renderStudy(){
   const term=$("#search").value.trim().toLowerCase();
-  const hide=$("#hideAns").checked;
   let html="",total=0;
   SECTIONS.forEach(s=>{
+    if(curTopic!=="all"&&curTopic!==s.id)return;
     const items=FAQ.filter(f=>f.sec===s.id&&(!term||(f.q+" "+f.a+" "+f.qb+" "+f.ab).toLowerCase().includes(term)));
-    if(!items.length)return;
-    total+=items.length;
-    html+=`<section class="sec" id="s-${s.id}"><div class="sec-head"><h2>${s.title}</h2><span class="range">${s.range}</span></div><p class="sec-desc">${s.desc}</p><div class="list">`;
-    items.forEach(f=>{
-      const ans=`<span class="tag">ANS</span><span class="txt">${aHTML(f)}</span>`;
-      const exb=`<div class="ex" lang="bn"><span class="exl">উদাহরণ</span>${f.ex}</div>`;
-      html+=`<div class="faq"><span class="num">${String(f.n).padStart(2,"0")}</span><div class="q">${qHTML(f)}</div><div class="ans" data-n="${f.n}">${hide?`<button class="reveal" type="button" data-n="${f.n}">Show answer</button>`:ans}</div>${hide?"":exb}</div>`;
-    });
-    html+=`</div></section>`;
+    if(!items.length)return;total+=items.length;
+    html+=`<div class="sec-title">${SEC_BN[s.id]} <span class="cnt">${s.range}</span></div><div class="qcards">${items.map(cardHTML).join("")}</div>`;
   });
-  $("#sections").innerHTML=total?html:`<div class="list"><div class="empty">No question matches “${esc(term)}”.</div></div>`;
+  $("#sections").innerHTML=total?html:`<div class="empty">“${esc(term)}” দিয়ে কোনো প্রশ্ন পাওয়া যায়নি।</div>`;
+  $("#countTxt").textContent=`${total}টা প্রশ্ন`;
+  $("#compareWrap").hidden=!(curTopic==="all"||curTopic==="compare")||!!term;
+  $("#toggleAll").textContent=allOpen?"সব উত্তর বন্ধ করুন":"সব উত্তর খুলুন";
 }
-$("#jump").innerHTML=SECTIONS.map(s=>`<a class="chip" href="#study" data-target="s-${s.id}">${s.title.split(",")[0].replace(/ and .*/,"")}</a>`).join("")+`<a class="chip" href="#study" data-target="sec-compare">Comparison table</a>`;
-$("#jump").addEventListener("click",e=>{const a=e.target.closest("[data-target]");if(!a)return;e.preventDefault();const el=document.getElementById(a.dataset.target);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});});
 $("#search").addEventListener("input",renderStudy);
-$("#hideAns").addEventListener("change",renderStudy);
+$("#toggleAll").addEventListener("click",()=>{allOpen=!allOpen;openSet.clear();renderStudy();});
 $("#sections").addEventListener("click",e=>{
-  const b=e.target.closest(".reveal");if(!b)return;
-  const f=FAQ[b.dataset.n-1];
-  const box=b.parentElement;box.innerHTML=`<span class="tag">ANS</span><span class="txt">${aHTML(f)}</span>`;
-  box.insertAdjacentHTML("afterend",`<div class="ex" lang="bn"><span class="exl">উদাহরণ</span>${f.ex}</div>`);
+  const b=e.target.closest(".qc>button");if(!b)return;
+  const c=b.parentElement,n=+c.dataset.n,open=!c.classList.contains("open");
+  c.classList.toggle("open",open);b.setAttribute("aria-expanded",open);
+  if(open)openSet.add(n);else openSet.delete(n);
 });
 
 /* ---------- Exam ---------- */
-const selOpts=SECTIONS.map(s=>`<option value="${s.id}">${s.title}</option>`).join("");
+const selOpts=SECTIONS.map(s=>`<option value="${s.id}">${SEC_BN[s.id]}</option>`).join("");
 $("#topicSel").insertAdjacentHTML("beforeend",selOpts);
 $("#fcTopic").insertAdjacentHTML("beforeend",selOpts);
-let count=20;
+let count=10,ex=null;
 $("#countSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;count=+b.dataset.n;$("#countSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));});
-
-let ex=null;
-function startExam(pool){
-  let qs=pool;
-  if($("#shufQ").checked)qs=shuffle(qs);
-  if(count&&!pool._retry)qs=qs.slice(0,count);
+function startExam(pool,retry){
+  let qs=$("#shufQ").checked?shuffle(pool):pool.slice();
+  if(count&&!retry)qs=qs.slice(0,count);
   ex={qs,i:0,score:0,wrong:[],answered:false};
-  $("#examSetup").hidden=true;$("#examResult").hidden=true;$("#examRun").hidden=false;
-  renderQ();
+  $("#examSetup").hidden=true;$("#examResult").hidden=true;$("#examRun").hidden=false;renderQ();
 }
-$("#startBtn").addEventListener("click",()=>{
-  const t=$("#topicSel").value;
-  startExam(FAQ.filter(f=>t==="all"||f.sec===t));
-});
+$("#startBtn").addEventListener("click",()=>{const t=$("#topicSel").value;startExam(FAQ.filter(f=>t==="all"||f.sec===t));});
 function renderQ(){
   const f=ex.qs[ex.i];ex.answered=false;
-  $("#qPos").textContent=`Question ${ex.i+1} of ${ex.qs.length}`;
-  $("#qScore").textContent=`${ex.score} correct`;
+  $("#qPos").textContent=`প্রশ্ন ${ex.i+1} / ${ex.qs.length}`;
+  $("#qScore").textContent=`${ex.score}টা সঠিক`;
   $("#bar").style.width=(ex.i/ex.qs.length*100)+"%";
-  $("#qOrig").textContent=`FAQ ${f.n} · ${SECTIONS.find(s=>s.id===f.sec).title}`;
+  $("#qOrig").textContent=`FAQ ${f.n} · ${SEC_BN[f.sec]}`;
   $("#qText").innerHTML=qHTML(f);
   let opts=f.opts.slice();
   const isTF=opts.length===2&&opts.includes("True")&&opts.includes("False");
-  if(isTF)opts=["True","False"];
-  else if($("#shufO").checked)opts=shuffle(opts);
+  if(isTF)opts=["True","False"];else if($("#shufO").checked)opts=shuffle(opts);
   $("#opts").innerHTML=opts.map((o,k)=>`<button class="opt" type="button" data-v="${esc(o)}"><span class="letter">${"ABCD"[k]}</span><span>${esc(o)}</span></button>`).join("");
   $("#fb").innerHTML="";$("#nextBtn").hidden=true;
 }
 $("#opts").addEventListener("click",e=>{
-  const b=e.target.closest(".opt");if(!b||ex.answered)return;
-  ex.answered=true;
-  const f=ex.qs[ex.i];const pick=b.dataset.v;const right=pick===f.ok;
+  const b=e.target.closest(".opt");if(!b||ex.answered)return;ex.answered=true;
+  const f=ex.qs[ex.i],pick=b.dataset.v,right=pick===f.ok;
   document.querySelectorAll(".opt").forEach(o=>{o.disabled=true;if(o.dataset.v===f.ok)o.classList.add("correct");});
   if(right)ex.score++;else{b.classList.add("wrong");ex.wrong.push({f,pick});}
-  $("#qScore").textContent=`${ex.score} correct`;
-  $("#fb").innerHTML=`<div class="feedback ${right?"ok":"no"}" role="status"><b>${right?"Correct. সঠিক!":"Not quite. Correct answer: "+esc(f.ok)}</b>${lang==="en"?"":`<div class="abn" lang="bn" style="font-weight:500">উত্তর: ${f.ab}</div>`}${f.exp}<div class="fbex" lang="bn">${f.ex}</div></div>`;
-  const nb=$("#nextBtn");nb.hidden=false;nb.textContent=ex.i===ex.qs.length-1?"See result":"Next question";nb.focus();
+  $("#qScore").textContent=`${ex.score}টা সঠিক`;
+  $("#fb").innerHTML=`<div class="feedback ${right?"ok":"no"}" role="status"><div class="fh">${right?"সঠিক! ✓":"ভুল হয়েছে। সঠিক উত্তর: <span class='en'>"+esc(f.ok)+"</span>"}</div><div class="fexp">${f.exp}</div><div class="fbex">${f.ex}</div></div>`;
+  const nb=$("#nextBtn");nb.hidden=false;nb.textContent=ex.i===ex.qs.length-1?"ফলাফল দেখুন":"পরের প্রশ্ন";nb.focus();
 });
-$("#nextBtn").addEventListener("click",()=>{ex.i++;if(ex.i<ex.qs.length)renderQ();else finish();});
+$("#nextBtn").addEventListener("click",()=>{ex.i++;if(ex.i<ex.qs.length){renderQ();window.scrollTo(0,0);}else finish();});
+$("#quitBtn").addEventListener("click",()=>{$("#examRun").hidden=true;$("#examSetup").hidden=false;});
 function finish(){
-  $("#examRun").hidden=true;$("#examResult").hidden=false;
+  $("#examRun").hidden=true;$("#examResult").hidden=false;window.scrollTo(0,0);
   const n=ex.qs.length,p=Math.round(ex.score/n*100);
   $("#resBig").textContent=`${ex.score} / ${n}`;
-  $("#resVerdict").textContent=p===100?"Perfect score. You know this lecture.":p>=80?`${p}%. Strong. Review the few you missed below.`:p>=50?`${p}%. Getting there. Go through the missed ones and retry them.`:`${p}%. Read the Study tab once more, then retry.`;
+  $("#resVerdict").textContent=p===100?"ফুল মার্ক! এই লেকচার আপনার হাতের মুঠোয়।":p>=80?`${p}%। দারুণ! নিচের অল্প কয়টা আরেকবার দেখে নিন।`:p>=50?`${p}%। ভালো চলছে। ভুলগুলো দেখে আবার চেষ্টা করুন।`:`${p}%। আরেকবার "পড়ুন" অংশটা দেখে তারপর আবার চেষ্টা করুন।`;
   $("#retryWrong").hidden=!ex.wrong.length;
-  $("#review").innerHTML=ex.wrong.length?`<div class="sec-head"><h2>Questions you missed</h2></div>`+ex.wrong.map(w=>`<div class="rv"><div class="rq">FAQ ${w.f.n}. ${esc(w.f.q)}</div><div class="ry">Your answer: ${esc(w.pick)}</div><div class="rc">Correct: ${esc(w.f.ok)}</div></div>`).join(""):"";
-  try{const best=+localStorage.getItem("crypto01-best")||0;if(p>best)localStorage.setItem("crypto01-best",p);}catch(e){}
+  $("#review").innerHTML=ex.wrong.length?`<div class="sec-title">যেগুলো ভুল হয়েছে</div>`+ex.wrong.map(w=>`<div class="rv"><div class="rq">FAQ ${w.f.n}. ${esc(w.f.q)}</div><div class="ry">আপনার উত্তর: ${esc(w.pick)}</div><div class="rc">সঠিক: ${esc(w.f.ok)}</div></div>`).join(""):"";
+  const best=+store.get("crypto01-best")||0;if(p>best)store.set("crypto01-best",p);updateBest();
 }
-$("#retryWrong").addEventListener("click",()=>{const pool=ex.wrong.map(w=>w.f);pool._retry=true;startExam(pool);});
+$("#retryWrong").addEventListener("click",()=>startExam(ex.wrong.map(w=>w.f),true));
 $("#newExam").addEventListener("click",()=>{$("#examResult").hidden=true;$("#examSetup").hidden=false;});
+function updateBest(){const b=store.get("crypto01-best");$("#bestScore").textContent=b!==null?b+"%":"–";}
 
 /* ---------- Flashcards ---------- */
 let fc={list:FAQ.slice(),i:0,back:false};
 function renderFC(){
-  const f=fc.list[fc.i];const c=$("#fcard");
-  c.classList.toggle("back",fc.back);
-  c.innerHTML=fc.back?`<div class="side">ANSWER · FAQ ${f.n}</div><div class="fq">${aHTML(f)}</div><div class="fex" lang="bn"><span class="exl">উদাহরণ</span>${f.ex}</div>`:`<div class="side">QUESTION · FAQ ${f.n}</div><div class="fq">${qHTML(f)}</div><div class="hint">Tap the card to see the answer</div>`;
+  const f=fc.list[fc.i],c=$("#fcard");c.classList.toggle("back",fc.back);
+  c.innerHTML=fc.back?`<div class="side">উত্তর · FAQ ${f.n}</div><div class="fq">${aHTML(f)}</div><div class="exbox" style="margin-top:14px"><span class="lbl">উদাহরণ</span>${f.ex}</div>`
+    :`<div class="side">প্রশ্ন · FAQ ${f.n}</div><div class="fq">${qHTML(f)}</div><div class="hint">↻ ট্যাপ করে উত্তর দেখুন</div>`;
   $("#fcCount").textContent=`${fc.i+1} / ${fc.list.length}`;
   $("#fcPrev").disabled=fc.i===0;$("#fcNext").disabled=fc.i===fc.list.length-1;
 }
@@ -660,33 +694,32 @@ $("#fcShuffle").addEventListener("click",()=>{fc.list=shuffle(fc.list);fc.i=0;fc
 $("#fcTopic").addEventListener("change",e=>{const t=e.target.value;fc.list=FAQ.filter(f=>t==="all"||f.sec===t);fc.i=0;fc.back=false;renderFC();});
 document.addEventListener("keydown",e=>{if($("#cards").hidden||e.target.tagName==="SELECT")return;if(e.key==="ArrowRight")$("#fcNext").click();if(e.key==="ArrowLeft")$("#fcPrev").click();});
 
-setLang(lang);show(location.hash.slice(1));
+/* ---------- Language switch ---------- */
+function setLang(l){
+  lang=l;store.set("crypto01-lang",l);
+  $("#langSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.l===l));
+  renderStudy();renderFC();if(ex&&!$("#examRun").hidden)$("#qText").innerHTML=qHTML(ex.qs[ex.i]);
+}
+$("#langSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setLang(b.dataset.l);});
+
+setLang(lang);updateBest();show(location.hash.slice(1));
+
 /* ---------- Intro ---------- */
 (function(){
   const intro=$("#intro");
   let seen=false;try{seen=sessionStorage.getItem("crypto01-intro")==="1";}catch(e){}
-  if(seen){intro.hidden=true;return;}
+  if(seen||document.body.classList.contains("pdf")){intro.hidden=true;return;}
   document.body.classList.add("noscroll");
   const target="Thanks Athir",start="Uibolt Buijs",el=$("#cipherTxt");
   const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finish=()=>{el.textContent=target;el.classList.add("done");$("#cipherHint").textContent="Decrypted! লেকচার ১-এর shift cipher দিয়েই লেখা ছিল 😄";};
-  if(reduce)finish();else{
-    let i=0;const chars=start.split("");
-    setTimeout(function step(){
-      if(i>=chars.length){finish();return;}
-      chars[i]=target[i];el.textContent=chars.join("");i++;setTimeout(step,110);
-    },700);
-  }
+  if(reduce)finish();else{let i=0;const chars=start.split("");setTimeout(function step(){if(i>=chars.length){finish();return;}chars[i]=target[i];el.textContent=chars.join("");i++;setTimeout(step,110);},700);}
   const close=()=>{intro.hidden=true;document.body.classList.remove("noscroll");try{sessionStorage.setItem("crypto01-intro","1");}catch(e){}};
   $("#skipBtn").addEventListener("click",close);
-  $("#thanksBtn").addEventListener("click",()=>{
-    $("#thanksMsg").textContent="ধন্যবাদ পৌঁছে গেছে ✓ end-to-end encrypted, তাই AI-ও টের পায়নি।";
-    $("#thanksBtn").disabled=true;setTimeout(close,1600);
-  });
+  $("#thanksBtn").addEventListener("click",()=>{$("#thanksMsg").textContent="ধন্যবাদ পৌঁছে গেছে ✓ end-to-end encrypted, তাই AI-ও টের পায়নি।";$("#thanksBtn").disabled=true;setTimeout(close,1600);});
   document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!intro.hidden)close();});
   setTimeout(()=>$("#thanksBtn").focus(),50);
 })();
-
 </script>
 </body>
 </html>
