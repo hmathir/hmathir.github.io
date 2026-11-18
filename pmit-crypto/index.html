@@ -62,6 +62,7 @@ p.vsub{color:var(--muted);margin:0 0 18px;font-size:15px}
 .mode:active{transform:scale(.99)}
 .mode .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
 .mode .ic svg{width:26px;height:26px}
+.mode.m0 .ic{background:var(--ink);color:var(--surface)}
 .mode.m1 .ic{background:var(--accent-soft);color:var(--accent)}
 .mode.m2 .ic{background:var(--good-soft);color:var(--good)}
 .mode.m3 .ic{background:var(--key-soft);color:var(--key)}
@@ -179,14 +180,105 @@ select{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--bg);
 .fc-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:12px}
 .fc-count{font:500 14px var(--f-mono);color:var(--muted);text-align:center}
 
+/* Notes */
+.nprog{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:14px;color:var(--muted)}
+.nprog .bar{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.nprog .bar i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
+.toc{display:grid;gap:8px}
+.tocitem{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;color:inherit}
+.tocitem:hover{border-color:var(--accent)}
+.tocitem .no{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:600 15px var(--f-display)}
+.tocitem.done .no{background:var(--good);color:#fff}
+.tocitem .tt{font-weight:600;font-size:16px;line-height:1.35}
+.tocitem .ts{display:block;font:400 12.5px var(--f-en);color:var(--muted);margin-top:1px}
+.tocitem .sl{font:500 12px var(--f-mono);color:var(--muted);white-space:nowrap}
+.chhead{margin-bottom:14px}
+.back{background:none;border:0;color:var(--accent);font-weight:600;font-size:15px;cursor:pointer;padding:4px 0;margin-bottom:8px}
+.chhead .k{font:500 12.5px var(--f-mono);color:var(--muted)}
+.chhead h2{font-size:24px;font-weight:600;margin:2px 0 0;line-height:1.3;text-wrap:balance}
+.chbody{font-size:16px;line-height:1.7}
+.chbody p{margin:0 0 12px}
+.chbody h3{font-size:17px;font-weight:600;margin:22px 0 10px}
+.chbody .pts{margin:0 0 14px;padding-left:22px;display:grid;gap:6px}
+.callout{border-radius:12px;padding:12px 14px;margin:14px 0;font-size:15.5px;line-height:1.65}
+.callout b:first-child{display:block;font-size:13.5px;margin-bottom:2px}
+.callout.key{background:var(--key-soft);border-left:4px solid var(--key)}
+.callout.key b:first-child{color:var(--key)}
+.callout.tip{background:var(--accent-soft);border-left:4px solid var(--accent)}
+.callout.tip b:first-child{color:var(--accent)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0 14px}
+.fbox{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font:600 14px var(--f-en);text-align:center}
+.fbox small{display:block;font:400 12.5px var(--f-mono);color:var(--muted);margin-top:2px}
+.fbox.dark{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.fbox.dark small{color:var(--line)}
+.fbox.acc{border-color:var(--accent);color:var(--accent)}
+.farr{font-size:13.5px;color:var(--muted);font-weight:500}
+.farr::after{content:" →"}
+@media (max-width:560px){.flow{flex-direction:column;align-items:stretch;gap:4px}.farr{text-align:center}.farr::after{content:" ↓"}}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6}
+.mini b{display:block;font-family:var(--f-en);font-size:15.5px;margin-bottom:2px}
+.mini .mono{display:block;margin:6px 0;color:var(--accent);font-size:14px}
+.mini small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px}
+.mini.good{border-top:3px solid var(--good)} .mini.bad{border-top:3px solid var(--bad)}
+.mini.c1{border-top:3px solid var(--accent)} .mini.c2{border-top:3px solid var(--good)} .mini.c3{border-top:3px solid var(--key)} .mini.c4{border-top:3px solid var(--bad)}
+.mini .tag{display:inline-block;font:500 11px var(--f-en);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle}
+.mini b .tag{margin-left:6px}
+.gloss{margin:0;display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gloss dt{font:600 14.5px var(--f-en);padding:10px 14px 0;border-top:1px solid var(--line)}
+.gloss dt:first-child{border-top:0}
+.gloss dd{margin:0;padding:2px 14px 10px;font-size:15px;color:var(--ink)}
+.tree{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.tnode{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font:600 14.5px var(--f-en)}
+.tnode small{display:block;font:400 13px var(--f-body);color:var(--muted)}
+.tnode.root{background:var(--ink);color:var(--surface);border-color:var(--ink);text-align:center;margin-bottom:12px}
+.tkids{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.tcol{display:grid;gap:8px;align-content:start;border-left:2px solid var(--line);padding-left:12px}
+.tlabel{font-size:13.5px;font-weight:600;color:var(--accent)}
+.tsub{display:flex;flex-wrap:wrap;gap:6px;padding-left:14px}
+.tsub span{font:500 13px var(--f-en);background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 10px}
+.modes2{display:flex;gap:6px;margin:6px 0 10px;flex-wrap:wrap}
+.mtab{flex:1 1 auto;font-size:14.5px;font-weight:600;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 10px;cursor:pointer}
+.mtab[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.mpanel[hidden]{display:none}
+.stepper{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+.scene{display:grid;grid-template-columns:1fr 1.4fr 1fr;align-items:center;text-align:center;background:var(--bg);border-radius:10px;padding:16px 8px;font-size:26px;min-height:76px}
+.scene span:nth-child(2){font-size:22px}
+.scene small{display:block;font-size:12px;color:var(--muted)}
+.stext{font-size:15.5px;line-height:1.6;margin:12px 0;min-height:3.2em}
+.sctl{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sdots{display:flex;gap:6px}
+.sdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.sdots i.on{background:var(--accent)}
+.sctl .btn{padding:9px 14px;font-size:14.5px}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0}
+.tool .th{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15.5px;margin-bottom:10px}
+.tool .th .badge{font:600 11px var(--f-en);background:var(--good-soft);color:var(--good);border-radius:6px;padding:2px 7px}
+.tool label.tl{display:block;font-size:13.5px;color:var(--muted);margin:8px 0 4px}
+.tool input[type=text],.tool input[type=number]{width:100%;font:15px var(--f-mono);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.tool input[type=range]{width:100%;accent-color:var(--accent)}
+.tool .out{margin-top:10px;background:var(--ink);color:var(--surface);border-radius:10px;padding:12px;font:500 16px var(--f-mono);word-break:break-all}
+.tool .out small{display:block;font:400 12px var(--f-body);color:var(--line);margin-bottom:2px}
+.tool .note{font-size:13.5px;color:var(--muted);margin-top:8px}
+.bits{font:500 14.5px var(--f-mono);background:var(--bg);border-radius:10px;padding:10px 12px;overflow-x:auto;white-space:pre;line-height:1.8}
+.bits .r{color:var(--accent)} .bits .g{color:var(--good)}
+.kc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.kc div{background:var(--bg);border-radius:10px;padding:10px;text-align:center}
+.kc b{display:block;font:700 26px var(--f-display);font-variant-numeric:tabular-nums}
+.kc span{font-size:13px;color:var(--muted)}
+.chfoot{display:grid;gap:10px;margin-top:22px}
+.chnav{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chnav .btn{font-size:14.5px;padding:11px 10px}
+.donebtn[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:#fff}
+
 /* Bottom nav */
 .bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
-.bnav .wrap{display:grid;grid-template-columns:repeat(4,1fr);height:var(--nav-h)}
+.bnav .wrap{display:grid;grid-template-columns:repeat(5,1fr);height:var(--nav-h);padding-left:4px;padding-right:4px}
 .bnav button{border:0;background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12.5px;font-weight:600;cursor:pointer}
 .bnav svg{width:22px;height:22px}
 .bnav button[aria-current="page"]{color:var(--accent)}
 .bnav button[aria-current="page"] .pill{background:var(--accent-soft)}
-.bnav .pill{display:grid;place-items:center;width:52px;height:28px;border-radius:999px}
+.bnav .pill{display:grid;place-items:center;width:48px;height:28px;border-radius:999px}
 
 /* Intro overlay */
 .intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(14,18,32,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-y:auto}
@@ -215,6 +307,11 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding:28px 0 10px
 body.pdf{padding-bottom:0}
 body.pdf .bnav,body.pdf .studybar,body.pdf .listhead,body.pdf .intro,body.pdf .langbtn,body.pdf #home,body.pdf .chev{display:none!important}
 body.pdf .qbody{display:block!important}
+body.pdf .tocwrap,body.pdf .back,body.pdf .chfoot,body.pdf .sctl{display:none!important}
+body.pdf .mini,body.pdf .tool,body.pdf .flow,body.pdf .stepper,body.pdf .callout,body.pdf .gloss,body.pdf .tree{break-inside:avoid}
+body.pdf .chapter{margin-bottom:28px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+body.pdf .pdfsteps{display:grid;gap:8px}
+body.pdf .pdfsteps div{background:var(--bg);border-radius:10px;padding:8px 12px;font-size:14.5px}
 body.pdf .qc{break-inside:avoid}
 @media print{.bnav,.intro{display:none!important}}
 </style>
@@ -261,12 +358,17 @@ body.pdf .qc{break-inside:avoid}
   <section class="view" id="home">
     <div class="hello">
       <h1>কী করতে চান?</h1>
-      <p>লেকচার ১-এর ৫৩টা FAQ, ইংরেজি আর বাংলায়, প্রতিটার সাথে বাংলা উদাহরণ।</p>
+      <p>সহজ পথ: আগে <b>নোট</b> পড়ুন, তারপর <b>প্রশ্নোত্তর</b>, শেষে <b>পরীক্ষা</b>।</p>
     </div>
     <div class="modes">
+      <button class="mode m0" type="button" data-go="notes">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+        <span><span class="t">সহজ নোট<small>Lesson</small></span><span class="d" id="homeNoteTxt">পুরো স্লাইড ১৪টা ছোট চ্যাপ্টারে, ছবি আর খেলার টুলসহ</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
       <button class="mode m1" type="button" data-go="study">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>
-        <span><span class="t">পড়ুন<small>Study</small></span><span class="d">প্রশ্নে ট্যাপ করলে উত্তর আর উদাহরণ খুলবে</span></span>
+        <span><span class="t">প্রশ্নোত্তর<small>FAQ</small></span><span class="d">স্যারের ৫৩টা প্রশ্ন, ট্যাপ করলে উত্তর আর উদাহরণ</span></span>
         <span class="arr" aria-hidden="true">›</span>
       </button>
       <button class="mode m2" type="button" data-go="exam">
@@ -282,10 +384,22 @@ body.pdf .qc{break-inside:avoid}
     </div>
     <div class="stats">
       <div class="stat"><b>53</b><span>প্রশ্ন</span></div>
-      <div class="stat"><b>6</b><span>টপিক</span></div>
+      <div class="stat"><b id="statNotes">0/14</b><span>চ্যাপ্টার পড়া</span></div>
       <div class="stat"><b id="bestScore">–</b><span>আপনার সেরা স্কোর</span></div>
     </div>
-    <div class="tip">নিচের বার থেকে যেকোনো সময় এক মোড থেকে আরেক মোডে যেতে পারবেন। উপরের ডানে <b>EN / বাং</b> চেপে প্রশ্নের ভাষা বদলান।</div>
+    <div class="tip">নিচের বার থেকে যেকোনো সময় এক অংশ থেকে আরেক অংশে যেতে পারবেন। উপরের ডানে <b>EN / বাং</b> চেপে প্রশ্নের ভাষা বদলান।</div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="view" id="notes" hidden>
+    <div class="tocwrap" id="tocwrap">
+      <h2 class="vtitle">সহজ নোট</h2>
+      <p class="vsub">স্লাইডের পুরো লেকচার ছোট ছোট চ্যাপ্টারে। পড়া শেষ হলে “পড়া শেষ” চাপুন।</p>
+      <div class="nprog"><span id="nprogTxt"></span><div class="bar"><i id="nprogBar"></i></div></div>
+      <div class="toc" id="toc"></div>
+    </div>
+    <div id="chapterView" hidden></div>
+    <div id="allChapters" hidden></div>
   </section>
 
   <!-- STUDY -->
@@ -388,7 +502,8 @@ body.pdf .qc{break-inside:avoid}
 <nav class="bnav" aria-label="মেনু">
   <div class="wrap">
     <button type="button" data-go="home"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>হোম</button>
-    <button type="button" data-go="study"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>পড়ুন</button>
+    <button type="button" data-go="notes"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>নোট</button>
+    <button type="button" data-go="study"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>প্রশ্ন</button>
     <button type="button" data-go="exam"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>পরীক্ষা</button>
     <button type="button" data-go="cards"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 6V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-3"/></svg></span>কার্ড</button>
   </div>
@@ -572,6 +687,195 @@ const FAQ=[
  ["compare","Which cryptographic technique provides more security?","Asymmetric-key cryptography",["Asymmetric-key cryptography","Symmetric-key cryptography"],"Only one party needs the private key; a third party knowing the public key does not compromise the message."]
 ].map((r,i)=>({n:i+1,sec:r[0],q:r[1],a:r[2],opts:r[3],ok:r[3][0],exp:r[4],ex:EX[i],qb:BN[i][0],ab:BN[i][1]}));
 
+const NOTES=[
+{id:1,t:"ক্রিপ্টোগ্রাফি কী?",en:"What is Cryptography",sl:"14–15",faq:[1,2,3,4,5,6,7,8,9,10,11],h:`
+<p><b>Cryptography</b> হলো অবিশ্বস্ত (un-trusted) চ্যানেলের মধ্য দিয়ে এমনভাবে যোগাযোগ করার বিদ্যা, যাতে শুধু প্রেরক আর আসল প্রাপকই মেসেজটা পড়তে পারে।</p>
+<div class="callout key"><b>সংজ্ঞা (পরীক্ষার জন্য)</b>Cryptography is a mathematical process that scrambles information by <u>rearrangement</u> and <u>substitution</u> of content, making it unreadable to anyone except the person capable of unscrambling it.</div>
+<p>শব্দটা এসেছে গ্রিক <b>kryptos</b> থেকে, স্লাইড অনুযায়ী যার মানে “secret writing”।</p>
+<h3>মূল ধারণা: Alice থেকে Bob</h3>
+<div class="flow">
+  <div class="fbox">Plaintext<small>Happy Valentine’s Day</small></div><div class="farr">Encrypt </div>
+  <div class="fbox dark">Ciphertext<small>Gzoox Uzkdmshmd’r Czx</small></div><div class="farr">Decrypt </div>
+  <div class="fbox">Plaintext<small>Happy Valentine’s Day</small></div>
+</div>
+<p>মেসেজ লুকানোর দুইটা উপায়:</p>
+<div class="grid2">
+  <div class="mini"><b>Substitution</b>প্রতিটা অক্ষর বদলে অন্য অক্ষর বসানো।<span class="mono">Happy → Gzoox</span><small>(প্রতিটা অক্ষর এক ঘর আগে)</small></div>
+  <div class="mini"><b>Transposition</b>অক্ষর একই থাকে, শুধু জায়গা বদলায়।<span class="mono">Happy → Pyaph</span><small>(অক্ষরগুলো উল্টেপাল্টে)</small></div>
+</div>
+<div class="tool" data-tool="caesar"></div>`},
+{id:2,t:"নিরাপত্তার চারটি লক্ষ্য",en:"Four security needs",sl:"16",faq:[23],h:`
+<p>আধুনিক ক্রিপ্টোগ্রাফি চারটা জিনিস নিশ্চিত করে। bKash থেকে টাকা পাঠানোর উদাহরণ দিয়ে দেখুন:</p>
+<div class="grid2">
+  <div class="mini c1"><b>1. Confidentiality</b>যার জন্য মেসেজ, সে ছাড়া কেউ বুঝতে পারবে না।<small>আপনার PIN আর কেউ দেখতে পায় না।</small></div>
+  <div class="mini c2"><b>2. Integrity</b>পথে কেউ বদলালে সেটা ধরা পড়বে।<small>৫০০ টাকা কেউ ৫০০০ বানাতে পারবে না।</small></div>
+  <div class="mini c3"><b>3. Non-repudiation</b>পাঠানোর পর প্রেরক অস্বীকার করতে পারবে না।<small>“আমি টাকা পাঠাইনি” বলা যাবে না।</small></div>
+  <div class="mini c4"><b>4. Authentication</b>প্রেরক-প্রাপক একে অপরের পরিচয় নিশ্চিত হতে পারে।<small>আপনি জানেন অ্যাপটা আসল bKash।</small></div>
+</div>
+<div class="callout tip"><b>মনে রাখার কৌশল</b><span class="mono">C · I · N · A</span>: <b>C</b>onfidentiality, <b>I</b>ntegrity, <b>N</b>on-repudiation, <b>A</b>uthentication।</div>`},
+{id:3,t:"Cryptosystem-এর অংশ ও পরিভাষা",en:"Parts and terminology",sl:"18–21",faq:[12,13,14,15,16,17,18,19,20,21,22,24,25],h:`
+<p>যেকোনো cryptographic process-এর তিনটা মূল অংশ: <b>Message</b>, <b>Algorithm</b> আর <b>Key</b>।</p>
+<div class="flow">
+  <div class="fbox">Plaintext</div><div class="farr"></div>
+  <div class="fbox acc">Encryption Algorithm<small>🔑 Encryption Key</small></div><div class="farr"></div>
+  <div class="fbox dark">Ciphertext</div><div class="farr"></div>
+  <div class="fbox acc">Decryption Algorithm<small>🔑 Decryption Key</small></div><div class="farr"></div>
+  <div class="fbox">Plaintext</div>
+</div>
+<h3>পরিভাষা এক নজরে</h3>
+<dl class="gloss">
+  <dt>Plaintext / Cleartext</dt><dd>আসল, পড়ার মতো মেসেজ।</dd>
+  <dt>Ciphertext</dt><dd>এনক্রিপ্ট করার পর দুর্বোধ্য মেসেজ। চ্যানেলে এটাই যায়।</dd>
+  <dt>Cipher</dt><dd>এনক্রিপশনের অ্যালগরিদম বা গাণিতিক সূত্র।</dd>
+  <dt>Encrypt / Decrypt</dt><dd>Plaintext → ciphertext / ciphertext → plaintext।</dd>
+  <dt>Key</dt><dd>গাণিতিক মান, সূত্র বা পদ্ধতি যেটা ঠিক করে মেসেজ কীভাবে এনক্রিপ্ট হবে। key যত বড়, ভাঙা তত কঠিন।</dd>
+  <dt>Cryptanalysis</dt><dd>key ছাড়াই গোপনীয়তা ভাঙার বিদ্যা, মানে cryptographic scheme-এর উপর আক্রমণ নিয়ে পড়াশোনা।</dd>
+  <dt>Cryptology</dt><dd>Cryptography + Cryptanalysis একসাথে।</dd>
+</dl>
+<div class="callout tip"><b>মনে রাখুন</b>Encryption key = sender side key। Decryption key = receiver side key।</div>`},
+{id:4,t:"ক্রিপ্টোগ্রাফির প্রকারভেদ",en:"Kinds of cryptography",sl:"22–23",faq:[26,9],h:`
+<p>ক্রিপ্টোগ্রাফিকে দুইভাবে ভাগ করা যায়:</p>
+<div class="tree">
+  <div class="tnode root">Cryptography</div>
+  <div class="tkids">
+    <div class="tcol"><div class="tlabel">A. key অনুযায়ী</div>
+      <div class="tnode">Symmetric-key<small>একই key · sharing secrecy</small></div>
+      <div class="tnode">Asymmetric-key<small>আলাদা key · personal secrecy</small></div>
+    </div>
+    <div class="tcol"><div class="tlabel">B. কে প্রসেস করে অনুযায়ী</div>
+      <div class="tnode">Traditional<small>মানুষের মাথা বা হাতে</small></div>
+      <div class="tsub"><span>Substitution</span><span>Transposition</span></div>
+      <div class="tnode">Modern<small>কম্পিউটারে</small></div>
+      <div class="tsub"><span>Stream cipher</span><span>Block cipher</span></div>
+    </div>
+  </div>
+</div>
+<div class="callout key"><b>কোন পদ্ধতি বেছে নেবেন?</b>দুইটা জিনিসের উপর নির্ভর করে: (১) ডেটা কতটা sensitive, আর (২) কতদিন সুরক্ষিত রাখতে হবে।</div>`},
+{id:5,t:"Symmetric-key Cryptography",en:"One shared key",sl:"24–27",faq:[27,28,32,35,36,45,49,50,52],h:`
+<p>প্রেরক আর প্রাপক দুজনের কাছে <b>একই key</b> থাকে। এই key দিয়েই দুজন এনক্রিপ্ট ও ডিক্রিপ্ট করে, তাই key-টা বাকি সবার কাছ থেকে গোপন রাখতে হয়।</p>
+<ul class="pts">
+  <li>Encryption আর decryption অ্যালগরিদম একে অপরের inverse।</li>
+  <li>উদাহরণ: <b>DES</b>, <b>AES</b>।</li>
+  <li>ইতিহাসে ব্যবহার করেছেন Julius Caesar, জার্মান U-Boat কমান্ডাররা।</li>
+</ul>
+<h3>পোস্ট অফিসের উদাহরণ</h3>
+<div class="stepper" data-steps="sym"></div>
+<div class="grid2">
+  <div class="mini good"><b>সুবিধা</b>দ্রুত আর সহজে সেটআপ করা যায়। বোঝা ও ব্যবহার করা সহজ। key ছাড়া কনটেন্ট পড়া যায় না।</div>
+  <div class="mini bad"><b>অসুবিধা</b>key নিরাপদে পৌঁছানো কঠিন। ১০ জন vendor থাকলে ১০টা আলাদা key লাগে, সামলানো ঝামেলা।</div>
+</div>`},
+{id:6,t:"Asymmetric-key Cryptography",en:"Public + private key",sl:"28–33",faq:[29,30,31,33,34,37,38,39,40,46,48,51],h:`
+<p>এখানে গাণিতিকভাবে সম্পর্কিত <b>দুইটা key</b> থাকে: <b>public key</b> (সবাই জানতে পারে) আর <b>private key</b> (শুধু মালিক জানে)।</p>
+<div class="callout key"><b>মূল নিয়ম</b>প্রেরক এনক্রিপ্ট করে <u>প্রাপকের public key</u> দিয়ে। প্রাপক ডিক্রিপ্ট করে <u>নিজের private key</u> দিয়ে।</div>
+<p>উদাহরণ: <b>RSA</b> (Rivest, Shamir, Adleman), Rabin, ElGamal, ECC।</p>
+<h3>পোস্ট অফিসের উদাহরণ</h3>
+<div class="stepper" data-steps="asym"></div>
+<h3>ব্যবহারের দুইটা ধরন</h3>
+<div class="modes2">
+  <button type="button" class="mtab" aria-pressed="true" data-m="conf">গোপনীয়তা (Confidentiality)</button>
+  <button type="button" class="mtab" aria-pressed="false" data-m="auth">পরিচয় প্রমাণ (Authenticity)</button>
+</div>
+<div class="mpanel" data-m="conf">
+  <div class="flow"><div class="fbox">Rassel</div><div class="farr">🔒 Ellen-এর <b>public</b> key </div><div class="fbox dark">Ciphertext</div><div class="farr">🔑 Ellen-এর <b>private</b> key </div><div class="fbox">Ellen</div></div>
+  <p>মাঝপথে কেউ ধরলেও খুলতে পারবে না, কারণ private key শুধু Ellen-এর কাছে।</p>
+</div>
+<div class="mpanel" data-m="auth" hidden>
+  <div class="flow"><div class="fbox">Rassel</div><div class="farr">🔒 নিজের <b>private</b> key </div><div class="fbox dark">Ciphertext</div><div class="farr">🔑 Rassel-এর <b>public</b> key </div><div class="fbox">যে কেউ</div></div>
+  <p>Rassel-এর public key দিয়ে খোলা গেলে নিশ্চিত হওয়া যায় মেসেজটা Rassel-ই পাঠিয়েছে। এটাই digital signature-এর মূল ধারণা।</p>
+</div>`},
+{id:7,t:"Symmetric বনাম Asymmetric",en:"Comparison",sl:"34–36, 40",faq:[41,42,43,44,53,36,37,38,39],h:`
+<div class="tbl"><table class="compare"><thead><tr><th>বিষয়</th><th>Symmetric</th><th>Asymmetric</th></tr></thead><tbody>
+<tr><td>আবিষ্কার</td><td>২০০০+ বছর আগে</td><td>১৯৭০-এর মাঝামাঝি</td></tr>
+<tr><td>Key</td><td>১টা shared secret key</td><td>২টা: public + private</td></tr>
+<tr><td>ভিত্তি</td><td>Sharing secrecy</td><td>Personal secrecy</td></tr>
+<tr><td>Key length</td><td>ছোট</td><td>বড়</td></tr>
+<tr><td>Key distribution</td><td>সহজ না</td><td>সহজ (শুধু public key)</td></tr>
+<tr><td>n জনের জন্য secret</td><td class="mono">n(n−1)/2</td><td class="mono">n</td></tr>
+<tr><td>Digital signature</td><td>না</td><td>হ্যাঁ</td></tr>
+<tr><td>Non-repudiation</td><td>না</td><td>হ্যাঁ</td></tr>
+<tr><td>Plaintext/ciphertext</td><td>Symbols (character বা bit)</td><td>Numbers</td></tr>
+<tr><td>অ্যালগরিদমের ভিত্তি</td><td>Substitution/permutation</td><td>গাণিতিক ফাংশন</td></tr>
+<tr><td>নিরাপত্তা</td><td>কম</td><td>বেশি</td></tr>
+<tr><td>গতি</td><td>দ্রুত</td><td>তুলনামূলক ধীর</td></tr>
+</tbody></table></div>
+<div class="callout key"><b>গুরুত্বপূর্ণ (স্লাইড ৪০)</b>Asymmetric আসায় symmetric-এর দরকার ফুরায়নি। বড় মেসেজ এনক্রিপ্ট করতে দ্রুত symmetric লাগে, আর authentication, digital signature ও key exchange-এর জন্য asymmetric লাগে। দুইটা একে অপরের <b>পরিপূরক</b>।</div>`},
+{id:8,t:"Three-pass Protocol",en:"No key exchange",sl:"37",faq:[47],h:`
+<p>এই পদ্ধতিতে নেটওয়ার্কের মধ্য দিয়ে <b>কোনো key পাঠাতেই হয় না</b>। দুজনেই শুধু নিজের তালা ব্যবহার করে। ধাপগুলো দেখুন:</p>
+<div class="stepper" data-steps="three"></div>
+<div class="callout tip"><b>মনে রাখুন</b>বাক্সটা মোট তিনবার যাতায়াত করে (Alice → Bob → Alice → Bob), তাই নাম “three-pass”।</div>`},
+{id:9,t:"প্রচলিত কয়েকটি Cryptosystem",en:"RSA, DES, 3DES, IDEA",sl:"38–39",faq:[45,46],h:`
+<div class="grid2">
+  <div class="mini"><b>RSA</b> <span class="tag">Asymmetric</span>Ron Rivest, Adi Shamir, Len Adleman (MIT)। প্রথম প্রকাশ <b>1978</b>। key-এর size বেছে নেওয়া যায়: 512-bit দুর্বল, 768-bit মোটামুটি নিরাপদ, 1024-bit প্রায় সবকিছু থেকে নিরাপদ।</div>
+  <div class="mini"><b>DES</b> <span class="tag">Symmetric</span>IBM বানিয়েছে <b>1974</b>-এ। বাণিজ্যিকভাবে ব্যাপক ব্যবহৃত প্রথম private-key সিস্টেম।</div>
+  <div class="mini"><b>3DES</b> <span class="tag">Symmetric</span>DES-এর শক্তিশালী রূপ। তিনটা 56-bit key: প্রথমটা encrypt, দ্বিতীয়টা decrypt, তৃতীয়টা আবার encrypt। মোট <b>3 × 56 = 168-bit</b>।</div>
+  <div class="mini"><b>IDEA</b> <span class="tag">Symmetric</span>সুইজারল্যান্ডে <b>1991</b>। <b>128-bit key</b> দিয়ে <b>64-bit block</b> এনক্রিপ্ট করে। পুরোনো PGP-তে ব্যবহার হতো।</div>
+</div>
+<div class="callout tip"><b>সংখ্যা মনে রাখার কৌশল</b>DES <b>’74</b> → RSA <b>’78</b> → IDEA <b>’91</b>। 3DES-এ 3 × 56 = 168।</div>`},
+{id:10,t:"কেন দরকার? সুবিধা ও অসুবিধা",en:"Why cryptography matters",sl:"41–43",faq:[23,38],h:`
+<div class="callout key"><b>এক লাইনে</b>এনক্রিপশন ছাড়া ইন্টারনেটে কথা বলা মানে রেডিওতে সবার সামনে সম্প্রচার করা।</div>
+<p>যেখানে ক্রিপ্টোগ্রাফি কাজ করে:</p>
+<ul class="pts">
+  <li><b>অনলাইন ব্যাংকিং ও কেনাকাটা:</b> কার্ড বা অ্যাকাউন্টের তথ্য নিরাপদ থাকে। E-commerce ক্রিপ্টোগ্রাফি ছাড়া সম্ভব না।</li>
+  <li><b>ইমেইল:</b> অন্য কেউ পড়তে পারে না, আর digital signature প্রমাণ করে কে পাঠিয়েছে।</li>
+  <li><b>Digital signature কাগজের সইয়ের চেয়ে নিরাপদ:</b> কাগজে সইয়ের পর লেখা বদলালেও সই থেকে যায়। কিন্তু digital signature ডকুমেন্টের কনটেন্ট দিয়েই তৈরি হয়, তাই বদলালে ধরা পড়ে।</li>
+  <li><b>Satellite TV:</b> শুধু যারা টাকা দিয়েছে তাদের receiver সিগন্যাল খুলতে পারে।</li>
+</ul>
+<div class="grid2">
+  <div class="mini good"><b>সুবিধা</b>প্রাইভেসি থাকে। key ছাড়া কেউ বুঝতে পারে না। নিজের মতো কোড বানানো যায়।</div>
+  <div class="mini bad"><b>অসুবিধা</b>প্রসেসিং সময় বেশি লাগে। key হারালে ডেটা আর ফেরত পাওয়া যায় না। অপরাধীরাও ব্যবহার করতে পারে।</div>
+</div>`},
+{id:11,t:"Symmetric Key বিতরণ",en:"Key distribution",sl:"44",faq:[52,49],h:`
+<p>Alice যদি Bob-এর পাশাপাশি David-এর সাথেও কথা বলে, তাহলে আরেকটা key লাগবে। মানুষ যত বাড়ে, key তত বাড়ে। তাই যেকোনো cryptosystem-এর শক্তি নির্ভর করে <b>key কীভাবে বিতরণ হয়</b> তার উপর।</p>
+<p>Shared key পৌঁছানোর তিনটা উপায়:</p>
+<ol class="pts">
+  <li><b>সামনাসামনি (Face to face):</b> Alice নিজে গিয়ে Bob-কে key দেয়।</li>
+  <li><b>বিশ্বস্ত তৃতীয় পক্ষ (Trusted third party):</b> David দুজনকেই key পৌঁছে দেয়।</li>
+  <li><b>পুরোনো key দিয়ে মুড়িয়ে:</b> আগের key দিয়ে এনক্রিপ্ট করে নতুন key পাঠানো, বা asymmetric cipher ব্যবহার করে।</li>
+</ol>
+<div class="tool" data-tool="keys"></div>`},
+{id:12,t:"Cryptanalysis কেন পড়ি?",en:"Cryptography vs Cryptanalysis",sl:"45",faq:[24],h:`
+<div class="grid2">
+  <div class="mini"><b>Cryptography</b>গোপন কোড <u>বানানোর</u> বিজ্ঞান ও শিল্প।</div>
+  <div class="mini"><b>Cryptanalysis</b>সেই কোড <u>ভাঙার</u> বিজ্ঞান ও শিল্প।</div>
+</div>
+<div class="callout key"><b>কেন শিখব?</b>অন্যের কোড ভাঙার জন্য না। নিজের cryptosystem কতটা দুর্বল সেটা বুঝতে, যাতে আরও ভালো কোড বানানো যায়।</div>`},
+{id:13,t:"Traditional Symmetric Cipher",en:"Substitution & transposition",sl:"46",faq:[9,10,11],h:`
+<div class="grid2">
+  <div class="mini"><b>Substitution cipher</b>একটা symbol-এর জায়গায় আরেকটা বসায়।<span class="mono">A → D, T → Z, 3 → 7</span>দুই ধরনের: <b>monoalphabetic</b> ও <b>polyalphabetic</b>।</div>
+  <div class="mini"><b>Transposition cipher</b>symbol বদলায় না, শুধু জায়গা বদলায়।<span class="mono">hello → elhol</span>তিন ধরনের: <b>keyless</b>, <b>keyed</b> ও <b>keyed columnar</b>।</div>
+</div>
+<div class="callout tip"><b>পার্থক্য ধরার সহজ উপায়</b>Ciphertext-এ যদি একই অক্ষরগুলোই থাকে শুধু ক্রম বদলে, তাহলে transposition। নতুন অক্ষর এলে substitution।</div>
+<div class="tool" data-tool="caesar2"></div>`},
+{id:14,t:"Modern Cipher: Stream ও Block",en:"Stream & block ciphers",sl:"47–49",faq:[],h:`
+<p>এখন শুধু টেক্সট না, ছবি, অডিও, ভিডিওও এনক্রিপ্ট করতে হয়। তাই সবকিছুকে <b>bit</b>-এ রূপান্তর করে এনক্রিপ্ট করা হয়। bit বেশি মানে মেশানোর সুযোগ বেশি, তাই নিরাপত্তাও বেশি।</p>
+<div class="grid2">
+  <div class="mini"><b>Stream cipher</b>একবারে <u>একটা</u> character বা bit এনক্রিপ্ট করে।</div>
+  <div class="mini"><b>Block cipher</b>একবারে <u>n-bit-এর একটা block</u> এনক্রিপ্ট করে। n সাধারণত 64, 128, 256 বা 512। কম পড়লে padding যোগ হয়।</div>
+</div>
+<h3>Stream cipher: XOR করে দেখুন</h3>
+<div class="tool" data-tool="xor"></div>
+<h3>Block cipher: স্লাইডের উদাহরণ</h3>
+<div class="tool" data-tool="block"></div>`}
+];
+const STEPS={
+sym:[
+ {s:["🔑","📦","🔑"],t:"Alice আর Bob আগে সামনাসামনি দেখা করে একই চাবির দুইটা কপি নিয়েছে।"},
+ {s:["👩","📦🔒","→ 👨"],t:"Alice বাক্সে মেসেজ রেখে তালা দেয়, তারপর ডাকে পাঠায়। এটাই encryption।"},
+ {s:["👩","📦🔓","👨🔑"],t:"Bob নিজের কাছে থাকা একই চাবির কপি দিয়ে বাক্স খুলে মেসেজ পড়ে। এটাই decryption।"},
+ {s:["👩 ←","📦🔒","👨"],t:"উত্তর পাঠাতে Bob একই তালা আর চাবি ব্যবহার করে। সমস্যা একটাই: চাবির কপি Bob-এর কাছে নিরাপদে পৌঁছাবে কীভাবে?"}
+],
+asym:[
+ {s:["👩 ←","🔓 Bob-এর খোলা তালা","👨🔑"],t:"Bob তার খোলা তালা (public key) Alice-কে পাঠায়। চাবি (private key) নিজের কাছেই রাখে।"},
+ {s:["👩","📦🔒(Bob)","→ 👨"],t:"Alice বাক্সে মেসেজ রেখে Bob-এর তালা দিয়ে বন্ধ করে পাঠায়।"},
+ {s:["👩","📦🔓","👨🔑"],t:"শুধু Bob-এর কাছেই চাবি আছে, তাই শুধু সে-ই বাক্স খুলতে পারে।"},
+ {s:["👩🔑","🔓 Alice-এর খোলা তালা","👨"],t:"উত্তর দিতে Bob-কে Alice-এর খোলা তালা (Alice-এর public key) নিতে হবে।"}
+],
+three:[
+ {s:["👩","📦🔒A","→ 👨"],t:"Alice বাক্সে মেসেজ রেখে নিজের তালা (A) লাগিয়ে Bob-কে পাঠায়।"},
+ {s:["👩 ←","📦🔒A🔒B","👨"],t:"Bob খুলতে পারে না, তাই নিজের তালাও (B) লাগিয়ে ফেরত পাঠায়।"},
+ {s:["👩","📦🔒B","→ 👨"],t:"Alice নিজের তালা (A) খুলে নেয়। এখন শুধু Bob-এর তালা থাকে। আবার Bob-কে পাঠায়।"},
+ {s:["👩","📦🔓","👨✉️"],t:"Bob নিজের তালা খুলে মেসেজ পড়ে। পুরো সময়ে কোনো চাবি আদান-প্রদান হয়নি।"}
+]};
 
 const SEC_BN={basics:"ক্রিপ্টোগ্রাফি কী",scramble:"মেসেজ এলোমেলো করা",terms:"Encryption, Decryption ও Key",parts:"উপাদান ও নিরাপত্তা",types:"Symmetric ও Asymmetric",compare:"দুইটার তুলনা"};
 const $=s=>document.querySelector(s);
@@ -585,16 +889,121 @@ const qHTML=f=>lang==="en"?`<span class="qen">${esc(f.q)}</span>`:lang==="bn"?`<
 const aHTML=f=>lang==="en"?`<span class="aen">${f.a}</span>`:lang==="bn"?`<span class="abn" style="margin-top:0">${f.ab}</span>`:`<span class="aen">${f.a}</span><span class="abn">${f.ab}</span>`;
 
 /* ---------- Navigation ---------- */
-const VIEWS=["home","study","exam","cards"];
+const VIEWS=["home","notes","study","exam","cards"];
 function show(v,push){
+  let ch=null;const m=/^note-(\d+)$/.exec(v||"");if(m){ch=+m[1];v="notes";}
   if(!VIEWS.includes(v))v="home";
+  if(v==="notes"){if(ch&&NOTES.some(n=>n.id===ch))openChapter(ch);else showToc();}
   VIEWS.forEach(x=>{$("#"+x).hidden=x!==v;});
+  document.querySelectorAll(".bnav button").forEach(b=>b.toggleAttribute("aria-current",b.dataset.go===v)||b.dataset.go===v&&b.setAttribute("aria-current","page"));
   document.querySelectorAll(".bnav button").forEach(b=>{if(b.dataset.go===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
   if(push){try{history.replaceState(null,"","#"+v);}catch(e){}}
   window.scrollTo(0,0);
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)show(b.dataset.go,true);});
 window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+/* ---------- Notes ---------- */
+let doneSet=new Set();try{doneSet=new Set(JSON.parse(store.get("crypto01-notes")||"[]"));}catch(e){}
+function saveDone(){store.set("crypto01-notes",JSON.stringify([...doneSet]));updateNoteProg();}
+function updateNoteProg(){
+  const n=doneSet.size,t=NOTES.length;
+  $("#nprogTxt").textContent=`${n}/${t} পড়া শেষ`;$("#nprogBar").style.width=(n/t*100)+"%";
+  $("#statNotes").textContent=`${n}/${t}`;
+  document.querySelectorAll(".tocitem").forEach(b=>b.classList.toggle("done",doneSet.has(+b.dataset.ch)));
+}
+$("#toc").innerHTML=NOTES.map(n=>`<button class="tocitem" type="button" data-ch="${n.id}"><span class="no">${n.id}</span><span><span class="tt">${n.t}</span><span class="ts">${n.en}</span></span><span class="sl">স্লাইড ${n.sl}</span></button>`).join("");
+$("#toc").addEventListener("click",e=>{const b=e.target.closest(".tocitem");if(b){openChapter(+b.dataset.ch);try{history.replaceState(null,"","#note-"+b.dataset.ch);}catch(er){}}});
+function chapterHTML(n,withNav){
+  const i=NOTES.indexOf(n),prev=NOTES[i-1],next=NOTES[i+1];
+  return `<article class="chapter"><div class="chhead">${withNav?`<button class="back" type="button" data-act="toc">‹ সব চ্যাপ্টার</button>`:""}<div class="k">চ্যাপ্টার ${n.id} · স্লাইড ${n.sl}</div><h2>${n.t}</h2></div>
+  <div class="chbody">${n.h}</div>
+  ${withNav?`<div class="chfoot">
+    <button class="btn ghost block donebtn" type="button" data-act="done" aria-pressed="${doneSet.has(n.id)}">${doneSet.has(n.id)?"✓ পড়া শেষ":"পড়া শেষ হলে চাপুন"}</button>
+    ${n.faq.length?`<button class="btn block" type="button" data-act="practice">এই চ্যাপ্টারের ${n.faq.length}টা প্রশ্নে পরীক্ষা দিন</button>`:""}
+    <div class="chnav"><button class="btn ghost" type="button" data-act="prev" ${prev?"":"disabled"}>‹ আগের</button><button class="btn ghost" type="button" data-act="next" ${next?"":"disabled"}>পরের ›</button></div>
+  </div>`:""}</article>`;
+}
+let curCh=null;
+function showToc(){$("#tocwrap").hidden=false;$("#chapterView").hidden=true;updateNoteProg();}
+function openChapter(id){
+  const n=NOTES.find(x=>x.id===id);if(!n)return showToc();curCh=n;
+  $("#tocwrap").hidden=true;const cv=$("#chapterView");cv.hidden=false;cv.innerHTML=chapterHTML(n,true);initTools(cv);
+  VIEWS.forEach(x=>{$("#"+x).hidden=x!=="notes";});
+  document.querySelectorAll(".bnav button").forEach(b=>{if(b.dataset.go==="notes")b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
+  window.scrollTo(0,0);
+}
+$("#chapterView").addEventListener("click",e=>{
+  const b=e.target.closest("[data-act]");if(!b)return;const a=b.dataset.act,i=NOTES.indexOf(curCh);
+  if(a==="toc"){showToc();try{history.replaceState(null,"","#notes");}catch(er){}window.scrollTo(0,0);}
+  if(a==="done"){if(doneSet.has(curCh.id))doneSet.delete(curCh.id);else doneSet.add(curCh.id);saveDone();b.setAttribute("aria-pressed",doneSet.has(curCh.id));b.textContent=doneSet.has(curCh.id)?"✓ পড়া শেষ":"পড়া শেষ হলে চাপুন";}
+  if(a==="prev"&&i>0){openChapter(NOTES[i-1].id);try{history.replaceState(null,"","#note-"+NOTES[i-1].id);}catch(er){}}
+  if(a==="next"&&i<NOTES.length-1){if(!doneSet.has(curCh.id)){doneSet.add(curCh.id);saveDone();}openChapter(NOTES[i+1].id);try{history.replaceState(null,"","#note-"+NOTES[i+1].id);}catch(er){}}
+  if(a==="practice"){const pool=curCh.faq.map(k=>FAQ[k-1]);show("exam",true);startExam(pool,true);}
+});
+/* interactive bits inside chapters */
+const shiftTxt=(t,k)=>t.replace(/[a-z]/gi,c=>{const b=c<="Z"?65:97;return String.fromCharCode((c.charCodeAt(0)-b+((k%26)+26))%26+b);});
+function initTools(root){
+  root.querySelectorAll('.tool[data-tool="caesar"],.tool[data-tool="caesar2"]').forEach((el,ix)=>{
+    const id="cz"+Math.random().toString(36).slice(2,7),def=el.dataset.tool==="caesar"?"Happy Valentine's Day":"go back",k0=el.dataset.tool==="caesar"?-1:1;
+    el.innerHTML=`<div class="th">নিজে চেষ্টা করুন: Shift (Caesar) cipher <span class="badge">TRY</span></div>
+    <label class="tl" for="${id}t">আপনার মেসেজ</label><input type="text" id="${id}t" value="${def}">
+    <label class="tl" for="${id}k">কত ঘর সরাবেন: <b id="${id}v">${k0}</b> <span id="${id}d"></span></label><input type="range" id="${id}k" min="-5" max="5" value="${k0}">
+    <div class="out"><small>Ciphertext</small><span id="${id}o"></span></div>
+    <div class="note">মাইনাস মানে বামে (আগের অক্ষর), প্লাস মানে ডানে (পরের অক্ষর)। ডিক্রিপ্ট করতে উল্টো দিকে একই ঘর সরান।</div>`;
+    const t=el.querySelector("#"+id+"t"),k=el.querySelector("#"+id+"k");
+    const upd=()=>{const v=+k.value;el.querySelector("#"+id+"v").textContent=v>0?"+"+v:v;el.querySelector("#"+id+"d").textContent=v<0?"(বামে)":v>0?"(ডানে)":"";el.querySelector("#"+id+"o").textContent=shiftTxt(t.value,v);};
+    t.addEventListener("input",upd);k.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll('.tool[data-tool="keys"]').forEach(el=>{
+    const id="kc"+Math.random().toString(36).slice(2,7);
+    el.innerHTML=`<div class="th">কতগুলো key লাগবে? <span class="badge">TRY</span></div>
+    <label class="tl" for="${id}n">গ্রুপে কতজন মানুষ (n)</label><input type="number" id="${id}n" min="2" max="1000" value="10">
+    <div class="kc"><div><b id="${id}s"></b><span>Symmetric: n(n−1)/2টা shared key</span></div><div><b id="${id}a"></b><span>Asymmetric: nটা personal secret</span></div></div>
+    <div class="note" id="${id}x"></div>`;
+    const n=el.querySelector("#"+id+"n");
+    const upd=()=>{let v=Math.max(2,Math.min(1000,Math.floor(+n.value||2)));const s=v*(v-1)/2;el.querySelector("#"+id+"s").textContent=s;el.querySelector("#"+id+"a").textContent=v;el.querySelector("#"+id+"x").textContent=`${v} জনের জন্য: ${v}×${v-1}/2 = ${s}টা key। মানুষ বাড়লে symmetric-এ key খুব দ্রুত বাড়ে।`;};
+    n.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll('.tool[data-tool="xor"]').forEach(el=>{
+    const id="xr"+Math.random().toString(36).slice(2,7);
+    el.innerHTML=`<label class="tl" for="${id}p">Plaintext (শুধু 0 আর 1)</label><input type="text" id="${id}p" value="10011011110100001" inputmode="numeric">
+    <label class="tl" for="${id}k">Keystream-এর প্যাটার্ন (বারবার রিপিট হবে)</label><input type="text" id="${id}k" value="10" inputmode="numeric">
+    <div class="bits" id="${id}o" style="margin-top:10px"></div>
+    <div class="note">XOR নিয়ম: দুইটা bit একই হলে 0, আলাদা হলে 1। Ciphertext-কে আবার একই keystream দিয়ে XOR করলে plaintext ফিরে আসে।</div>`;
+    const p=el.querySelector("#"+id+"p"),k=el.querySelector("#"+id+"k");
+    const upd=()=>{const pt=p.value.replace(/[^01]/g,"")||"0",pat=k.value.replace(/[^01]/g,"")||"1";
+      const ks=Array.from(pt,(c,i)=>pat[i%pat.length]).join("");const ct=Array.from(pt,(c,i)=>c===ks[i]?"0":"1").join("");
+      el.querySelector("#"+id+"o").innerHTML=`Plaintext  : ${pt}\nKeystream  : <span class="r">${ks}</span>\nCiphertext : <span class="g">${ct}</span>  (XOR)\n\nCiphertext : ${ct}\nKeystream  : <span class="r">${ks}</span>\nPlaintext  : ${pt}  (আবার XOR)`;};
+    p.addEventListener("input",upd);k.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll('.tool[data-tool="block"]').forEach(el=>{
+    const id="bk"+Math.random().toString(36).slice(2,7);
+    el.innerHTML=`<label class="tl" for="${id}t">Plaintext</label><input type="text" id="${id}t" value="The only thing we have to fear is fear itself">
+    <label class="tl" for="${id}n">Block size (কয় অক্ষর): <b id="${id}v">8</b></label><input type="range" id="${id}n" min="3" max="10" value="8">
+    <div class="bits" id="${id}o" style="margin-top:10px;white-space:pre-wrap;word-break:break-all"></div>
+    <div class="note">পদ্ধতি: স্পেস বাদ দিন → নির্দিষ্ট সাইজের block-এ ভাগ করুন → শেষ block ছোট হলে X দিয়ে padding → প্রতিটা block উল্টে দিন। (স্লাইডে শেষ block-এ padding হিসেবে “Xend” লেখা হয়েছে।)</div>`;
+    const t=el.querySelector("#"+id+"t"),n=el.querySelector("#"+id+"n");
+    const upd=()=>{const sz=+n.value;el.querySelector("#"+id+"v").textContent=sz;const s=t.value.replace(/\s+/g,"")||"X";const bl=[];for(let i=0;i<s.length;i+=sz)bl.push(s.slice(i,i+sz).padEnd(sz,"X"));
+      const cb=bl.map(b=>[...b].reverse().join(""));
+      el.querySelector("#"+id+"o").innerHTML=`Blocks     : ${bl.join(" ")}\nউল্টানো    : <span class="g">${cb.join(" ")}</span>\nCiphertext : <span class="g">${cb.join("")}</span>`;};
+    t.addEventListener("input",upd);n.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll(".stepper").forEach(el=>{
+    const st=STEPS[el.dataset.steps];let i=0;
+    if(document.body.classList.contains("pdf")){el.innerHTML=`<div class="pdfsteps">${st.map((x,k)=>`<div><span style="font-size:20px">${x.s.join(" ")}</span><br><b>ধাপ ${k+1}:</b> ${x.t}</div>`).join("")}</div>`;return;}
+    el.innerHTML=`<div class="scene"></div><div class="stext"></div><div class="sctl"><button class="btn ghost" type="button" data-s="-1">‹ আগে</button><div class="sdots">${st.map(()=>"<i></i>").join("")}</div><button class="btn" type="button" data-s="1">পরের ধাপ ›</button></div>`;
+    const draw=()=>{const s=st[i];el.querySelector(".scene").innerHTML=`<span>${s.s[0]}<small>Alice</small></span><span>${s.s[1]}</span><span>${s.s[2]}<small>Bob</small></span>`;
+      el.querySelector(".stext").innerHTML=`<b>ধাপ ${i+1}/${st.length}:</b> ${s.t}`;el.querySelectorAll(".sdots i").forEach((d,k)=>d.classList.toggle("on",k===i));
+      el.querySelector('[data-s="-1"]').disabled=i===0;const nx=el.querySelector('[data-s="1"]');nx.textContent=i===st.length-1?"আবার দেখুন ↺":"পরের ধাপ ›";};
+    el.addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(!b)return;if(+b.dataset.s>0)i=i===st.length-1?0:i+1;else if(i>0)i--;draw();});draw();
+  });
+  root.querySelectorAll(".modes2").forEach(g=>{
+    const panels=g.parentElement.querySelectorAll(".mpanel");
+    g.addEventListener("click",e=>{const b=e.target.closest(".mtab");if(!b)return;g.querySelectorAll(".mtab").forEach(x=>x.setAttribute("aria-pressed",x===b));panels.forEach(p=>p.hidden=p.dataset.m!==b.dataset.m);});
+  });
+}
+function renderAllChapters(){const w=$("#allChapters");w.innerHTML=NOTES.map(n=>chapterHTML(n,false)).join("");initTools(w);}
 
 /* ---------- Study ---------- */
 let curTopic="all",allOpen=false;const openSet=new Set();
@@ -702,7 +1111,7 @@ function setLang(l){
 }
 $("#langSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setLang(b.dataset.l);});
 
-setLang(lang);updateBest();show(location.hash.slice(1));
+setLang(lang);updateBest();updateNoteProg();show(location.hash.slice(1));
 
 /* ---------- Intro ---------- */
 (function(){
