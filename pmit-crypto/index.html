@@ -170,7 +170,32 @@ select{font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px 
 
 footer{color:var(--muted);font-size:12.5px;text-align:center;padding-top:10px;padding-bottom:30px}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* Intro overlay */
+.intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(14,18,32,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-y:auto}
+.intro[hidden]{display:none}
+.intro-card{width:100%;max-width:460px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:22px 20px 20px;box-shadow:0 20px 50px rgba(0,0,0,.25);font-family:var(--f-bn);animation:pop .35s ease-out}
+@keyframes pop{from{transform:translateY(12px) scale(.98);opacity:.6}to{transform:none;opacity:1}}
+.cipher-box{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;text-align:center}
+.cipher-txt{font:500 24px var(--f-mono);letter-spacing:.06em;color:var(--accent)}
+.cipher-txt.done{color:var(--key)}
+.cipher-hint{font-size:13px;color:var(--muted);margin-top:4px}
+.intro-card h2{font-family:var(--f-bn);font-size:21px;font-weight:600;margin:16px 0 6px}
+.intro-card p{margin:0 0 10px;font-size:15.5px;line-height:1.6}
+.rules{list-style:none;padding:0;margin:0 0 12px;display:grid;gap:8px}
+.rules li{font-size:15px;line-height:1.55;padding:9px 12px;border-radius:10px;background:var(--bg);border-left:3px solid var(--line)}
+.rules li.good{border-left-color:var(--good)}
+.rules li.bad{border-left-color:var(--bad)}
+.rules li.mid{border-left-color:var(--key)}
+.sign{font-size:15px;color:var(--muted);text-align:right}
+.sign b{color:var(--ink);font-weight:600}
+.intro-btns{display:grid;gap:8px;margin-top:6px}
+.intro-btns .btn{font-family:var(--f-bn);width:100%}
+.thanks{margin-top:10px;font-size:14.5px;text-align:center;color:var(--good);min-height:1.2em}
+body.noscroll{overflow:hidden}
+body.pdf .intro{display:none!important}
+@media print{.intro{display:none!important}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Print / PDF */
 @media print{
@@ -184,6 +209,27 @@ body.pdf nav.tabs,body.pdf .toolbar,body.pdf .jump,body.pdf .langbar{display:non
 </style>
 </head>
 <body>
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle" lang="bn">
+  <div class="intro-card">
+    <div class="cipher-box">
+      <div class="cipher-txt" id="cipherTxt" aria-live="polite">Uibolt Buijs</div>
+      <div class="cipher-hint" id="cipherHint">একটা গোপন মেসেজ ডিক্রিপ্ট হচ্ছে… (shift −1)</div>
+    </div>
+    <h2 id="introTitle">শুরুর আগে একটা স্বীকারোক্তি</h2>
+    <p>এই পুরো পেজটা AI-এর সহায়তায় বানানো। তাই নিয়ম খুব সোজা:</p>
+    <ul class="rules">
+      <li class="good"><b>ভালো লাগলে</b>, ধন্যবাদটা আমাকে দিন।</li>
+      <li class="bad"><b>খারাপ লাগলে</b>, দোষটা AI-কে দিন। ও মন খারাপ করবে না, ওর তো মনই নেই।</li>
+      <li class="mid"><b>Exam-এ ফুল মার্ক পেলে</b> ক্রেডিট আপনার। <b>কম পেলে?</b> আবারও AI-এর দোষ।</li>
+    </ul>
+    <p class="sign">— <b>Athir</b>, PMIT 39 · Section A<br><small>ক্লাসে নতুন, কিন্তু নোট শেয়ারে পুরোনো খেলোয়াড়</small></p>
+    <div class="intro-btns">
+      <button class="btn" type="button" id="thanksBtn">ধন্যবাদ দিয়ে ঢুকি</button>
+      <button class="btn ghost" type="button" id="skipBtn">ধন্যবাদ পরে, আগে পড়ি</button>
+    </div>
+    <div class="thanks" id="thanksMsg" role="status"></div>
+  </div>
+</div>
 <header class="top wrap">
   <div class="course">PMIT-6204 · Cryptography &amp; Steganography · IIT, JU</div>
   <h1>Lecture 01: Overview of Cryptography</h1>
@@ -615,6 +661,32 @@ $("#fcTopic").addEventListener("change",e=>{const t=e.target.value;fc.list=FAQ.f
 document.addEventListener("keydown",e=>{if($("#cards").hidden||e.target.tagName==="SELECT")return;if(e.key==="ArrowRight")$("#fcNext").click();if(e.key==="ArrowLeft")$("#fcPrev").click();});
 
 setLang(lang);show(location.hash.slice(1));
+/* ---------- Intro ---------- */
+(function(){
+  const intro=$("#intro");
+  let seen=false;try{seen=sessionStorage.getItem("crypto01-intro")==="1";}catch(e){}
+  if(seen){intro.hidden=true;return;}
+  document.body.classList.add("noscroll");
+  const target="Thanks Athir",start="Uibolt Buijs",el=$("#cipherTxt");
+  const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finish=()=>{el.textContent=target;el.classList.add("done");$("#cipherHint").textContent="Decrypted! লেকচার ১-এর shift cipher দিয়েই লেখা ছিল 😄";};
+  if(reduce)finish();else{
+    let i=0;const chars=start.split("");
+    setTimeout(function step(){
+      if(i>=chars.length){finish();return;}
+      chars[i]=target[i];el.textContent=chars.join("");i++;setTimeout(step,110);
+    },700);
+  }
+  const close=()=>{intro.hidden=true;document.body.classList.remove("noscroll");try{sessionStorage.setItem("crypto01-intro","1");}catch(e){}};
+  $("#skipBtn").addEventListener("click",close);
+  $("#thanksBtn").addEventListener("click",()=>{
+    $("#thanksMsg").textContent="ধন্যবাদ পৌঁছে গেছে ✓ end-to-end encrypted, তাই AI-ও টের পায়নি।";
+    $("#thanksBtn").disabled=true;setTimeout(close,1600);
+  });
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!intro.hidden)close();});
+  setTimeout(()=>$("#thanksBtn").focus(),50);
+})();
+
 </script>
 </body>
 </html>
