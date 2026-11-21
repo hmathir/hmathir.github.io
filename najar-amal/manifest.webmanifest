@@ -1,0 +1,15 @@
+{
+  "name": "নজর ও হিংসা থেকে হেফাজতের আমল",
+  "short_name": "হেফাজতের আমল",
+  "description": "সকাল-সন্ধ্যার সহিহ দোয়া, তিলাওয়াত, নামাজের সময়, রমজান ক্যালেন্ডার, তাসবিহ ও কিবলা",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EA",
+  "theme_color": "#0E4A3B",
+  "lang": "bn",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
