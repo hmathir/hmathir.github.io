@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>নজর ও হিংসা থেকে হেফাজতের আমল</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@600;700&family=Noto+Sans:wght@400;600&family=Noto+Serif:wght@700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--g:#0E4A3B;--g2:#16624E;--gold:#B8893B;--gold2:#D9B66F;--ink:#1F2A26;--muted:#5E6B66;--cream:#FBF6EA;--card:#FFFDF7;--hl:#FCEFC9}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -32,7 +32,8 @@ h1 span{display:block;color:var(--gold)}
 .toc em{margin-left:auto;font-style:normal;font-size:13px;background:var(--gold);color:#fff;border-radius:20px;padding:0 10px;white-space:nowrap}
 .intro{background:linear-gradient(90deg,rgba(14,74,59,.07),rgba(14,74,59,.02));border-left:5px solid var(--gold);border-right:5px solid var(--gold);padding:12px 16px;border-radius:8px;font-size:16.5px}
 .intro small,.tip small{color:var(--muted);font-size:14px}
-.card{background:var(--card);border:1.5px solid rgba(184,137,59,.55);border-radius:16px;padding:16px 16px 12px;box-shadow:0 3px 0 rgba(184,137,59,.25);scroll-margin-top:12px}
+.card{background:var(--card);border:1.5px solid rgba(184,137,59,.55);border-radius:16px;padding:16px 16px 12px;box-shadow:0 3px 0 rgba(184,137,59,.25);scroll-margin-top:64px}
+.intro{scroll-margin-top:64px}
 .head{display:flex;align-items:center;gap:12px}
 .num{width:38px;height:38px;flex:none;background:var(--g);color:#fff;font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);border-radius:7px;border:2px solid var(--gold2);margin-left:4px}
 .num span{transform:rotate(-45deg)}
@@ -61,7 +62,7 @@ h2{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:22px;color:v
 .cnt:empty{display:none}
 .hint{font-size:13px;color:var(--muted);margin-bottom:8px}
 .row{display:flex;gap:10px;align-items:flex-start;margin-top:8px}
-.lbl{flex:none;width:64px;font-size:13px;font-weight:600;color:#fff;background:var(--g2);border-radius:6px;text-align:center;padding:2px 0;margin-top:3px}
+.lbl{flex:none;min-width:64px;padding:2px 8px!important;font-size:13px;font-weight:600;color:#fff;background:var(--g2);border-radius:6px;text-align:center;padding:2px 0;margin-top:3px}
 .tr{color:#7A4F12}
 .mn b{color:var(--g)}
 .src{font-size:13.5px;color:var(--muted);border-top:1px dashed rgba(184,137,59,.6);padding-top:7px;margin-top:10px;line-height:1.5}
@@ -85,208 +86,1038 @@ h2{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:22px;color:v
 .credit{display:flex;justify-content:center;align-items:center;gap:10px;font-size:14px;letter-spacing:.3px}
 .credit b{color:var(--g);font-weight:600}
 .credit .sep{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);display:inline-block}
+
+/* language */
+.langbar{position:sticky;top:0;z-index:5;display:flex;justify-content:flex-end;padding:8px 14px;background:rgba(251,246,234,.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(184,137,59,.35)}
+.langbar label{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--g)}
+.langbar .globe{width:20px;height:20px;border:2px solid var(--g);border-radius:50%;position:relative;display:inline-block}
+.langbar .globe::before{content:"";position:absolute;inset:-2px 4px;border:2px solid var(--g);border-radius:50%}
+.langbar select{font:600 15px 'Noto Sans','Hind Siliguri','Noto Naskh Arabic','Noto Sans SC',sans-serif;color:var(--g);background:#fff;border:1.5px solid var(--gold);border-radius:20px;padding:5px 12px;cursor:pointer}
+html[lang=en] body,html[lang=id] body,html[lang=tr] body,html[lang=fr] body,html[lang=es] body,html[lang=ru] body{font-family:'Noto Sans',sans-serif;font-size:16.5px}
+html[lang=zh] body{font-family:'Noto Sans SC','Noto Sans',sans-serif}
+html[lang=ar] body{font-family:'Noto Naskh Arabic','Amiri',serif;font-size:18px}
+html[lang=ur] body{font-family:'Noto Nastaliq Urdu','Noto Naskh Arabic',serif;font-size:16px;line-height:2.2}
+html:not([lang=bn]) h1,html:not([lang=bn]) h2,html:not([lang=bn]) .tip b,html:not([lang=bn]) .when b,html:not([lang=bn]) .foot .share,html:not([lang=bn]) .num{font-family:'Noto Serif','Noto Sans SC','Noto Naskh Arabic',serif}
+html[lang=ur] h1,html[lang=ur] h2,html[lang=ur] .tip b,html[lang=ur] .when b,html[lang=ur] .foot .share{font-family:'Noto Nastaliq Urdu',serif;line-height:2}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] .tip b,html[lang=ar] .when b,html[lang=ar] .foot .share{font-family:'Noto Naskh Arabic',serif}
+[dir=rtl] .toc{text-align:right}[dir=rtl] .toc em{margin-left:0;margin-right:auto}
+[dir=rtl] .num{margin-left:0;margin-right:4px}
+.tr[dir=ltr]{text-align:left}
+[dir=rtl] .mn,[dir=rtl] .src,[dir=rtl] .hint{text-align:right}
+.mn.c,.src.c,.tr.c{text-align:center!important}
+.forms b{display:block}
+.pdfbtn{display:inline-block;background:var(--g);color:#fff!important;text-decoration:none;font-weight:600;padding:8px 18px;border-radius:30px;border:2px solid var(--gold2)}
+.credit a{color:var(--g);font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--gold2)}
 .err{color:#9b2c2c;font-size:14px}
 </style></head><body>
-<main class="wrap">
-
-<header class="hero">
+<div class="langbar"><label><span class="globe" aria-hidden="true"></span><span id="langlbl">ভাষা</span><select id="lang" aria-label="Language"><option value="bn">বাংলা</option><option value="en">English</option><option value="ar">العربية</option><option value="ur">اردو</option><option value="id">Bahasa Indonesia</option><option value="tr">Türkçe</option><option value="fr">Français</option><option value="es">Español</option><option value="ru">Русский</option><option value="zh">中文</option></select></label></div>
+<main class="wrap" id="main"></main>
+<noscript><p style="text-align:center;padding:20px">Please enable JavaScript.</p></noscript>
+<template id="L-bn" data-dir="ltr" data-label="ভাষা" data-play="তিলাওয়াত শুনুন" data-stop="থামান" data-times="বার" data-err="অডিও চালু করা যায়নি, আবার চাপ দিন"><header class="hero">
   <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
   <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
   <p class="msub">“বদনজর সত্য।” <small>সহিহ বুখারি ৫৭৪০, সহিহ মুসলিম ২১৮৭</small></p>
   <h1>নজর ও হিংসা থেকে <span>হেফাজতের আমল</span></h1>
   <p class="sub">সকাল-সন্ধ্যার সহিহ দোয়া · আরবি, উচ্চারণ, অর্থ ও তিলাওয়াতসহ</p>
-  <div class="when">
-    <div><b>সকালের আমল</b><span>ফজরের পর থেকে সূর্য ওঠা পর্যন্ত</span></div>
-    <div><b>সন্ধ্যার আমল</b><span>আসরের পর থেকে মাগরিব পর্যন্ত</span></div>
-  </div>
-  <nav class="toc">
-    <a href="#ikhlas"><b>১</b>সূরা ইখলাস, ফালাক ও নাস<em>৩ বার</em></a>
-    <a href="#kursi"><b>২</b>আয়াতুল কুরসি<em>১ বার</em></a>
-    <a href="#bismillah"><b>৩</b>বিসমিল্লাহিল্লাযি লা ইয়াদুররু<em>৩ বার</em></a>
-    <a href="#audhu"><b>৪</b>আউযু বিকালিমাতিল্লাহিত তাম্মাত<em>৩ বার</em></a>
-    <a href="#family"><b>৫</b>নিজের ও সন্তানদের জন্য নজরের দোয়া</a>
-    <a href="#barakah"><b>৬</b>কোনো নেয়ামত দেখে মুগ্ধ হলে</a>
-  </nav>
+  <div class="when"><div><b>সকালের আমল</b><span>ফজরের পর থেকে সূর্য ওঠা পর্যন্ত</span></div><div><b>সন্ধ্যার আমল</b><span>আসরের পর থেকে মাগরিব পর্যন্ত</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>১</b>সূরা ইখলাস, ফালাক ও নাস<em>৩ বার</em></a><a href="#kursi"><b>২</b>আয়াতুল কুরসি<em>১ বার</em></a><a href="#bismillah"><b>৩</b>বিসমিল্লাহিল্লাযি লা ইয়াদুররু<em>৩ বার</em></a><a href="#audhu"><b>৪</b>আউযু বিকালিমাতিল্লাহিত তাম্মাত<em>৩ বার</em></a><a href="#family"><b>৫</b>নিজের ও সন্তানদের জন্য নজরের দোয়া</a><a href="#barakah"><b>৬</b>কোনো নেয়ামত দেখে মুগ্ধ হলে</a></nav>
 </header>
 <p class="intro">রাসুলুল্লাহ <span class="saw">ﷺ</span> বলেছেন: “সকালে ও সন্ধ্যায় <b>কুল হুওয়াল্লাহু আহাদ</b> এবং <b>মুআওয়িযাতাইন</b> (ফালাক ও নাস) তিনবার করে পড়ো, এগুলো সব কিছু থেকে তোমার জন্য যথেষ্ট হবে।” <small>(আবু দাউদ ৫০৮২, তিরমিজি ৩৫৭৫; আলবানি: হাসান)</small></p>
-
 <section class="card" id="ikhlas">
   <div class="head"><div class="num"><span>১</span></div><h2>সূরা আল-ইখলাস</h2></div>
   <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
   <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
-    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
-    <div class="rep" role="group" aria-label="কতবার">
-      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
-    </div>
-    <div class="prog"><i></i></div>
-    <div class="cnt"></div>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
   </div>
   <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">কুল হুওয়াল্লা-হু আহাদ। আল্লা-হুস সামাদ। লাম ইয়ালিদ, ওয়া লাম ইউলাদ। ওয়া লাম ইয়াকুল লাহু কুফুওয়ান আহাদ।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, তিনি আল্লাহ, এক ও অদ্বিতীয়। আল্লাহ কারো মুখাপেক্ষী নন, সবাই তাঁর মুখাপেক্ষী। তিনি কাউকে জন্ম দেননি, আর কেউ তাঁকে জন্ম দেয়নি। তাঁর সমকক্ষ কেউ নেই।</p></div>
-  <p class="src">সূত্র: সূরা আল-ইখলাস ১১২:১–৪</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >কুল হুওয়াল্লা-হু আহাদ। আল্লা-হুস সামাদ। লাম ইয়ালিদ, ওয়া লাম ইউলাদ। ওয়া লাম ইয়াকুল লাহু কুফুওয়ান আহাদ।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, তিনি আল্লাহ, এক ও অদ্বিতীয়। আল্লাহ কারো মুখাপেক্ষী নন, সবাই তাঁর মুখাপেক্ষী। তিনি কাউকে জন্ম দেননি, আর কেউ তাঁকে জন্ম দেয়নি। তাঁর সমকক্ষ কেউ নেই।</p></div><p class="src">সূত্র: সূরা আল-ইখলাস ১১২:১–৪</p>
 </section>
-
 <section class="card" id="falaq">
   <div class="head"><div class="num"><span>১</span></div><h2>সূরা আল-ফালাক</h2></div>
   <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
   <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
-    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
-    <div class="rep" role="group" aria-label="কতবার">
-      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
-    </div>
-    <div class="prog"><i></i></div>
-    <div class="cnt"></div>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
   </div>
   <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">কুল আঊযু বিরাব্বিল ফালাক। মিন শাররি মা খালাক। ওয়া মিন শাররি গা-সিক্বিন ইযা ওয়াক্বাব। ওয়া মিন শাররিন নাফফা-সা-তি ফিল উক্বাদ। ওয়া মিন শাররি হা-সিদিন ইযা হাসাদ।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, আমি আশ্রয় চাই ভোরের রবের কাছে, তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে, অন্ধকার রাতের অনিষ্ট থেকে যখন তা ছেয়ে যায়, গিঁটে ফুঁ দেওয়া নারীদের (জাদুকরদের) অনিষ্ট থেকে, <b>আর হিংসুকের অনিষ্ট থেকে, যখন সে হিংসা করে।</b></p></div>
-  <p class="src">সূত্র: সূরা আল-ফালাক ১১৩:১–৫</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >কুল আঊযু বিরাব্বিল ফালাক। মিন শাররি মা খালাক। ওয়া মিন শাররি গা-সিক্বিন ইযা ওয়াক্বাব। ওয়া মিন শাররিন নাফফা-সা-তি ফিল উক্বাদ। ওয়া মিন শাররি হা-সিদিন ইযা হাসাদ।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, আমি আশ্রয় চাই ভোরের রবের কাছে, তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে, অন্ধকার রাতের অনিষ্ট থেকে যখন তা ছেয়ে যায়, গিঁটে ফুঁ দেওয়া নারীদের (জাদুকরদের) অনিষ্ট থেকে, <b>আর হিংসুকের অনিষ্ট থেকে, যখন সে হিংসা করে।</b></p></div><p class="src">সূত্র: সূরা আল-ফালাক ১১৩:১–৫</p>
 </section>
-
 <section class="card" id="nas">
   <div class="head"><div class="num"><span>১</span></div><h2>সূরা আন-নাস</h2></div>
   <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
   <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
-    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
-    <div class="rep" role="group" aria-label="কতবার">
-      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
-    </div>
-    <div class="prog"><i></i></div>
-    <div class="cnt"></div>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
   </div>
   <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">কুল আঊযু বিরাব্বিন না-স। মালিকিন না-স। ইলা-হিন না-স। মিন শাররিল ওয়াসওয়া-সিল খান্না-স। আল্লাযি ইউওয়াসউইসু ফি সুদূরিন না-স। মিনাল জিন্নাতি ওয়ান না-স।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, আমি আশ্রয় চাই মানুষের রবের কাছে, মানুষের অধিপতির কাছে, মানুষের ইলাহের কাছে, সেই কুমন্ত্রণাদাতার অনিষ্ট থেকে যে কুমন্ত্রণা দিয়ে আড়ালে সরে যায়, যে মানুষের অন্তরে কুমন্ত্রণা দেয়, জিনের মধ্য থেকে হোক কিংবা মানুষের মধ্য থেকে।</p></div>
-  <p class="src">সূত্র: সূরা আন-নাস ১১৪:১–৬</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >কুল আঊযু বিরাব্বিন না-স। মালিকিন না-স। ইলা-হিন না-স। মিন শাররিল ওয়াসওয়া-সিল খান্না-স। আল্লাযি ইউওয়াসউইসু ফি সুদূরিন না-স। মিনাল জিন্নাতি ওয়ান না-স।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, আমি আশ্রয় চাই মানুষের রবের কাছে, মানুষের অধিপতির কাছে, মানুষের ইলাহের কাছে, সেই কুমন্ত্রণাদাতার অনিষ্ট থেকে যে কুমন্ত্রণা দিয়ে আড়ালে সরে যায়, যে মানুষের অন্তরে কুমন্ত্রণা দেয়, জিনের মধ্য থেকে হোক কিংবা মানুষের মধ্য থেকে।</p></div><p class="src">সূত্র: সূরা আন-নাস ১১৪:১–৬</p>
 </section>
 <div class="tip"><b>পড়ার সুন্নাহ পদ্ধতি</b><p>রাসুলুল্লাহ <span class="saw">ﷺ</span> ঘুমানোর আগে দুই হাত একত্র করে তাতে ফুঁ দিতেন এবং সূরা ইখলাস, ফালাক ও নাস পড়ে যতটুকু সম্ভব শরীরে হাত বুলিয়ে নিতেন। মাথা, মুখমণ্ডল ও শরীরের সামনের অংশ থেকে শুরু করতেন, এভাবে তিনবার করতেন। <small>(সহিহ বুখারি ৫০১৭)</small></p></div>
-
 <section class="card" id="kursi">
   <div class="head"><div class="num"><span>২</span></div><h2>আয়াতুল কুরসি</h2></div>
   <div class="badge">সকালে · সন্ধ্যায় · ঘুমানোর আগে</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
   <div class="player" data-files='["audio/002255.mp3"]'>
-    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
-    <div class="rep" role="group" aria-label="কতবার">
-      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
-    </div>
-    <div class="prog"><i></i></div>
-    <div class="cnt"></div>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
   </div>
   <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">আল্লা-হু লা ইলা-হা ইল্লা হুওয়াল হাইয়্যুল ক্বাইয়্যূম। লা তা’খুযুহূ সিনাতুঁও ওয়ালা নাওম। লাহূ মা ফিস সামা-ওয়া-তি ওয়ামা ফিল আরদ্ব। মান যাল্লাযি ইয়াশফাউ ইনদাহূ ইল্লা বিইযনিহ। ইয়া’লামু মা বাইনা আইদীহিম ওয়ামা খালফাহুম। ওয়ালা ইউহীতূনা বিশাইয়িম মিন ইলমিহী ইল্লা বিমা শা-আ। ওয়াসিআ কুরসিয়্যুহুস সামা-ওয়া-তি ওয়াল আরদ্ব। ওয়ালা ইয়াঊদুহূ হিফযুহুমা, ওয়া হুওয়াল আলিয়্যুল আযীম।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আল্লাহ, তিনি ছাড়া কোনো ইলাহ নেই। তিনি চিরঞ্জীব, সব কিছুর ধারক। তন্দ্রা বা ঘুম তাঁকে স্পর্শ করে না। আসমান ও জমিনে যা কিছু আছে সব তাঁরই। তাঁর অনুমতি ছাড়া কে আছে যে তাঁর কাছে সুপারিশ করবে? মানুষের সামনে ও পেছনে যা আছে তিনি সব জানেন। তিনি যতটুকু চান, তার বাইরে তাঁর জ্ঞানের কিছুই তারা আয়ত্ত করতে পারে না। তাঁর কুরসি আসমান ও জমিন জুড়ে বিস্তৃত, আর এ দুটোর রক্ষণাবেক্ষণ তাঁকে ক্লান্ত করে না। তিনি সর্বোচ্চ, মহান।</p></div>
-  <p class="src">সূত্র: সূরা আল-বাকারা ২:২৫৫। ঘুমানোর আগে পড়লে সকাল পর্যন্ত আল্লাহর পক্ষ থেকে একজন হেফাজতকারী থাকে এবং শয়তান কাছে আসতে পারে না (সহিহ বুখারি ৫০১০)। সকাল-সন্ধ্যায় পড়ার বর্ণনা: মুস্তাদরাকে হাকিম, আলবানি সহিহ বলেছেন (সহিহ আত-তারগিব)।</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >আল্লা-হু লা ইলা-হা ইল্লা হুওয়াল হাইয়্যুল ক্বাইয়্যূম। লা তা’খুযুহূ সিনাতুঁও ওয়ালা নাওম। লাহূ মা ফিস সামা-ওয়া-তি ওয়ামা ফিল আরদ্ব। মান যাল্লাযি ইয়াশফাউ ইনদাহূ ইল্লা বিইযনিহ। ইয়া’লামু মা বাইনা আইদীহিম ওয়ামা খালফাহুম। ওয়ালা ইউহীতূনা বিশাইয়িম মিন ইলমিহী ইল্লা বিমা শা-আ। ওয়াসিআ কুরসিয়্যুহুস সামা-ওয়া-তি ওয়াল আরদ্ব। ওয়ালা ইয়াঊদুহূ হিফযুহুমা, ওয়া হুওয়াল আলিয়্যুল আযীম।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">আল্লাহ, তিনি ছাড়া কোনো ইলাহ নেই। তিনি চিরঞ্জীব, সব কিছুর ধারক। তন্দ্রা বা ঘুম তাঁকে স্পর্শ করে না। আসমান ও জমিনে যা কিছু আছে সব তাঁরই। তাঁর অনুমতি ছাড়া কে আছে যে তাঁর কাছে সুপারিশ করবে? মানুষের সামনে ও পেছনে যা আছে তিনি সব জানেন। তিনি যতটুকু চান, তার বাইরে তাঁর জ্ঞানের কিছুই তারা আয়ত্ত করতে পারে না। তাঁর কুরসি আসমান ও জমিন জুড়ে বিস্তৃত, আর এ দুটোর রক্ষণাবেক্ষণ তাঁকে ক্লান্ত করে না। তিনি সর্বোচ্চ, মহান।</p></div><p class="src">সূত্র: সূরা আল-বাকারা ২:২৫৫। ঘুমানোর আগে পড়লে সকাল পর্যন্ত আল্লাহর পক্ষ থেকে একজন হেফাজতকারী থাকে এবং শয়তান কাছে আসতে পারে না (সহিহ বুখারি ৫০১০)। সকাল-সন্ধ্যায় পড়ার বর্ণনা: মুস্তাদরাকে হাকিম, আলবানি সহিহ বলেছেন (সহিহ আত-তারগিব)।</p>
 </section>
 <p class="note-h">নিচের দোয়াগুলো হাদিস থেকে নেওয়া (কুরআনের আয়াত নয়), তাই এগুলোর সাথে তিলাওয়াতের অডিও দেওয়া হয়নি। উচ্চারণ দেখে পড়ুন।</p>
-
 <section class="card" id="bismillah">
   <div class="head"><div class="num"><span>৩</span></div><h2>কোনো কিছু ক্ষতি করতে না পারার দোয়া</h2></div>
   <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">বিসমিল্লা-হিল্লাযি লা ইয়াদ্বুররু মাআসমিহী শাইউন ফিল আরদ্বি ওয়ালা ফিস সামা-ই, ওয়া হুওয়াস সামীউল আলীম।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আল্লাহর নামে, যাঁর নামের সাথে আসমান ও জমিনের কোনো কিছুই ক্ষতি করতে পারে না। তিনি সব শোনেন, সব জানেন।</p></div>
-  
-  <p class="src">সূত্র: আবু দাউদ ৫০৮৮, তিরমিজি ৩৩৮৮; আলবানি: সহিহ। ফজিলত: সকালে তিনবার পড়লে সন্ধ্যা পর্যন্ত এবং সন্ধ্যায় তিনবার পড়লে সকাল পর্যন্ত আকস্মিক কোনো বিপদ তাকে স্পর্শ করবে না।</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >বিসমিল্লা-হিল্লাযি লা ইয়াদ্বুররু মাআসমিহী শাইউন ফিল আরদ্বি ওয়ালা ফিস সামা-ই, ওয়া হুওয়াস সামীউল আলীম।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">আল্লাহর নামে, যাঁর নামের সাথে আসমান ও জমিনের কোনো কিছুই ক্ষতি করতে পারে না। তিনি সব শোনেন, সব জানেন।</p></div><p class="src">সূত্র: আবু দাউদ ৫০৮৮, তিরমিজি ৩৩৮৮; আলবানি: সহিহ। ফজিলত: সকালে তিনবার পড়লে সন্ধ্যা পর্যন্ত এবং সন্ধ্যায় তিনবার পড়লে সকাল পর্যন্ত আকস্মিক কোনো বিপদ তাকে স্পর্শ করবে না।</p>
 </section>
-
 <section class="card" id="audhu">
   <div class="head"><div class="num"><span>৪</span></div><h2>সৃষ্টির অনিষ্ট থেকে আশ্রয়</h2></div>
   <div class="badge">সন্ধ্যায় ৩ বার</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">আঊযু বিকালিমা-তিল্লা-হিত তা-ম্মা-তি মিন শাররি মা খালাক।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি আল্লাহর পরিপূর্ণ বাণীসমূহের আশ্রয় চাই, তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে।</p></div>
-  
-  <p class="src">সূত্র: সহিহ মুসলিম ২৭০৯; তিনবারের বর্ণনা: তিরমিজি ৩৬০৪।</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >আঊযু বিকালিমা-তিল্লা-হিত তা-ম্মা-তি মিন শাররি মা খালাক।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি আল্লাহর পরিপূর্ণ বাণীসমূহের আশ্রয় চাই, তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে।</p></div><p class="src">সূত্র: সহিহ মুসলিম ২৭০৯; তিনবারের বর্ণনা: তিরমিজি ৩৬০৪।</p>
 </section>
 <p class="intro" id="family">রাসুলুল্লাহ <span class="saw">ﷺ</span> হাসান ও হুসাইন (রা.)-কে এই দোয়া পড়ে আল্লাহর আশ্রয়ে দিতেন এবং বলতেন, তোমাদের পিতা ইবরাহিম (আ.) এ দিয়ে ইসমাইল ও ইসহাক (আ.)-কে আশ্রয়ে দিতেন। <small>(সহিহ বুখারি ৩৩৭১)</small></p>
-
 <section class="card" id="family-self">
   <div class="head"><div class="num"><span>৫</span></div><h2>নিজের জন্য</h2></div>
   <div class="badge">যেকোনো সময়</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">আঊযু বিকালিমা-তিল্লা-হিত তা-ম্মাহ, মিন কুল্লি শাইত্বা-নিঁও ওয়া হা-ম্মাহ, ওয়া মিন কুল্লি আইনিল লা-ম্মাহ।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি আল্লাহর পরিপূর্ণ বাণীর আশ্রয় চাই, সব শয়তান ও বিষাক্ত প্রাণী থেকে, আর সব ক্ষতিকর বদনজর থেকে।</p></div>
-  
-  <p class="src">সূত্র: সহিহ বুখারি ৩৩৭১</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >আঊযু বিকালিমা-তিল্লা-হিত তা-ম্মাহ, মিন কুল্লি শাইত্বা-নিঁও ওয়া হা-ম্মাহ, ওয়া মিন কুল্লি আইনিল লা-ম্মাহ।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি আল্লাহর পরিপূর্ণ বাণীর আশ্রয় চাই, সব শয়তান ও বিষাক্ত প্রাণী থেকে, আর সব ক্ষতিকর বদনজর থেকে।</p></div><p class="src">সূত্র: সহিহ বুখারি ৩৩৭১</p>
 </section>
-
 <section class="card" id="family-kids">
   <div class="head"><div class="num"><span>৫</span></div><h2>সন্তান ও পরিবারের জন্য</h2></div>
   <div class="badge">তাদের ওপর পড়ে দেবেন</div>
   <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
-  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">উঈযুকুমা বিকালিমা-তিল্লা-হিত তা-ম্মাহ, মিন কুল্লি শাইত্বা-নিঁও ওয়া হা-ম্মাহ, ওয়া মিন কুল্লি আইনিল লা-ম্মাহ।</p></div>
-  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি তোমাদের আল্লাহর পরিপূর্ণ বাণীর আশ্রয়ে দিচ্ছি, সব শয়তান ও বিষাক্ত প্রাণী থেকে, আর সব ক্ষতিকর বদনজর থেকে।</p></div>
-  <div class="forms">
-  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b>উঈযুকা</b><small>একজন ছেলের জন্য</small></div>
-  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b>উঈযুকি</b><small>একজন মেয়ের জন্য</small></div>
-  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b>উঈযুকুমা</b><small>দুজনের জন্য (হাদিসের মূল শব্দ)</small></div>
-  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b>উঈযুকুম</b><small>তিন বা ততোধিক জনের জন্য</small></div>
-</div>
-  <p class="src">সূত্র: তিরমিজি ২০৬০ (আলবানি: সহিহ); মূল ঘটনা সহিহ বুখারি ৩৩৭১</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr" >উঈযুকুমা বিকালিমা-তিল্লা-হিত তা-ম্মাহ, মিন কুল্লি শাইত্বা-নিঁও ওয়া হা-ম্মাহ, ওয়া মিন কুল্লি আইনিল লা-ম্মাহ।</p></div><div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি তোমাদের আল্লাহর পরিপূর্ণ বাণীর আশ্রয়ে দিচ্ছি, সব শয়তান ও বিষাক্ত প্রাণী থেকে, আর সব ক্ষতিকর বদনজর থেকে।</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">উঈযুকা</b><small>একজন ছেলের জন্য</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">উঈযুকি</b><small>একজন মেয়ের জন্য</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">উঈযুকুমা</b><small>দুজনের জন্য (হাদিসের মূল শব্দ)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">উঈযুকুম</b><small>তিন বা ততোধিক জনের জন্য</small></div></div><p class="src">সূত্র: তিরমিজি ২০৬০ (আলবানি: সহিহ); মূল ঘটনা সহিহ বুখারি ৩৩৭১</p>
 </section>
 <p class="intro" id="barakah">রাসুলুল্লাহ <span class="saw">ﷺ</span> বলেছেন: “তোমাদের কেউ যখন নিজের মধ্যে, নিজের সম্পদে কিংবা তার ভাইয়ের মধ্যে মুগ্ধ হওয়ার মতো কিছু দেখে, সে যেন তার জন্য বরকতের দোয়া করে, কেননা বদনজর সত্য।” <small>(মুসনাদে আহমাদ, ইবনে মাজাহ, মুয়াত্তা মালিক; আলবানি: সহিহ)</small></p>
-
-<section class="card">
-  <div class="head"><div class="num"><span>৬</span></div><h2>নিজের বা অন্যের নেয়ামত দেখে মুগ্ধ হলে</h2></div>
+<section class="card"><div class="head"><div class="num"><span>৬</span></div><h2>নিজের বা অন্যের নেয়ামত দেখে মুগ্ধ হলে</h2></div>
   <div class="badge">তৎক্ষণাৎ</div>
-  <div class="duo">
-    <div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c">মা-শা-আল্লা-হু লা ক্বুওয়াতা ইল্লা বিল্লা-হ</p><p class="mn c">আল্লাহ যা চেয়েছেন তাই হয়েছে; আল্লাহর সাহায্য ছাড়া কোনো শক্তি নেই।</p><p class="src c">সূরা আল-কাহফ ১৮:৩৯</p></div>
-    <div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c">আল্লা-হুম্মা বা-রিক ফীহি</p><p class="mn c">হে আল্লাহ, এতে বরকত দিন।</p><p class="src c">অন্যের জন্য বললে: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “বা-রাকাল্লা-হু লাকা”</p></div>
-  </div>
-</section>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">মা-শা-আল্লা-হু লা ক্বুওয়াতা ইল্লা বিল্লা-হ</p><p class="mn c">আল্লাহ যা চেয়েছেন তাই হয়েছে; আল্লাহর সাহায্য ছাড়া কোনো শক্তি নেই।</p><p class="src c">সূরা আল-কাহফ ১৮:৩৯</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">আল্লা-হুম্মা বা-রিক ফীহি</p><p class="mn c">হে আল্লাহ, এতে বরকত দিন।</p><p class="src c">অন্যের জন্য বললে: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “বা-রাকাল্লা-হু লাকা”</p></div></div></section>
 <div class="tip green"><b>মনে রাখুন</b><p>নজর সত্য, তবে আল্লাহর হেফাজত তার চেয়েও বড়। ভয় না পেয়ে নিয়মিত আমল করুন, নেয়ামতের জন্য শুকরিয়া আদায় করুন, আর অন্যের ভালো কিছু দেখলে হিংসা না করে তার জন্য বরকতের দোয়া করুন। কল্যাণ ও অকল্যাণের মালিক একমাত্র আল্লাহ।</p></div>
 <footer class="foot">
   <p>আরবি পাঠ: মদিনা মুসহাফের উসমানি লিপি, Tanzil ও QuranEnc (কিং ফাহাদ কমপ্লেক্স) এর সাথে অক্ষরে অক্ষরে মিলিয়ে যাচাই করা। বাংলা উচ্চারণ কেবল সহায়তার জন্য; সঠিক উচ্চারণের জন্য আরবি দেখে পড়ুন।</p>
   <p>তিলাওয়াত: শায়খ মিশারি রাশিদ আলআফাসি · অডিও সৌজন্যে VerseByVerseQuran.com</p>
-  <p><a href="najar-hefazat-amal.pdf" download style="display:inline-block;background:var(--g);color:#fff;text-decoration:none;font-weight:600;padding:8px 18px;border-radius:30px;border:2px solid var(--gold2)">PDF ডাউনলোড করুন</a></p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>PDF ডাউনলোড করুন</a></p>
   <p class="share">শেয়ার করে অন্যকেও আমলের সুযোগ করে দিন। আমাদের জন্য দোয়া করবেন।</p>
-  <p class="credit">Made with AI <span class="sep"></span> Made by <b>HM Athir</b></p>
-</footer>
-</main>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-en" data-dir="ltr" data-label="Language" data-play="Listen to recitation" data-stop="Pause" data-times="times" data-err="Audio couldn't start, tap again"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">“The evil eye is real.” <small>Sahih al-Bukhari 5740, Sahih Muslim 2187</small></p>
+  <h1>Protection from the <span>Evil Eye & Envy</span></h1>
+  <p class="sub">Authentic morning & evening duas · Arabic, transliteration, meaning & recitation</p>
+  <div class="when"><div><b>Morning</b><span>From Fajr until sunrise</span></div><div><b>Evening</b><span>From Asr until Maghrib</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>Surah al-Ikhlas, al-Falaq & an-Nas<em>3 times</em></a><a href="#kursi"><b>2</b>Ayat al-Kursi<em>1 time</em></a><a href="#bismillah"><b>3</b>Bismillahil-ladhi la yadurru<em>3 times</em></a><a href="#audhu"><b>4</b>A'udhu bi kalimatillahit-tammat<em>3 times</em></a><a href="#family"><b>5</b>Dua against the evil eye for yourself & children</a><a href="#barakah"><b>6</b>When something pleases you</a></nav>
+</header>
+<p class="intro">The Messenger of Allah <span class="saw">ﷺ</span> said: “Recite <b>Qul huwa Allahu ahad</b> and the <b>Mu‘awwidhatayn</b> (al-Falaq and an-Nas) three times in the evening and in the morning; they will suffice you against everything.” <small>(Abu Dawud 5082, at-Tirmidhi 3575; graded hasan by al-Albani)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Surah al-Ikhlas</h2></div>
+  <div class="badge">Morning 3× · Evening 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Listen to recitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Tap any verse to hear just that verse</p>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul huwa Allahu ahad. Allahus-Samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">Say, "He is Allah, [who is] One Allah, the Eternal Refuge He neither begets nor is born Nor is there to Him any equivalent</p></div><p class="src">Source: Surah al-Ikhlas 112:1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>Surah al-Falaq</h2></div>
+  <div class="badge">Morning 3× · Evening 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Listen to recitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Tap any verse to hear just that verse</p>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">Say, "I seek refuge in the Lord of daybreak From the evil of that which He created And from the evil of darkness when it settles And from the evil of the blowers in knots And from the evil of an envier when he envies</p></div><p class="src">Source: Surah al-Falaq 113:1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Surah an-Nas</h2></div>
+  <div class="badge">Morning 3× · Evening 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Listen to recitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Tap any verse to hear just that verse</p>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">Say, "I seek refuge in the Lord of mankind The Sovereign of mankind The God of mankind From the evil of the retreating whisperer Who whispers [evil] into the breasts of mankind From among the jinn and mankind</p></div><p class="src">Source: Surah an-Nas 114:1–6</p>
+</section>
+<div class="tip"><b>The Sunnah way</b><p>Before sleeping, the Messenger of Allah <span class="saw">ﷺ</span> would put his hands together, blow into them and recite al-Ikhlas, al-Falaq and an-Nas, then wipe over as much of his body as he could, starting with his head, face and the front of his body. He did this three times. <small>(Sahih al-Bukhari 5017)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>Ayat al-Kursi</h2></div>
+  <div class="badge">Morning · Evening · Before sleep</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Listen to recitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Tap any verse to hear just that verse</p>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">Allahu la ilaha illa Huwal-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'im-min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'uduhu hifzuhuma, wa Huwal-'Aliyyul-'Azim.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great</p></div><p class="src">Source: Surah al-Baqarah 2:255. Whoever recites it before sleeping has a guardian from Allah until morning, and Shaytan cannot come near him (Sahih al-Bukhari 5010). Morning & evening narration: al-Mustadrak of al-Hakim, graded sahih by al-Albani (Sahih at-Targhib).</p>
+</section>
+<p class="note-h">The duas below come from hadith (they are not Quranic verses), so no recitation audio is included. Read them using the transliteration.</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>Dua so that nothing can harm you</h2></div>
+  <div class="badge">Morning 3× · Evening 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">Bismillahil-ladhi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i, wa Huwas-Sami'ul-'Alim.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">In the name of Allah, with whose name nothing on earth or in the heavens can cause harm, and He is the All-Hearing, the All-Knowing.</p></div><p class="src">Source: Abu Dawud 5088, at-Tirmidhi 3388; graded sahih by al-Albani. Virtue: whoever says it three times in the morning will not be struck by sudden affliction until evening, and three times in the evening, until morning.</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>Refuge from the evil of creation</h2></div>
+  <div class="badge">Evening 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammati min sharri ma khalaq.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">I seek refuge in the perfect words of Allah from the evil of what He has created.</p></div><p class="src">Source: Sahih Muslim 2709; three times: at-Tirmidhi 3604.</p>
+</section>
+<p class="intro" id="family">The Messenger of Allah <span class="saw">ﷺ</span> used to seek refuge for al-Hasan and al-Husayn with this dua, saying that their forefather Ibrahim used to seek refuge with it for Isma‘il and Ishaq. <small>(Sahih al-Bukhari 3371)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>For yourself</h2></div>
+  <div class="badge">Any time</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">I seek refuge in the perfect words of Allah from every devil and every poisonous creature, and from every harmful evil eye.</p></div><p class="src">Source: Sahih al-Bukhari 3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>For your children & family</h2></div>
+  <div class="badge">Recite over them</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Transliteration</span><p class="tr" dir="ltr">U'idhukuma bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Meaning</span><p class="mn">I place you both under the protection of the perfect words of Allah from every devil and every poisonous creature, and from every harmful evil eye.</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">U'idhuka</b><small>for one boy</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">U'idhuki</b><small>for one girl</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">U'idhukuma</b><small>for two (wording of the hadith)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">U'idhukum</b><small>for three or more</small></div></div><p class="src">Source: at-Tirmidhi 2060 (graded sahih by al-Albani); original account in Sahih al-Bukhari 3371</p>
+</section>
+<p class="intro" id="barakah">The Messenger of Allah <span class="saw">ﷺ</span> said: when one of you sees something that pleases him in himself, his wealth or his brother, let him pray for blessing for it, for the evil eye is real. <small>(Musnad Ahmad, Ibn Majah, Muwatta Malik; graded sahih by al-Albani)</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>When you admire your own or someone else's blessing</h2></div>
+  <div class="badge">Right away</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">Ma sha' Allah, la quwwata illa billah</p><p class="mn c">What Allah wills [has happened]; there is no power except with Allah.</p><p class="src c">Surah al-Kahf 18:39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">Allahumma barik fihi</p><p class="mn c">O Allah, bless it.</p><p class="src c">For someone else: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “Barakallahu laka”</p></div></div></section>
+<div class="tip green"><b>Remember</b><p>The evil eye is real, but Allah's protection is greater. Don't live in fear: keep up these adhkar, be grateful for your blessings, and when you see good in others, pray for blessing instead of envying. All good and harm is in Allah's hands alone.</p></div>
+<footer class="foot">
+  <p>Arabic text: Uthmani script of the Madinah Mushaf, checked letter by letter against Tanzil and QuranEnc (King Fahd Complex). Transliteration is only an aid; learn correct pronunciation from the Arabic.</p>
+  <p>Recitation: Sheikh Mishary Rashid Alafasy · audio courtesy of VerseByVerseQuran.com · Quran meanings: Saheeh International (via Tanzil)</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>Download PDF (Bangla)</a></p>
+  <p class="share">Share it so others can benefit too, and remember us in your duas.</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-ar" data-dir="rtl" data-label="اللغة" data-play="استمع إلى التلاوة" data-stop="إيقاف" data-times="مرات" data-err="تعذّر تشغيل الصوت، اضغط مرة أخرى"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">«العين حق» <small>صحيح البخاري ٥٧٤٠، صحيح مسلم ٢١٨٧</small></p>
+  <h1>التحصين من <span>العين والحسد</span></h1>
+  <p class="sub">أذكار الصباح والمساء الصحيحة · مع التلاوة</p>
+  <div class="when"><div><b>أذكار الصباح</b><span>من الفجر إلى طلوع الشمس</span></div><div><b>أذكار المساء</b><span>من العصر إلى المغرب</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>١</b>سورة الإخلاص والفلق والناس<em>٣ مرات</em></a><a href="#kursi"><b>٢</b>آية الكرسي<em>مرة</em></a><a href="#bismillah"><b>٣</b>بسم الله الذي لا يضر مع اسمه شيء<em>٣ مرات</em></a><a href="#audhu"><b>٤</b>أعوذ بكلمات الله التامات<em>٣ مرات</em></a><a href="#family"><b>٥</b>التعويذ من العين للنفس والأولاد</a><a href="#barakah"><b>٦</b>إذا رأيت ما يعجبك</a></nav>
+</header>
+<p class="intro">قال رسول الله <span class="saw">ﷺ</span>: «قُلْ هُوَ اللَّهُ أَحَدٌ وَالْمُعَوِّذَتَيْنِ حِينَ تُمْسِي وَحِينَ تُصْبِحُ ثَلَاثَ مَرَّاتٍ تَكْفِيكَ مِنْ كُلِّ شَيْءٍ» <small>(أبو داود ٥٠٨٢، الترمذي ٣٥٧٥؛ حسّنه الألباني)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>١</span></div><h2>سورة الإخلاص</h2></div>
+  <div class="badge">صباحًا ٣ · مساءً ٣</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">استمع إلى التلاوة</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">مرة</button><button type="button" data-r="3">٣ مرات</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">اضغط على أي آية لسماعها وحدها</p>
+  <p class="src">المصدر: سورة الإخلاص ١١٢: ١–٤</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>١</span></div><h2>سورة الفلق</h2></div>
+  <div class="badge">صباحًا ٣ · مساءً ٣</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">استمع إلى التلاوة</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">مرة</button><button type="button" data-r="3">٣ مرات</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">اضغط على أي آية لسماعها وحدها</p>
+  <p class="src">المصدر: سورة الفلق ١١٣: ١–٥</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>١</span></div><h2>سورة الناس</h2></div>
+  <div class="badge">صباحًا ٣ · مساءً ٣</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">استمع إلى التلاوة</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">مرة</button><button type="button" data-r="3">٣ مرات</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">اضغط على أي آية لسماعها وحدها</p>
+  <p class="src">المصدر: سورة الناس ١١٤: ١–٦</p>
+</section>
+<div class="tip"><b>الطريقة المسنونة</b><p>كان النبي <span class="saw">ﷺ</span> إذا أوى إلى فراشه جمع كفّيه ثم نفث فيهما فقرأ الإخلاص والفلق والناس، ثم يمسح بهما ما استطاع من جسده، يبدأ برأسه ووجهه وما أقبل من جسده، يفعل ذلك ثلاث مرات. <small>(صحيح البخاري ٥٠١٧)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>٢</span></div><h2>آية الكرسي</h2></div>
+  <div class="badge">صباحًا · مساءً · عند النوم</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">استمع إلى التلاوة</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">مرة</button><button type="button" data-r="3">٣ مرات</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">اضغط على أي آية لسماعها وحدها</p>
+  <p class="src">المصدر: سورة البقرة ٢: ٢٥٥. من قرأها عند نومه لم يزل عليه من الله حافظ ولا يقربه شيطان حتى يصبح (صحيح البخاري ٥٠١٠). وقراءتها صباحًا ومساءً: مستدرك الحاكم، وصححه الألباني (صحيح الترغيب).</p>
+</section>
+<p class="note-h">الأذكار التالية من السنة النبوية وليست آيات قرآنية، لذلك لم تُرفق بها تلاوة صوتية.</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>٣</span></div><h2>ذكر لا يضر معه شيء</h2></div>
+  <div class="badge">صباحًا ٣ · مساءً ٣</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <p class="src">المصدر: أبو داود ٥٠٨٨، الترمذي ٣٣٨٨؛ صححه الألباني. فضله: من قالها ثلاثًا حين يصبح لم تصبه فجأة بلاء حتى يمسي، ومن قالها حين يمسي لم تصبه حتى يصبح.</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>٤</span></div><h2>الاستعاذة من شر الخلق</h2></div>
+  <div class="badge">مساءً ٣ مرات</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <p class="src">المصدر: صحيح مسلم ٢٧٠٩؛ وذكر الثلاث: الترمذي ٣٦٠٤.</p>
+</section>
+<p class="intro" id="family">كان النبي <span class="saw">ﷺ</span> يعوّذ الحسن والحسين بهذا الدعاء، ويقول: إن أباكما كان يعوّذ بها إسماعيل وإسحاق. <small>(صحيح البخاري ٣٣٧١)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>٥</span></div><h2>لنفسك</h2></div>
+  <div class="badge">في أي وقت</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <p class="src">المصدر: صحيح البخاري ٣٣٧١</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>٥</span></div><h2>للأولاد والأهل</h2></div>
+  <div class="badge">تُقرأ عليهم</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><small>لولد واحد</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><small>لبنت واحدة</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><small>لاثنين (لفظ الحديث)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><small>لثلاثة فأكثر</small></div></div><p class="src">المصدر: الترمذي ٢٠٦٠ (صححه الألباني)؛ وأصل القصة في صحيح البخاري ٣٣٧١</p>
+</section>
+<p class="intro" id="barakah">أمر النبي <span class="saw">ﷺ</span> من رأى من نفسه أو ماله أو أخيه ما يعجبه أن يدعو له بالبركة، فإن العين حق. <small>(مسند أحمد، ابن ماجه، موطأ مالك؛ صححه الألباني)</small></p>
+<section class="card"><div class="head"><div class="num"><span>٦</span></div><h2>إذا رأيت من نعمتك أو نعمة غيرك ما يعجبك</h2></div>
+  <div class="badge">في الحال</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="src c">سورة الكهف ١٨: ٣٩</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="src c">لغيرك: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span></p></div></div></section>
+<div class="tip green"><b>تذكّر</b><p>العين حق، لكن حفظ الله أعظم. لا تعش في خوف: حافظ على الأذكار، واشكر الله على نعمه، وإذا رأيت خيرًا عند غيرك فادعُ له بالبركة ولا تحسده. والنفع والضر بيد الله وحده.</p></div>
+<footer class="foot">
+  <p>النص القرآني: رسم المصحف العثماني (مصحف المدينة)، مُطابق حرفًا بحرف مع Tanzil وموسوعة القرآن الكريم (مجمع الملك فهد).</p>
+  <p>التلاوة: الشيخ مشاري راشد العفاسي · الصوت بإذن VerseByVerseQuran.com</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>تحميل PDF (بالبنغالية)</a></p>
+  <p class="share">انشرها لينتفع بها غيرك، ولا تنسنا من دعائك.</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-ur" data-dir="rtl" data-label="زبان" data-play="تلاوت سنیں" data-stop="روکیں" data-times="بار" data-err="آڈیو شروع نہیں ہو سکا، دوبارہ ٹیپ کریں"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">”نظر کا لگنا حق ہے۔“ <small>صحیح بخاری 5740، صحیح مسلم 2187</small></p>
+  <h1>نظرِ بد اور حسد سے <span>حفاظت کے اذکار</span></h1>
+  <p class="sub">صبح و شام کی صحیح دعائیں · عربی، ترجمہ اور تلاوت کے ساتھ</p>
+  <div class="when"><div><b>صبح کے اذکار</b><span>فجر سے طلوعِ آفتاب تک</span></div><div><b>شام کے اذکار</b><span>عصر سے مغرب تک</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>سورۃ الاخلاص، الفلق اور الناس<em>3 بار</em></a><a href="#kursi"><b>2</b>آیت الکرسی<em>1 بار</em></a><a href="#bismillah"><b>3</b>بسم اللہ الذی لا یضر<em>3 بار</em></a><a href="#audhu"><b>4</b>اعوذ بکلمات اللہ التامات<em>3 بار</em></a><a href="#family"><b>5</b>اپنے اور بچوں کے لیے نظر کی دعا</a><a href="#barakah"><b>6</b>جب کوئی نعمت اچھی لگے</a></nav>
+</header>
+<p class="intro">رسول اللہ <span class="saw">ﷺ</span> نے فرمایا: ”صبح و شام <b>قل ہو اللہ احد</b> اور <b>معوذتین</b> (الفلق اور الناس) تین تین بار پڑھ لیا کرو، یہ تمہیں ہر چیز سے کافی ہوں گی۔“ <small>(ابو داود 5082، ترمذی 3575؛ البانی: حسن)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>سورۃ الاخلاص</h2></div>
+  <div class="badge">صبح 3 بار · شام 3 بار</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">تلاوت سنیں</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 بار</button><button type="button" data-r="3">3 بار</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">کسی بھی آیت پر ٹیپ کریں تو صرف وہی آیت سنائی دے گی</p>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">کہو، وہ اللہ ہے، یکتا اللہ سب سے بے نیاز ہے اور سب اس کے محتاج ہیں نہ اس کی کوئی اولاد ہے اور نہ وہ کسی کی اولاد اور کوئی اس کا ہمسر نہیں ہے</p></div><p class="src">حوالہ: سورۃ الاخلاص 112: 1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>سورۃ الفلق</h2></div>
+  <div class="badge">صبح 3 بار · شام 3 بار</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">تلاوت سنیں</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 بار</button><button type="button" data-r="3">3 بار</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">کسی بھی آیت پر ٹیپ کریں تو صرف وہی آیت سنائی دے گی</p>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">کہو، میں پناہ مانگتا ہوں صبح کے رب کی ہر اُس چیز کے شر سے جو اُس نے پیدا کی ہے اور رات کی تاریکی کے شر سے جب کہ وہ چھا جائے اور گرہوں میں پھونکنے والوں (یا والیوں) کے شر سے اور حاسد کے شر سے جب کہ وہ حسد کرے</p></div><p class="src">حوالہ: سورۃ الفلق 113: 1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>سورۃ الناس</h2></div>
+  <div class="badge">صبح 3 بار · شام 3 بار</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">تلاوت سنیں</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 بار</button><button type="button" data-r="3">3 بار</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">کسی بھی آیت پر ٹیپ کریں تو صرف وہی آیت سنائی دے گی</p>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">کہو، میں پناہ مانگتا ہوں انسانوں کے رب انسانوں کے بادشاہ انسانوں کے حقیقی معبود کی اُس وسوسہ ڈالنے والے کے شر سے جو بار بار پلٹ کر آتا ہے جو لوگوں کے دلوں میں وسوسے ڈالتا ہے خواہ وہ جنوں میں سے ہو یا انسانوں میں سے</p></div><p class="src">حوالہ: سورۃ الناس 114: 1–6</p>
+</section>
+<div class="tip"><b>مسنون طریقہ</b><p>رسول اللہ <span class="saw">ﷺ</span> سونے سے پہلے دونوں ہتھیلیاں ملا کر ان میں پھونکتے، سورۃ الاخلاص، الفلق اور الناس پڑھتے، پھر جہاں تک ہو سکتا جسم پر ہاتھ پھیرتے، سر، چہرے اور جسم کے اگلے حصے سے شروع کرتے، اور ایسا تین بار کرتے۔ <small>(صحیح بخاری 5017)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>آیت الکرسی</h2></div>
+  <div class="badge">صبح · شام · سونے سے پہلے</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">تلاوت سنیں</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 بار</button><button type="button" data-r="3">3 بار</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">کسی بھی آیت پر ٹیپ کریں تو صرف وہی آیت سنائی دے گی</p>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">اللہ، وہ زندہ جاوید ہستی، جو تمام کائنات کو سنبھالے ہوئے ہے، اُس کے سوا کوئی خدا نہیں ہے وہ نہ سوتا ہے اور نہ اُسے اونگھ لگتی ہے زمین اور آسمانوں میں جو کچھ ہے، اُسی کا ہے کون ہے جو اُس کی جناب میں اُس کی اجازت کے بغیر سفارش کر سکے؟ جو کچھ بندوں کے سامنے ہے اسے بھی وہ جانتا ہے اور جو کچھ اُن سے اوجھل ہے، اس سے بھی وہ واقف ہے اور اُس کی معلومات میں سے کوئی چیز اُن کی گرفت ادراک میں نہیں آسکتی الّا یہ کہ کسی چیز کا علم وہ خود ہی اُن کو دینا چاہے اُس کی حکومت آسمانوں اور زمین پر چھائی ہوئی ہے اور اُن کی نگہبانی اس کے لیے کوئی تھکا دینے والا کام نہیں ہے بس وہی ایک بزرگ و برتر ذات ہے</p></div><p class="src">حوالہ: سورۃ البقرہ 2: 255۔ سوتے وقت پڑھنے والے پر صبح تک اللہ کی طرف سے ایک محافظ رہتا ہے اور شیطان قریب نہیں آتا (صحیح بخاری 5010)۔ صبح و شام پڑھنے کی روایت: مستدرک حاکم، البانی نے صحیح کہا (صحیح الترغیب)۔</p>
+</section>
+<p class="note-h">نیچے دی گئی دعائیں احادیث سے ہیں (قرآنی آیات نہیں)، اس لیے ان کے ساتھ تلاوت کی آڈیو نہیں دی گئی۔</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>ہر نقصان سے حفاظت کی دعا</h2></div>
+  <div class="badge">صبح 3 بار · شام 3 بار</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">اللہ کے نام کے ساتھ، جس کے نام کے ساتھ زمین و آسمان کی کوئی چیز نقصان نہیں پہنچا سکتی، اور وہ خوب سننے والا، خوب جاننے والا ہے۔</p></div><p class="src">حوالہ: ابو داود 5088، ترمذی 3388؛ البانی: صحیح۔ فضیلت: جو صبح تین بار پڑھے اسے شام تک اور جو شام کو تین بار پڑھے اسے صبح تک کوئی اچانک مصیبت نہیں پہنچے گی۔</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>مخلوق کے شر سے پناہ</h2></div>
+  <div class="badge">شام 3 بار</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">میں اللہ کے مکمل کلمات کی پناہ مانگتا ہوں ہر اس چیز کے شر سے جو اس نے پیدا کی۔</p></div><p class="src">حوالہ: صحیح مسلم 2709؛ تین بار کی روایت: ترمذی 3604۔</p>
+</section>
+<p class="intro" id="family">رسول اللہ <span class="saw">ﷺ</span> حسن اور حسین رضی اللہ عنہما کو اس دعا کے ذریعے اللہ کی پناہ میں دیتے اور فرماتے کہ تمہارے جدِ امجد ابراہیم علیہ السلام اسی سے اسماعیل اور اسحاق علیہما السلام کو پناہ میں دیتے تھے۔ <small>(صحیح بخاری 3371)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>اپنے لیے</h2></div>
+  <div class="badge">کسی بھی وقت</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">میں اللہ کے مکمل کلمات کی پناہ مانگتا ہوں ہر شیطان اور ہر زہریلے جانور سے، اور ہر نقصان پہنچانے والی نظر سے۔</p></div><p class="src">حوالہ: صحیح بخاری 3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>بچوں اور گھر والوں کے لیے</h2></div>
+  <div class="badge">ان پر پڑھ کر دم کریں</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">ترجمہ</span><p class="mn">میں تم دونوں کو اللہ کے مکمل کلمات کی پناہ میں دیتا ہوں ہر شیطان اور ہر زہریلے جانور سے، اور ہر نقصان پہنچانے والی نظر سے۔</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><small>ایک لڑکے کے لیے</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><small>ایک لڑکی کے لیے</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><small>دو کے لیے (حدیث کے الفاظ)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><small>تین یا زیادہ کے لیے</small></div></div><p class="src">حوالہ: ترمذی 2060 (البانی: صحیح)؛ اصل واقعہ صحیح بخاری 3371</p>
+</section>
+<p class="intro" id="barakah">رسول اللہ <span class="saw">ﷺ</span> نے فرمایا کہ جب تم میں سے کوئی اپنے آپ میں، اپنے مال میں یا اپنے بھائی میں کوئی پسندیدہ چیز دیکھے تو اس کے لیے برکت کی دعا کرے، کیونکہ نظر کا لگنا حق ہے۔ <small>(مسند احمد، ابن ماجہ، موطا مالک؛ البانی: صحیح)</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>جب اپنی یا کسی کی نعمت اچھی لگے</h2></div>
+  <div class="badge">فوراً</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="mn c">جو اللہ نے چاہا وہی ہوا، اللہ کی مدد کے بغیر کوئی طاقت نہیں۔</p><p class="src c">سورۃ الکہف 18: 39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="mn c">اے اللہ! اس میں برکت عطا فرما۔</p><p class="src c">دوسرے کے لیے: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span></p></div></div></section>
+<div class="tip green"><b>یاد رکھیں</b><p>نظر کا لگنا حق ہے، لیکن اللہ کی حفاظت اس سے بڑی ہے۔ خوف میں نہ رہیں: اذکار کی پابندی کریں، نعمتوں پر شکر ادا کریں، اور دوسروں کے پاس اچھائی دیکھیں تو حسد کے بجائے برکت کی دعا کریں۔ نفع و نقصان صرف اللہ کے ہاتھ میں ہے۔</p></div>
+<footer class="foot">
+  <p>عربی متن: مصحفِ مدینہ کا عثمانی رسم الخط، Tanzil اور QuranEnc (شاہ فہد کمپلیکس) سے حرف بہ حرف ملایا گیا۔</p>
+  <p>تلاوت: شیخ مشاری راشد العفاسی · آڈیو بشکریہ VerseByVerseQuran.com · قرآنی ترجمہ: سید ابوالاعلیٰ مودودی (Tanzil)</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>PDF ڈاؤن لوڈ کریں (بنگلہ)</a></p>
+  <p class="share">اسے شیئر کریں تاکہ دوسرے بھی فائدہ اٹھائیں، اور ہمیں اپنی دعاؤں میں یاد رکھیں۔</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-id" data-dir="ltr" data-label="Bahasa" data-play="Dengarkan bacaan" data-stop="Jeda" data-times="kali" data-err="Audio gagal diputar, ketuk lagi"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">“Pengaruh ‘ain itu benar adanya.” <small>Shahih al-Bukhari 5740, Shahih Muslim 2187</small></p>
+  <h1>Perlindungan dari <span>'Ain & Hasad</span></h1>
+  <p class="sub">Zikir pagi & petang yang sahih · Arab, transliterasi, arti & murattal</p>
+  <div class="when"><div><b>Zikir pagi</b><span>Dari Subuh hingga terbit matahari</span></div><div><b>Zikir petang</b><span>Dari Ashar hingga Maghrib</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>Surah al-Ikhlas, al-Falaq & an-Nas<em>3 kali</em></a><a href="#kursi"><b>2</b>Ayat Kursi<em>1 kali</em></a><a href="#bismillah"><b>3</b>Bismillahilladzi la yadhurru<em>3 kali</em></a><a href="#audhu"><b>4</b>A'udzu bikalimatillahit-tammat<em>3 kali</em></a><a href="#family"><b>5</b>Doa dari 'ain untuk diri & anak</a><a href="#barakah"><b>6</b>Saat melihat sesuatu yang mengagumkan</a></nav>
+</header>
+<p class="intro">Rasulullah <span class="saw">ﷺ</span> bersabda: “Bacalah <b>Qul huwallahu ahad</b> dan <b>al-Mu‘awwidzatain</b> (al-Falaq dan an-Nas) tiga kali di waktu petang dan pagi, niscaya itu mencukupimu dari segala sesuatu.” <small>(HR. Abu Dawud 5082, at-Tirmidzi 3575; hasan menurut al-Albani)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Surah al-Ikhlas</h2></div>
+  <div class="badge">Pagi 3× · Petang 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Dengarkan bacaan</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Ketuk ayat mana pun untuk mendengar ayat itu saja</p>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul huwa Allahu ahad. Allahus-Samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Katakanlah (Muhammad), "Dialah Allah, Yang Maha Esa Allah tempat meminta segala sesuatu (Allah) tidak beranak dan tidak pula diperanakkan Dan tidak ada sesuatu yang setara dengan Dia</p></div><p class="src">Sumber: Surah al-Ikhlas 112:1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>Surah al-Falaq</h2></div>
+  <div class="badge">Pagi 3× · Petang 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Dengarkan bacaan</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Ketuk ayat mana pun untuk mendengar ayat itu saja</p>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Katakanlah, "Aku berlindung kepada Tuhan yang menguasai subuh (fajar) dari kejahatan (makhluk yang) Dia ciptakan dan dari kejahatan malam apabila telah gelap gulita dan dari kejahatan (perempuan-perempuan) penyihir yang meniup pada buhul-buhul (talinya) dan dari kejahatan orang yang dengki apabila dia dengki</p></div><p class="src">Sumber: Surah al-Falaq 113:1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Surah an-Nas</h2></div>
+  <div class="badge">Pagi 3× · Petang 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Dengarkan bacaan</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Ketuk ayat mana pun untuk mendengar ayat itu saja</p>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Katakanlah, "Aku berlindung kepada Tuhannya manusia Raja manusia sembahan manusia dari kejahatan (bisikan) setan yang bersembunyi yang membisikkan (kejahatan) ke dalam dada manusia dari (golongan) jin dan manusia</p></div><p class="src">Sumber: Surah an-Nas 114:1–6</p>
+</section>
+<div class="tip"><b>Cara sesuai sunnah</b><p>Sebelum tidur Rasulullah <span class="saw">ﷺ</span> menyatukan kedua telapak tangan, meniupnya, lalu membaca al-Ikhlas, al-Falaq dan an-Nas, kemudian mengusapkannya ke tubuh semampunya, dimulai dari kepala, wajah dan bagian depan tubuh. Beliau melakukannya tiga kali. <small>(Shahih al-Bukhari 5017)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>Ayat Kursi</h2></div>
+  <div class="badge">Pagi · Petang · Sebelum tidur</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Dengarkan bacaan</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Ketuk ayat mana pun untuk mendengar ayat itu saja</p>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">Allahu la ilaha illa Huwal-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'im-min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'uduhu hifzuhuma, wa Huwal-'Aliyyul-'Azim.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Allah, tidak ada tuhan selain Dia. Yang Mahahidup, Yang terus menerus mengurus (makhluk-Nya), tidak mengantuk dan tidak tidur. Milik-Nya apa yang ada di langit dan apa yang ada di bumi. Tidak ada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang dihadapan mereka dan apa yang di belakang mereka, dan mereka tidak mengetahui sesuatu apa pun tentang ilmu-Nya melainkan apa yang Dia kehendaki. Kursi-Nya96) meliputi langit dan bumi. Dan Dia tidak merasa berat memelihara keduanya, dan Dia Mahatinggi, Mahabesar</p></div><p class="src">Sumber: Surah al-Baqarah 2:255. Siapa membacanya sebelum tidur, ia senantiasa dijaga oleh Allah dan setan tidak mendekatinya hingga pagi (Shahih al-Bukhari 5010). Riwayat pagi & petang: al-Mustadrak al-Hakim, dinilai sahih oleh al-Albani (Shahih at-Targhib).</p>
+</section>
+<p class="note-h">Doa-doa berikut berasal dari hadis (bukan ayat Al-Qur'an), sehingga tidak disertai audio bacaan. Bacalah dengan bantuan transliterasi.</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>Doa agar tidak ada yang membahayakan</h2></div>
+  <div class="badge">Pagi 3× · Petang 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">Bismillahil-ladhi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i, wa Huwas-Sami'ul-'Alim.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Dengan nama Allah, yang bersama nama-Nya tidak ada sesuatu pun di bumi maupun di langit yang dapat membahayakan, dan Dia Maha Mendengar lagi Maha Mengetahui.</p></div><p class="src">Sumber: Abu Dawud 5088, at-Tirmidzi 3388; sahih menurut al-Albani. Keutamaan: siapa membacanya tiga kali di pagi hari tidak akan tertimpa musibah mendadak hingga petang, dan tiga kali di petang hari, hingga pagi.</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>Berlindung dari keburukan makhluk</h2></div>
+  <div class="badge">Petang 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammati min sharri ma khalaq.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari keburukan apa yang Dia ciptakan.</p></div><p class="src">Sumber: Shahih Muslim 2709; tiga kali: at-Tirmidzi 3604.</p>
+</section>
+<p class="intro" id="family">Rasulullah <span class="saw">ﷺ</span> memohonkan perlindungan untuk al-Hasan dan al-Husain dengan doa ini, dan bersabda bahwa leluhur mereka, Ibrahim, memohonkan perlindungan untuk Isma‘il dan Ishaq dengan doa ini. <small>(Shahih al-Bukhari 3371)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>Untuk diri sendiri</h2></div>
+  <div class="badge">Kapan saja</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari setiap setan dan binatang berbisa, dan dari setiap 'ain yang membahayakan.</p></div><p class="src">Sumber: Shahih al-Bukhari 3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>Untuk anak & keluarga</h2></div>
+  <div class="badge">Dibacakan untuk mereka</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Transliterasi</span><p class="tr" dir="ltr">U'idhukuma bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Arti</span><p class="mn">Aku memohonkan perlindungan untuk kalian berdua dengan kalimat-kalimat Allah yang sempurna dari setiap setan dan binatang berbisa, dan dari setiap 'ain yang membahayakan.</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">U'idhuka</b><small>untuk satu anak laki-laki</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">U'idhuki</b><small>untuk satu anak perempuan</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">U'idhukuma</b><small>untuk dua orang (lafaz hadis)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">U'idhukum</b><small>untuk tiga orang atau lebih</small></div></div><p class="src">Sumber: at-Tirmidzi 2060 (sahih menurut al-Albani); kisah asal dalam Shahih al-Bukhari 3371</p>
+</section>
+<p class="intro" id="barakah">Rasulullah <span class="saw">ﷺ</span> bersabda: jika salah seorang dari kalian melihat sesuatu yang mengagumkan pada dirinya, hartanya atau saudaranya, hendaklah ia mendoakan keberkahan untuknya, karena 'ain itu benar adanya. <small>(Musnad Ahmad, Ibnu Majah, al-Muwaththa'; sahih menurut al-Albani)</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>Saat mengagumi nikmat sendiri atau orang lain</h2></div>
+  <div class="badge">Seketika</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">Ma sha' Allah, la quwwata illa billah</p><p class="mn c">Atas kehendak Allah [semua ini terwujud]; tidak ada kekuatan kecuali dengan pertolongan Allah.</p><p class="src c">Surah al-Kahfi 18:39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">Allahumma barik fihi</p><p class="mn c">Ya Allah, berkahilah.</p><p class="src c">Untuk orang lain: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “Barakallahu laka”</p></div></div></section>
+<div class="tip green"><b>Ingatlah</b><p>'Ain itu nyata, tetapi perlindungan Allah lebih besar. Jangan hidup dalam ketakutan: rutinkan zikir, syukuri nikmat, dan bila melihat kebaikan pada orang lain, doakan keberkahan, jangan dengki. Manfaat dan mudarat hanya di tangan Allah.</p></div>
+<footer class="foot">
+  <p>Teks Arab: rasm Utsmani Mushaf Madinah, dicocokkan huruf demi huruf dengan Tanzil dan QuranEnc (Kompleks Raja Fahd). Transliterasi hanya alat bantu.</p>
+  <p>Murattal: Syaikh Mishary Rashid Alafasy · audio dari VerseByVerseQuran.com · Terjemah Al-Qur'an: Kementerian Agama RI (QuranEnc)</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>Unduh PDF (Bahasa Bengali)</a></p>
+  <p class="share">Bagikan agar orang lain juga mendapat manfaat, dan doakan kami.</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-tr" data-dir="ltr" data-label="Dil" data-play="Tilaveti dinle" data-stop="Durdur" data-times="kez" data-err="Ses başlatılamadı, tekrar dokunun"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">“Nazar haktır.” <small>Sahîh-i Buhârî 5740, Sahîh-i Müslim 2187</small></p>
+  <h1>Nazar ve Hasede Karşı <span>Korunma Duaları</span></h1>
+  <p class="sub">Sahih sabah & akşam zikirleri · Arapça, okunuş, anlam & tilavet</p>
+  <div class="when"><div><b>Sabah zikirleri</b><span>Sabah namazından güneş doğana kadar</span></div><div><b>Akşam zikirleri</b><span>İkindiden akşam namazına kadar</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>İhlâs, Felak ve Nâs sureleri<em>3 kez</em></a><a href="#kursi"><b>2</b>Âyetü’l-Kürsî<em>1 kez</em></a><a href="#bismillah"><b>3</b>Bismillâhillezî lâ yedurru<em>3 kez</em></a><a href="#audhu"><b>4</b>E‘ûzü bi-kelimâtillâhi’t-tâmmât<em>3 kez</em></a><a href="#family"><b>5</b>Kendin ve çocukların için nazar duası</a><a href="#barakah"><b>6</b>Hoşuna giden bir nimet gördüğünde</a></nav>
+</header>
+<p class="intro">Resûlullah <span class="saw">ﷺ</span> şöyle buyurdu: “Akşam ve sabah üçer kere <b>Kul hüvallâhü ehad</b> ve <b>Muavvizeteyn</b>’i (Felak ve Nâs) oku; bunlar seni her şeye karşı yeterli kılar.” <small>(Ebû Dâvûd 5082, Tirmizî 3575; Elbânî: hasen)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>İhlâs Suresi</h2></div>
+  <div class="badge">Sabah 3 · Akşam 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Tilaveti dinle</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Yalnızca o ayeti dinlemek için herhangi bir ayete dokunun</p>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul huwa Allahu ahad. Allahus-Samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">De ki: O Allah bir tektir Allah her şeyden müstağni ve her şey O'na muhtaçtır O doğurmamış ve doğmamıştır Hiçbir şey O'na denk değildir</p></div><p class="src">Kaynak: İhlâs 112:1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>Felak Suresi</h2></div>
+  <div class="badge">Sabah 3 · Akşam 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Tilaveti dinle</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Yalnızca o ayeti dinlemek için herhangi bir ayete dokunun</p>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">De ki: "Yaratıkların şerrinden, bastırdığı zaman karanlığın şerrinden, düğümlere nefes eden büyücülerin şerrinden, hased ettiği zaman hasedcilerin şerrinden, tan yerini ağartan Rabbe sığınırım</p></div><p class="src">Kaynak: Felak 113:1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Nâs Suresi</h2></div>
+  <div class="badge">Sabah 3 · Akşam 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Tilaveti dinle</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Yalnızca o ayeti dinlemek için herhangi bir ayete dokunun</p>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">De ki: "İnsanlardan ve cinlerden ve insanların gönüllerine vesvese veren o sinsi vesvesecinin şerrinden, insanların Tanrısı, insanların Hükümranı ve insanların Rabbi olan Allah'a sığınırım</p></div><p class="src">Kaynak: Nâs 114:1–6</p>
+</section>
+<div class="tip"><b>Sünnete uygun okuma</b><p>Resûlullah <span class="saw">ﷺ</span> uyumadan önce iki avucunu birleştirip içine üfler, İhlâs, Felak ve Nâs surelerini okur, sonra başından, yüzünden ve vücudunun ön tarafından başlayarak elinin yettiği kadar vücudunu mesh ederdi. Bunu üç kez yapardı. <small>(Sahîh-i Buhârî 5017)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>Âyetü’l-Kürsî</h2></div>
+  <div class="badge">Sabah · Akşam · Uykudan önce</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Tilaveti dinle</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Yalnızca o ayeti dinlemek için herhangi bir ayete dokunun</p>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">Allahu la ilaha illa Huwal-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'im-min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'uduhu hifzuhuma, wa Huwal-'Aliyyul-'Azim.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">Allah, O'ndan başka tanrı olmayan, kendisini uyuklama ve uyku tutmayan, diri, her an yaratıklarını gözetip durandır. Göklerde olan ve yerde olan ancak O'nundur. O'nun izni olmadan katında şefaat edecek kimdir? Onların işlediklerini ve işleyeceklerini bilir, dilediğinden başka ilminden hiçbir şeyi kavrayamazlar. Hükümranlığı gökleri ve yeri kaplamıştır, onların gözetilmesi O'na ağır gelmez. O yücedir, büyüktür</p></div><p class="src">Kaynak: Bakara 2:255. Yatarken okuyan kimse için sabaha kadar Allah tarafından bir koruyucu bulunur ve şeytan ona yaklaşamaz (Sahîh-i Buhârî 5010). Sabah-akşam okunmasına dair rivayet: Hâkim, el-Müstedrek; Elbânî sahih demiştir (Sahîhu’t-Terğîb).</p>
+</section>
+<p class="note-h">Aşağıdaki dualar hadislerden alınmıştır (Kur’an ayeti değildir), bu yüzden tilavet sesi eklenmemiştir. Okunuşuna bakarak okuyunuz.</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>Hiçbir şeyin zarar vermemesi için dua</h2></div>
+  <div class="badge">Sabah 3 · Akşam 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">Bismillahil-ladhi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i, wa Huwas-Sami'ul-'Alim.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">Adıyla birlikte yerde ve gökte hiçbir şeyin zarar veremeyeceği Allah’ın adıyla. O, her şeyi işiten ve bilendir.</p></div><p class="src">Kaynak: Ebû Dâvûd 5088, Tirmizî 3388; Elbânî: sahih. Fazileti: Sabah üç kez okuyana akşama kadar, akşam üç kez okuyana sabaha kadar ani bir belâ isabet etmez.</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>Yaratılanların şerrinden sığınma</h2></div>
+  <div class="badge">Akşam 3 kez</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammati min sharri ma khalaq.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">Yarattığı şeylerin şerrinden Allah’ın eksiksiz kelimelerine sığınırım.</p></div><p class="src">Kaynak: Sahîh-i Müslim 2709; üç kez: Tirmizî 3604.</p>
+</section>
+<p class="intro" id="family">Resûlullah <span class="saw">ﷺ</span> Hasan ve Hüseyin’i bu dua ile Allah’a emanet eder ve atalarının, İbrâhim’in, İsmâil ile İshak’ı bununla Allah’a sığındırdığını söylerdi. <small>(Sahîh-i Buhârî 3371)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>Kendin için</h2></div>
+  <div class="badge">Her zaman</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">Her şeytandan, her zehirli hayvandan ve zarar veren her nazardan Allah’ın eksiksiz kelimelerine sığınırım.</p></div><p class="src">Kaynak: Sahîh-i Buhârî 3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>Çocukların ve ailen için</h2></div>
+  <div class="badge">Onlara okunur</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Okunuşu</span><p class="tr" dir="ltr">U'idhukuma bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Anlamı</span><p class="mn">Sizi her şeytandan, her zehirli hayvandan ve zarar veren her nazardan Allah’ın eksiksiz kelimelerine sığındırırım.</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">U'idhuka</b><small>bir erkek çocuk için</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">U'idhuki</b><small>bir kız çocuk için</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">U'idhukuma</b><small>iki kişi için (hadisteki lafız)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">U'idhukum</b><small>üç veya daha fazla kişi için</small></div></div><p class="src">Kaynak: Tirmizî 2060 (Elbânî: sahih); asıl olay Sahîh-i Buhârî 3371</p>
+</section>
+<p class="intro" id="barakah">Resûlullah <span class="saw">ﷺ</span> şöyle buyurdu: Biriniz kendisinde, malında veya kardeşinde hoşuna giden bir şey gördüğünde ona bereket duası etsin; çünkü nazar haktır. <small>(Müsned-i Ahmed, İbn Mâce, Muvatta; Elbânî: sahih)</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>Kendi veya başkasının nimeti hoşuna gittiğinde</h2></div>
+  <div class="badge">Hemen</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">Ma sha' Allah, la quwwata illa billah</p><p class="mn c">Allah dilemiş, kuvvet ancak Allah’ındır.</p><p class="src c">Kehf 18:39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">Allahumma barik fihi</p><p class="mn c">Allah’ım, bunu bereketli kıl.</p><p class="src c">Başkası için: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “Barakallahu laka”</p></div></div></section>
+<div class="tip green"><b>Unutma</b><p>Nazar haktır, ama Allah’ın koruması daha büyüktür. Korku içinde yaşama: zikirlere devam et, nimetlere şükret ve başkasında bir iyilik gördüğünde haset etmek yerine bereket duası et. Fayda da zarar da yalnızca Allah’ın elindedir.</p></div>
+<footer class="foot">
+  <p>Arapça metin: Medine Mushafı Osmanlı resmi; Tanzil ve QuranEnc (Kral Fahd Kompleksi) ile harf harf karşılaştırılmıştır. Okunuş yalnızca yardımcıdır.</p>
+  <p>Tilavet: Şeyh Mişârî Râşid el-Afâsî · ses: VerseByVerseQuran.com · Meal: Diyanet İşleri Başkanlığı (Tanzil)</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>PDF indir (Bengalce)</a></p>
+  <p class="share">Başkaları da faydalansın diye paylaşın, bizi de dualarınızda unutmayın.</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-fr" data-dir="ltr" data-label="Langue" data-play="Écouter la récitation" data-stop="Pause" data-times="fois" data-err="Le son n’a pas pu démarrer, touchez à nouveau"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">« Le mauvais œil est une réalité. » <small>Sahih al-Bukhari 5740, Sahih Muslim 2187</small></p>
+  <h1>Protection contre <span>le mauvais œil & l’envie</span></h1>
+  <p class="sub">Invocations authentiques du matin & du soir · arabe, translittération, sens & récitation</p>
+  <div class="when"><div><b>Le matin</b><span>De Fajr jusqu’au lever du soleil</span></div><div><b>Le soir</b><span>De ‘Asr jusqu’à Maghrib</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>Sourates al-Ikhlas, al-Falaq & an-Nas<em>3 fois</em></a><a href="#kursi"><b>2</b>Ayat al-Kursi<em>1 fois</em></a><a href="#bismillah"><b>3</b>Bismillahil-ladhi la yadurru<em>3 fois</em></a><a href="#audhu"><b>4</b>A‘udhu bi kalimatillahit-tammat<em>3 fois</em></a><a href="#family"><b>5</b>Invocation contre le mauvais œil pour soi & ses enfants</a><a href="#barakah"><b>6</b>Quand quelque chose vous plaît</a></nav>
+</header>
+<p class="intro">Le Messager d’Allah <span class="saw">ﷺ</span> a dit : « Récite <b>Qul huwa Allahu ahad</b> et les <b>Mu‘awwidhatayn</b> (al-Falaq et an-Nas) trois fois le soir et le matin : elles te suffiront contre toute chose. » <small>(Abu Dawud 5082, at-Tirmidhi 3575 ; jugé hasan par al-Albani)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Sourate al-Ikhlas</h2></div>
+  <div class="badge">Matin 3× · Soir 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Écouter la récitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Touchez un verset pour n’écouter que celui-ci</p>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul huwa Allahu ahad. Allahus-Samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Dis: «Il est Allah, Unique Allah, Le Seul à être imploré pour ce que nous désirons Il n'a jamais engendré, n'a pas été engendré non plus Et nul n'est égal à Lui»</p></div><p class="src">Source: Sourate al-Ikhlas 112:1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>Sourate al-Falaq</h2></div>
+  <div class="badge">Matin 3× · Soir 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Écouter la récitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Touchez un verset pour n’écouter que celui-ci</p>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Dis: «Je cherche protection auprès du Seigneur de l'aube naissante contre le mal des êtres qu'Il a créés contre le mal de l'obscurité quand elle s'approfondit contre le mal de celles qui soufflent [les sorcières] sur les nœuds et contre le mal de l'envieux quand il envie»</p></div><p class="src">Source: Sourate al-Falaq 113:1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Sourate an-Nas</h2></div>
+  <div class="badge">Matin 3× · Soir 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Écouter la récitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Touchez un verset pour n’écouter que celui-ci</p>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Dis: «Je cherche protection auprès du Seigneur des hommes Le Souverain des hommes Dieu des hommes contre le mal du mauvais conseiller, furtif qui souffle le mal dans les poitrines des hommes qu'il (le conseiller) soit un djinn, ou un être humain»</p></div><p class="src">Source: Sourate an-Nas 114:1–6</p>
+</section>
+<div class="tip"><b>La manière de la Sunna</b><p>Avant de dormir, le Messager d’Allah <span class="saw">ﷺ</span> joignait ses mains, soufflait dedans, récitait al-Ikhlas, al-Falaq et an-Nas, puis passait ses mains sur ce qu’il pouvait de son corps, en commençant par la tête, le visage et le devant du corps. Il le faisait trois fois. <small>(Sahih al-Bukhari 5017)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>Ayat al-Kursi</h2></div>
+  <div class="badge">Matin · Soir · Avant de dormir</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Écouter la récitation</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Touchez un verset pour n’écouter que celui-ci</p>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">Allahu la ilaha illa Huwal-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'im-min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'uduhu hifzuhuma, wa Huwal-'Aliyyul-'Azim.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Allah! Point de divinité à part Lui, le Vivant, Celui qui subsiste par lui-même «Al-Qayyûm». Ni somnolence ni sommeil ne Le saisissent. A Lui appartient tout ce qui est dans les cieux et sur la terre. Qui peut intercéder auprès de Lui sans Sa permission? Il connaît leur passé et leur futur. Et, de Sa science, ils n'embrassent que ce qu'Il veut. Son Trône «Kursiy», déborde les cieux et la terre, dont la garde ne Lui coûte aucune peine. Et Il est le Très Haut, le Très Grand</p></div><p class="src">Source: Sourate al-Baqara 2:255. Celui qui le récite avant de dormir a un gardien de la part d’Allah jusqu’au matin, et Satan ne l’approche pas (Sahih al-Bukhari 5010). Récitation matin & soir : al-Mustadrak d’al-Hakim, jugé authentique par al-Albani (Sahih at-Targhib).</p>
+</section>
+<p class="note-h">Les invocations ci-dessous proviennent des hadiths (ce ne sont pas des versets du Coran) ; aucun audio de récitation n’est donc joint.</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>Pour que rien ne puisse nuire</h2></div>
+  <div class="badge">Matin 3× · Soir 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">Bismillahil-ladhi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i, wa Huwas-Sami'ul-'Alim.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Au nom d’Allah, avec le nom duquel rien sur terre ni dans le ciel ne peut nuire, et Il est Celui qui entend tout, l’Omniscient.</p></div><p class="src">Source: Abu Dawud 5088, at-Tirmidhi 3388 ; authentique selon al-Albani. Mérite : qui la dit trois fois le matin ne sera pas frappé par un malheur soudain jusqu’au soir, et trois fois le soir, jusqu’au matin.</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>Refuge contre le mal de la création</h2></div>
+  <div class="badge">Soir 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammati min sharri ma khalaq.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Je cherche refuge auprès des paroles parfaites d’Allah contre le mal de ce qu’Il a créé.</p></div><p class="src">Source: Sahih Muslim 2709 ; trois fois : at-Tirmidhi 3604.</p>
+</section>
+<p class="intro" id="family">Le Messager d’Allah <span class="saw">ﷺ</span> plaçait al-Hasan et al-Husayn sous la protection d’Allah avec cette invocation, et disait que leur ancêtre Ibrahim protégeait ainsi Isma‘il et Ishaq. <small>(Sahih al-Bukhari 3371)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>Pour soi-même</h2></div>
+  <div class="badge">À tout moment</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Je cherche refuge auprès des paroles parfaites d’Allah contre tout diable, toute bête venimeuse et tout mauvais œil nuisible.</p></div><p class="src">Source: Sahih al-Bukhari 3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>Pour ses enfants & sa famille</h2></div>
+  <div class="badge">À réciter sur eux</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Translittération</span><p class="tr" dir="ltr">U'idhukuma bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Sens</span><p class="mn">Je vous place tous deux sous la protection des paroles parfaites d’Allah contre tout diable, toute bête venimeuse et tout mauvais œil nuisible.</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">U'idhuka</b><small>pour un garçon</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">U'idhuki</b><small>pour une fille</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">U'idhukuma</b><small>pour deux (texte du hadith)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">U'idhukum</b><small>pour trois ou plus</small></div></div><p class="src">Source: at-Tirmidhi 2060 (authentique selon al-Albani) ; récit d’origine : Sahih al-Bukhari 3371</p>
+</section>
+<p class="intro" id="barakah">Le Messager d’Allah <span class="saw">ﷺ</span> a dit : lorsque l’un de vous voit en lui-même, dans ses biens ou chez son frère quelque chose qui lui plaît, qu’il invoque la bénédiction pour cela, car le mauvais œil est une réalité. <small>(Musnad Ahmad, Ibn Majah, Muwatta Malik ; authentique selon al-Albani)</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>Quand un bienfait (le vôtre ou celui d’autrui) vous plaît</h2></div>
+  <div class="badge">Sur le moment</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">Ma sha' Allah, la quwwata illa billah</p><p class="mn c">Telle est la volonté d’Allah ; il n’y a de puissance que par Allah.</p><p class="src c">Sourate al-Kahf 18:39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">Allahumma barik fihi</p><p class="mn c">Ô Allah, bénis-le.</p><p class="src c">Pour autrui : <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “Barakallahu laka”</p></div></div></section>
+<div class="tip green"><b>À retenir</b><p>Le mauvais œil est réel, mais la protection d’Allah est plus grande. Ne vivez pas dans la peur : soyez assidu aux invocations, remerciez Allah pour Ses bienfaits, et quand vous voyez du bien chez autrui, invoquez la bénédiction au lieu d’envier. Le bien et le mal ne sont qu’entre les mains d’Allah.</p></div>
+<footer class="foot">
+  <p>Texte arabe : écriture ‘uthmani du Mushaf de Médine, vérifié lettre par lettre avec Tanzil et QuranEnc (Complexe du Roi Fahd). La translittération n’est qu’une aide.</p>
+  <p>Récitation : Cheikh Mishary Rashid Alafasy · audio : VerseByVerseQuran.com · Sens du Coran : Muhammad Hamidullah (Tanzil)</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>Télécharger le PDF (en bengali)</a></p>
+  <p class="share">Partagez pour que d’autres en profitent, et n’oubliez pas de prier pour nous.</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-es" data-dir="ltr" data-label="Idioma" data-play="Escuchar la recitación" data-stop="Pausa" data-times="veces" data-err="No se pudo iniciar el audio, toca de nuevo"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">«El mal de ojo es real.» <small>Sahih al-Bujari 5740, Sahih Muslim 2187</small></p>
+  <h1>Protección contra <span>el mal de ojo y la envidia</span></h1>
+  <p class="sub">Súplicas auténticas de la mañana y la tarde · árabe, transliteración, significado y recitación</p>
+  <div class="when"><div><b>Por la mañana</b><span>Desde Fajr hasta la salida del sol</span></div><div><b>Por la tarde</b><span>Desde Asr hasta Magrib</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>Suras al-Ijlas, al-Falaq y an-Nas<em>3 veces</em></a><a href="#kursi"><b>2</b>Ayat al-Kursi<em>1 vez</em></a><a href="#bismillah"><b>3</b>Bismillahil-ladhi la yadurru<em>3 veces</em></a><a href="#audhu"><b>4</b>A'udhu bi kalimatillahit-tammat<em>3 veces</em></a><a href="#family"><b>5</b>Súplica contra el mal de ojo para ti y tus hijos</a><a href="#barakah"><b>6</b>Cuando algo te agrada</a></nav>
+</header>
+<p class="intro">El Mensajero de Alá <span class="saw">ﷺ</span> dijo: «Recita <b>Qul huwa Allahu ahad</b> y las <b>Mu‘awwidhatayn</b> (al-Falaq y an-Nas) tres veces por la tarde y por la mañana; te bastarán contra todo.» <small>(Abu Dawud 5082, at-Tirmidhi 3575; hasan según al-Albani)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Sura al-Ijlas</h2></div>
+  <div class="badge">Mañana 3× · Tarde 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Escuchar la recitación</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Toca cualquier aleya para escuchar solo esa aleya</p>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul huwa Allahu ahad. Allahus-Samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">Di: "Él es Al-lah, Uno Al-lah es el Absoluto No engendró ni fue engendrado Y no hay nada ni nadie que sea semejante a Él</p></div><p class="src">Fuente: Sura al-Ijlas 112:1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>Sura al-Falaq</h2></div>
+  <div class="badge">Mañana 3× · Tarde 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Escuchar la recitación</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Toca cualquier aleya para escuchar solo esa aleya</p>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">Di: "Me refugio en el Señor del amanecer de todo el mal que existe en lo que Él creó del mal de la oscuridad de la noche cuando se extiende del mal de las [hechiceras] sopladoras de nudos y del mal del envidioso cuando envidia</p></div><p class="src">Fuente: Sura al-Falaq 113:1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Sura an-Nas</h2></div>
+  <div class="badge">Mañana 3× · Tarde 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Escuchar la recitación</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Toca cualquier aleya para escuchar solo esa aleya</p>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">Di: "Me refugio en el Señor de los seres humanos en el Rey Soberano de los seres humanos en el [único] Dios de los seres humanos de la maldad del [demonio] susurrador que huye [cuando el nombre de Dios es mencionado] que susurra en los corazones de los seres humanos y existe entre los yinnes y entre los seres humanos</p></div><p class="src">Fuente: Sura an-Nas 114:1–6</p>
+</section>
+<div class="tip"><b>La forma de la Sunna</b><p>Antes de dormir, el Mensajero de Alá <span class="saw">ﷺ</span> juntaba las manos, soplaba en ellas, recitaba al-Ijlas, al-Falaq y an-Nas, y luego pasaba las manos por todo el cuerpo que podía, empezando por la cabeza, la cara y la parte delantera del cuerpo. Lo hacía tres veces. <small>(Sahih al-Bujari 5017)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>Ayat al-Kursi</h2></div>
+  <div class="badge">Mañana · Tarde · Antes de dormir</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Escuchar la recitación</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Toca cualquier aleya para escuchar solo esa aleya</p>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">Allahu la ilaha illa Huwal-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'im-min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'uduhu hifzuhuma, wa Huwal-'Aliyyul-'Azim.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">¡Dios! No existe nada ni nadie con derecho a ser adorado excepto Él, el Viviente [Eterno], el Sustentador [y Gobernador de toda la creación]. No Lo afectan somnolencia ni sueño. Suyo es cuanto hay en los cielos y la Tierra. ¿Quién podrá interceder ante Él si no es con Su permiso? Conoce el pasado y el futuro [lo manifiesto y lo oculto] y nadie abarca de Su conocimiento salvo lo que Él quiere. El escabel de Su Trono abarca los cielos y la Tierra, y la custodia [y mantenimiento] de ambos no Lo agobia. Y Él es el Sublime, el Grandioso</p></div><p class="src">Fuente: Sura al-Baqara 2:255. Quien la recita antes de dormir tiene un guardián de parte de Alá hasta la mañana y Satanás no se le acerca (Sahih al-Bujari 5010). Recitación de mañana y tarde: al-Mustadrak de al-Hakim, auténtico según al-Albani (Sahih at-Targhib).</p>
+</section>
+<p class="note-h">Las súplicas siguientes provienen de hadices (no son aleyas del Corán), por eso no incluyen audio de recitación.</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>Para que nada pueda dañarte</h2></div>
+  <div class="badge">Mañana 3× · Tarde 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">Bismillahil-ladhi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i, wa Huwas-Sami'ul-'Alim.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">En el nombre de Alá, con cuyo nombre nada en la tierra ni en el cielo puede causar daño, y Él es el que todo lo oye, el que todo lo sabe.</p></div><p class="src">Fuente: Abu Dawud 5088, at-Tirmidhi 3388; auténtico según al-Albani. Virtud: quien la dice tres veces por la mañana no sufrirá una desgracia repentina hasta la tarde, y tres veces por la tarde, hasta la mañana.</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>Refugio del mal de la creación</h2></div>
+  <div class="badge">Tarde 3×</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammati min sharri ma khalaq.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">Me refugio en las palabras perfectas de Alá del mal de lo que Él ha creado.</p></div><p class="src">Fuente: Sahih Muslim 2709; tres veces: at-Tirmidhi 3604.</p>
+</section>
+<p class="intro" id="family">El Mensajero de Alá <span class="saw">ﷺ</span> ponía a al-Hasan y al-Husayn bajo la protección de Alá con esta súplica, y decía que su antepasado Ibrahim protegía así a Ismael e Isaac. <small>(Sahih al-Bujari 3371)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>Para ti</h2></div>
+  <div class="badge">En cualquier momento</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">Me refugio en las palabras perfectas de Alá de todo demonio, de toda criatura venenosa y de todo mal de ojo dañino.</p></div><p class="src">Fuente: Sahih al-Bujari 3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>Para tus hijos y tu familia</h2></div>
+  <div class="badge">Recítala sobre ellos</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Transliteración</span><p class="tr" dir="ltr">U'idhukuma bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Significado</span><p class="mn">Os pongo a ambos bajo la protección de las palabras perfectas de Alá de todo demonio, de toda criatura venenosa y de todo mal de ojo dañino.</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">U'idhuka</b><small>para un niño</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">U'idhuki</b><small>para una niña</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">U'idhukuma</b><small>para dos (texto del hadiz)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">U'idhukum</b><small>para tres o más</small></div></div><p class="src">Fuente: at-Tirmidhi 2060 (auténtico según al-Albani); relato original en Sahih al-Bujari 3371</p>
+</section>
+<p class="intro" id="barakah">El Mensajero de Alá <span class="saw">ﷺ</span> dijo: cuando alguno de vosotros vea en sí mismo, en sus bienes o en su hermano algo que le agrade, que pida bendición para ello, pues el mal de ojo es real. <small>(Musnad Ahmad, Ibn Mayah, Muwatta Malik; auténtico según al-Albani)</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>Cuando admiras una bendición tuya o ajena</h2></div>
+  <div class="badge">En el momento</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">Ma sha' Allah, la quwwata illa billah</p><p class="mn c">Lo que Alá quiere [sucede]; no hay poder sino en Alá.</p><p class="src c">Sura al-Kahf 18:39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">Allahumma barik fihi</p><p class="mn c">Oh Alá, bendícelo.</p><p class="src c">Para otra persona: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “Barakallahu laka”</p></div></div></section>
+<div class="tip green"><b>Recuerda</b><p>El mal de ojo es real, pero la protección de Alá es mayor. No vivas con miedo: sé constante con las súplicas, agradece tus bendiciones y, cuando veas algo bueno en otros, pide bendición en lugar de envidiar. El bien y el mal están solo en manos de Alá.</p></div>
+<footer class="foot">
+  <p>Texto árabe: escritura uzmaní del Mushaf de Medina, cotejado letra por letra con Tanzil y QuranEnc (Complejo del Rey Fahd). La transliteración es solo una ayuda.</p>
+  <p>Recitación: jeque Mishary Rashid Alafasy · audio: VerseByVerseQuran.com · Significado del Corán: Muhammad Isa García (Tanzil)</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>Descargar PDF (en bengalí)</a></p>
+  <p class="share">Compártelo para que otros también se beneficien, y recuérdanos en tus súplicas.</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-ru" data-dir="ltr" data-label="Язык" data-play="Слушать чтение" data-stop="Пауза" data-times="раз" data-err="Не удалось включить аудио, нажмите ещё раз"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">«Сглаз — истина». <small>Сахих аль-Бухари 5740, Сахих Муслим 2187</small></p>
+  <h1>Защита от <span>сглаза и зависти</span></h1>
+  <p class="sub">Достоверные утренние и вечерние азкары · арабский текст, транслитерация, смысл и чтение</p>
+  <div class="when"><div><b>Утром</b><span>От фаджра до восхода солнца</span></div><div><b>Вечером</b><span>От асра до магриба</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>Суры аль-Ихлас, аль-Фалак и ан-Нас<em>3 раза</em></a><a href="#kursi"><b>2</b>Аят аль-Курси<em>1 раз</em></a><a href="#bismillah"><b>3</b>Бисмилляхи-ллязи ля ядурру<em>3 раза</em></a><a href="#audhu"><b>4</b>А‘узу би-калимати-ллях ат-таммат<em>3 раза</em></a><a href="#family"><b>5</b>Дуа от сглаза для себя и детей</a><a href="#barakah"><b>6</b>Когда что-то понравилось</a></nav>
+</header>
+<p class="intro">Посланник Аллаха <span class="saw">ﷺ</span> сказал: «Читай <b>Куль хуа Аллаху ахад</b> и две охранительные суры (<b>аль-Фалак</b> и <b>ан-Нас</b>) по три раза вечером и утром — это защитит тебя от всего». <small>(Абу Дауд 5082, ат-Тирмизи 3575; аль-Албани: хасан)</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Сура аль-Ихлас</h2></div>
+  <div class="badge">Утром 3 · Вечером 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Слушать чтение</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Нажмите на аят, чтобы прослушать только его</p>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul huwa Allahu ahad. Allahus-Samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">Скажи: «Он - Аллах Единый Аллах Самодостаточный Он не родил и не был рожден и нет никого равного Ему»</p></div><p class="src">Источник: Сура аль-Ихлас 112:1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>Сура аль-Фалак</h2></div>
+  <div class="badge">Утром 3 · Вечером 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Слушать чтение</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Нажмите на аят, чтобы прослушать только его</p>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">Скажи: «Прибегаю к защите Господа рассвета от зла того, что Он сотворил от зла мрака, когда он наступает от зла колдуний, поплевывающих на узлы от зла завистника, когда он завидует»</p></div><p class="src">Источник: Сура аль-Фалак 113:1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>Сура ан-Нас</h2></div>
+  <div class="badge">Утром 3 · Вечером 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Слушать чтение</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Нажмите на аят, чтобы прослушать только его</p>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">Скажи: «Прибегаю к защите Господа людей Царя людей Бога людей от зла искусителя отступающего (или сжимающегося) при поминании Аллаха который наущает в груди людей и бывает из джиннов и людей»</p></div><p class="src">Источник: Сура ан-Нас 114:1–6</p>
+</section>
+<div class="tip"><b>Как делал Пророк</b><p>Перед сном Посланник Аллаха <span class="saw">ﷺ</span> складывал ладони, дул в них, читал суры аль-Ихлас, аль-Фалак и ан-Нас, а затем обтирал ими своё тело, сколько мог, начиная с головы, лица и передней части тела. Он делал это три раза. <small>(Сахих аль-Бухари 5017)</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>Аят аль-Курси</h2></div>
+  <div class="badge">Утром · Вечером · Перед сном</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">Слушать чтение</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1×</button><button type="button" data-r="3">3×</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">Нажмите на аят, чтобы прослушать только его</p>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">Allahu la ilaha illa Huwal-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'im-min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'uduhu hifzuhuma, wa Huwal-'Aliyyul-'Azim.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">Аллах - нет божества, кроме Него, Живого, Вседержителя. Им не овладевают ни дремота, ни сон. Ему принадлежит то, что на небесах, и то, что на земле. Кто станет заступаться перед Ним без Его дозволения? Он знает их будущее и прошлое. Они постигают из Его знания только то, что Он пожелает. Его Престол (Подножие Трона) объемлет небеса и землю, и не тяготит Его оберегание их. Он - Возвышенный, Великий</p></div><p class="src">Источник: Сура аль-Бакара 2:255. Того, кто прочтёт его перед сном, до утра охраняет хранитель от Аллаха, и шайтан не приблизится к нему (Сахих аль-Бухари 5010). Чтение утром и вечером: «аль-Мустадрак» аль-Хакима, аль-Албани: достоверно (Сахих ат-Таргиб).</p>
+</section>
+<p class="note-h">Следующие мольбы взяты из хадисов (это не аяты Корана), поэтому аудио чтения к ним не приложено.</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>Чтобы ничто не причинило вреда</h2></div>
+  <div class="badge">Утром 3 · Вечером 3</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">Bismillahil-ladhi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i, wa Huwas-Sami'ul-'Alim.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">С именем Аллаха, с именем Которого ничто не причинит вреда ни на земле, ни на небе, и Он — Слышащий, Знающий.</p></div><p class="src">Источник: Абу Дауд 5088, ат-Тирмизи 3388; аль-Албани: достоверно. Достоинство: кто скажет это трижды утром, того до вечера не постигнет внезапное несчастье, а кто вечером — до утра.</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>Защита от зла творений</h2></div>
+  <div class="badge">Вечером 3 раза</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammati min sharri ma khalaq.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">Прибегаю к совершенным словам Аллаха от зла того, что Он сотворил.</p></div><p class="src">Источник: Сахих Муслим 2709; трижды: ат-Тирмизи 3604.</p>
+</section>
+<p class="intro" id="family">Посланник Аллаха <span class="saw">ﷺ</span> просил защиты для аль-Хасана и аль-Хусейна этой мольбой и говорил, что их предок Ибрахим так же просил защиты для Исмаила и Исхака. <small>(Сахих аль-Бухари 3371)</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>Для себя</h2></div>
+  <div class="badge">В любое время</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">Прибегаю к совершенным словам Аллаха от всякого шайтана, всякой ядовитой твари и от всякого дурного глаза.</p></div><p class="src">Источник: Сахих аль-Бухари 3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>Для детей и семьи</h2></div>
+  <div class="badge">Читать над ними</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">Транслитерация</span><p class="tr" dir="ltr">U'idhukuma bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">Смысл</span><p class="mn">Вверяю вас обоих защите совершенных слов Аллаха от всякого шайтана, всякой ядовитой твари и от всякого дурного глаза.</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">U'idhuka</b><small>для одного мальчика</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">U'idhuki</b><small>для одной девочки</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">U'idhukuma</b><small>для двоих (текст хадиса)</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">U'idhukum</b><small>для троих и более</small></div></div><p class="src">Источник: ат-Тирмизи 2060 (аль-Албани: достоверно); исходный рассказ — Сахих аль-Бухари 3371</p>
+</section>
+<p class="intro" id="barakah">Посланник Аллаха <span class="saw">ﷺ</span> сказал: если кто-то из вас увидит в себе, в своём имуществе или в своём брате то, что ему понравится, пусть попросит для этого благодати, ведь сглаз — истина. <small>(Муснад Ахмада, Ибн Маджа, Муватта Малика; аль-Албани: достоверно)</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>Когда восхищаешься своим или чужим благом</h2></div>
+  <div class="badge">Сразу</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">Ma sha' Allah, la quwwata illa billah</p><p class="mn c">Так пожелал Аллах! Нет силы ни у кого, кроме Аллаха.</p><p class="src c">Сура аль-Кахф 18:39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">Allahumma barik fihi</p><p class="mn c">О Аллах, благослови это.</p><p class="src c">Для другого: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “Barakallahu laka”</p></div></div></section>
+<div class="tip green"><b>Помните</b><p>Сглаз — истина, но защита Аллаха сильнее. Не живите в страхе: постоянно читайте азкары, благодарите за блага, а увидев добро у других, просите для них благодати, а не завидуйте. Польза и вред — только в руках Аллаха.</p></div>
+<footer class="foot">
+  <p>Арабский текст: усманский рисм Мединского мусхафа, сверен буква в букву с Tanzil и QuranEnc (Комплекс короля Фахда). Транслитерация — лишь подспорье.</p>
+  <p>Чтение: шейх Мишари Рашид аль-Афаси · аудио: VerseByVerseQuran.com · Смыслы Корана: Эльмир Кулиев (Tanzil)</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>Скачать PDF (на бенгальском)</a></p>
+  <p class="share">Поделитесь, чтобы и другие получили пользу, и не забывайте нас в своих мольбах.</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
+<template id="L-zh" data-dir="ltr" data-label="语言" data-play="收听诵读" data-stop="暂停" data-times="遍" data-err="音频无法播放，请再点一次"><header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">“毒眼是真实的。” <small>《布哈里圣训实录》5740，《穆斯林圣训实录》2187</small></p>
+  <h1>防护毒眼与嫉妒 <span>早晚祈祷词</span></h1>
+  <p class="sub">可靠的早晚记念 · 阿拉伯原文、拼读、译意与诵读</p>
+  <div class="when"><div><b>早晨</b><span>从晨礼到日出</span></div><div><b>傍晚</b><span>从晡礼到昏礼</span></div></div>
+  <nav class="toc"><a href="#ikhlas"><b>1</b>《忠诚章》《曙光章》《世人章》<em>3 遍</em></a><a href="#kursi"><b>2</b>库尔西经文（宝座经文）<em>1 遍</em></a><a href="#bismillah"><b>3</b>“奉安拉之名……”<em>3 遍</em></a><a href="#audhu"><b>4</b>“我以安拉完美的言辞求护……”<em>3 遍</em></a><a href="#family"><b>5</b>为自己和孩子防护毒眼的祈祷</a><a href="#barakah"><b>6</b>看到令人羡慕的事物时</a></nav>
+</header>
+<p class="intro">安拉的使者<span class="saw">ﷺ</span>说：“你在傍晚和早晨各诵读三遍<b>《忠诚章》</b>和<b>两个求护章</b>（《曙光章》与《世人章》），它们足以护佑你免遭一切。”<small>（艾布·达乌德 5082，提尔米济 3575；阿尔巴尼：良好）</small></p>
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>1</span></div><h2>《忠诚章》</h2></div>
+  <div class="badge">早 3 遍 · 晚 3 遍</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">收听诵读</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 遍</button><button type="button" data-r="3">3 遍</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">点击任意一节经文，只播放该节</p>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul huwa Allahu ahad. Allahus-Samad. Lam yalid wa lam yulad. Wa lam yakun lahu kufuwan ahad.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">你说：“他是安拉，是独一的主；安拉是万物所仰赖的；他未生育， 也未被生育。没有任何物可以做他的匹敌。”</p></div><p class="src">出处: 《忠诚章》112:1–4</p>
+</section>
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>1</span></div><h2>《曙光章》</h2></div>
+  <div class="badge">早 3 遍 · 晚 3 遍</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">收听诵读</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 遍</button><button type="button" data-r="3">3 遍</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">点击任意一节经文，只播放该节</p>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbil-falaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharrin-naffathati fil-'uqad. Wa min sharri hasidin idha hasad.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">你说：“我求庇于曙光的主，免遭他所创造者的毒害；免遭黑夜笼罩时的毒害；免遭吹破坚决的主意者的毒害；免遭嫉妒者嫉妒时的毒害。”</p></div><p class="src">出处: 《曙光章》113:1–5</p>
+</section>
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>1</span></div><h2>《世人章》</h2></div>
+  <div class="badge">早 3 遍 · 晚 3 遍</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">收听诵读</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 遍</button><button type="button" data-r="3">3 遍</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">点击任意一节经文，只播放该节</p>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">Bismillahir-Rahmanir-Rahim. Qul a'udhu bi Rabbin-nas. Malikin-nas. Ilahin-nas. Min sharril-waswasil-khannas. Alladhi yuwaswisu fi sudurin-nas. Minal-jinnati wan-nas.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">你说：“我求庇于世人的养主，世人的君主，世人的主宰，免遭潜伏的教唆者的毒害，他在世人的胸中教唆，他是属于精灵和人类的。</p></div><p class="src">出处: 《世人章》114:1–6</p>
+</section>
+<div class="tip"><b>圣行的做法</b><p>安拉的使者<span class="saw">ﷺ</span>睡前会合拢双手，向手中吹气，诵读《忠诚章》《曙光章》《世人章》，然后用双手尽可能抚摸全身，先从头部、面部和身体前面开始，如此做三遍。<small>（《布哈里圣训实录》5017）</small></p></div>
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>2</span></div><h2>库尔西经文</h2></div>
+  <div class="badge">早 · 晚 · 睡前</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button"><span class="ic">▶</span><span class="tx">收听诵读</span></button>
+    <div class="rep"><button type="button" data-r="1" class="on">1 遍</button><button type="button" data-r="3">3 遍</button></div>
+    <div class="prog"><i></i></div><div class="cnt"></div>
+  </div>
+  <p class="hint">点击任意一节经文，只播放该节</p>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">Allahu la ilaha illa Huwal-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'im-min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard. Wa la ya'uduhu hifzuhuma, wa Huwal-'Aliyyul-'Azim.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">安拉，除他外绝无应受崇拜的；他是永生不灭的，是维护万物的；瞌睡不能侵犯他，睡眠不能克服他；天地万物都是他的；不经他的许可，谁能在他那里替人说情呢？他知道他们面前的事，和他们身后的事；除他所启示的外，他们绝不能窥测他的玄妙；他的库尔西包罗天地。对天地的维持，不能使他疲倦。他确是至高无上的主，确是至大的主。</p></div><p class="src">出处: 《黄牛章》2:255。睡前诵读者，整夜直到天亮都有安拉派来的护卫，恶魔不能接近他（《布哈里圣训实录》5010）。早晚诵读的传述：哈基姆《补遗》，阿尔巴尼定为可靠（《劝善与警告·可靠篇》）。</p>
+</section>
+<p class="note-h">以下祈祷词出自圣训（并非《古兰经》经文），因此未附诵读音频。</p>
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>3</span></div><h2>使任何事物都无法伤害的祈祷</h2></div>
+  <div class="badge">早 3 遍 · 晚 3 遍</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">Bismillahil-ladhi la yadurru ma'as-mihi shay'un fil-ardi wa la fis-sama'i, wa Huwas-Sami'ul-'Alim.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">奉安拉之名，凭着他的尊名，天地间任何事物都不能造成伤害；他是全聪的，全知的。</p></div><p class="src">出处: 艾布·达乌德 5088，提尔米济 3388；阿尔巴尼：可靠。贵重：早晨念三遍者，直到傍晚不会遭遇突然的灾祸；傍晚念三遍者，直到早晨亦然。</p>
+</section>
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>4</span></div><h2>求护免遭被造物的伤害</h2></div>
+  <div class="badge">傍晚 3 遍</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammati min sharri ma khalaq.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">我以安拉完美的言辞求护，免遭他所造之物的伤害。</p></div><p class="src">出处: 《穆斯林圣训实录》2709；三遍：提尔米济 3604。</p>
+</section>
+<p class="intro" id="family">安拉的使者<span class="saw">ﷺ</span>用这段祈祷为哈桑和侯赛因求护，并说他们的祖先易卜拉欣也曾用它为伊斯玛仪和伊斯哈格求护。<small>（《布哈里圣训实录》3371）</small></p>
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>5</span></div><h2>为自己</h2></div>
+  <div class="badge">任何时候</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">A'udhu bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">我以安拉完美的言辞求护，免遭一切恶魔、一切毒物以及一切有害的毒眼。</p></div><p class="src">出处: 《布哈里圣训实录》3371</p>
+</section>
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>5</span></div><h2>为孩子和家人</h2></div>
+  <div class="badge">对着他们诵读</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">拼读</span><p class="tr" dir="ltr">U'idhukuma bi kalimatil-lahit-tammah, min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.</p></div><div class="row"><span class="lbl">译意</span><p class="mn">我以安拉完美的言辞为你们二人求护，免遭一切恶魔、一切毒物以及一切有害的毒眼。</p></div><div class="forms"><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b dir="ltr">U'idhuka</b><small>为一个男孩</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b dir="ltr">U'idhuki</b><small>为一个女孩</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b dir="ltr">U'idhukuma</b><small>为两人（圣训原文）</small></div><div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b dir="ltr">U'idhukum</b><small>为三人或以上</small></div></div><p class="src">出处: 提尔米济 2060（阿尔巴尼：可靠）；原始事件见《布哈里圣训实录》3371</p>
+</section>
+<p class="intro" id="barakah">安拉的使者<span class="saw">ﷺ</span>说：你们任何人在自己身上、财产上或兄弟身上看到令他喜欢的事物时，应当为之祈求吉庆，因为毒眼是真实的。<small>（《艾哈迈德穆斯奈德》、伊本·马哲、《穆宛塔》；阿尔巴尼：可靠）</small></p>
+<section class="card"><div class="head"><div class="num"><span>6</span></div><h2>欣赏自己或他人的恩典时</h2></div>
+  <div class="badge">当下</div>
+  <div class="duo"><div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c" dir="ltr">Ma sha' Allah, la quwwata illa billah</p><p class="mn c">这是安拉所意欲的；除凭安拉外，绝无任何能力。</p><p class="src c">《山洞章》18:39</p></div><div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c" dir="ltr">Allahumma barik fihi</p><p class="mn c">主啊，求你使它吉庆。</p><p class="src c">为他人： <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “Barakallahu laka”</p></div></div></section>
+<div class="tip green"><b>请记住</b><p>毒眼是真实的，但安拉的护佑更大。不要生活在恐惧中：坚持记念，感谢恩典；看到别人的好处时，为他祈求吉庆而不要嫉妒。祸福只在安拉手中。</p></div>
+<footer class="foot">
+  <p>阿拉伯原文：麦地那版奥斯曼体经文，已与 Tanzil 及 QuranEnc（法赫德国王古兰经印制厂）逐字核对。拼读仅供参考。</p>
+  <p>诵读：米沙里·拉希德·阿法西谢赫 · 音频来源 VerseByVerseQuran.com · 《古兰经》译意：马坚（QuranEnc）</p>
+  <p><a class="pdfbtn" href="najar-hefazat-amal.pdf" download>下载 PDF（孟加拉语）</a></p>
+  <p class="share">分享出去，让更多人受益，也请在祈祷中记得我们。</p>
+  <p class="credit" dir="ltr">Made with AI <span class="sep"></span> Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></p>
+</footer></template>
 <script>
 (function(){
   var au = new Audio(); au.preload = 'auto';
-  var st = null; // {pl, card, files, idx, rep, done, single}
-  var BN = '০১২৩৪৫৬৭৮৯';
-  function bn(n){return String(n).replace(/\d/g,function(d){return BN[d]})}
+  var st = null, TX = {};
+  var DIG = {bn:'০১২৩৪৫৬৭৮৯', ar:'٠١٢٣٤٥٦٧٨٩'};
+  var cur = 'bn';
+  function num(n){ var d = DIG[cur]; return d ? String(n).replace(/\d/g,function(x){return d[x]}) : String(n); }
   function setBtn(pl, playing){
     var b = pl.querySelector('.play');
     b.classList.toggle('on', playing);
     b.querySelector('.ic').textContent = playing ? '❚❚' : '▶';
-    b.querySelector('.tx').textContent = playing ? 'থামান' : 'তিলাওয়াত শুনুন';
+    b.querySelector('.tx').textContent = playing ? TX.stop : TX.play;
   }
   function clearCur(card){ card.querySelectorAll('.ay.cur').forEach(function(e){e.classList.remove('cur')}) }
   function mark(){
     clearCur(st.card);
-    var e = st.card.querySelector('.ay[data-k="'+st.idx+'"]');
-    if(e){ e.classList.add('cur'); }
-    var c = st.pl.querySelector('.cnt');
-    c.textContent = (!st.single && st.rep > 1) ? (bn(st.done+1)+' / '+bn(st.rep)+' বার') : '';
+    var e = st.card.querySelector('.ay[data-k="'+st.idx+'"]'); if(e) e.classList.add('cur');
+    st.pl.querySelector('.cnt').textContent = (!st.single && st.rep > 1) ? (num(st.done+1)+' / '+num(st.rep)+' '+TX.times) : '';
   }
   function stop(){
     if(!st) return;
     au.pause(); setBtn(st.pl,false); clearCur(st.card);
-    st.pl.querySelector('.prog i').style.width='0';
-    st.pl.querySelector('.cnt').textContent='';
+    st.pl.querySelector('.prog i').style.width='0'; st.pl.querySelector('.cnt').textContent='';
     st = null;
   }
   function playIdx(){
     au.src = st.files[st.idx]; mark();
     var p = au.play();
-    if(p && p.catch) p.catch(function(){ var s=st; stop(); if(s){ var c=s.pl.querySelector('.cnt'); c.textContent='অডিও চালু করা যায়নি, আবার চাপ দিন'; c.className='cnt err'; } });
+    if(p && p.catch) p.catch(function(){ var s=st; stop(); if(s){ var c=s.pl.querySelector('.cnt'); c.textContent=TX.err; c.className='cnt err'; } });
     setBtn(st.pl,true);
   }
   function start(pl, idx, single){
-    var card = pl.closest('.card');
     if(st) stop();
     var c = pl.querySelector('.cnt'); c.className='cnt';
-    var rep = +pl.querySelector('.rep .on').dataset.r;
-    st = {pl:pl, card:card, files:JSON.parse(pl.dataset.files), idx:idx, rep:rep, done:0, single:!!single};
+    st = {pl:pl, card:pl.closest('.card'), files:JSON.parse(pl.dataset.files), idx:idx, rep:+pl.querySelector('.rep .on').dataset.r, done:0, single:!!single};
     playIdx();
   }
   au.addEventListener('ended', function(){
@@ -303,27 +1134,47 @@ h2{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:22px;color:v
     var f = st.single ? au.currentTime/au.duration : (st.idx + au.currentTime/au.duration)/st.files.length;
     st.pl.querySelector('.prog i').style.width = (f*100).toFixed(1)+'%';
   });
-  document.querySelectorAll('.player').forEach(function(pl){
-    pl.querySelector('.play').addEventListener('click', function(){
-      if(st && st.pl === pl){
-        if(au.paused){ var p=au.play(); if(p&&p.catch)p.catch(function(){}); setBtn(pl,true); }
-        else { au.pause(); setBtn(pl,false); }
-        return;
-      }
-      start(pl, 0, false);
-    });
-    pl.querySelectorAll('.rep button').forEach(function(b){
-      b.addEventListener('click', function(){
-        pl.querySelectorAll('.rep button').forEach(function(x){x.classList.remove('on')});
-        b.classList.add('on');
-        if(st && st.pl===pl){ st.rep = +b.dataset.r; if(st.done >= st.rep) st.done = st.rep-1; mark(); }
+  function bind(root){
+    root.querySelectorAll('.player').forEach(function(pl){
+      pl.querySelector('.play').addEventListener('click', function(){
+        if(st && st.pl === pl){
+          if(au.paused){ var p=au.play(); if(p&&p.catch)p.catch(function(){}); setBtn(pl,true); }
+          else { au.pause(); setBtn(pl,false); }
+          return;
+        }
+        start(pl, 0, false);
+      });
+      pl.querySelectorAll('.rep button').forEach(function(b){
+        b.addEventListener('click', function(){
+          pl.querySelectorAll('.rep button').forEach(function(x){x.classList.remove('on')});
+          b.classList.add('on');
+          if(st && st.pl===pl){ st.rep = +b.dataset.r; if(st.done >= st.rep) st.done = st.rep-1; mark(); }
+        });
+      });
+      pl.closest('.card').querySelectorAll('.ay').forEach(function(a){
+        a.addEventListener('click', function(){ start(pl, +a.dataset.k, true); });
       });
     });
-    var card = pl.closest('.card');
-    card.querySelectorAll('.ay').forEach(function(a){
-      a.addEventListener('click', function(){ start(pl, +a.dataset.k, true); });
-    });
-  });
+  }
+  var main = document.getElementById('main'), sel = document.getElementById('lang');
+  function setLang(code, keepScroll){
+    var tp = document.getElementById('L-'+code); if(!tp){ code='bn'; tp=document.getElementById('L-bn'); }
+    if(st) stop();
+    cur = code;
+    TX = {play:tp.dataset.play, stop:tp.dataset.stop, times:tp.dataset.times, err:tp.dataset.err};
+    var y = window.scrollY;
+    main.innerHTML = ''; main.appendChild(tp.content.cloneNode(true));
+    document.documentElement.lang = code; document.documentElement.dir = tp.dataset.dir;
+    document.getElementById('langlbl').textContent = tp.dataset.label;
+    sel.value = code; bind(main);
+    if(keepScroll) window.scrollTo(0, y);
+  }
+  function getSaved(){ try{ return localStorage.getItem('najar-lang'); }catch(e){ return null; } }
+  function save(c){ try{ localStorage.setItem('najar-lang', c); }catch(e){} }
+  var q = null; try{ q = new URLSearchParams(location.search).get('lang'); }catch(e){}
+  setLang(q || getSaved() || 'bn', false);
+  sel.addEventListener('change', function(){ setLang(sel.value, true); save(sel.value);
+    try{ var u = new URL(location.href); u.searchParams.set('lang', sel.value); history.replaceState(null,'',u); }catch(e){} });
   function goHash(){ var h=(location.hash||'').slice(1); if(!h) return; var el=document.getElementById(h); if(el){ setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'start'}); el.classList.add('flash'); setTimeout(function(){el.classList.remove('flash')},2200); },350); } }
   window.addEventListener('hashchange', goHash); goHash();
 })();
