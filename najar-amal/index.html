@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="bn"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>নজর ও হিংসা থেকে হেফাজতের আমল</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0E4A3B;--g2:#16624E;--gold:#B8893B;--gold2:#D9B66F;--ink:#1F2A26;--muted:#5E6B66;--cream:#FBF6EA;--card:#FFFDF7;--hl:#FCEFC9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hind Siliguri','Amiri',sans-serif;color:var(--ink);background-color:var(--cream);
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23B8893B' stroke-opacity='0.10' stroke-width='1.2'%3E%3Cpath d='M60 18 L72 48 L102 60 L72 72 L60 102 L48 72 L18 60 L48 48 Z'/%3E%3Crect x='39' y='39' width='42' height='42' transform='rotate(45 60 60)'/%3E%3Ccircle cx='60' cy='60' r='9'/%3E%3C/g%3E%3C/svg%3E");
+ font-size:17px;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:18px 14px 40px;display:flex;flex-direction:column;gap:16px}
+.saw{font-family:'Amiri',serif;color:var(--g)}
+.hero{text-align:center;border:2px solid var(--gold);border-radius:14px;padding:22px 16px;background:rgba(255,253,247,.7);position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
+.bism{font-family:'Amiri Quran',serif;font-size:clamp(28px,7vw,40px);color:var(--g);line-height:1.8}
+.medal{width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#1C6E57,var(--g) 70%);border:5px double var(--gold2);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(184,137,59,.18)}
+.medal span{font-family:'Amiri',serif;font-weight:700;font-size:38px;color:#F6E7C1;line-height:1.4}
+.msub{color:var(--g2);font-weight:600;font-size:19px}.msub small{display:block;font-size:14px;color:var(--muted);font-weight:400}
+h1{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:clamp(28px,7.5vw,44px);line-height:1.3;color:var(--g)}
+h1 span{display:block;color:var(--gold)}
+.sub{font-size:16px;color:#3C4A45}
+.when{display:flex;gap:10px;width:100%}
+.when div{flex:1;background:var(--g);color:#F3EEDD;border-radius:12px;padding:10px;border:2px solid var(--gold2);display:flex;flex-direction:column}
+.when b{font-family:'Noto Serif Bengali',serif;color:var(--gold2);font-size:17px}.when span{font-size:14px;line-height:1.4}
+.toc{width:100%;background:var(--card);border:1.5px solid rgba(184,137,59,.55);border-radius:12px;padding:6px 14px;text-align:left}
+.toc a{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(184,137,59,.45);color:var(--ink);text-decoration:none;font-size:16px}
+.toc a:last-child{border-bottom:0}
+.toc b{width:28px;height:28px;flex:none;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
+.toc em{margin-left:auto;font-style:normal;font-size:13px;background:var(--gold);color:#fff;border-radius:20px;padding:0 10px;white-space:nowrap}
+.intro{background:linear-gradient(90deg,rgba(14,74,59,.07),rgba(14,74,59,.02));border-left:5px solid var(--gold);border-right:5px solid var(--gold);padding:12px 16px;border-radius:8px;font-size:16.5px}
+.intro small,.tip small{color:var(--muted);font-size:14px}
+.card{background:var(--card);border:1.5px solid rgba(184,137,59,.55);border-radius:16px;padding:16px 16px 12px;box-shadow:0 3px 0 rgba(184,137,59,.25);scroll-margin-top:12px}
+.head{display:flex;align-items:center;gap:12px}
+.num{width:38px;height:38px;flex:none;background:var(--g);color:#fff;font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);border-radius:7px;border:2px solid var(--gold2);margin-left:4px}
+.num span{transform:rotate(-45deg)}
+h2{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:22px;color:var(--g);line-height:1.3}
+.badge{display:inline-block;background:var(--gold);color:#fff;font-size:14px;font-weight:600;padding:2px 12px;border-radius:30px;margin:8px 0 10px}
+.arbox{background:#fff;border:1px solid rgba(14,74,59,.18);border-radius:12px;padding:10px 12px;text-align:center}
+.ar{direction:rtl;text-align:center;color:#0B2E25}
+.quran{font-family:'Amiri Quran',serif;font-size:clamp(25px,6.6vw,34px);line-height:2.15}
+.hadith{font-family:'Amiri',serif;font-size:clamp(24px,6.2vw,31px);line-height:2}
+.ay{border-radius:8px;padding:2px 2px;transition:background .25s;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.ay:hover{background:#F6F1E2}
+.ay.cur{background:var(--hl);box-shadow:0 0 0 1px var(--gold2)}
+.ay.bsm{font-size:.85em;color:var(--g2)}
+.nw{white-space:nowrap}
+.am{color:var(--gold);font-size:.8em}
+.player{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 4px}
+.play{display:flex;align-items:center;gap:8px;background:var(--g);color:#fff;border:2px solid var(--gold2);border-radius:40px;padding:8px 18px 8px 12px;font:600 16px 'Hind Siliguri',sans-serif;cursor:pointer}
+.play .ic{width:26px;height:26px;border-radius:50%;background:var(--gold2);color:var(--g);display:flex;align-items:center;justify-content:center;font-size:12px}
+.play.on{background:var(--gold);border-color:var(--g)}
+.rep{display:flex;border:1.5px solid var(--gold);border-radius:30px;overflow:hidden}
+.rep button{border:0;background:transparent;font:500 14px 'Hind Siliguri',sans-serif;padding:6px 12px;color:var(--g);cursor:pointer}
+.rep button.on{background:var(--gold);color:#fff}
+.prog{flex:1 1 100%;height:5px;background:#EEE6D2;border-radius:4px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g2),var(--gold));transition:width .2s linear}
+.cnt{font-size:14px;color:var(--muted);min-height:0}
+.cnt:empty{display:none}
+.hint{font-size:13px;color:var(--muted);margin-bottom:8px}
+.row{display:flex;gap:10px;align-items:flex-start;margin-top:8px}
+.lbl{flex:none;width:64px;font-size:13px;font-weight:600;color:#fff;background:var(--g2);border-radius:6px;text-align:center;padding:2px 0;margin-top:3px}
+.tr{color:#7A4F12}
+.mn b{color:var(--g)}
+.src{font-size:13.5px;color:var(--muted);border-top:1px dashed rgba(184,137,59,.6);padding-top:7px;margin-top:10px;line-height:1.5}
+.tip{border:1.5px solid var(--gold);background:#FFF8E8;border-radius:14px;padding:14px 16px}
+.tip b{font-family:'Noto Serif Bengali',serif;font-size:19px;color:var(--g);display:block}
+.tip.green{background:var(--g);border-color:var(--gold2)}.tip.green b{color:var(--gold2)}.tip.green p{color:#F3EEDD}
+.note-h{text-align:center;font-size:14.5px;color:var(--g2);background:#F2ECDA;border-radius:10px;padding:8px 12px}
+.forms{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.forms div{background:#F4EFE0;border-radius:10px;padding:6px;text-align:center;display:flex;flex-direction:column}
+.arf{font-family:'Amiri',serif;font-size:24px;color:#0B2E25;line-height:1.6}
+.forms b{color:#7A4F12;font-size:15px}.forms small{font-size:12.5px;color:var(--muted);line-height:1.3}
+.duo{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:620px){.duo{grid-template-columns:1fr 1fr}.forms{grid-template-columns:repeat(4,1fr)}}
+.mini{background:#fff;border:1px solid rgba(14,74,59,.18);border-radius:12px;padding:10px 12px}
+.mini .ar{font-size:30px;line-height:1.9}
+.mini .src .arf{font-size:20px}
+.c{text-align:center}
+.foot{text-align:center;font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.foot .share{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:18px;color:var(--g)}
+.card.flash{box-shadow:0 0 0 4px var(--gold2),0 3px 0 rgba(184,137,59,.25);transition:box-shadow .4s}
+.err{color:#9b2c2c;font-size:14px}
+</style></head><body>
+<main class="wrap">
+
+<header class="hero">
+  <p class="bism" dir="rtl" lang="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <div class="medal"><span dir="rtl" lang="ar">الْعَيْنُ حَقٌّ</span></div>
+  <p class="msub">“বদনজর সত্য।” <small>সহিহ বুখারি ৫৭৪০, সহিহ মুসলিম ২১৮৭</small></p>
+  <h1>নজর ও হিংসা থেকে <span>হেফাজতের আমল</span></h1>
+  <p class="sub">সকাল-সন্ধ্যার সহিহ দোয়া · আরবি, উচ্চারণ, অর্থ ও তিলাওয়াতসহ</p>
+  <div class="when">
+    <div><b>সকালের আমল</b><span>ফজরের পর থেকে সূর্য ওঠা পর্যন্ত</span></div>
+    <div><b>সন্ধ্যার আমল</b><span>আসরের পর থেকে মাগরিব পর্যন্ত</span></div>
+  </div>
+  <nav class="toc">
+    <a href="#ikhlas"><b>১</b>সূরা ইখলাস, ফালাক ও নাস<em>৩ বার</em></a>
+    <a href="#kursi"><b>২</b>আয়াতুল কুরসি<em>১ বার</em></a>
+    <a href="#bismillah"><b>৩</b>বিসমিল্লাহিল্লাযি লা ইয়াদুররু<em>৩ বার</em></a>
+    <a href="#audhu"><b>৪</b>আউযু বিকালিমাতিল্লাহিত তাম্মাত<em>৩ বার</em></a>
+    <a href="#family"><b>৫</b>নিজের ও সন্তানদের জন্য নজরের দোয়া</a>
+    <a href="#barakah"><b>৬</b>কোনো নেয়ামত দেখে মুগ্ধ হলে</a>
+  </nav>
+</header>
+<p class="intro">রাসুলুল্লাহ <span class="saw">ﷺ</span> বলেছেন: “সকালে ও সন্ধ্যায় <b>কুল হুওয়াল্লাহু আহাদ</b> এবং <b>মুআওয়িযাতাইন</b> (ফালাক ও নাস) তিনবার করে পড়ো, এগুলো সব কিছু থেকে তোমার জন্য যথেষ্ট হবে।” <small>(আবু দাউদ ৫০৮২, তিরমিজি ৩৫৭৫; আলবানি: হাসান)</small></p>
+
+<section class="card" id="ikhlas">
+  <div class="head"><div class="num"><span>১</span></div><h2>সূরা আল-ইখলাস</h2></div>
+  <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ هُوَ ٱللَّهُ <span class="nw">أَحَدٌ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">ٱللَّهُ <span class="nw">ٱلصَّمَدُ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">لَمْ يَلِدْ وَلَمْ <span class="nw">يُولَدْ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَلَمْ يَكُن لَّهُۥ كُفُوًا <span class="nw">أَحَدٌۢ&nbsp;<span class="am">﴿٤﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/112001.mp3", "audio/112002.mp3", "audio/112003.mp3", "audio/112004.mp3"]'>
+    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep" role="group" aria-label="কতবার">
+      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
+    </div>
+    <div class="prog"><i></i></div>
+    <div class="cnt"></div>
+  </div>
+  <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">কুল হুওয়াল্লা-হু আহাদ। আল্লা-হুস সামাদ। লাম ইয়ালিদ, ওয়া লাম ইউলাদ। ওয়া লাম ইয়াকুল লাহু কুফুওয়ান আহাদ।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, তিনি আল্লাহ, এক ও অদ্বিতীয়। আল্লাহ কারো মুখাপেক্ষী নন, সবাই তাঁর মুখাপেক্ষী। তিনি কাউকে জন্ম দেননি, আর কেউ তাঁকে জন্ম দেয়নি। তাঁর সমকক্ষ কেউ নেই।</p></div>
+  <p class="src">সূত্র: সূরা আল-ইখলাস ১১২:১–৪</p>
+</section>
+
+<section class="card" id="falaq">
+  <div class="head"><div class="num"><span>১</span></div><h2>সূরা আল-ফালাক</h2></div>
+  <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلْفَلَقِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مِن شَرِّ مَا <span class="nw">خَلَقَ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">وَمِن شَرِّ غَاسِقٍ إِذَا <span class="nw">وَقَبَ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى <span class="nw">ٱلْعُقَدِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">وَمِن شَرِّ حَاسِدٍ إِذَا <span class="nw">حَسَدَ&nbsp;<span class="am">﴿٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/113001.mp3", "audio/113002.mp3", "audio/113003.mp3", "audio/113004.mp3", "audio/113005.mp3"]'>
+    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep" role="group" aria-label="কতবার">
+      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
+    </div>
+    <div class="prog"><i></i></div>
+    <div class="cnt"></div>
+  </div>
+  <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">কুল আঊযু বিরাব্বিল ফালাক। মিন শাররি মা খালাক। ওয়া মিন শাররি গা-সিক্বিন ইযা ওয়াক্বাব। ওয়া মিন শাররিন নাফফা-সা-তি ফিল উক্বাদ। ওয়া মিন শাররি হা-সিদিন ইযা হাসাদ।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, আমি আশ্রয় চাই ভোরের রবের কাছে, তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে, অন্ধকার রাতের অনিষ্ট থেকে যখন তা ছেয়ে যায়, গিঁটে ফুঁ দেওয়া নারীদের (জাদুকরদের) অনিষ্ট থেকে, <b>আর হিংসুকের অনিষ্ট থেকে, যখন সে হিংসা করে।</b></p></div>
+  <p class="src">সূত্র: সূরা আল-ফালাক ১১৩:১–৫</p>
+</section>
+
+<section class="card" id="nas">
+  <div class="head"><div class="num"><span>১</span></div><h2>সূরা আন-নাস</h2></div>
+  <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay bsm" data-k="0">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span><br> <span class="ay" data-k="1">قُلْ أَعُوذُ بِرَبِّ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿١﴾</span></span></span> <span class="ay" data-k="2">مَلِكِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٢﴾</span></span></span> <span class="ay" data-k="3">إِلَٰهِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٣﴾</span></span></span> <span class="ay" data-k="4">مِن شَرِّ ٱلْوَسْوَاسِ <span class="nw">ٱلْخَنَّاسِ&nbsp;<span class="am">﴿٤﴾</span></span></span> <span class="ay" data-k="5">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ <span class="nw">ٱلنَّاسِ&nbsp;<span class="am">﴿٥﴾</span></span></span> <span class="ay" data-k="6">مِنَ ٱلْجِنَّةِ <span class="nw">وَٱلنَّاسِ&nbsp;<span class="am">﴿٦﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/001001.mp3", "audio/114001.mp3", "audio/114002.mp3", "audio/114003.mp3", "audio/114004.mp3", "audio/114005.mp3", "audio/114006.mp3"]'>
+    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep" role="group" aria-label="কতবার">
+      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
+    </div>
+    <div class="prog"><i></i></div>
+    <div class="cnt"></div>
+  </div>
+  <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">কুল আঊযু বিরাব্বিন না-স। মালিকিন না-স। ইলা-হিন না-স। মিন শাররিল ওয়াসওয়া-সিল খান্না-স। আল্লাযি ইউওয়াসউইসু ফি সুদূরিন না-স। মিনাল জিন্নাতি ওয়ান না-স।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">বলো, আমি আশ্রয় চাই মানুষের রবের কাছে, মানুষের অধিপতির কাছে, মানুষের ইলাহের কাছে, সেই কুমন্ত্রণাদাতার অনিষ্ট থেকে যে কুমন্ত্রণা দিয়ে আড়ালে সরে যায়, যে মানুষের অন্তরে কুমন্ত্রণা দেয়, জিনের মধ্য থেকে হোক কিংবা মানুষের মধ্য থেকে।</p></div>
+  <p class="src">সূত্র: সূরা আন-নাস ১১৪:১–৬</p>
+</section>
+<div class="tip"><b>পড়ার সুন্নাহ পদ্ধতি</b><p>রাসুলুল্লাহ <span class="saw">ﷺ</span> ঘুমানোর আগে দুই হাত একত্র করে তাতে ফুঁ দিতেন এবং সূরা ইখলাস, ফালাক ও নাস পড়ে যতটুকু সম্ভব শরীরে হাত বুলিয়ে নিতেন। মাথা, মুখমণ্ডল ও শরীরের সামনের অংশ থেকে শুরু করতেন, এভাবে তিনবার করতেন। <small>(সহিহ বুখারি ৫০১৭)</small></p></div>
+
+<section class="card" id="kursi">
+  <div class="head"><div class="num"><span>২</span></div><h2>আয়াতুল কুরসি</h2></div>
+  <div class="badge">সকালে · সন্ধ্যায় · ঘুমানোর আগে</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar quran"><span class="ay" data-k="0">ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَاۚ وَهُوَ ٱلْعَلِىُّ <span class="nw">ٱلْعَظِيمُ&nbsp;<span class="am">﴿٢٥٥﴾</span></span></span></p></div>
+  <div class="player" data-files='["audio/002255.mp3"]'>
+    <button class="play" type="button" aria-label="তিলাওয়াত চালান"><span class="ic">▶</span><span class="tx">তিলাওয়াত শুনুন</span></button>
+    <div class="rep" role="group" aria-label="কতবার">
+      <button type="button" data-r="1" class="on">১ বার</button><button type="button" data-r="3">৩ বার</button>
+    </div>
+    <div class="prog"><i></i></div>
+    <div class="cnt"></div>
+  </div>
+  <p class="hint">যেকোনো আয়াতে চাপ দিলে শুধু সেই আয়াতটি শোনা যাবে</p>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">আল্লা-হু লা ইলা-হা ইল্লা হুওয়াল হাইয়্যুল ক্বাইয়্যূম। লা তা’খুযুহূ সিনাতুঁও ওয়ালা নাওম। লাহূ মা ফিস সামা-ওয়া-তি ওয়ামা ফিল আরদ্ব। মান যাল্লাযি ইয়াশফাউ ইনদাহূ ইল্লা বিইযনিহ। ইয়া’লামু মা বাইনা আইদীহিম ওয়ামা খালফাহুম। ওয়ালা ইউহীতূনা বিশাইয়িম মিন ইলমিহী ইল্লা বিমা শা-আ। ওয়াসিআ কুরসিয়্যুহুস সামা-ওয়া-তি ওয়াল আরদ্ব। ওয়ালা ইয়াঊদুহূ হিফযুহুমা, ওয়া হুওয়াল আলিয়্যুল আযীম।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আল্লাহ, তিনি ছাড়া কোনো ইলাহ নেই। তিনি চিরঞ্জীব, সব কিছুর ধারক। তন্দ্রা বা ঘুম তাঁকে স্পর্শ করে না। আসমান ও জমিনে যা কিছু আছে সব তাঁরই। তাঁর অনুমতি ছাড়া কে আছে যে তাঁর কাছে সুপারিশ করবে? মানুষের সামনে ও পেছনে যা আছে তিনি সব জানেন। তিনি যতটুকু চান, তার বাইরে তাঁর জ্ঞানের কিছুই তারা আয়ত্ত করতে পারে না। তাঁর কুরসি আসমান ও জমিন জুড়ে বিস্তৃত, আর এ দুটোর রক্ষণাবেক্ষণ তাঁকে ক্লান্ত করে না। তিনি সর্বোচ্চ, মহান।</p></div>
+  <p class="src">সূত্র: সূরা আল-বাকারা ২:২৫৫। ঘুমানোর আগে পড়লে সকাল পর্যন্ত আল্লাহর পক্ষ থেকে একজন হেফাজতকারী থাকে এবং শয়তান কাছে আসতে পারে না (সহিহ বুখারি ৫০১০)। সকাল-সন্ধ্যায় পড়ার বর্ণনা: মুস্তাদরাকে হাকিম, আলবানি সহিহ বলেছেন (সহিহ আত-তারগিব)।</p>
+</section>
+<p class="note-h">নিচের দোয়াগুলো হাদিস থেকে নেওয়া (কুরআনের আয়াত নয়), তাই এগুলোর সাথে তিলাওয়াতের অডিও দেওয়া হয়নি। উচ্চারণ দেখে পড়ুন।</p>
+
+<section class="card" id="bismillah">
+  <div class="head"><div class="num"><span>৩</span></div><h2>কোনো কিছু ক্ষতি করতে না পারার দোয়া</h2></div>
+  <div class="badge">সকালে ৩ বার · সন্ধ্যায় ৩ বার</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p></div>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">বিসমিল্লা-হিল্লাযি লা ইয়াদ্বুররু মাআসমিহী শাইউন ফিল আরদ্বি ওয়ালা ফিস সামা-ই, ওয়া হুওয়াস সামীউল আলীম।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আল্লাহর নামে, যাঁর নামের সাথে আসমান ও জমিনের কোনো কিছুই ক্ষতি করতে পারে না। তিনি সব শোনেন, সব জানেন।</p></div>
+  
+  <p class="src">সূত্র: আবু দাউদ ৫০৮৮, তিরমিজি ৩৩৮৮; আলবানি: সহিহ। ফজিলত: সকালে তিনবার পড়লে সন্ধ্যা পর্যন্ত এবং সন্ধ্যায় তিনবার পড়লে সকাল পর্যন্ত আকস্মিক কোনো বিপদ তাকে স্পর্শ করবে না।</p>
+</section>
+
+<section class="card" id="audhu">
+  <div class="head"><div class="num"><span>৪</span></div><h2>সৃষ্টির অনিষ্ট থেকে আশ্রয়</h2></div>
+  <div class="badge">সন্ধ্যায় ৩ বার</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p></div>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">আঊযু বিকালিমা-তিল্লা-হিত তা-ম্মা-তি মিন শাররি মা খালাক।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি আল্লাহর পরিপূর্ণ বাণীসমূহের আশ্রয় চাই, তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে।</p></div>
+  
+  <p class="src">সূত্র: সহিহ মুসলিম ২৭০৯; তিনবারের বর্ণনা: তিরমিজি ৩৬০৪।</p>
+</section>
+<p class="intro" id="family">রাসুলুল্লাহ <span class="saw">ﷺ</span> হাসান ও হুসাইন (রা.)-কে এই দোয়া পড়ে আল্লাহর আশ্রয়ে দিতেন এবং বলতেন, তোমাদের পিতা ইবরাহিম (আ.) এ দিয়ে ইসমাইল ও ইসহাক (আ.)-কে আশ্রয়ে দিতেন। <small>(সহিহ বুখারি ৩৩৭১)</small></p>
+
+<section class="card" id="family-self">
+  <div class="head"><div class="num"><span>৫</span></div><h2>নিজের জন্য</h2></div>
+  <div class="badge">যেকোনো সময়</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">আঊযু বিকালিমা-তিল্লা-হিত তা-ম্মাহ, মিন কুল্লি শাইত্বা-নিঁও ওয়া হা-ম্মাহ, ওয়া মিন কুল্লি আইনিল লা-ম্মাহ।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি আল্লাহর পরিপূর্ণ বাণীর আশ্রয় চাই, সব শয়তান ও বিষাক্ত প্রাণী থেকে, আর সব ক্ষতিকর বদনজর থেকে।</p></div>
+  
+  <p class="src">সূত্র: সহিহ বুখারি ৩৩৭১</p>
+</section>
+
+<section class="card" id="family-kids">
+  <div class="head"><div class="num"><span>৫</span></div><h2>সন্তান ও পরিবারের জন্য</h2></div>
+  <div class="badge">তাদের ওপর পড়ে দেবেন</div>
+  <div class="arbox" dir="rtl" lang="ar"><p class="ar hadith">أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ</p></div>
+  <div class="row"><span class="lbl">উচ্চারণ</span><p class="tr">উঈযুকুমা বিকালিমা-তিল্লা-হিত তা-ম্মাহ, মিন কুল্লি শাইত্বা-নিঁও ওয়া হা-ম্মাহ, ওয়া মিন কুল্লি আইনিল লা-ম্মাহ।</p></div>
+  <div class="row"><span class="lbl">অর্থ</span><p class="mn">আমি তোমাদের আল্লাহর পরিপূর্ণ বাণীর আশ্রয়ে দিচ্ছি, সব শয়তান ও বিষাক্ত প্রাণী থেকে, আর সব ক্ষতিকর বদনজর থেকে।</p></div>
+  <div class="forms">
+  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكَ</span><b>উঈযুকা</b><small>একজন ছেলের জন্য</small></div>
+  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكِ</span><b>উঈযুকি</b><small>একজন মেয়ের জন্য</small></div>
+  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمَا</span><b>উঈযুকুমা</b><small>দুজনের জন্য (হাদিসের মূল শব্দ)</small></div>
+  <div><span dir="rtl" lang="ar" class="arf">أُعِيذُكُمْ</span><b>উঈযুকুম</b><small>তিন বা ততোধিক জনের জন্য</small></div>
+</div>
+  <p class="src">সূত্র: তিরমিজি ২০৬০ (আলবানি: সহিহ); মূল ঘটনা সহিহ বুখারি ৩৩৭১</p>
+</section>
+<p class="intro" id="barakah">রাসুলুল্লাহ <span class="saw">ﷺ</span> বলেছেন: “তোমাদের কেউ যখন নিজের মধ্যে, নিজের সম্পদে কিংবা তার ভাইয়ের মধ্যে মুগ্ধ হওয়ার মতো কিছু দেখে, সে যেন তার জন্য বরকতের দোয়া করে, কেননা বদনজর সত্য।” <small>(মুসনাদে আহমাদ, ইবনে মাজাহ, মুয়াত্তা মালিক; আলবানি: সহিহ)</small></p>
+
+<section class="card">
+  <div class="head"><div class="num"><span>৬</span></div><h2>নিজের বা অন্যের নেয়ামত দেখে মুগ্ধ হলে</h2></div>
+  <div class="badge">তৎক্ষণাৎ</div>
+  <div class="duo">
+    <div class="mini"><p class="ar quran" dir="rtl" lang="ar">مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ</p><p class="tr c">মা-শা-আল্লা-হু লা ক্বুওয়াতা ইল্লা বিল্লা-হ</p><p class="mn c">আল্লাহ যা চেয়েছেন তাই হয়েছে; আল্লাহর সাহায্য ছাড়া কোনো শক্তি নেই।</p><p class="src c">সূরা আল-কাহফ ১৮:৩৯</p></div>
+    <div class="mini"><p class="ar hadith" dir="rtl" lang="ar">اللَّهُمَّ بَارِكْ فِيهِ</p><p class="tr c">আল্লা-হুম্মা বা-রিক ফীহি</p><p class="mn c">হে আল্লাহ, এতে বরকত দিন।</p><p class="src c">অন্যের জন্য বললে: <span dir="rtl" lang="ar" class="arf">بَارَكَ اللَّهُ لَكَ</span> “বা-রাকাল্লা-হু লাকা”</p></div>
+  </div>
+</section>
+<div class="tip green"><b>মনে রাখুন</b><p>নজর সত্য, তবে আল্লাহর হেফাজত তার চেয়েও বড়। ভয় না পেয়ে নিয়মিত আমল করুন, নেয়ামতের জন্য শুকরিয়া আদায় করুন, আর অন্যের ভালো কিছু দেখলে হিংসা না করে তার জন্য বরকতের দোয়া করুন। কল্যাণ ও অকল্যাণের মালিক একমাত্র আল্লাহ।</p></div>
+<footer class="foot">
+  <p>আরবি পাঠ: মদিনা মুসহাফের উসমানি লিপি, Tanzil ও QuranEnc (কিং ফাহাদ কমপ্লেক্স) এর সাথে অক্ষরে অক্ষরে মিলিয়ে যাচাই করা। বাংলা উচ্চারণ কেবল সহায়তার জন্য; সঠিক উচ্চারণের জন্য আরবি দেখে পড়ুন।</p>
+  <p>তিলাওয়াত: শায়খ মিশারি রাশিদ আলআফাসি · অডিও সৌজন্যে VerseByVerseQuran.com</p>
+  <p><a href="najar-hefazat-amal.pdf" download style="display:inline-block;background:var(--g);color:#fff;text-decoration:none;font-weight:600;padding:8px 18px;border-radius:30px;border:2px solid var(--gold2)">PDF ডাউনলোড করুন</a></p>
+  <p class="share">শেয়ার করে অন্যকেও আমলের সুযোগ করে দিন। আমাদের জন্য দোয়া করবেন।</p>
+</footer>
+</main>
+<script>
+(function(){
+  var au = new Audio(); au.preload = 'auto';
+  var st = null; // {pl, card, files, idx, rep, done, single}
+  var BN = '০১২৩৪৫৬৭৮৯';
+  function bn(n){return String(n).replace(/\d/g,function(d){return BN[d]})}
+  function setBtn(pl, playing){
+    var b = pl.querySelector('.play');
+    b.classList.toggle('on', playing);
+    b.querySelector('.ic').textContent = playing ? '❚❚' : '▶';
+    b.querySelector('.tx').textContent = playing ? 'থামান' : 'তিলাওয়াত শুনুন';
+  }
+  function clearCur(card){ card.querySelectorAll('.ay.cur').forEach(function(e){e.classList.remove('cur')}) }
+  function mark(){
+    clearCur(st.card);
+    var e = st.card.querySelector('.ay[data-k="'+st.idx+'"]');
+    if(e){ e.classList.add('cur'); }
+    var c = st.pl.querySelector('.cnt');
+    c.textContent = (!st.single && st.rep > 1) ? (bn(st.done+1)+' / '+bn(st.rep)+' বার') : '';
+  }
+  function stop(){
+    if(!st) return;
+    au.pause(); setBtn(st.pl,false); clearCur(st.card);
+    st.pl.querySelector('.prog i').style.width='0';
+    st.pl.querySelector('.cnt').textContent='';
+    st = null;
+  }
+  function playIdx(){
+    au.src = st.files[st.idx]; mark();
+    var p = au.play();
+    if(p && p.catch) p.catch(function(){ var s=st; stop(); if(s){ var c=s.pl.querySelector('.cnt'); c.textContent='অডিও চালু করা যায়নি, আবার চাপ দিন'; c.className='cnt err'; } });
+    setBtn(st.pl,true);
+  }
+  function start(pl, idx, single){
+    var card = pl.closest('.card');
+    if(st) stop();
+    var c = pl.querySelector('.cnt'); c.className='cnt';
+    var rep = +pl.querySelector('.rep .on').dataset.r;
+    st = {pl:pl, card:card, files:JSON.parse(pl.dataset.files), idx:idx, rep:rep, done:0, single:!!single};
+    playIdx();
+  }
+  au.addEventListener('ended', function(){
+    if(!st) return;
+    if(st.single){ stop(); return; }
+    st.idx++;
+    if(st.idx < st.files.length){ playIdx(); return; }
+    st.done++;
+    if(st.done < st.rep){ st.idx = 0; playIdx(); return; }
+    stop();
+  });
+  au.addEventListener('timeupdate', function(){
+    if(!st || !au.duration) return;
+    var f = st.single ? au.currentTime/au.duration : (st.idx + au.currentTime/au.duration)/st.files.length;
+    st.pl.querySelector('.prog i').style.width = (f*100).toFixed(1)+'%';
+  });
+  document.querySelectorAll('.player').forEach(function(pl){
+    pl.querySelector('.play').addEventListener('click', function(){
+      if(st && st.pl === pl){
+        if(au.paused){ var p=au.play(); if(p&&p.catch)p.catch(function(){}); setBtn(pl,true); }
+        else { au.pause(); setBtn(pl,false); }
+        return;
+      }
+      start(pl, 0, false);
+    });
+    pl.querySelectorAll('.rep button').forEach(function(b){
+      b.addEventListener('click', function(){
+        pl.querySelectorAll('.rep button').forEach(function(x){x.classList.remove('on')});
+        b.classList.add('on');
+        if(st && st.pl===pl){ st.rep = +b.dataset.r; if(st.done >= st.rep) st.done = st.rep-1; mark(); }
+      });
+    });
+    var card = pl.closest('.card');
+    card.querySelectorAll('.ay').forEach(function(a){
+      a.addEventListener('click', function(){ start(pl, +a.dataset.k, true); });
+    });
+  });
+  function goHash(){ var h=(location.hash||'').slice(1); if(!h) return; var el=document.getElementById(h); if(el){ setTimeout(function(){ el.scrollIntoView({behavior:'smooth',block:'start'}); el.classList.add('flash'); setTimeout(function(){el.classList.remove('flash')},2200); },350); } }
+  window.addEventListener('hashchange', goHash); goHash();
+})();
+</script>
+</body></html>
