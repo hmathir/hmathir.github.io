@@ -149,6 +149,100 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .pl-item .l{font-size:13px} .pl-item .l b{font-family:'Space Grotesk';font-size:16px;display:block;color:var(--tx)}
 .pl-item .l span{color:var(--dim);font-size:12px}
 .credit a{color:var(--lime);text-decoration:none} .credit a:hover{text-decoration:underline}
+/* --- simplified clock card --- */
+.notice{display:flex;gap:12px;align-items:flex-start;border:1.5px solid rgba(255,92,122,.55);background:linear-gradient(135deg,rgba(255,92,122,.09),rgba(255,92,122,.02));border-radius:14px;padding:12px 16px;margin-bottom:14px;font-size:14.5px;color:#ffd3db}
+.notice .ic{font-size:20px;line-height:1.2}
+.notice b{color:#fff}
+.clock{display:flex;flex-direction:column}
+.clock .t{margin:12px 0 0}
+.clock .dt{font-size:14px;color:var(--mut);margin-top:2px}
+.htag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;margin-top:8px;padding:3px 9px;border-radius:8px;width:fit-content}
+.htag.hol{background:rgba(255,92,122,.12);color:#ff9aae}
+.htag.soft{background:rgba(255,184,77,.12);color:#ffcf87}
+.ccd{margin-top:14px;padding:12px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+.ccd.open{background:linear-gradient(135deg,rgba(62,230,160,.1),rgba(62,230,160,.02));border-color:rgba(62,230,160,.25)}
+.ccd-l{font-size:12.5px;color:var(--mut);margin-bottom:6px}
+.ccd.open .ccd-l{color:var(--green)}
+.ccd-v{display:flex;gap:6px}
+.seg{flex:1;text-align:center;background:rgba(6,9,18,.6);border:1px solid var(--line);border-radius:10px;padding:6px 2px 4px}
+.seg b{display:block;font-family:'Space Grotesk';font-size:22px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.seg i{font-style:normal;font-size:10.5px;color:var(--dim)}
+.ccd-bd{font-size:12px;color:var(--dim);margin-top:8px}
+.ccd-bd b{color:var(--mut);font-weight:500}
+/* --- planner v2 --- */
+.planner{margin-top:16px;padding:0;overflow:hidden}
+.pl-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 22px 14px;border-bottom:1px solid var(--line);background:linear-gradient(120deg,rgba(77,225,255,.07),rgba(139,123,255,.06) 60%,transparent)}
+.pl-head h3{font-size:20px;display:flex;gap:10px;align-items:center}
+.pl-head h3 span{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--card2);border:1px solid var(--line2);font-size:17px}
+.pl-head p{color:var(--mut);font-size:13.5px}
+.pl-body{padding:18px 22px 22px}
+.pl-days{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.pl-day{flex:none;min-width:74px;text-align:center;border:1px solid var(--line2);background:transparent;color:var(--mut);font:inherit;border-radius:12px;padding:7px 10px;cursor:pointer;transition:.15s}
+.pl-day b{display:block;font-size:14px;color:var(--tx)} .pl-day small{font-size:11.5px}
+.pl-day.on{background:var(--tx);border-color:var(--tx);color:var(--bg)} .pl-day.on b{color:var(--bg)}
+.pl-main{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:center;margin-top:18px}
+.pl-clock{text-align:center;padding:16px;border-radius:16px;background:rgba(6,9,18,.55);border:1px solid var(--line2)}
+.pl-clock small{display:block;color:var(--mut);font-size:12.5px}
+.pl-clock .tm{font-family:'Space Grotesk';font-size:40px;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+.pl-clock .wd{font-size:13px;color:var(--cyan)}
+.pl-track{position:relative;padding-top:4px}
+.pl-track input[type=range]{width:100%;height:34px;border-radius:10px;border:1px solid var(--line2)}
+.pl-track input[type=range]::-webkit-slider-thumb{width:8px;height:42px;border-radius:5px;background:#fff;border:0;box-shadow:0 0 0 3px rgba(6,9,18,.9),0 0 18px rgba(255,255,255,.5)}
+.pl-track input[type=range]::-moz-range-thumb{width:8px;height:40px;border-radius:5px;background:#fff;border:0}
+.pl-ticks{display:flex;justify-content:space-between;font-family:'Space Grotesk';font-size:11px;color:var(--dim);margin-top:6px}
+.pl-legend{display:flex;gap:14px;font-size:12px;color:var(--dim);margin-top:8px;flex-wrap:wrap}
+.pl-legend i{display:inline-block;width:18px;height:8px;border-radius:3px;margin-right:5px;vertical-align:1px}
+.pl-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pl-filter{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;align-items:center}
+.pl-filter .lbl{font-size:12.5px;color:var(--dim);margin-right:2px}
+.pl-stat{display:flex;align-items:center;gap:14px;margin:18px 0 12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid var(--line)}
+.ring{--p:0;width:54px;height:54px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(var(--green) calc(var(--p)*1%),rgba(255,255,255,.07) 0)}
+.ring b{width:42px;height:42px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:'Space Grotesk';font-size:13px}
+.pl-stat .txt{font-size:14px;color:var(--mut)} .pl-stat .txt b{color:var(--tx)}
+.pl-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pl-g{border-radius:14px;border:1px solid var(--line);padding:12px;background:rgba(255,255,255,.015)}
+.pl-g h4{font-size:13.5px;margin-bottom:8px;display:flex;justify-content:space-between}
+.pl-g h4 span{font-family:'Space Grotesk';color:var(--dim);font-weight:500}
+.pl-g.g-on{border-color:rgba(62,230,160,.3)} .pl-g.g-on h4{color:var(--green)}
+.pl-g.g-edge h4{color:var(--cyan)} .pl-g.g-off h4{color:var(--mut)}
+.pl-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:6px 0;border-top:1px dashed var(--line);font-size:13px}
+.pl-row:first-of-type{border-top:0}
+.pl-row b{font-family:'Space Grotesk';font-size:14.5px}
+.pl-row span{color:var(--mut)} .pl-row em{font-style:normal;font-size:11.5px;color:var(--dim);display:block}
+.pl-empty{font-size:12.5px;color:var(--dim);padding:6px 0}
+/* --- toolkit --- */
+.kit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.kit-tab{border:1px solid var(--line2);background:var(--card);color:var(--mut);font:inherit;font-size:14.5px;padding:9px 15px;border-radius:12px;cursor:pointer}
+.kit-tab.on{background:linear-gradient(120deg,rgba(198,255,77,.16),rgba(77,225,255,.12));color:var(--tx);border-color:rgba(198,255,77,.45);font-weight:600}
+.kit-pane{display:none} .kit-pane.on{display:block}
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.tpl{display:flex;flex-direction:column;gap:8px}
+.tpl .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.tpl h4{font-size:16px} .tpl .when{font-size:12.5px;color:var(--mut)}
+.tpl pre{white-space:pre-wrap;font-family:'Space Grotesk',system-ui;font-size:13.5px;line-height:1.6;color:#d6deec;background:rgba(6,9,18,.55);border:1px solid var(--line);border-radius:12px;padding:12px;margin:0;flex:1}
+.copy{flex:none;border:1px solid var(--line2);background:var(--card2);color:var(--tx);font:inherit;font-size:12.5px;padding:5px 11px;border-radius:9px;cursor:pointer}
+.copy.done{background:var(--green);color:#03140c;border-color:var(--green)}
+.gen{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;align-items:start}
+.gen .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chk h4{font-size:16px;margin-bottom:10px}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px dashed var(--line);font-size:14.5px;cursor:pointer}
+.chk label:first-of-type{border-top:0}
+.chk input{width:18px;height:18px;flex:none;margin-top:3px;accent-color:var(--lime)}
+.chk .no li{list-style:none;padding:9px 0 9px 26px;border-top:1px dashed var(--line);font-size:14.5px;position:relative}
+.chk .no li:first-child{border-top:0}
+.chk .no li::before{content:"✕";position:absolute;left:4px;color:var(--red);font-weight:700}
+.chk .no small,.chk label small{display:block;color:var(--dim);font-size:12.5px}
+.prog-chk{height:8px;border-radius:9px;background:rgba(255,255,255,.06);overflow:hidden;margin:4px 0 14px}
+.prog-chk i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .3s}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.fact .big{font-family:'Space Grotesk';font-size:30px;font-weight:700;color:var(--lime);line-height:1.1}
+.fact h4{font-size:15.5px;margin:6px 0 4px}
+.fact p{font-size:13.5px;color:var(--mut)}
+.fact a{font-size:12px;color:var(--cyan);text-decoration:none}
+.verified{font-size:12.5px;color:var(--dim);margin-top:12px}
+@media (max-width:960px){.pl-main,.gen,.chk{grid-template-columns:1fr}.pl-groups{grid-template-columns:1fr}}
+@media (max-width:560px){.tpl-grid{grid-template-columns:1fr}.seg b{font-size:19px}}
 
 /* golden hours */
 .gh{margin-top:16px;overflow-x:auto}
@@ -239,7 +333,7 @@ table.hm{border-collapse:separate;border-spacing:4px;width:100%;min-width:760px;
 .dx ol{margin:8px 0 0 20px;font-size:14.5px}
 .dx ol li{margin:3px 0}
 .empty{color:var(--dim);text-align:center;padding:40px 20px;border:1px dashed var(--line2);border-radius:14px}
-textarea,input[type=text],input[type=number],select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line2);border-radius:12px;color:var(--tx);font:inherit;font-size:15px;padding:11px 13px;outline:none;transition:.15s}
+textarea,input[type=text],input[type=number],input[type=date],select{color-scheme:dark;width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line2);border-radius:12px;color:var(--tx);font:inherit;font-size:15px;padding:11px 13px;outline:none;transition:.15s}
 textarea:focus,input:focus,select:focus{border-color:var(--cyan);background:rgba(77,225,255,.04)}
 select option{background:var(--bg2)}
 textarea{resize:vertical;min-height:90px}
@@ -328,6 +422,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <button data-go="season">মৌসুম</button>
       <button data-go="doctor">অর্ডার ডক্টর</button>
       <button data-go="tips">টিপস</button>
+      <button data-go="kit">টুলকিট</button>
       <button data-go="calc">আয় হিসাব</button>
     </div>
     <div class="bdclock">ঢাকা <b class="num" id="bdNow">--:--</b></div>
@@ -362,9 +457,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section id="clocks" class="reveal">
     <div class="sec-h">
       <div><div class="tag">Live client clock</div><h2>ক্লায়েন্টের দেশে এখন কয়টা বাজে?</h2></div>
-      <p>প্রতিটা দেশে এখন কী বার, কত তারিখ, কয়টা বাজে, আর পরের অফিস শুরু হতে কতক্ষণ বাকি। ছুটি আর উইকেন্ড আলাদা করে চিহ্নিত।</p>
+      <p>প্রতিটা দেশে এখন কয়টা বাজে, কী বার, আর অফিস শুরু হতে ঠিক কতক্ষণ বাকি — লাইভ কাউন্টডাউনে।</p>
     </div>
-    <div class="knock">💬 <b>ছুটি বা উইকেন্ডেও নক দিতে পারেন।</b> ক্লায়েন্টও তখন মেসেজ দিতে বা অর্ডার করতে পারে, অনেকে উইকেন্ডেই নতুন কাজের প্ল্যান করে। নিচের মিটার শুধু দেখায় <i>দ্রুত উত্তর</i> পাওয়ার সম্ভাবনা কতটা।</div>
+    <div class="notice"><span class="ic">📢</span><div><b>যেকোনো দিনই নক দেওয়া যায়।</b> উইকেন্ড বা ছুটির দিনেও ক্লায়েন্ট মেসেজ দেয়, অর্ডারও করে। এখানের স্ট্যাটাস শুধু বোঝায় এখন দ্রুত উত্তর পাওয়ার সম্ভাবনা কতটা।</div></div>
     <div class="sortbar" id="clockSort">
       <span class="lbl">সাজান:</span>
       <button class="chip on" data-s="share">বড় মার্কেট আগে</button>
@@ -389,14 +484,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
 
     <div class="card planner">
-      <div style="margin-bottom:12px"><b>মিটিং ও মেসেজ প্ল্যানার</b> <span class="muted" style="font-size:14px">— বাংলাদেশের একটা সময় বাছুন, দেখুন তখন কোন দেশে কয়টা বাজবে</span></div>
-      <div class="pl-ctrl">
-        <select id="plDay"></select>
-        <input type="range" id="plSlider" min="0" max="47" step="1" aria-label="বাংলাদেশ সময়">
-        <div class="pl-time" id="plTime">—</div>
+      <div class="pl-head">
+        <div><h3><span>🗓️</span>মিটিং ও মেসেজ প্ল্যানার</h3><p>বাংলাদেশের একটা সময় বাছুন — দেখুন তখন কোন দেশে কয়টা বাজবে আর কে অফিসে থাকবে।</p></div>
       </div>
-      <div class="pl-sum" id="plSum"></div>
-      <div class="pl-list" id="plList"></div>
+      <div class="pl-body">
+        <div class="pl-days" id="plDays"></div>
+        <div class="pl-main">
+          <div class="pl-clock"><small>বাংলাদেশ সময়</small><div class="tm" id="plTime">—</div><div class="wd" id="plWd"></div></div>
+          <div>
+            <div class="pl-track"><input type="range" id="plSlider" min="0" max="47" step="1" aria-label="বাংলাদেশ সময়"></div>
+            <div class="pl-ticks"><span>12 AM</span><span>3 AM</span><span>6 AM</span><span>9 AM</span><span>12 PM</span><span>3 PM</span><span>6 PM</span><span>9 PM</span><span>12 AM</span></div>
+            <div class="pl-legend"><span><i style="background:rgba(62,230,160,.85)"></i>উজ্জ্বল সবুজ = বেশি মার্কেট অফিসে</span><span><i style="background:rgba(62,230,160,.15)"></i>হালকা = কম</span></div>
+            <div class="pl-actions">
+              <button class="btn sm" id="plNow">⏱ এখন</button>
+              <button class="btn sm pri" id="plBest">✨ এই দিনের সেরা সময়</button>
+            </div>
+          </div>
+        </div>
+        <div class="pl-filter" id="plFilter"></div>
+        <div class="pl-stat"><div class="ring" id="plRing"><b id="plPct">—</b></div><div class="txt" id="plSum"></div></div>
+        <div class="pl-groups" id="plGroups"></div>
+      </div>
     </div>
   </section>
 
@@ -493,6 +601,68 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
   </section>
 
+  <!-- TOOLKIT -->
+  <section id="kit" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Freelancer toolkit</div><h2>ফ্রিল্যান্সারের টুলকিট</h2></div>
+      <p>কপি করে সাথে সাথে ব্যবহার করার মতো ক্লায়েন্ট মেসেজ, ঈদ বা ছুটির নোটিশ জেনারেটর, অ্যাকাউন্ট সুরক্ষার চেকলিস্ট আর টাকা তোলা ও ট্যাক্সের হালনাগাদ তথ্য।</p>
+    </div>
+    <div class="kit-tabs" id="kitTabs">
+      <button class="kit-tab on" data-k="tpl">✉️ মেসেজ টেমপ্লেট</button>
+      <button class="kit-tab" data-k="away">🌙 ছুটির নোটিশ জেনারেটর</button>
+      <button class="kit-tab" data-k="safe">🛡️ অ্যাকাউন্ট সেফটি</button>
+      <button class="kit-tab" data-k="money">💰 ফি, টাকা তোলা ও ট্যাক্স</button>
+    </div>
+
+    <div class="kit-pane on" id="k-tpl"><div class="tpl-grid" id="tplGrid"></div>
+      <p class="verified">[ ] বন্ধনীর জায়গাগুলো নিজের মতো বদলে নিন। প্রতিবার একটু নিজের ভাষায় সাজিয়ে নিলে মেসেজ আরও স্বাভাবিক শোনায়।</p></div>
+
+    <div class="kit-pane" id="k-away">
+      <div class="gen">
+        <div class="card">
+          <label class="fl">কারণ</label>
+          <select id="awReason">
+            <option value="eidf">ঈদুল ফিতর</option><option value="eida">ঈদুল আযহা</option><option value="pohela">পহেলা বৈশাখ</option>
+            <option value="family">পারিবারিক অনুষ্ঠান</option><option value="health">অসুস্থতা / বিশ্রাম</option><option value="travel">ভ্রমণ</option><option value="power">বিদ্যুৎ বা ইন্টারনেট সমস্যা</option>
+          </select>
+          <div class="row2">
+            <div><label class="fl">কবে থেকে</label><input type="date" id="awFrom"></div>
+            <div><label class="fl">কবে পর্যন্ত</label><input type="date" id="awTo"></div>
+          </div>
+          <div class="row2">
+            <div><label class="fl">আপনার নাম</label><input type="text" id="awName" placeholder="যেমন: Rafi"></div>
+            <div><label class="fl">ছুটিতে মেসেজ দেখবেন?</label><select id="awCheck"><option value="daily">দিনে একবার</option><option value="none">একদমই না</option></select></div>
+          </div>
+          <label class="fl" style="display:flex;gap:8px;align-items:center;margin-top:14px"><input type="checkbox" id="awOrders" checked style="width:auto"> চলমান অর্ডার ছুটির আগে ডেলিভারি দেব</label>
+        </div>
+        <div class="grid" style="gap:12px">
+          <div class="card tpl"><div class="top"><div><h4>ক্লায়েন্টদের জন্য মেসেজ</h4><div class="when">ছুটির ২–৩ দিন আগে চলমান আর নিয়মিত ক্লায়েন্টদের পাঠান</div></div><button class="copy" data-copy="awMsg">কপি</button></div><pre id="awMsg"></pre></div>
+          <div class="card tpl"><div class="top"><div><h4>অটো-রিপ্লাই / প্রোফাইল নোটিশ</h4><div class="when">Fiverr-এ Out of office বা Upwork-এর availability নোটে বসান</div></div><button class="copy" data-copy="awAuto">কপি</button></div><pre id="awAuto"></pre></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kit-pane" id="k-safe">
+      <div class="chk">
+        <div class="card">
+          <h4>✅ নিয়মিত যা করবেন</h4>
+          <div class="prog-chk"><i id="safeBar" style="width:0"></i></div>
+          <div id="safeDo"></div>
+        </div>
+        <div class="card">
+          <h4>⛔ যা কখনো করবেন না</h4>
+          <ul class="no" id="safeDont"></ul>
+        </div>
+      </div>
+      <p class="verified">প্ল্যাটফর্মের নিয়ম সময়ের সাথে বদলায়। বড় কোনো সিদ্ধান্তের আগে Fiverr বা Upwork-এর অফিশিয়াল Terms of Service আর Help Center দেখে নিন।</p>
+    </div>
+
+    <div class="kit-pane" id="k-money">
+      <div class="facts" id="factGrid"></div>
+      <p class="verified">সর্বশেষ যাচাই: নভেম্বর ২০২৬। ফি আর সরকারি নিয়ম বদলাতে পারে — কাজে লাগানোর আগে লিংকের সোর্স বা নিজের ব্যাংকের সাথে মিলিয়ে নিন। এটা আইনি বা কর-পরামর্শ নয়।</p>
+    </div>
+  </section>
+
   <!-- CALC -->
   <section id="calc" class="reveal">
     <div class="sec-h">
@@ -504,7 +674,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="form-row">
           <div><label class="fl">অর্ডারের দাম (USD)</label><input type="number" id="cAmt" value="100" min="0"></div>
           <div><label class="fl">প্ল্যাটফর্ম</label>
-            <select id="cPlat"><option value="20">Fiverr (২০%)</option><option value="10">Upwork (আনুমানিক ১০%)</option><option value="10">Freelancer.com (১০%)</option><option value="0">সরাসরি ক্লায়েন্ট (০%)</option></select></div>
+            <select id="cPlat"><option value="20">Fiverr (২০%)</option><option value="10">Upwork (০–১৫%, প্রপোজালে দেখায়)</option><option value="10">Freelancer.com (১০%)</option><option value="0">সরাসরি ক্লায়েন্ট (০%)</option></select></div>
         </div>
         <div class="form-row">
           <div><label class="fl">প্ল্যাটফর্ম ফি (%)</label><input type="number" id="cFee" value="20" min="0" max="100" step="0.5"></div>
@@ -715,6 +885,11 @@ const inDays=n=>n===0?"আজ":n===1?"আগামীকাল":bn(n)+" দি�
 
 /* ---------- clocks render ---------- */
 let clockSort="share";
+function cdHTML(ms){
+  const t=Math.max(0,Math.floor(ms/1000)), d=Math.floor(t/86400), h=Math.floor(t%86400/3600), m=Math.floor(t%3600/60), sc=t%60;
+  const seg=(v,l)=>`<span class="seg"><b>${String(v).padStart(2,"0")}</b><i>${l}</i></span>`;
+  return (d?seg(d,"দিন"):"")+seg(h,"ঘণ্টা")+seg(m,"মিনিট")+seg(sc,"সেকেন্ড");
+}
 function renderClocks(){
   const now=new Date();
   $("#bdNow").textContent=fmtTime("Asia/Dhaka",now);
@@ -726,32 +901,15 @@ function renderClocks(){
   });
   if(clockSort==="active") rows.sort((a,b)=>b.s.lvl-a.s.lvl||a.idx-b.idx);
   else if(clockSort==="next") rows.sort((a,b)=>((a.no&&!a.no.open?a.no.at-now:-1)-(b.no&&!b.no.open?b.no.at-now:-1))||a.idx-b.idx);
-  const t=todayBD();
   $("#clockGrid").innerHTML=rows.map(({m,s,no})=>{
     const pct=((s.p.h*60+s.p.m)/1440*100).toFixed(1);
-    const rel=s.p.ymd===t?"":` · বাংলাদেশে এখন ${WD_BN[wdOf(t)]}`;
-    let note="";
-    if(s.dk.k==="hol") note=`<div class="dnote dn-hol">🎌 <b>${esc(s.dk.hol.name)}</b> — সরকারি ছুটি${noteFor(s.dk.hol.name)?"<br>"+noteFor(s.dk.hol.name):""}</div>`;
-    else if(s.dk.k==="soft") note=`<div class="dnote dn-soft">🕯️ <b>${esc(s.dk.soft.name)}</b> — ${esc(s.dk.soft.note)}</div>`;
-    else if(s.dk.k==="week") note=`<div class="dnote dn-week">🛋️ ${WD_BN[s.p.wd]} — ${m.c==="SA"?"সৌদিতে শুক্র-শনি":"শনি-রবি"} উইকেন্ড</div>`;
-    let off="";
-    if(no&&no.open) off=`<div class="row"><span class="ic">⏳</span><span>অফিস শেষ হতে <b>${dur(no.at-now)}</b><small>বাংলাদেশে ${bdWhen(no.at)} পর্যন্ত</small></span></div>`;
-    else if(no){
-      const softTag=no.dk.k==="soft"?` <span style="color:var(--amber)">(${esc(no.dk.soft.name)})</span>`:"";
-      const skip=no.skipped.filter(x=>x.dk.k==="hol").map(x=>esc(x.dk.hol.name));
-      off=`<div class="row"><span class="ic">⏱️</span><span>পরের অফিস শুরু হতে <b>${dur(no.at-now)}</b> বাকি<small>${WD_BN[wdOf(no.ymd)]} ৯:০০ AM${softTag} · বাংলাদেশে ${bdWhen(no.at)}${skip.length?" · মাঝে ছুটি: "+skip.join(", "):""}</small></span></div>`;
-    }
-    const nh=nextHolidayFor(m,addDays(s.p.ymd,1)); let hol="";
-    if(nh){const n=daysBetween(s.p.ymd,nh.date); if(n<=60) hol=`<div class="row"><span class="ic">📅</span><span>পরের ছুটি: <b>${esc(nh.name)}</b>${nh.soft?" (আংশিক)":""}<small>${dateBnS(nh.date)} · ${inDays(n)}</small></span></div>`;}
-    const bars=[0,1,2,3].map(i=>`<i class="${i<=s.lvl?"on":""}"></i>`).join("");
+    const tag=s.dk.k==="hol"?`<span class="htag hol">🎌 ${esc(s.dk.hol.name)}</span>`:s.dk.k==="soft"?`<span class="htag soft">🕯️ ${esc(s.dk.soft.name)}</span>`:"";
+    const cd=no?`<div class="ccd ${no.open?"open":""}"><div class="ccd-l">${no.open?"🟢 অফিস চলছে — শেষ হতে":"⏱️ অফিস শুরু হতে"}</div><div class="ccd-v" data-at="${no.at.getTime()}">${cdHTML(no.at-now)}</div><div class="ccd-bd">${no.open?"বাংলাদেশে":WD_BN[wdOf(no.ymd)]+" ৯:০০ AM · বাংলাদেশে"} <b>${bdWhen(no.at)}</b></div></div>`:"";
     return `<div class="card clock">
       <div class="head"><div class="top"><span class="cc">${m.c}</span><div><div class="nm">${m.n}</div><div class="city">${m.city}</div></div></div><span class="pill s-${s.k}">${s.t}</span></div>
       <div class="t">${fmtTime(m.tz,now)}</div>
       <div class="dt">${dateBn(s.p.ymd)}</div>
-      <div class="off">${offLabel(offsetMin(m.tz,now))}${rel}</div>
-      ${note}
-      <div class="meter l${s.lvl}" title="দ্রুত উত্তর পাওয়ার সম্ভাবনা"><span class="bars">${bars}</span><span>${s.why}</span></div>
-      ${off}${hol}
+      ${tag}${cd}
       <div class="bar" style="width:${pct}%"></div></div>`;
   }).join("");
   const score=Math.round(open/tot*100);
@@ -762,6 +920,15 @@ function renderClocks(){
   renderGH(now);
   renderPlanner();
 }
+let cdBusy=false;
+setInterval(()=>{
+  if(cdBusy) return; const n=Date.now();
+  for(const el of document.querySelectorAll("#clockGrid [data-at]")){
+    const ms=+el.dataset.at-n;
+    if(ms<=0){cdBusy=true;renderClocks();cdBusy=false;return;}
+    el.innerHTML=cdHTML(ms);
+  }
+},1000);
 $("#clockSort").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;clockSort=b.dataset.s;document.querySelectorAll("#clockSort .chip").forEach(x=>x.classList.toggle("on",x===b));renderClocks();});
 function renderBlips(now){
   const box=$("#radarBox"); box.querySelectorAll(".blip").forEach(b=>b.remove());
@@ -798,22 +965,45 @@ function renderGH(now){
   $("#stBest").textContent=`${fmt12(s)} – ${fmt12(e)}`;
 }
 /* ---------- meeting planner ---------- */
-let plInit=false;
+const PL={day:null,slot:null,sel:null,init:false};
+const PL_M=()=>{const seen=new Set();return MARKETS.filter(m=>{if(seen.has(m.tz))return false;seen.add(m.tz);return true})};
+const slotInst=(ymd,v)=>{const [y,mo,d]=ymd.split("-").map(Number);return new Date(Date.UTC(y,mo-1,d,Math.floor(v/2)-6,v%2?30:0))};
+function slotScore(ymd,v,ms){
+  const inst=slotInst(ymd,v); let on=0,all=0;
+  ms.forEach(m=>{const s=statusOf(m,inst); all+=m.w; on+=s.k==="office"?m.w:s.k==="soft"?m.w*.5:s.k==="edge"?m.w*.35:0;});
+  return all?on/all:0;
+}
 function renderPlanner(){
-  const daySel=$("#plDay"), sl=$("#plSlider"), t=todayBD();
-  if(!plInit){
-    daySel.innerHTML=Array.from({length:7},(_,i)=>{const y=addDays(t,i);return `<option value="${y}">${i===0?"আজ":i===1?"আগামীকাল":WD_BN[wdOf(y)]} · ${dateBnS(y)}</option>`}).join("");
-    const bd=partsIn("Asia/Dhaka",new Date()); sl.value=Math.min(47,bd.h*2+(bd.m>=30?1:0));
-    daySel.onchange=renderPlanner; sl.oninput=renderPlanner; plInit=true;
+  const t=todayBD(), ms=PL_M();
+  if(!PL.init){
+    PL.day=t; const bd=partsIn("Asia/Dhaka",new Date()); PL.slot=Math.min(47,bd.h*2+(bd.m>=30?1:0)); PL.sel=new Set(ms.map(m=>m.tz));
+    $("#plDays").onclick=e=>{const b=e.target.closest(".pl-day");if(!b)return;PL.day=b.dataset.d;renderPlanner();};
+    $("#plSlider").oninput=e=>{PL.slot=+e.target.value;renderPlanner();};
+    $("#plNow").onclick=()=>{PL.day=todayBD();const bd=partsIn("Asia/Dhaka",new Date());PL.slot=Math.min(47,bd.h*2+(bd.m>=30?1:0));renderPlanner();};
+    $("#plBest").onclick=()=>{const act=ms.filter(m=>PL.sel.has(m.tz));let best=0,bv=-1;for(let v=0;v<48;v++){const sc=slotScore(PL.day,v,act);if(sc>bv+1e-9){bv=sc;best=v}}PL.slot=best;renderPlanner();};
+    $("#plFilter").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const tz=b.dataset.tz;
+      if(tz==="ALL"){PL.sel=new Set(ms.map(m=>m.tz));} else if(PL.sel.size===ms.length){PL.sel=new Set([tz]);} else {PL.sel.has(tz)?PL.sel.delete(tz):PL.sel.add(tz); if(!PL.sel.size) PL.sel=new Set(ms.map(m=>m.tz));}
+      renderPlanner();};
+    PL.init=true;
   }
-  const ymd=daySel.value, v=+sl.value, h=Math.floor(v/2), mi=v%2?30:0;
-  const [y,mo,d]=ymd.split("-").map(Number); const inst=new Date(Date.UTC(y,mo-1,d,h-6,mi));
+  if(PL.day<t) PL.day=t;
+  $("#plDays").innerHTML=Array.from({length:7},(_,i)=>{const y=addDays(t,i),d=dObj(y);return `<button class="pl-day ${y===PL.day?"on":""}" data-d="${y}"><b>${i===0?"আজ":i===1?"আগামীকাল":WD_BN_S[d.getUTCDay()]}</b><small>${i<2?WD_BN_S[d.getUTCDay()]+", ":""}${bn(d.getUTCDate())} ${MON_BN[d.getUTCMonth()]}</small></button>`}).join("");
+  const all=PL.sel.size===ms.length;
+  $("#plFilter").innerHTML=`<span class="lbl">মার্কেট:</span><button class="chip ${all?"on":""}" data-tz="ALL">সব</button>`+ms.map(m=>`<button class="chip ${!all&&PL.sel.has(m.tz)?"on":""}" data-tz="${m.tz}">${m.city}</button>`).join("");
+  const act=ms.filter(m=>PL.sel.has(m.tz));
+  // activity heat on the slider track
+  const stops=Array.from({length:48},(_,v)=>{const a=slotScore(PL.day,v,act);const al=(0.06+a*0.85).toFixed(2);return `rgba(62,230,160,${al}) ${(v/48*100).toFixed(2)}%, rgba(62,230,160,${al}) ${((v+1)/48*100).toFixed(2)}%`}).join(",");
+  const sl=$("#plSlider"); sl.value=PL.slot; sl.style.background=`linear-gradient(90deg,${stops})`;
+  const inst=slotInst(PL.day,PL.slot);
   $("#plTime").textContent=fmtTime("Asia/Dhaka",inst);
-  const seen=new Set(), list=MARKETS.filter(m=>{if(seen.has(m.tz))return false;seen.add(m.tz);return true}).map(m=>({m,s:statusOf(m,inst)}));
-  const officeN=[...new Set(list.filter(x=>x.s.k==="office").map(x=>x.m.n.replace(/ \(.+\)/,"")))];
-  const weightOn=list.reduce((a,x)=>a+(x.s.k==="office"?x.m.w:x.s.k==="soft"?x.m.w*.5:x.s.k==="edge"?x.m.w*.4:0),0), weightAll=list.reduce((a,x)=>a+x.m.w,0);
-  $("#plSum").innerHTML=officeN.length?`এই সময়ে অফিসে থাকবে: <b>${officeN.join(", ")}</b> · মার্কেট সক্রিয় ~${bn(Math.round(weightOn/weightAll*100))}%`:`এই সময়ে কোনো বড় মার্কেট অফিস টাইমে নেই। মেসেজ পাঠাতে পারেন, উত্তর আসবে ওদের সকালে।`;
-  $("#plList").innerHTML=list.sort((a,b)=>b.s.lvl-a.s.lvl).map(({m,s})=>`<div class="pl-item"><div class="l"><b>${fmtTime(m.tz,inst)}</b>${m.city} <span>· ${dateBnS(s.p.ymd)}</span></div><span class="pill s-${s.k}">${s.t}</span></div>`).join("");
+  $("#plWd").textContent=dateBn(PL.day);
+  const list=act.map(m=>({m,s:statusOf(m,inst)}));
+  const pct=Math.round(slotScore(PL.day,PL.slot,act)*100);
+  $("#plRing").style.setProperty("--p",pct); $("#plPct").textContent=bn(pct)+"%";
+  const officeN=[...new Set(list.filter(x=>x.s.k==="office"||x.s.k==="soft").map(x=>x.m.city))];
+  $("#plSum").innerHTML=officeN.length?`এই সময়ে অফিসে থাকবে: <b>${officeN.join(", ")}</b>`:`এই সময়ে বাছাই করা কোনো মার্কেট অফিসে নেই। মেসেজ পাঠাতে পারেন, উত্তর আসবে ওদের অফিস খুললে। <b>✨ সেরা সময়</b> চাপলে ভালো সময়টা বের করে দেবে।`;
+  const G=[["g-on","🟢 অফিসে",x=>x.s.k==="office"||x.s.k==="soft"],["g-edge","🔵 সকাল / সন্ধ্যা",x=>x.s.k==="edge"],["g-off","⚪ বিশ্রাম / উইকেন্ড / ছুটি",x=>["sleep","week","hol"].includes(x.s.k)]];
+  $("#plGroups").innerHTML=G.map(([c,h,f])=>{const r=list.filter(f);return `<div class="pl-g ${c}"><h4>${h}<span>${bn(r.length)}</span></h4>${r.length?r.map(({m,s})=>`<div class="pl-row"><span>${m.city}<em>${dateBnS(s.p.ymd)}${s.k==="hol"?" · ছুটি":s.k==="week"?" · উইকেন্ড":s.k==="soft"?" · আংশিক ছুটি":""}</em></span><b>${fmtTime(m.tz,inst)}</b></div>`).join(""):`<div class="pl-empty">কেউ নেই</div>`}</div>`}).join("");
 }
 const fmt12=h=>{const a=h>=12?"PM":"AM";const x=h%12||12;return x+" "+a};
 
@@ -1100,6 +1290,137 @@ async function initAI(){
   if(sample){$("#aiDocBox").style.display="block"} else {$("#aiOff").style.display="block";$("#aiTipBtn").disabled=true}
 }
 
+/* ---------- toolkit ---------- */
+const TPL=[
+ ["প্রথম মেসেজের উত্তর","নতুন ক্লায়েন্ট প্রথম মেসেজ দিলে — দ্রুত, নির্দিষ্ট প্রশ্নসহ",
+`Hi [Client Name], thanks for reaching out!
+
+I'd be glad to help with [project]. To give you an exact quote and timeline, could you tell me:
+1. [Specific question about the project]
+2. When do you need it delivered?
+
+Once I have this, I'll send you a custom offer right away.`],
+ ["কাস্টম অফার পাঠানোর সময়","অফার পাঠানোর সাথে ছোট করে কী পাবে তা লিখে দিন",
+`I've sent you a custom offer for [project].
+
+Here's what's included:
+- [Deliverable 1]
+- [Deliverable 2]
+- [Number] revisions
+- Delivery in [X] days
+
+Let me know if you'd like anything adjusted before you accept.`],
+ ["ডেলিভারি মেসেজ","অর্ডার ডেলিভারির সময় — কী দিলেন, কীভাবে ব্যবহার করবে",
+`Your order is ready! Here's what I've delivered:
+- [File 1] — [what it's for]
+- [File 2] — [what it's for]
+
+Please take a look, and if anything needs a tweak, just let me know — I'm happy to adjust it.
+If you're happy with everything, I'd really appreciate your feedback.`],
+ ["রিভিশনের সীমা (ভদ্রভাবে)","অফারের চেয়ে বেশি রিভিশন বা নতুন কাজ চাইলে",
+`Thanks for the feedback! I've made the changes you asked for.
+
+Just a quick note: this request goes a bit beyond the original scope ([what was agreed]). I'm happy to do it — I'll send a small extra offer of $[amount] for [the new work] so we can keep everything clear and on track.`],
+ ["উত্তর না পেলে ফলো-আপ","ক্লায়েন্ট ২–৩ দিন উত্তর না দিলে — চাপ না দিয়ে",
+`Hi [Client Name], just checking in on [project].
+
+Whenever you get a chance, let me know if you have any questions or if you'd like to move forward. No rush at all — I'm here when you're ready.`],
+ ["ডেলিভারিতে দেরি হলে","আগেভাগে জানানো — শেষ মুহূর্তে না",
+`Hi [Client Name], a quick update on your order.
+
+[Short honest reason]. To make sure the quality is right, I need [X] more day(s). I'll have it to you by [date] at the latest.
+
+Sorry for the delay, and thanks for your patience.`],
+ ["রিভিউ চাওয়া","ক্লায়েন্ট খুশি হলে, অর্ডার কমপ্লিট হওয়ার পর",
+`It was a pleasure working with you on [project]!
+
+If you have a minute, a short review would mean a lot and helps other clients find my work. And whenever you need [service] again, I'm just a message away.`],
+ ["পুরনো ক্লায়েন্টকে নতুন কাজের প্রস্তাব","১–২ মাস পর বা উৎসবের আগে — রিপিট অর্ডারের জন্য",
+`Hi [Client Name], hope things are going well with [their project/business].
+
+With [upcoming event/season] coming up, I thought you might need [related service]. I can have it ready by [date] if you'd like.
+
+Happy to share a few ideas — just let me know.`]
+];
+function renderTpl(){
+  $("#tplGrid").innerHTML=TPL.map((t,i)=>`<div class="card tpl"><div class="top"><div><h4>${t[0]}</h4><div class="when">${t[1]}</div></div><button class="copy" data-copy="tpl${i}">কপি</button></div><pre id="tpl${i}">${esc(t[2])}</pre></div>`).join("");
+}
+document.addEventListener("click",async e=>{
+  const b=e.target.closest(".copy[data-copy]"); if(!b) return;
+  const txt=document.getElementById(b.dataset.copy).innerText;
+  let ok=false;
+  try{await navigator.clipboard.writeText(txt);ok=true}catch(_){
+    try{const ta=document.createElement("textarea");ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();ok=document.execCommand("copy");ta.remove()}catch(__){}
+  }
+  b.textContent=ok?"✓ কপি হয়েছে":"সিলেক্ট করে কপি করুন"; b.classList.toggle("done",ok);
+  setTimeout(()=>{b.textContent="কপি";b.classList.remove("done")},1800);
+});
+$("#kitTabs").addEventListener("click",e=>{const b=e.target.closest(".kit-tab");if(!b)return;document.querySelectorAll(".kit-tab").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".kit-pane").forEach(p=>p.classList.toggle("on",p.id==="k-"+b.dataset.k));});
+
+/* ছুটির নোটিশ */
+const AW={eidf:["Eid al-Fitr","celebrating Eid al-Fitr with my family"],eida:["Eid al-Adha","celebrating Eid al-Adha with my family"],pohela:["Bengali New Year","celebrating the Bengali New Year (Pohela Boishakh)"],family:["a family event","attending a family event"],health:["a short break","taking a short break to rest and recover"],travel:["travel","travelling"],power:["a temporary connectivity issue","dealing with a temporary power/internet outage in my area"]};
+const fmtEn=ymd=>{if(!ymd)return "[date]";const d=dObj(ymd);return d.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:"UTC"})};
+function renderAway(){
+  const r=AW[$("#awReason").value], from=$("#awFrom").value, to=$("#awTo").value, name=$("#awName").value.trim(), daily=$("#awCheck").value==="daily", ord=$("#awOrders").checked;
+  const back=to?fmtEn(addDays(to,1)):"[date]";
+  $("#awMsg").textContent=`Hi [Client Name],
+
+Just a quick heads-up: I'll be away from ${fmtEn(from)} to ${fmtEn(to)} for ${r[1]}.
+${ord?"\nAll current orders will be delivered before I leave, so nothing on your side will be delayed.\n":""}
+${daily?"I'll still check messages once a day, but my replies may be a little slower than usual.":"I won't be checking messages during this time."} I'll be fully back on ${back} and happy to start any new work then.
+
+Thank you for understanding!${name?"\n"+name:""}`;
+  $("#awAuto").textContent=`Thanks for your message! I'm away for ${r[0]} until ${fmtEn(to)}${daily?" and checking messages once a day":""}. I'll reply ${daily?"as soon as I can":"on "+back} — you're welcome to share your project details in the meantime.`;
+}
+function initAway(){
+  const t=todayBD(); $("#awFrom").value=addDays(t,3); $("#awTo").value=addDays(t,6);
+  ["awReason","awFrom","awTo","awName","awCheck","awOrders"].forEach(id=>{$("#"+id).addEventListener("input",renderAway);$("#"+id).addEventListener("change",renderAway)});
+  renderAway();
+}
+
+/* অ্যাকাউন্ট সেফটি */
+const SAFE_DO=[
+ ["২-স্টেপ ভেরিফিকেশন (2FA) চালু রাখুন","ইমেইল আর প্ল্যাটফর্ম দুই জায়গাতেই"],
+ ["প্ল্যাটফর্মের ইমেইলের জন্য আলাদা শক্ত পাসওয়ার্ড","অন্য কোনো সাইটে একই পাসওয়ার্ড নয়"],
+ ["নিজের নাম আর আসল তথ্য দিয়ে অ্যাকাউন্ট","NID-এর সাথে মিলিয়ে, পেমেন্ট মেথডও নিজের নামে"],
+ ["সব কথা আর ফাইল প্ল্যাটফর্মের ইনবক্সে","কোনো ঝামেলায় এটাই আপনার প্রমাণ"],
+ ["কাজ শুরুর আগে স্কোপ লিখিতভাবে ঠিক করা","অফারে ডেলিভারেবল আর রিভিশনের সংখ্যা স্পষ্ট লিখুন"],
+ ["ছুটিতে গেলে Out of office / availability চালু","তাতে রেসপন্স রেট আর রিভিউ সুরক্ষিত থাকে"],
+ ["অচেনা লিংক বা ফাইল খোলার আগে যাচাই","বিশেষ করে .exe, .scr বা পাসওয়ার্ড দেওয়া .zip"],
+ ["নিয়মিত পেমেন্ট উইথড্র করা","বড় অঙ্ক দীর্ঘদিন একটা জায়গায় না রাখা"]
+];
+const SAFE_DONT=[
+ ["প্ল্যাটফর্মের বাইরে পেমেন্ট বা যোগাযোগ","ইমেইল, WhatsApp বা Telegram চাওয়া/দেওয়া — অ্যাকাউন্ট বন্ধ হওয়ার অন্যতম বড় কারণ"],
+ ["অন্যের অ্যাকাউন্ট চালানো বা নিজের অ্যাকাউন্ট ভাড়া দেওয়া","ধরা পড়লে দুই পক্ষেরই স্থায়ী ব্যান হতে পারে"],
+ ["একাধিক অ্যাকাউন্ট খোলা","একই ডিভাইস বা নেটওয়ার্ক থেকে দুটো অ্যাকাউন্ট সন্দেহের কারণ হয়"],
+ ["ভুয়া রিভিউ বা নিজের গিগে নিজে অর্ডার","অ্যালগরিদম এসব ধরে ফেলে"],
+ ["আগে টাকা চায় এমন \"জব\"","রেজিস্ট্রেশন ফি, \"অ্যাকাউন্ট অ্যাক্টিভেশন\" — প্রায় সবসময় প্রতারণা"],
+ ["অন্যের কাজ বা কপিরাইট করা কনটেন্ট জমা দেওয়া","রিপোর্ট হলে অর্ডার ক্যান্সেল আর ওয়ার্নিং আসে"]
+];
+function renderSafe(){
+  let st={}; try{st=JSON.parse(localStorage.getItem("fr-safe")||"{}")}catch(_){}
+  $("#safeDo").innerHTML=SAFE_DO.map((x,i)=>`<label><input type="checkbox" data-i="${i}" ${st[i]?"checked":""}><span>${x[0]}<small>${x[1]}</small></span></label>`).join("");
+  $("#safeDont").innerHTML=SAFE_DONT.map(x=>`<li>${x[0]}<small>${x[1]}</small></li>`).join("");
+  const upd=()=>{const c=document.querySelectorAll("#safeDo input:checked").length;$("#safeBar").style.width=(c/SAFE_DO.length*100)+"%"};
+  $("#safeDo").onchange=e=>{const i=e.target.dataset.i;st[i]=e.target.checked;try{localStorage.setItem("fr-safe",JSON.stringify(st))}catch(_){};upd()};
+  upd();
+}
+
+/* ফি, টাকা তোলা ও ট্যাক্স — সর্বশেষ যাচাই নভেম্বর ২০২৬ */
+const FACTS=[
+ ["২০%","Fiverr সেলার ফি","প্রতিটা অর্ডার আর টিপ থেকে ২০% কাটে। বায়ারের কাছ থেকে আলাদা সার্ভিস ফি নেয়, সেটা আপনার আয় থেকে যায় না।","https://www.fiverr.com/support","Fiverr Help Center"],
+ ["০–১৫%","Upwork সার্ভিস ফি","মে ২০২৫ থেকে ফি প্রতিটা কন্ট্র্যাক্টে আলাদা — প্রপোজাল বা অফারের স্ক্রিনেই দেখায়, আর কন্ট্র্যাক্ট শুরু হলে আর বদলায় না। প্রতিটা Connect-এর দাম $0.15।","https://support.upwork.com","Upwork Help Center"],
+ ["১০%","Freelancer.com ফি","প্রজেক্টের অর্থের ওপর সাধারণত ১০%। নিজের ড্যাশবোর্ডে আসল হার মিলিয়ে নিন।","https://www.freelancer.com/feesandcharges","Fees & Charges"],
+ ["করমুক্ত","ফ্রিল্যান্সিং আয়ে আয়কর","২০২৬-২৭ বাজেটে আইটি ফ্রিল্যান্সিংয়ের আয়কর অব্যাহতি সব ধরনের ফ্রিল্যান্সিং আয়ে বাড়ানো হয়েছে; কনটেন্ট তৈরির আয়ও করমুক্ত। রিটার্নে আয় দেখানো আর প্রমাণ রাখা দরকার।","https://www.bssnews.net/national-budget-2026-2027/394862","BSS · বাজেট ২০২৬-২৭"],
+ ["$৫,০০০","কাগজপত্র ছাড়া আনা","বাজেট ঘোষণায় বলা হয়েছে ফ্রিল্যান্সার ও কনটেন্ট ক্রিয়েটররা ৫,০০০ ডলার পর্যন্ত কাগজপত্র ছাড়া দেশে আনতে পারবেন। আপনার ব্যাংকে নিয়মটা কীভাবে কার্যকর হচ্ছে জেনে নিন।","https://thefinancialexpress.com.bd/economy/bangladesh/budget-allows-freelancers-content-creators-to-remit-5000-without-paperwork-minister","Financial Express"],
+ ["নতুন","বাংলাদেশ ব্যাংকের সার্কুলার (জুলাই ২০২৬)","বিদেশি আয়ের প্রমাণ হিসেবে প্ল্যাটফর্মের স্টেটমেন্ট, ইমেইল, ইনভয়েস বা কন্ট্র্যাক্ট ব্যবহার করা যাবে। ডুয়াল-কারেন্সি \"ফ্রিল্যান্সার কার্ড\" আর MFS/পেমেন্ট সার্ভিসের ব্যবহার বাড়ানোর সুযোগও রাখা হয়েছে।","https://www.bssnews.net/news/407907","BSS · বাংলাদেশ ব্যাংক"],
+ ["টিপ","টাকা তোলার আগে","Upwork সরাসরি বাংলাদেশের ব্যাংকে, Fiverr সাধারণত Payoneer হয়ে আসে। প্রতিবার উইথড্রর ফি আর রেট দুটোই দেখুন — ছোট ছোট উইথড্রর চেয়ে মাঝে মাঝে বড় অঙ্ক তোলা প্রায়ই সাশ্রয়ী।","",""],
+ ["রেকর্ড","প্রমাণ গুছিয়ে রাখুন","প্রতি মাসে প্ল্যাটফর্মের earnings স্টেটমেন্ট আর ব্যাংকের রেমিট্যান্স সার্টিফিকেট (PRC) ডাউনলোড করে রাখুন — ট্যাক্স রিটার্ন, ভিসা বা লোনের সময় কাজে লাগে।","",""]
+];
+function renderFacts(){
+  $("#factGrid").innerHTML=FACTS.map(f=>`<div class="card fact"><div class="big">${f[0]}</div><h4>${f[1]}</h4><p>${f[2]}</p>${f[3]?`<a href="${f[3]}" target="_blank" rel="noopener">সোর্স: ${f[4]} ↗</a>`:""}</div>`).join("");
+}
+
 /* ---------- calc ---------- */
 function calc(){
   const a=+$("#cAmt").value||0, fee=+$("#cFee").value||0, wd=+$("#cWd").value||0, rate=+$("#cRate").value||0, n=+$("#cN").value||0;
@@ -1122,6 +1443,7 @@ function boot(){
   initHD();
   renderChips(); renderClocks(); renderHolidays(); renderOpps(); renderHeat(); renderSymp(); renderDiag();
   tipIdx=dayOfYear()%TIPS.length; renderTip(); renderForums(); calc();
+  renderTpl(); initAway(); renderSafe(); renderFacts();
   setInterval(renderClocks,30000);
   initAI();
   // লাইভ ডলার রেট (ফ্রি API) — না পেলে ডিফল্ট থাকবে
