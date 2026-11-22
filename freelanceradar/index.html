@@ -102,7 +102,10 @@ section{padding:70px 0 10px;scroll-margin-top:70px}
 .clock .city{color:var(--dim);font-size:12px;font-family:'Space Grotesk'}
 .clock .t{font-family:'Space Grotesk';font-size:30px;font-weight:600;margin:10px 0 2px;letter-spacing:-.02em}
 .clock .t small{font-size:14px;color:var(--mut);font-weight:500;margin-left:6px}
-.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:3px 10px;border-radius:99px;border:1px solid;font-weight:500}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:3px 10px;border-radius:99px;border:1px solid;font-weight:500;white-space:nowrap;flex:none}
+.clock .head .top{min-width:0}
+.clock .head .top>div{min-width:0}
+.clock .nm{line-height:1.3}
 .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
 .s-office{color:var(--green);border-color:rgba(62,230,160,.3);background:rgba(62,230,160,.07)}
 .s-edge{color:var(--cyan);border-color:rgba(77,225,255,.3);background:rgba(77,225,255,.07)}
@@ -241,7 +244,53 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .fact p{font-size:13.5px;color:var(--mut)}
 .fact a{font-size:12px;color:var(--cyan);text-decoration:none}
 .verified{font-size:12.5px;color:var(--dim);margin-top:12px}
-@media (max-width:960px){.pl-main,.gen,.chk{grid-template-columns:1fr}.pl-groups{grid-template-columns:1fr}}
+/* --- know section --- */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.num-card{position:relative;overflow:hidden;padding:18px}
+.num-card .n{font-family:'Space Grotesk';font-size:36px;font-weight:700;line-height:1;background:linear-gradient(95deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.num-card .l{font-size:14px;margin-top:8px}
+.num-card .s{font-size:11.5px;color:var(--dim);margin-top:6px}
+.num-card .s a{color:var(--dim)}
+.num-card::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(77,225,255,.15),transparent 70%)}
+.know-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;align-items:start}
+.flow-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 18px}
+.flow{display:grid;grid-template-columns:1fr 46px 1fr 46px 1fr;align-items:center}
+.flow-col{display:flex;flex-direction:column;gap:8px}
+.flow-col h5{font-size:11.5px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;font-family:'Space Grotesk';font-weight:500;text-align:center}
+.node{padding:10px 12px;border-radius:12px;border:1px solid var(--line2);background:rgba(6,9,18,.55);text-align:center;font-size:13.5px;line-height:1.35;cursor:pointer;transition:.2s;font-family:inherit;color:var(--tx)}
+.node small{display:block;color:var(--dim);font-size:11.5px;margin-top:2px}
+.node:hover,.node.on{border-color:var(--lime);background:rgba(198,255,77,.07)}
+.node.src{border-color:rgba(77,225,255,.5);background:rgba(77,225,255,.08);cursor:default}
+.arrow{height:3px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--cyan),var(--lime),transparent);background-size:200% 100%;animation:flowx 1.6s linear infinite;position:relative}
+.arrow::after{content:"";position:absolute;right:2px;top:-4px;border:5px solid transparent;border-left-color:var(--lime)}
+@keyframes flowx{from{background-position:100% 0}to{background-position:-100% 0}}
+.flow-tip{margin-top:16px;padding:12px 14px;border-radius:12px;background:rgba(198,255,77,.05);border:1px solid rgba(198,255,77,.2);font-size:14px;color:var(--mut);min-height:48px}
+.flow-tip b{color:var(--tx)}
+.loss{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:13.5px;color:var(--mut)}
+.loss .bar{flex:1;height:10px;border-radius:9px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
+.loss .bar i{position:absolute;left:0;top:0;bottom:0;width:5%;background:linear-gradient(90deg,var(--amber),var(--red));border-radius:9px}
+.steps{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.step{display:grid;grid-template-columns:34px 1fr;gap:12px;position:relative;padding-bottom:16px}
+.step:not(:last-child)::before{content:"";position:absolute;left:16px;top:34px;bottom:0;width:2px;background:linear-gradient(var(--cyan),transparent)}
+.step .no{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;background:var(--card2);border:1px solid rgba(77,225,255,.5);color:var(--cyan)}
+.step h5{font-size:15px;margin-top:5px}
+.step p{font-size:13.5px;color:var(--mut)}
+.idbadge{display:inline-flex;gap:6px;flex-wrap:wrap;margin:6px 0 12px}
+.idbadge span{font-size:12px;padding:3px 9px;border-radius:8px;background:rgba(62,230,160,.1);color:var(--green);border:1px solid rgba(62,230,160,.25)}
+.myths{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:14px}
+.myth{perspective:1000px;height:190px;cursor:pointer;background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left}
+.myth .in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.myth.flip .in{transform:rotateY(180deg)}
+.myth .f,.myth .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+.myth .f{background:linear-gradient(150deg,rgba(255,92,122,.12),rgba(255,92,122,.03));border:1px solid rgba(255,92,122,.3)}
+.myth .b{background:linear-gradient(150deg,rgba(62,230,160,.12),rgba(62,230,160,.03));border:1px solid rgba(62,230,160,.3);transform:rotateY(180deg)}
+.myth .tg{font-family:'Space Grotesk';font-size:11px;letter-spacing:.12em;font-weight:600}
+.myth .f .tg{color:var(--red)} .myth .b .tg{color:var(--green)}
+.myth .q{font-size:16.5px;font-weight:600;line-height:1.4}
+.myth .a{font-size:13.5px;color:#d6e6dc;line-height:1.55}
+.myth .h{font-size:11.5px;color:var(--dim)}
+@media (max-width:960px){.pl-main,.gen,.chk,.know-grid{grid-template-columns:1fr}.pl-groups{grid-template-columns:1fr}.nums{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.flow{grid-template-columns:1fr;gap:6px}.arrow{width:3px;height:22px;margin:0 auto;background:linear-gradient(180deg,var(--cyan),var(--lime))}.arrow::after{right:-4px;top:auto;bottom:-6px;border-left-color:transparent;border-top-color:var(--lime)}.num-card .n{font-size:28px}}
 @media (max-width:560px){.tpl-grid{grid-template-columns:1fr}.seg b{font-size:19px}}
 
 /* golden hours */
@@ -422,6 +471,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <button data-go="season">মৌসুম</button>
       <button data-go="doctor">অর্ডার ডক্টর</button>
       <button data-go="tips">টিপস</button>
+      <button data-go="know">জানা দরকার</button>
       <button data-go="kit">টুলকিট</button>
       <button data-go="calc">আয় হিসাব</button>
     </div>
@@ -599,6 +649,36 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <p class="muted" id="aiOff" style="display:none;margin-top:10px;font-size:14px">🚧 AI টিপস শীঘ্রই চালু হচ্ছে। ততদিন বাম পাশের প্রতিদিনের টিপস আর উপরের অর্ডার ডক্টর ব্যবহার করুন।</p>
       </div>
     </div>
+  </section>
+
+  <!-- KNOW -->
+  <section id="know" class="reveal">
+    <div class="sec-h">
+      <div><div class="tag">Know your ground</div><h2>যে তথ্যগুলো সবার জানা দরকার</h2></div>
+      <p>বাংলাদেশি ফ্রিল্যান্সারদের সবচেয়ে বড় সমস্যার একটা হলো সঠিক তথ্যের অভাব — টাকা কীভাবে আনবেন, কত কাটবে, আইডি কার্ড কীভাবে পাবেন, কোনটা গুজব। এখানে সব এক জায়গায়, সোর্সসহ।</p>
+    </div>
+    <div class="nums" id="numGrid"></div>
+    <div class="know-grid">
+      <div class="card">
+        <b style="font-size:17px">💸 আপনার টাকা কোন পথে দেশে আসে</b>
+        <div class="flow-tabs" id="flowTabs"></div>
+        <div class="flow" id="flowMap"></div>
+        <div class="flow-tip" id="flowTip"></div>
+        <div class="loss"><span>সাধারণ খরচ</span><div class="bar"><i></i></div><b style="color:var(--amber);white-space:nowrap">৩–৫%</b></div>
+        <p class="caveat" style="margin-top:6px">উইথড্র ফি আর ডলার রেটের পার্থক্য মিলিয়ে প্রতি পেমেন্টে সাধারণত এতটুকু কমে যায় (Financial Express-এর প্রতিবেদন)। প্ল্যাটফর্মের সার্ভিস ফি এর বাইরে।</p>
+      </div>
+      <div class="card">
+        <b style="font-size:17px">🪪 সরকারি ফ্রিল্যান্সার আইডি কার্ড</b>
+        <div class="idbadge"><span>বিনামূল্যে</span><span>অনলাইনে আবেদন</span><span>QR কোডসহ ডিজিটাল কার্ড</span></div>
+        <div class="steps" id="idSteps"></div>
+        <a class="btn sm" href="https://freelancers.gov.bd" target="_blank" rel="noopener">freelancers.gov.bd ↗</a>
+      </div>
+    </div>
+    <div style="margin-top:22px;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:8px">
+      <b style="font-size:17px">🔍 গুজব নাকি সত্য? কার্ডে চাপ দিন</b>
+      <span class="caveat" style="margin:0">সর্বশেষ যাচাই: নভেম্বর ২০২৬</span>
+    </div>
+    <div class="myths" id="mythGrid"></div>
   </section>
 
   <!-- TOOLKIT -->
@@ -799,7 +879,7 @@ function statusOf(m,d){
   else if(night){k="sleep";t="ঘুমের সময়";lvl=0;why="এখন পাঠালে সকালে অফিসে বসে দেখবে";}
   else if(dk.k==="soft"&&office){k="soft";t="আংশিক ছুটি";lvl=2;why="অনেকে ছুটিতে, তবে কেউ কেউ কাজ করছে";}
   else if(office){k="office";t="অফিস টাইম";lvl=3;why="দ্রুত উত্তর পাওয়ার সবচেয়ে ভালো সময়";}
-  else {k="edge";t=p.h<9?"সকাল — দিন শুরু":"সন্ধ্যা — মেসেজ দেখে";lvl=2;why=p.h<9?"অফিসে ঢোকার আগে ইনবক্স দেখে":"অনেকে ফোনে মেসেজ দেখে উত্তর দেয়";}
+  else {k="edge";t=p.h<9?"সকাল":"সন্ধ্যা";lvl=2;why=p.h<9?"অফিসে ঢোকার আগে ইনবক্স দেখে":"অনেকে ফোনে মেসেজ দেখে উত্তর দেয়";}
   return {k,t,p,lvl,why,dk,hol:dk.hol};
 }
 /* টাইমজোনের দেয়ালঘড়ির সময় → আসল মুহূর্ত (ডেলাইট সেভিংসহ) */
@@ -1290,6 +1370,70 @@ async function initAI(){
   if(sample){$("#aiDocBox").style.display="block"} else {$("#aiOff").style.display="block";$("#aiTipBtn").disabled=true}
 }
 
+/* ---------- know section ---------- */
+const NUMS=[
+ [650000,"","বাংলাদেশি ফ্রিল্যান্সার (আনুমানিক)","Financial Express","https://thefinancialexpress.com.bd/youth-and-entrepreneurship/the-banking-gap-standing-between-freelancers-and-their-own-money"],
+ [500,"M+ $","বছরে বৈদেশিক আয় (আনুমানিক)","Financial Express","https://thefinancialexpress.com.bd/youth-and-entrepreneurship/the-banking-gap-standing-between-freelancers-and-their-own-money"],
+ [96.2,"%","ফ্রিল্যান্সারের বয়স ৩৫-এর নিচে","গবেষণা জরিপ, FE-তে উদ্ধৃত","https://thefinancialexpress.com.bd/youth-and-entrepreneurship/the-banking-gap-standing-between-freelancers-and-their-own-money"],
+ [7.7,"%","নারী ফ্রিল্যান্সার — এখনো অনেক কম","গবেষণা জরিপ, FE-তে উদ্ধৃত","https://thefinancialexpress.com.bd/youth-and-entrepreneurship/the-banking-gap-standing-between-freelancers-and-their-own-money"]
+];
+function fmtNum(v,suf){ if(suf.startsWith("M")) return "$"+bn(Math.round(v))+"M+"; if(v>=1000) return bn(Math.round(v).toLocaleString("en-IN")); return bn(v.toFixed(v%1?1:0))+suf; }
+function renderNums(){
+  $("#numGrid").innerHTML=NUMS.map((n,i)=>`<div class="card num-card"><div class="n" data-i="${i}">${fmtNum(0,n[1])}</div><div class="l">${n[2]}</div><div class="s"><a href="${n[4]}" target="_blank" rel="noopener">সোর্স: ${n[3]}</a></div></div>`).join("");
+  const run=()=>{document.querySelectorAll("#numGrid .n").forEach(el=>{const n=NUMS[+el.dataset.i];const t0=performance.now();const step=t=>{const k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,3);el.textContent=fmtNum(n[0]*e,n[1]);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)})};
+  if("IntersectionObserver" in window){const ob=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){run();ob.disconnect()}},{threshold:.3});ob.observe($("#numGrid"))} else run();
+}
+const FLOWS={
+ fiverr:{name:"Fiverr",mid:[["Payoneer","সবচেয়ে প্রচলিত","pay"]],dst:[["bKash","Payoneer থেকে সরাসরি","bkash"],["বাংলাদেশি ব্যাংক","টাকায় জমা হয়","bank"],["Payoneer কার্ড","ATM থেকে তোলা","card"]],
+  tip:"<b>Fiverr</b>-এর আয় সাধারণত Payoneer হয়ে আসে। ক্লিয়ারিং পিরিয়ড শেষ হলে Payoneer-এ পাঠান, তারপর ব্যাংক বা bKash-এ তুলুন।"},
+ upwork:{name:"Upwork",mid:[["সরাসরি লোকাল ব্যাংক","Upwork → আপনার ব্যাংক","direct"],["Payoneer","বিকল্প পথ","pay"]],dst:[["বাংলাদেশি ব্যাংক","টাকায় জমা হয়","bank"],["bKash","Payoneer হয়ে","bkash"]],
+  tip:"<b>Upwork</b> থেকে বাংলাদেশের ব্যাংকে সরাসরি টাকা আনা যায়, আবার Payoneer হয়েও আনা যায়। দুই পথের ফি আর রেট মিলিয়ে যেটায় বেশি পান সেটা রাখুন।"},
+ freelancer:{name:"Freelancer.com",mid:[["Payoneer","প্রচলিত পথ","pay"],["ব্যাংক ওয়্যার","বড় অঙ্কের জন্য","wire"]],dst:[["বাংলাদেশি ব্যাংক","টাকায় জমা হয়","bank"],["bKash","Payoneer হয়ে","bkash"]],
+  tip:"<b>Freelancer.com</b>-এ Payoneer সবচেয়ে সহজ পথ। ব্যাংক ওয়্যারে ফি বেশি পড়ে, তাই সাধারণত বড় অঙ্কের জন্যই লাভজনক।"},
+ direct:{name:"সরাসরি ক্লায়েন্ট",mid:[["Payoneer রিকোয়েস্ট","ক্লায়েন্টকে পেমেন্ট লিংক","pay"],["ব্যাংক ওয়্যার (SWIFT)","ইনভয়েস দিয়ে","wire"]],dst:[["বাংলাদেশি ব্যাংক","টাকায় জমা হয়","bank"],["bKash","Payoneer হয়ে","bkash"]],
+  tip:"<b>সরাসরি ক্লায়েন্টের</b> কাজে ইনভয়েস আর কন্ট্র্যাক্ট সবসময় রেখে দিন — বাংলাদেশ ব্যাংকের নতুন নিয়মে এগুলোই বিদেশি আয়ের প্রমাণ।"}
+};
+const NODE_TIP={
+ pay:"<b>Payoneer</b> থেকে লোকাল ব্যাংক, bKash বা ATM (Payoneer কার্ড) — তিনভাবেই টাকা তোলা যায়।",
+ direct:"<b>সরাসরি ব্যাংক</b>-এ এলে মাঝে Payoneer-এর ধাপ থাকে না। আসার পর ব্যাংক থেকে রেমিট্যান্স সার্টিফিকেট নিয়ে রাখুন।",
+ wire:"<b>ব্যাংক ওয়্যার (SWIFT)</b>-এ মাঝের ব্যাংকগুলোও ফি কাটতে পারে। তাই ছোট অঙ্কে লোকসান বেশি হয়।",
+ bkash:"<b>bKash</b>-এ নিতে Payoneer অ্যাকাউন্ট bKash অ্যাপে লিংক করতে হয়। একটা bKash-এ শুধু একটা Payoneer লিংক করা যায়।",
+ bank:"<b>ব্যাংকে</b> এলে রেমিট্যান্স সার্টিফিকেট (PRC) চেয়ে নিন — ট্যাক্স রিটার্ন আর লোনের আবেদনে লাগে।",
+ card:"<b>Payoneer কার্ড</b> দিয়ে ATM থেকে টাকা তোলা যায়, তবে প্রতিবার ফি আর রেট দেখে নিন।"
+};
+let flowSel="fiverr";
+function renderFlow(){
+  $("#flowTabs").innerHTML=Object.entries(FLOWS).map(([k,f])=>`<button class="chip ${k===flowSel?"on":""}" data-f="${k}">${f.name}</button>`).join("");
+  const f=FLOWS[flowSel], nd=x=>`<button class="node" data-t="${x[2]}">${x[0]}<small>${x[1]}</small></button>`;
+  $("#flowMap").innerHTML=`<div class="flow-col"><h5>আয়</h5><div class="node src">${f.name}<small>আপনার ব্যালান্স</small></div></div><div class="arrow"></div><div class="flow-col"><h5>মাধ্যম</h5>${f.mid.map(nd).join("")}</div><div class="arrow"></div><div class="flow-col"><h5>আপনার হাতে</h5>${f.dst.map(nd).join("")}</div>`;
+  $("#flowTip").innerHTML="💡 "+f.tip+" <span class='dim'>(যেকোনো ধাপে চাপ দিলে বিস্তারিত দেখাবে)</span>";
+}
+$("#flowTabs")&&document.addEventListener("click",e=>{
+  const t=e.target.closest("#flowTabs .chip"); if(t){flowSel=t.dataset.f;renderFlow();return;}
+  const n=e.target.closest("#flowMap .node[data-t]"); if(n){document.querySelectorAll("#flowMap .node").forEach(x=>x.classList.toggle("on",x===n));$("#flowTip").innerHTML="💡 "+NODE_TIP[n.dataset.t];}
+});
+const ID_STEPS=[
+ ["যোগ্যতা মিলিয়ে নিন","বাংলাদেশি নাগরিক (NID লাগবে) আর গত ১২ মাসে অনলাইন কাজ থেকে অন্তত ১,০০০ ডলার আয়।"],
+ ["আয়ের প্রমাণ গুছিয়ে নিন","প্ল্যাটফর্মের earnings স্টেটমেন্ট — যেখানে আপনার নাম, তারিখ আর অঙ্ক পরিষ্কার দেখা যায়।"],
+ ["freelancers.gov.bd-তে আবেদন","অনলাইনে সাইন আপ করে কাগজপত্র আপলোড। সরকারি পোর্টাল, আবেদন বিনামূল্যে।"],
+ ["যাচাইয়ের পর ডিজিটাল কার্ড","QR কোডসহ প্রিন্টযোগ্য কার্ড — ব্যাংকিং, লোন, প্রশিক্ষণ আর সরকারি সুবিধায় কাজে লাগে।"]
+];
+function renderId(){$("#idSteps").innerHTML=ID_STEPS.map((s,i)=>`<div class="step"><div class="no">${bn(i+1)}</div><div><h5>${s[0]}</h5><p>${s[1]}</p></div></div>`).join("")}
+const MYTHS=[
+ ["PayPal খুলে বিদেশ থেকে টাকা আনা যায়","বাংলাদেশে এখনো PayPal আনুষ্ঠানিকভাবে চালু হয়নি; সরকার চালুর উদ্যোগ নিয়েছে। আপাতত Payoneer, সরাসরি ব্যাংক আর bKash-ই ভরসা।"],
+ ["ফ্রিল্যান্সিংয়ের আয়ে ট্যাক্স দিতে হয়","২০২৬-২৭ বাজেটে সব ধরনের ফ্রিল্যান্সিং আয় করমুক্ত করা হয়েছে। তবে রিটার্নে আয় দেখানো আর প্রমাণ রাখা দরকার।"],
+ ["ফ্রিল্যান্সার আইডি কার্ড করতে টাকা লাগে","আগে বেসরকারিভাবে ১,৫০০–২,৫০০ টাকা লাগত। এখন সরকারি পোর্টাল freelancers.gov.bd থেকে বিনামূল্যে।"],
+ ["Upwork সবসময় ১০% কেটে নেয়","মে ২০২৫ থেকে ফি ০–১৫%, প্রতিটা কন্ট্র্যাক্টে আলাদা। প্রপোজাল পাঠানোর আগেই স্ক্রিনে দেখায়।"],
+ ["\"রেজিস্ট্রেশন ফি\" দিলে প্রতিদিন কাজ পাওয়া যায়","সত্যিকারের ক্লায়েন্ট কখনো আগে টাকা চায় না। এটা সবচেয়ে প্রচলিত প্রতারণা — টাকা দেবেন না।"],
+ ["উইকেন্ডে বা ছুটিতে ক্লায়েন্টকে নক দেওয়া যায় না","দেওয়া যায়। অনেক ক্লায়েন্ট উইকেন্ডেই নতুন কাজের প্ল্যান করে। শুধু উত্তর আসতে একটু দেরি হতে পারে।"],
+ ["বিদেশি আয়ের প্রমাণ দিতে অনেক কাগজ লাগে","জুলাই ২০২৬-এর সার্কুলার অনুযায়ী প্ল্যাটফর্ম স্টেটমেন্ট, ইমেইল, ইনভয়েস বা কন্ট্র্যাক্টই প্রমাণ হিসেবে চলে।"],
+ ["একসাথে দুটো Fiverr অ্যাকাউন্ট চালালে বেশি অর্ডার","একাধিক অ্যাকাউন্ট প্ল্যাটফর্মের নিয়মবিরোধী — দুটোই বন্ধ হয়ে যেতে পারে। একটা অ্যাকাউন্টে একাধিক গিগ খুলুন।"]
+];
+function renderMyths(){
+  $("#mythGrid").innerHTML=MYTHS.map(m=>`<button class="myth" type="button"><div class="in"><div class="f"><span class="tg">MYTH · গুজব?</span><div class="q">${m[0]}</div><span class="h">চাপ দিয়ে সত্যটা দেখুন ↻</span></div><div class="b"><span class="tg">FACT · সত্য</span><div class="a">${m[1]}</div><span class="h">আবার চাপ দিলে ফিরে যাবে</span></div></div></button>`).join("");
+  $("#mythGrid").onclick=e=>{const b=e.target.closest(".myth");if(b)b.classList.toggle("flip")};
+}
+
 /* ---------- toolkit ---------- */
 const TPL=[
  ["প্রথম মেসেজের উত্তর","নতুন ক্লায়েন্ট প্রথম মেসেজ দিলে — দ্রুত, নির্দিষ্ট প্রশ্নসহ",
@@ -1316,7 +1460,7 @@ Let me know if you'd like anything adjusted before you accept.`],
 - [File 2] — [what it's for]
 
 Please take a look, and if anything needs a tweak, just let me know — I'm happy to adjust it.
-If you're happy with everything, I'd really appreciate your feedback.`],
+Once you've had a chance to look it over, I'd really value your honest feedback.`],
  ["রিভিশনের সীমা (ভদ্রভাবে)","অফারের চেয়ে বেশি রিভিশন বা নতুন কাজ চাইলে",
 `Thanks for the feedback! I've made the changes you asked for.
 
@@ -1331,10 +1475,12 @@ Whenever you get a chance, let me know if you have any questions or if you'd lik
 [Short honest reason]. To make sure the quality is right, I need [X] more day(s). I'll have it to you by [date] at the latest.
 
 Sorry for the delay, and thanks for your patience.`],
- ["রিভিউ চাওয়া","ক্লায়েন্ট খুশি হলে, অর্ডার কমপ্লিট হওয়ার পর",
+ ["সৎ রিভিউ চাওয়া","অর্ডার কমপ্লিট হওয়ার পর — শুধু সৎ মতামত চান; ৫ স্টার চাওয়া বা রিভিউয়ের বিনিময়ে কিছু দেওয়া রিভিউ ম্যানিপুলেশন হিসেবে ধরা হতে পারে",
 `It was a pleasure working with you on [project]!
 
-If you have a minute, a short review would mean a lot and helps other clients find my work. And whenever you need [service] again, I'm just a message away.`],
+If you have a minute, I'd really appreciate an honest review of your experience — whatever you thought of it. It helps me keep improving and helps other clients know what to expect.
+
+And whenever you need [service] again, I'm just a message away.`],
  ["পুরনো ক্লায়েন্টকে নতুন কাজের প্রস্তাব","১–২ মাস পর বা উৎসবের আগে — রিপিট অর্ডারের জন্য",
 `Hi [Client Name], hope things are going well with [their project/business].
 
@@ -1444,6 +1590,7 @@ function boot(){
   renderChips(); renderClocks(); renderHolidays(); renderOpps(); renderHeat(); renderSymp(); renderDiag();
   tipIdx=dayOfYear()%TIPS.length; renderTip(); renderForums(); calc();
   renderTpl(); initAway(); renderSafe(); renderFacts();
+  renderNums(); renderFlow(); renderId(); renderMyths();
   setInterval(renderClocks,30000);
   initAI();
   // লাইভ ডলার রেট (ফ্রি API) — না পেলে ডিফল্ট থাকবে
