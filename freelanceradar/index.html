@@ -111,6 +111,44 @@ section{padding:70px 0 10px;scroll-margin-top:70px}
 .s-hol{color:var(--red);border-color:rgba(255,92,122,.3);background:rgba(255,92,122,.07)}
 .clock .bar{position:absolute;left:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--lime),var(--cyan));opacity:.8}
 .clock .hnote{font-size:12px;color:var(--red);margin-top:6px}
+.clocks{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.clock .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.clock .dt{font-size:13.5px;color:var(--tx);margin-top:2px}
+.clock .off{font-size:12px;color:var(--dim)}
+.clock .dnote{font-size:12.5px;margin-top:8px;padding:6px 9px;border-radius:9px;line-height:1.45}
+.dn-hol{background:rgba(255,92,122,.08);color:#ff9aae;border:1px solid rgba(255,92,122,.2)}
+.dn-soft{background:rgba(255,184,77,.08);color:#ffcf87;border:1px solid rgba(255,184,77,.2)}
+.dn-week{background:rgba(255,184,77,.06);color:#ffcf87;border:1px solid rgba(255,184,77,.15)}
+.meter{display:flex;align-items:flex-start;line-height:1.45;gap:8px;margin-top:10px;font-size:12.5px;color:var(--mut)}
+.meter .bars{display:flex;gap:3px;flex:none;margin-top:3px}
+.meter .bars i{width:9px;height:12px;border-radius:3px;background:rgba(255,255,255,.08)}
+.meter .bars i.on{background:var(--green)}
+.meter.l2 .bars i.on{background:var(--cyan)} .meter.l1 .bars i.on,.meter.l0 .bars i.on{background:var(--amber)}
+.clock .row{display:flex;gap:8px;font-size:12.5px;color:var(--mut);margin-top:7px;line-height:1.45}
+.clock .row b{color:var(--tx);font-weight:600}
+.clock .row .ic{flex:none;width:16px;text-align:center}
+.clock .row small{display:block;color:var(--dim);font-size:11.5px}
+.s-soft{color:var(--amber);border-color:rgba(255,184,77,.3);background:rgba(255,184,77,.07)}
+.sortbar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.sortbar .lbl{font-size:13px;color:var(--dim);margin-right:4px}
+.knock{font-size:13.5px;color:var(--mut);background:rgba(62,230,160,.05);border:1px solid rgba(62,230,160,.18);border-radius:12px;padding:10px 14px;margin-bottom:14px}
+.knock b{color:var(--green)}
+.gh-cells span.hol{background:rgba(255,92,122,.22)}
+.gh-cells span.soft{background:rgba(255,184,77,.32)}
+/* planner */
+.planner{margin-top:14px}
+.pl-ctrl{display:grid;grid-template-columns:220px 1fr auto;gap:14px;align-items:center}
+.pl-time{font-family:'Space Grotesk';font-size:26px;font-weight:700;white-space:nowrap}
+input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:9px;background:linear-gradient(90deg,var(--cyan),var(--lime));padding:0;border:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--tx);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--lime);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--tx);border:3px solid var(--bg);cursor:pointer}
+.pl-sum{margin:14px 0 10px;font-size:14.5px;color:var(--mut)}
+.pl-sum b{color:var(--green)}
+.pl-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.pl-item{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.pl-item .l{font-size:13px} .pl-item .l b{font-family:'Space Grotesk';font-size:16px;display:block;color:var(--tx)}
+.pl-item .l span{color:var(--dim);font-size:12px}
+.credit a{color:var(--lime);text-decoration:none} .credit a:hover{text-decoration:underline}
 
 /* golden hours */
 .gh{margin-top:16px;overflow-x:auto}
@@ -267,11 +305,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .hitem .cd b{display:inline;font-size:15px;margin-right:4px}
   .forums,.form-row,.road{grid-template-columns:1fr}
   .opps{grid-template-columns:1fr}
-  .clocks{grid-template-columns:1fr 1fr;gap:10px}
-  .clock{padding:12px}
-  .clock .t{font-size:22px}
-  .clock .t small{display:none}
-  .clock .nm{font-size:13.5px}
+  .clocks{grid-template-columns:1fr;gap:10px}
+  .clock{padding:14px}
+  .clock .t{font-size:26px}
+  .pl-ctrl{grid-template-columns:1fr}
   .pill{font-size:11.5px;padding:2px 8px}
   .stat .v.num{font-size:20px}
   .logo span.full{display:none}
@@ -325,7 +362,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section id="clocks" class="reveal">
     <div class="sec-h">
       <div><div class="tag">Live client clock</div><h2>ক্লায়েন্টের দেশে এখন কয়টা বাজে?</h2></div>
-      <p>সবুজ মানে অফিস টাইম — রিপ্লাই দ্রুত আসে। ছুটি আর উইকেন্ড আলাদা করে দেখানো আছে, ছুটির তথ্য প্রতিটা দেশের ক্যালেন্ডার থেকে নেওয়া।</p>
+      <p>প্রতিটা দেশে এখন কী বার, কত তারিখ, কয়টা বাজে, আর পরের অফিস শুরু হতে কতক্ষণ বাকি। ছুটি আর উইকেন্ড আলাদা করে চিহ্নিত।</p>
+    </div>
+    <div class="knock">💬 <b>ছুটি বা উইকেন্ডেও নক দিতে পারেন।</b> ক্লায়েন্টও তখন মেসেজ দিতে বা অর্ডার করতে পারে, অনেকে উইকেন্ডেই নতুন কাজের প্ল্যান করে। নিচের মিটার শুধু দেখায় <i>দ্রুত উত্তর</i> পাওয়ার সম্ভাবনা কতটা।</div>
+    <div class="sortbar" id="clockSort">
+      <span class="lbl">সাজান:</span>
+      <button class="chip on" data-s="share">বড় মার্কেট আগে</button>
+      <button class="chip" data-s="active">এখন সক্রিয় আগে</button>
+      <button class="chip" data-s="next">অফিস শুরু কাছে আগে</button>
     </div>
     <div class="grid clocks" id="clockGrid"></div>
 
@@ -338,8 +382,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <span><i style="background:rgba(62,230,160,.8)"></i>অফিস টাইম (৯–৬)</span>
         <span><i style="background:rgba(77,225,255,.35)"></i>সকাল/সন্ধ্যা — মেসেজ দেখে</span>
         <span><i style="background:rgba(255,184,77,.25)"></i>উইকেন্ড</span>
+        <span><i style="background:rgba(255,184,77,.45)"></i>আংশিক ছুটি</span>
+        <span><i style="background:rgba(255,92,122,.35)"></i>সরকারি ছুটি</span>
         <span><i style="background:var(--lime)"></i>এখন</span>
       </div>
+    </div>
+
+    <div class="card planner">
+      <div style="margin-bottom:12px"><b>মিটিং ও মেসেজ প্ল্যানার</b> <span class="muted" style="font-size:14px">— বাংলাদেশের একটা সময় বাছুন, দেখুন তখন কোন দেশে কয়টা বাজবে</span></div>
+      <div class="pl-ctrl">
+        <select id="plDay"></select>
+        <input type="range" id="plSlider" min="0" max="47" step="1" aria-label="বাংলাদেশ সময়">
+        <div class="pl-time" id="plTime">—</div>
+      </div>
+      <div class="pl-sum" id="plSum"></div>
+      <div class="pl-list" id="plList"></div>
     </div>
   </section>
 
@@ -481,6 +538,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </div>
 
 <footer><div class="wrap">
+  <span class="credit">Made with AI · Made by <a href="https://facebook.com/athirofficial" target="_blank" rel="noopener">HM Athir</a></span>
   <span>FreelanceRadar BD · বাংলাদেশি ফ্রিল্যান্সারদের জন্য তৈরি 🇧🇩</span>
   <span>ছুটির তথ্য: date-holidays ওপেন-সোর্স ক্যালেন্ডার · ইসলামিক ছুটি চাঁদ দেখার ওপর নির্ভর করে, তাই আনুমানিক</span>
 </div></footer>
@@ -522,14 +580,90 @@ function partsIn(tz,d){
   return {ymd:`${p.year}-${p.month}-${p.day}`,h:+p.hour%24,m:+p.minute,wd};
 }
 const fmtTime=(tz,d)=>new Intl.DateTimeFormat("en-US",{timeZone:tz,hour:"numeric",minute:"2-digit",hour12:true}).format(d);
+const WD_BN=["রবিবার","সোমবার","মঙ্গলবার","বুধবার","বৃহস্পতিবার","শুক্রবার","শনিবার"];
+const WD_BN_S=["রবি","সোম","মঙ্গল","বুধ","বৃহস্পতি","শুক্র","শনি"];
+const MON_BN_F=["জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"];
+const wdOf=ymd=>dObj(ymd).getUTCDay();
+const dateBn=ymd=>{const d=dObj(ymd);return `${WD_BN[d.getUTCDay()]}, ${bn(d.getUTCDate())} ${MON_BN_F[d.getUTCMonth()]}`};
+const dateBnS=ymd=>{const d=dObj(ymd);return `${WD_BN_S[d.getUTCDay()]}, ${bn(d.getUTCDate())} ${MON_BN[d.getUTCMonth()]}`};
+
+/* আংশিক ছুটি — সরকারি ছুটি না, কিন্তু অনেক অফিস বন্ধ বা হাফ ডে */
+const SCACHE={};
+function softDaysFor(c){
+  if(SCACHE[c]) return SCACHE[c];
+  const Y=new Date().getFullYear(), out=[];
+  const add=(date,name,note,radar)=>out.push({date,name,note,radar:!!radar});
+  for(const y of [Y-1,Y,Y+1]){
+    if(c==="US"){
+      add(addDays(thanksgiving(y),1),"Black Friday","Thanksgiving-এর পরদিন — সরকারি ছুটি না, তবে অনেক অফিস বন্ধ বা হাফ ডে",true);
+      add(addDays(thanksgiving(y),-1),"Thanksgiving Eve","অনেকে আগেভাগে ছুটিতে চলে যায়, বিকেলে রিপ্লাই কম");
+    }
+    if(["US","CA","GB","AU","NZ","IE","NL","FR","CH","SG"].includes(c)){
+      add(fixed(y,11,24),"Christmas Eve","অনেক অফিস হাফ ডে বা বন্ধ",true);
+      add(fixed(y,11,31),"New Year's Eve","অনেক অফিস হাফ ডে",true);
+    }
+    if(["US","CA","GB","AU","NZ","IE","DE","FR","NL","CH"].includes(c))
+      for(let d=27;d<=30;d++) add(fixed(y,11,d),"ক্রিসমাস–নববর্ষের মাঝের সপ্তাহ","অনেকে পুরো সপ্তাহ ছুটিতে থাকে, কাজ আর রিপ্লাই দুটোই কম");
+  }
+  if((c==="AE"||c==="SA")&&HD){
+    const st=islamic(/First day of Ramadan/i), en=islamic(/Eid al-Fitr|End of Ramadan/i);
+    st.forEach(s0=>{const e0=en.find(e=>e>s0); if(!e0) return; for(let d=s0;d<e0;d=addDays(d,1)) add(d,"রমজান","অফিস টাইম ছোট হয়; ইফতারের পর মেসেজ দেখে বেশি");});
+  }
+  return SCACHE[c]=out;
+}
+const softOn=(c,ymd)=>softDaysFor(c).find(x=>x.date===ymd)||null;
+
+/* দিনের ধরন: hol সরকারি ছুটি | week উইকেন্ড | soft আংশিক ছুটি | work কাজের দিন */
+function dayKind(m,ymd){
+  const hol=holidayOn(m.c,ymd); if(hol) return {k:"hol",hol};
+  if(m.we.includes(wdOf(ymd))) return {k:"week"};
+  const soft=softOn(m.c,ymd); if(soft) return {k:"soft",soft};
+  return {k:"work"};
+}
 function statusOf(m,d){
-  const p=partsIn(m.tz,d);
-  const hol=holidayOn(m.c,p.ymd);
-  if(hol) return {k:"hol",t:"ছুটি",p,hol};
-  if(m.we.includes(p.wd)) return {k:"week",t:"উইকেন্ড",p};
-  if(p.h>=9&&p.h<18) return {k:"office",t:"অফিস টাইম",p};
-  if((p.h>=7&&p.h<9)||(p.h>=18&&p.h<23)) return {k:"edge",t:p.h<9?"সকাল — দিন শুরু":"সন্ধ্যা — মেসেজ দেখে",p};
-  return {k:"sleep",t:"ঘুমের সময়",p};
+  const p=partsIn(m.tz,d); const dk=dayKind(m,p.ymd);
+  const night=p.h>=23||p.h<7, office=p.h>=9&&p.h<18;
+  let k,t,lvl,why;
+  if(dk.k==="hol"){k="hol";t="সরকারি ছুটি";lvl=night?0:1;why=night?"রাত — সকালে উত্তর আসবে":"ছুটির দিন — উত্তর দেরিতে আসতে পারে, তবে মেসেজ বা অর্ডার আসতে পারে";}
+  else if(dk.k==="week"){k="week";t="উইকেন্ড";lvl=night?0:1;why=night?"রাত — সকালে উত্তর আসবে":"অনেক ক্লায়েন্ট উইকেন্ডেই নতুন কাজের প্ল্যান করে — নক দেওয়া যায়";}
+  else if(night){k="sleep";t="ঘুমের সময়";lvl=0;why="এখন পাঠালে সকালে অফিসে বসে দেখবে";}
+  else if(dk.k==="soft"&&office){k="soft";t="আংশিক ছুটি";lvl=2;why="অনেকে ছুটিতে, তবে কেউ কেউ কাজ করছে";}
+  else if(office){k="office";t="অফিস টাইম";lvl=3;why="দ্রুত উত্তর পাওয়ার সবচেয়ে ভালো সময়";}
+  else {k="edge";t=p.h<9?"সকাল — দিন শুরু":"সন্ধ্যা — মেসেজ দেখে";lvl=2;why=p.h<9?"অফিসে ঢোকার আগে ইনবক্স দেখে":"অনেকে ফোনে মেসেজ দেখে উত্তর দেয়";}
+  return {k,t,p,lvl,why,dk,hol:dk.hol};
+}
+/* টাইমজোনের দেয়ালঘড়ির সময় → আসল মুহূর্ত (ডেলাইট সেভিংসহ) */
+function zonedToUtc(tz,ymd,h,mi){
+  const [y,mo,d]=ymd.split("-").map(Number); const want=Date.UTC(y,mo-1,d,h,mi); let t=want;
+  for(let i=0;i<3;i++){const p=partsIn(tz,new Date(t));const got=Date.UTC(+p.ymd.slice(0,4),+p.ymd.slice(5,7)-1,+p.ymd.slice(8,10),p.h,p.m);if(got===want)break;t+=want-got;}
+  return new Date(t);
+}
+const isWorkK=k=>k==="work"||k==="soft";
+/* পরের অফিস — ছুটি আর উইকেন্ড বাদ দিয়ে */
+function nextOffice(m,now){
+  const p=partsIn(m.tz,now), today=dayKind(m,p.ymd);
+  if(isWorkK(today.k)&&p.h>=9&&p.h<18) return {open:true,at:zonedToUtc(m.tz,p.ymd,18,0),dk:today};
+  let ymd=(isWorkK(today.k)&&p.h<9)?p.ymd:addDays(p.ymd,1), skipped=[];
+  for(let i=0;i<20;i++){const dk=dayKind(m,ymd); if(isWorkK(dk.k)) return {open:false,at:zonedToUtc(m.tz,ymd,9,0),ymd,dk,skipped}; skipped.push({ymd,dk}); ymd=addDays(ymd,1);}
+  return null;
+}
+function dur(ms){
+  const t=Math.max(0,Math.round(ms/60000)), d=Math.floor(t/1440), h=Math.floor(t%1440/60), mi=t%60;
+  if(d) return `${bn(d)} দিন ${h?bn(h)+" ঘণ্টা":""}`.trim();
+  if(h) return `${bn(h)} ঘণ্টা ${mi?bn(mi)+" মিনিট":""}`.trim();
+  return `${bn(mi)} মিনিট`;
+}
+function bdWhen(inst){
+  const p=partsIn("Asia/Dhaka",inst), t=todayBD();
+  const rel=p.ymd===t?"আজ":p.ymd===addDays(t,1)?"আগামীকাল":WD_BN_S[p.wd]+"বার";
+  return `${rel} ${fmtTime("Asia/Dhaka",inst)}`;
+}
+function offsetMin(tz,now){const a=partsIn(tz,now),b=partsIn("Asia/Dhaka",now);const ta=Date.UTC(+a.ymd.slice(0,4),+a.ymd.slice(5,7)-1,+a.ymd.slice(8,10),a.h,a.m),tb=Date.UTC(+b.ymd.slice(0,4),+b.ymd.slice(5,7)-1,+b.ymd.slice(8,10),b.h,b.m);return Math.round((ta-tb)/60000)}
+function offLabel(mins){if(!mins) return "বাংলাদেশের সমান সময়";const a=Math.abs(mins),h=Math.floor(a/60),m=a%60;return `বাংলাদেশের চেয়ে ${bn(h)}${m?":"+bn(String(m).padStart(2,"0")):""} ঘণ্টা ${mins<0?"পিছিয়ে":"এগিয়ে"}`}
+function nextHolidayFor(m,fromYmd){
+  const pub=holidaysFor(m.c).filter(x=>x.date>=fromYmd).map(x=>({date:x.date,name:x.name,soft:false}));
+  const soft=softDaysFor(m.c).filter(x=>x.radar&&x.date>=fromYmd).map(x=>({date:x.date,name:x.name,soft:true}));
+  return pub.concat(soft).sort((a,b)=>a.date<b.date?-1:1)[0]||null;
 }
 
 /* ---------- holidays ---------- */
@@ -580,34 +714,61 @@ const prettyDate=ymd=>{const d=dObj(ymd);return bn(d.getUTCDate())+" "+MON_BN[d.
 const inDays=n=>n===0?"আজ":n===1?"আগামীকাল":bn(n)+" দিন পর";
 
 /* ---------- clocks render ---------- */
+let clockSort="share";
 function renderClocks(){
   const now=new Date();
   $("#bdNow").textContent=fmtTime("Asia/Dhaka",now);
-  let html="",open=0,tot=0,openNames=[];
-  MARKETS.forEach(m=>{
-    const s=statusOf(m,now); tot+=m.w;
-    if(s.k==="office"){open+=m.w;openNames.push(m.n.replace(/ \(.+\)/,""))} else if(s.k==="edge") open+=m.w*.4;
-    const pct=((s.p.h*60+s.p.m)/1440*100).toFixed(1);
-    const dayLbl=s.p.ymd===todayBD()?"আজ":(s.p.ymd<todayBD()?"গতকাল":"আগামীকাল");
-    html+=`<div class="card clock"><div class="top"><span class="cc">${m.c}</span><div><div class="nm">${m.n}</div><div class="city">${m.city}</div></div></div>
-      <div class="t">${fmtTime(m.tz,now)}<small>${dayLbl}</small></div>
-      <span class="pill s-${s.k}">${s.t}</span>${s.hol?`<div class="hnote">${esc(s.hol.name)}</div>`:""}
-      <div class="bar" style="width:${pct}%"></div></div>`;
+  let open=0,tot=0,openNames=[];
+  const rows=MARKETS.map((m,idx)=>{
+    const s=statusOf(m,now), no=nextOffice(m,now); tot+=m.w;
+    if(s.k==="office"){open+=m.w;openNames.push(m.n.replace(/ \(.+\)/,""))} else if(s.k==="soft") open+=m.w*.5; else if(s.k==="edge") open+=m.w*.4;
+    return {m,idx,s,no};
   });
-  $("#clockGrid").innerHTML=html;
+  if(clockSort==="active") rows.sort((a,b)=>b.s.lvl-a.s.lvl||a.idx-b.idx);
+  else if(clockSort==="next") rows.sort((a,b)=>((a.no&&!a.no.open?a.no.at-now:-1)-(b.no&&!b.no.open?b.no.at-now:-1))||a.idx-b.idx);
+  const t=todayBD();
+  $("#clockGrid").innerHTML=rows.map(({m,s,no})=>{
+    const pct=((s.p.h*60+s.p.m)/1440*100).toFixed(1);
+    const rel=s.p.ymd===t?"":` · বাংলাদেশে এখন ${WD_BN[wdOf(t)]}`;
+    let note="";
+    if(s.dk.k==="hol") note=`<div class="dnote dn-hol">🎌 <b>${esc(s.dk.hol.name)}</b> — সরকারি ছুটি${noteFor(s.dk.hol.name)?"<br>"+noteFor(s.dk.hol.name):""}</div>`;
+    else if(s.dk.k==="soft") note=`<div class="dnote dn-soft">🕯️ <b>${esc(s.dk.soft.name)}</b> — ${esc(s.dk.soft.note)}</div>`;
+    else if(s.dk.k==="week") note=`<div class="dnote dn-week">🛋️ ${WD_BN[s.p.wd]} — ${m.c==="SA"?"সৌদিতে শুক্র-শনি":"শনি-রবি"} উইকেন্ড</div>`;
+    let off="";
+    if(no&&no.open) off=`<div class="row"><span class="ic">⏳</span><span>অফিস শেষ হতে <b>${dur(no.at-now)}</b><small>বাংলাদেশে ${bdWhen(no.at)} পর্যন্ত</small></span></div>`;
+    else if(no){
+      const softTag=no.dk.k==="soft"?` <span style="color:var(--amber)">(${esc(no.dk.soft.name)})</span>`:"";
+      const skip=no.skipped.filter(x=>x.dk.k==="hol").map(x=>esc(x.dk.hol.name));
+      off=`<div class="row"><span class="ic">⏱️</span><span>পরের অফিস শুরু হতে <b>${dur(no.at-now)}</b> বাকি<small>${WD_BN[wdOf(no.ymd)]} ৯:০০ AM${softTag} · বাংলাদেশে ${bdWhen(no.at)}${skip.length?" · মাঝে ছুটি: "+skip.join(", "):""}</small></span></div>`;
+    }
+    const nh=nextHolidayFor(m,addDays(s.p.ymd,1)); let hol="";
+    if(nh){const n=daysBetween(s.p.ymd,nh.date); if(n<=60) hol=`<div class="row"><span class="ic">📅</span><span>পরের ছুটি: <b>${esc(nh.name)}</b>${nh.soft?" (আংশিক)":""}<small>${dateBnS(nh.date)} · ${inDays(n)}</small></span></div>`;}
+    const bars=[0,1,2,3].map(i=>`<i class="${i<=s.lvl?"on":""}"></i>`).join("");
+    return `<div class="card clock">
+      <div class="head"><div class="top"><span class="cc">${m.c}</span><div><div class="nm">${m.n}</div><div class="city">${m.city}</div></div></div><span class="pill s-${s.k}">${s.t}</span></div>
+      <div class="t">${fmtTime(m.tz,now)}</div>
+      <div class="dt">${dateBn(s.p.ymd)}</div>
+      <div class="off">${offLabel(offsetMin(m.tz,now))}${rel}</div>
+      ${note}
+      <div class="meter l${s.lvl}" title="দ্রুত উত্তর পাওয়ার সম্ভাবনা"><span class="bars">${bars}</span><span>${s.why}</span></div>
+      ${off}${hol}
+      <div class="bar" style="width:${pct}%"></div></div>`;
+  }).join("");
   const score=Math.round(open/tot*100);
   $("#pulseScore").textContent=score+"%";
   const uniq=[...new Set(openNames)];
   $("#stOpen").textContent=uniq.length?uniq.slice(0,3).join(", ")+(uniq.length>3?" +"+bn(uniq.length-3):""):"এখন প্রায় সবাই অফিসের বাইরে";
   renderBlips(now);
   renderGH(now);
+  renderPlanner();
 }
+$("#clockSort").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;clockSort=b.dataset.s;document.querySelectorAll("#clockSort .chip").forEach(x=>x.classList.toggle("on",x===b));renderClocks();});
 function renderBlips(now){
   const box=$("#radarBox"); box.querySelectorAll(".blip").forEach(b=>b.remove());
-  const col={office:"var(--green)",edge:"var(--cyan)",sleep:"var(--dim)",week:"var(--amber)",hol:"var(--red)"};
+  const col={office:"var(--green)",edge:"var(--cyan)",sleep:"var(--dim)",week:"var(--amber)",soft:"var(--amber)",hol:"var(--red)"};
   MARKETS.filter(m=>!m.alt).forEach((m,i,arr)=>{
     const s=statusOf(m,now); const a=(i/arr.length)*Math.PI*2-Math.PI/2;
-    const r=s.k==="office"?28:s.k==="edge"?37:44;
+    const r=s.k==="office"?28:(s.k==="edge"||s.k==="soft")?37:44;
     const el=document.createElement("div"); el.className="blip";
     el.style.left=(50+r*Math.cos(a))+"%"; el.style.top=(50+r*Math.sin(a))+"%"; el.style.color=col[s.k];
     el.innerHTML=`<span style="color:var(--tx)">${m.c}</span>`; box.appendChild(el);
@@ -622,9 +783,10 @@ function renderGH(now){
     for(let h=0;h<24;h++){
       const inst=new Date(Date.UTC(y,mo-1,d,h-6,30));
       const p=partsIn(tz,inst); let cls="";
-      if(m.we.includes(p.wd)) cls="wk"; else if(p.h>=9&&p.h<18) cls="on"; else if((p.h>=7&&p.h<9)||(p.h>=18&&p.h<23)) cls="edge";
+      const dk=dayKind(m,p.ymd);
+      if(dk.k==="hol") cls="hol"; else if(dk.k==="week") cls="wk"; else if(p.h>=9&&p.h<18) cls=dk.k==="soft"?"soft":"on"; else if((p.h>=7&&p.h<9)||(p.h>=18&&p.h<23)) cls="edge";
       if(tz==="America/New_York"&&cls==="on"&&bestStart===null) bestStart=h;
-      cells+=`<span class="${cls}" title="BD ${String(h).padStart(2,"0")}:00 → ${m.city} ${String(p.h).padStart(2,"0")}:30"></span>`;
+      cells+=`<span class="${cls}" title="বাংলাদেশ ${String(h).padStart(2,"0")}:30 → ${m.city} ${WD_BN_S[p.wd]} ${String(p.h).padStart(2,"0")}:${String(p.m).padStart(2,"0")}${dk.k==="hol"?" · "+dk.hol.name:dk.k==="soft"?" · "+dk.soft.name:""}"></span>`;
     }
     const left=((bd.h+bd.m/60)/24*100).toFixed(2);
     html+=`<div class="gh-row"><div class="lbl"><span class="cc">${m.c}</span>${m.city}</div><div class="gh-cells">${cells}<i class="gh-now" style="left:calc(${left}% - 1px)"></i></div></div>`;
@@ -634,6 +796,24 @@ function renderGH(now){
   const nyNow=partsIn("America/New_York",now); const off=((bd.h-nyNow.h)+24)%24; // BD ahead by off hours
   const s=(9+off)%24, e=(12+off)%24;
   $("#stBest").textContent=`${fmt12(s)} – ${fmt12(e)}`;
+}
+/* ---------- meeting planner ---------- */
+let plInit=false;
+function renderPlanner(){
+  const daySel=$("#plDay"), sl=$("#plSlider"), t=todayBD();
+  if(!plInit){
+    daySel.innerHTML=Array.from({length:7},(_,i)=>{const y=addDays(t,i);return `<option value="${y}">${i===0?"আজ":i===1?"আগামীকাল":WD_BN[wdOf(y)]} · ${dateBnS(y)}</option>`}).join("");
+    const bd=partsIn("Asia/Dhaka",new Date()); sl.value=Math.min(47,bd.h*2+(bd.m>=30?1:0));
+    daySel.onchange=renderPlanner; sl.oninput=renderPlanner; plInit=true;
+  }
+  const ymd=daySel.value, v=+sl.value, h=Math.floor(v/2), mi=v%2?30:0;
+  const [y,mo,d]=ymd.split("-").map(Number); const inst=new Date(Date.UTC(y,mo-1,d,h-6,mi));
+  $("#plTime").textContent=fmtTime("Asia/Dhaka",inst);
+  const seen=new Set(), list=MARKETS.filter(m=>{if(seen.has(m.tz))return false;seen.add(m.tz);return true}).map(m=>({m,s:statusOf(m,inst)}));
+  const officeN=[...new Set(list.filter(x=>x.s.k==="office").map(x=>x.m.n.replace(/ \(.+\)/,"")))];
+  const weightOn=list.reduce((a,x)=>a+(x.s.k==="office"?x.m.w:x.s.k==="soft"?x.m.w*.5:x.s.k==="edge"?x.m.w*.4:0),0), weightAll=list.reduce((a,x)=>a+x.m.w,0);
+  $("#plSum").innerHTML=officeN.length?`এই সময়ে অফিসে থাকবে: <b>${officeN.join(", ")}</b> · মার্কেট সক্রিয় ~${bn(Math.round(weightOn/weightAll*100))}%`:`এই সময়ে কোনো বড় মার্কেট অফিস টাইমে নেই। মেসেজ পাঠাতে পারেন, উত্তর আসবে ওদের সকালে।`;
+  $("#plList").innerHTML=list.sort((a,b)=>b.s.lvl-a.s.lvl).map(({m,s})=>`<div class="pl-item"><div class="l"><b>${fmtTime(m.tz,inst)}</b>${m.city} <span>· ${dateBnS(s.p.ymd)}</span></div><span class="pill s-${s.k}">${s.t}</span></div>`).join("");
 }
 const fmt12=h=>{const a=h>=12?"PM":"AM";const x=h%12||12;return x+" "+a};
 
@@ -652,10 +832,10 @@ $("#countryChips").addEventListener("click",e=>{
 });
 function upcomingGrouped(days){
   const t=todayBD(), end=addDays(t,days); const map=new Map();
-  COUNTRIES.forEach(c=>holidaysFor(c).forEach(h=>{
+  COUNTRIES.forEach(c=>holidaysFor(c).concat(softDaysFor(c).filter(x=>x.radar).map(x=>({...x,soft:true}))).forEach(h=>{
     if(h.date<t||h.date>end) return;
     const key=h.date+"|"+h.name.replace(/\s*\(.*?\)\s*/g,"").toLowerCase();
-    if(!map.has(key)) map.set(key,{date:h.date,name:h.name.replace(/\s*\(substitute day\)/i," (বিকল্প ছুটি)"),cs:new Set()});
+    if(!map.has(key)) map.set(key,{date:h.date,name:h.name.replace(/\s*\(substitute day\)/i," (বিকল্প ছুটি)"),cs:new Set(),soft:!!h.soft});
     map.get(key).cs.add(c);
   }));
   return [...map.values()].sort((a,b)=>a.date<b.date?-1:a.date>b.date?1:b.cs.size-a.cs.size);
@@ -665,9 +845,9 @@ function renderHolidays(){
   const list=upcomingGrouped(90).filter(x=>[...x.cs].some(c=>selC.has(c)));
   const t=todayBD();
   $("#holList").innerHTML=list.slice(0,holLimit).map(x=>{
-    const d=dObj(x.date); const n=daysBetween(t,x.date); const [cls,lbl]=impactOf(x.name); const note=noteFor(x.name);
+    const d=dObj(x.date); const n=daysBetween(t,x.date); const [cls,lbl]=x.soft?["i-mid","আংশিক ছুটি — অনেক অফিস বন্ধ বা হাফ ডে"]:impactOf(x.name); const note=x.soft&&/black friday/i.test(x.name)?"সরকারি ছুটি না, কিন্তু US-এর অনেক অফিস বন্ধ থাকে। অন্যদিকে ই-কমার্সের তাড়াহুড়োর কাজ আসে, তাই মেসেজ খেয়াল রাখুন।":noteFor(x.name);
     return `<div class="hitem"><div class="hdate"><div class="d num">${d.getUTCDate()}</div><div class="m">${MON_EN[d.getUTCMonth()]}</div></div>
-      <div><div class="hname">${esc(x.name)}</div>
+      <div><div class="hname">${esc(x.name)} <span class="muted" style="font-size:13px;font-weight:400">· ${WD_BN[d.getUTCDay()]}</span></div>
         <div class="hmeta"><span class="tag-i ${cls}">${lbl}</span>${[...x.cs].map(c=>`<span class="cc" title="${CNAME[c]}">${c}</span>`).join("")}</div>
         ${note?`<div class="himp">💡 ${note}</div>`:""}</div>
       <div class="cd"><b>${n===0?"আজ":bn(n)}</b>${n===0?"":"দিন বাকি"}</div></div>`;
