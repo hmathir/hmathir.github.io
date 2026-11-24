@@ -310,6 +310,67 @@ body.pdf details.qa{display:block}
 footer .credit{display:block;margin-top:6px}
 footer .credit a{color:var(--accent);font-weight:600;text-decoration:none}
 
+.slide{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--muted);border-radius:0 12px 12px 0;padding:10px 14px;margin:14px 0;font:15px/1.6 var(--f-en);color:var(--ink)}
+.slide b{display:block;font:600 12.5px var(--f-body);color:var(--muted);margin-bottom:3px}
+.story{background:var(--key-soft);border-radius:14px;padding:14px 16px;margin:14px 0;font-size:16px;line-height:1.75}
+.story b:first-child{display:block;font-size:14.5px;color:var(--key);margin-bottom:4px}
+.write{background:var(--good-soft);border-radius:12px;padding:12px 14px;margin:16px 0;font:15px/1.65 var(--f-en)}
+.write b:first-child{display:block;font:600 13px var(--f-body);color:var(--good);margin-bottom:3px}
+.hint-line{font-size:15px;color:var(--muted)}
+.road{display:grid;gap:8px;margin:12px 0}
+.road div{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.road div>b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);font-weight:700}
+.wordbreak{display:grid;gap:8px;margin:12px 0}
+.wordbreak div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.wordbreak b{font:700 16px var(--f-en);color:var(--accent);margin-right:8px}
+.wordbreak span{font-weight:600}
+.wordbreak small{display:block;color:var(--muted);font-size:14.5px;margin-top:3px;line-height:1.6}
+.vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0}
+.vs>div{border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.65;border:1px solid var(--line)}
+.vs>div>b{display:block;margin-bottom:4px}
+.vs .yes{background:var(--good-soft);border-color:transparent}.vs .yes>b{color:var(--good)}
+.vs .no{background:var(--bad-soft);border-color:transparent}.vs .no>b{color:var(--bad)}
+.vs .mid{background:var(--accent-soft);border-color:transparent}.vs .mid>b{color:var(--accent)}
+.tasks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:12px 0}
+.tasks div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;border-top:3px solid var(--accent)}
+.tasks div.d{border-top-color:var(--key)}
+.tasks b{display:block;font:600 15px var(--f-en)}
+.tasks i{font:500 12px var(--f-en);font-style:normal;color:var(--accent)}
+.tasks div.d i{color:var(--key)}
+.tasks span{display:block;font-size:14.5px;margin-top:3px}
+.apps{display:grid;gap:10px;margin:12px 0}
+.apps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.apps b{display:block;font:600 15.5px var(--f-en);margin-bottom:3px}
+.apps span{font-size:15px;line-height:1.7}
+.seq{display:grid;gap:10px;margin:12px 0}
+.seq div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.seq b{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.seq span{font:15px/1.7 var(--f-en)}
+.seq em{font-style:normal;background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.seq small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.chal{display:grid;gap:8px;margin:12px 0;counter-reset:c}
+.chal div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px 10px 48px;position:relative}
+.chal div::before{counter-increment:c;content:counter(c);position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--surface);display:grid;place-items:center;font:700 13px var(--f-display)}
+.chal b{display:block;font:600 15px var(--f-en)}
+.chal span{font-size:15px}
+.sheet{display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:12px 0}
+.sheet div{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:10px 14px;border-top:1px solid var(--line);font-size:15px}
+.sheet div:first-child{border-top:0}
+.sheet b{color:var(--accent);font-family:var(--f-en)}
+.gap{display:grid;grid-template-columns:70px 70px 1fr;gap:14px;align-items:end;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+.gbar{height:130px;background:var(--bg);border-radius:8px;position:relative;display:flex;align-items:flex-end;justify-content:center}
+.gbar i{display:block;width:100%;background:var(--accent);border-radius:8px}
+.gbar.an i{background:var(--key)}
+.gbar span{position:absolute;bottom:-20px;font-size:12px;color:var(--muted);white-space:nowrap}
+.gap p{margin:0 0 6px;font-size:14.5px;color:var(--muted);align-self:center}
+@media (max-width:460px){.gap{grid-template-columns:1fr 1fr}.gap p{grid-column:1/-1;margin-top:18px}}
+.venn span small{display:block;font:400 12.5px var(--f-body);opacity:.85;margin-top:2px}
+.regout{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.regout div{background:var(--bg);border-radius:10px;padding:10px;text-align:center}
+.regout b{display:block;font:700 22px var(--f-display);font-variant-numeric:tabular-nums}
+.regout span{font-size:13px;color:var(--muted)}
+body.pdf .story,body.pdf .slide,body.pdf .write,body.pdf .apps div,body.pdf .vs,body.pdf .sheet div,body.pdf .chal div{break-inside:avoid}
+
 /* Bottom nav */
 .bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
 .bnav .wrap{display:grid;grid-template-columns:repeat(5,1fr);height:var(--nav-h);padding-left:4px;padding-right:4px}
@@ -375,17 +436,17 @@ body.pdf .qc{break-inside:avoid}
   <section class="view" id="home">
     <div class="hello">
       <h1>কী করতে চান?</h1>
-      <p>সহজ পথ: আগে <b>নোট</b> পড়ুন, তারপর <b>প্রশ্নোত্তর</b>, শেষে <b>পরীক্ষা</b>।</p>
+      <p>আগে <b>শিখুন</b> অংশে পুরো অধ্যায়টা গল্প আর উদাহরণ দিয়ে পড়ুন। প্রশ্ন আর পরীক্ষা শুধু শেষে নিজেকে যাচাই করার জন্য।</p>
     </div>
     <div class="modes">
       <button class="mode m0" type="button" data-go="notes">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
-        <span><span class="t">সহজ নোট<small>Lesson</small></span><span class="d" id="homeNoteTxt">পুরো স্লাইড 10টা ছোট চ্যাপ্টারে, খেলার টুলসহ</span></span>
+        <span><span class="t">শিখুন<small>Lesson</small></span><span class="d" id="homeNoteTxt">স্লাইড ধরে ধরে 12টা পাঠ: গল্প, উদাহরণ, ছবি আর হাতে চালানোর টুল</span></span>
         <span class="arr" aria-hidden="true">›</span>
       </button>
       <button class="mode m1" type="button" data-go="study">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>
-        <span><span class="t">প্রশ্নোত্তর<small>FAQ</small></span><span class="d">স্লাইড থেকে বানানো 51টা প্রশ্ন, ট্যাপ করলে উত্তর আর উদাহরণ</span></span>
+        <span><span class="t">প্রশ্নোত্তর<small>FAQ</small></span><span class="d">নিজেকে যাচাই: 51টা প্রশ্ন, বাংলা-ইংরেজিতে</span></span>
         <span class="arr" aria-hidden="true">›</span>
       </button>
       <button class="mode m2" type="button" data-go="exam">
@@ -401,7 +462,7 @@ body.pdf .qc{break-inside:avoid}
     </div>
     <div class="stats">
       <div class="stat"><b>51</b><span>প্রশ্ন</span></div>
-      <div class="stat"><b id="statNotes">0/10</b><span>চ্যাপ্টার পড়া</span></div>
+      <div class="stat"><b id="statNotes">0/12</b><span>চ্যাপ্টার পড়া</span></div>
       <div class="stat"><b id="bestScore">–</b><span>আপনার সেরা স্কোর</span></div>
     </div>
     <div class="tip">নিচের বার থেকে যেকোনো সময় এক অংশ থেকে আরেক অংশে যেতে পারবেন। উপরের ডানে <b>EN / বাং</b> চেপে প্রশ্নের ভাষা বদলান।</div>
@@ -410,8 +471,8 @@ body.pdf .qc{break-inside:avoid}
   <!-- NOTES -->
   <section class="view" id="notes" hidden>
     <div class="tocwrap" id="tocwrap">
-      <h2 class="vtitle">সহজ নোট</h2>
-      <p class="vsub">স্লাইডের পুরো লেকচার ছোট ছোট চ্যাপ্টারে। পড়া শেষ হলে “পড়া শেষ” চাপুন।</p>
+      <h2 class="vtitle">শিখুন</h2>
+      <p class="vsub">স্লাইড ধরে ধরে গল্প আর উদাহরণ দিয়ে পুরো অধ্যায়। প্রথম পাঠ থেকে শুরু করুন, “পরের ›” চেপে এগোন।</p>
       <div class="nprog"><span id="nprogTxt"></span><div class="bar"><i id="nprogBar"></i></div></div>
       <div class="toc" id="toc"></div>
     </div>
@@ -508,7 +569,7 @@ body.pdf .qc{break-inside:avoid}
 <nav class="bnav" aria-label="মেনু">
   <div class="wrap">
     <button type="button" data-go="home"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>হোম</button>
-    <button type="button" data-go="notes"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>নোট</button>
+    <button type="button" data-go="notes"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>শিখুন</button>
     <button type="button" data-go="study"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>প্রশ্ন</button>
     <button type="button" data-go="exam"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>পরীক্ষা</button>
     <button type="button" data-go="cards"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 6V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-3"/></svg></span>কার্ড</button>
@@ -687,141 +748,225 @@ const COMPARE_HTML=`<table class="compare"><thead><tr><th>Task</th><th>Type</th>
 </tbody></table>`;
 
 const SORTERS={
- isdm:{title:"এটা কি Data Mining?",opts:["Data Mining","Data Mining না"],q:[
-  ["ফোনবুকে বন্ধুর নম্বর খোঁজা","Data Mining না","শুধু আগে থেকে লেখা তথ্য বের করা, নতুন কিছু আবিষ্কার হয়নি।"],
-  ["হাজার হাজার নাম বিশ্লেষণ করে দেখা গেল কিছু পদবী নির্দিষ্ট জেলায় বেশি","Data Mining","লুকানো, আগে অজানা pattern আবিষ্কার হয়েছে।"],
-  ["Google-এ “Amazon” লিখে সার্চ করা","Data Mining না","এটা শুধু একটা query।"],
-  ["সার্চের ফলাফলগুলোকে “Amazon বন” আর “Amazon.com” এই দুই দলে নিজে নিজে ভাগ করা","Data Mining","প্রসঙ্গ অনুযায়ী দল বানানো (clustering) একটা mining কাজ।"],
-  ["ব্যাংকের ডেটাবেস থেকে একজন গ্রাহকের ব্যালেন্স দেখা","Data Mining না","আগে থেকে জানা মান খুঁজে বের করা মাত্র।"],
-  ["৫ বছরের রসিদ ঘেঁটে বের করা যে বৃষ্টির দিনে খিচুড়ির চাল বেশি বিক্রি হয়","Data Mining","আগে অজানা কিন্তু কাজের তথ্য, ঠিক সংজ্ঞার মতো।"]],
-  why:{}},
- task:{title:"কোন Data Mining task?",opts:["Classification","Clustering","Association","Sequential","Regression","Deviation"],q:[
-  ["নতুন ইমেইল spam কিনা বলা (আগের লেবেলসহ ইমেইল থেকে শিখে)","Classification","লেবেলসহ ডেটা থেকে শিখে নতুন রেকর্ডের class বলা।"],
-  ["গ্রাহকদের কোনো লেবেল ছাড়াই কেনাকাটার ধরন অনুযায়ী দলে ভাগ করা","Clustering","লেবেল নেই, শুধু মিল অনুযায়ী দল।"],
-  ["যারা পাউরুটি কেনে তারা প্রায়ই ডিমও কেনে","Association","একই লেনদেনে কোন item একসাথে আসে।"],
-  ["আগে C বই, তারপর C++ বই, তারপর Perl বই কেনে","Sequential","ঘটনার সময়ক্রম গুরুত্বপূর্ণ।"],
-  ["বিজ্ঞাপনে খরচ দেখে আগামী মাসের বিক্রি কত টাকা হবে বলা","Regression","উত্তর একটা continuous সংখ্যা।"],
-  ["রাত ৩টায় হঠাৎ বিদেশ থেকে বড় কার্ড লেনদেন ধরা","Deviation","স্বাভাবিক আচরণ থেকে বড় বিচ্যুতি।"],
-  ["আকাশের ঝাপসা বস্তুটা তারা না গ্যালাক্সি বলা","Classification","দুইটা পরিচিত class-এর একটায় বসানো।"],
-  ["বাতাসের গতি অনুমান (তাপমাত্রা, আর্দ্রতা, চাপ দেখে)","Regression","গতি একটা সংখ্যা।"]]}
+ isdm:{title:"নিজে যাচাই: এটা কি Data Mining?",opts:["Data Mining","Data Mining না"],q:[
+  ["ফোনবুকে বন্ধুর নম্বর খোঁজা","Data Mining না","নম্বরটা আগে থেকেই লেখা ছিল। আপনি শুধু খুঁজে বের করেছেন, নতুন কিছু জানেননি।"],
+  ["হাজার হাজার নাম ঘেঁটে দেখা গেল কিছু পদবী নির্দিষ্ট জেলায় বেশি","Data Mining","এই pattern কোথাও লেখা ছিল না। ডেটা ঘেঁটে নতুন জিনিস বের হয়েছে।"],
+  ["Google-এ “Amazon” লিখে সার্চ করা","Data Mining না","এটা একটা সাধারণ query। যা চেয়েছেন তা-ই পেয়েছেন।"],
+  ["সার্চের ফলাফলগুলো নিজে নিজে “Amazon বন” আর “Amazon.com” দুই দলে ভাগ হয়ে গেল","Data Mining","কেউ বলে দেয়নি কোনটা কোন দলে। ডেটা দেখে মিল খুঁজে দল বানানো হয়েছে।"],
+  ["ব্যাংকের সফটওয়্যারে একজন গ্রাহকের ব্যালেন্স দেখা","Data Mining না","আগে থেকে জানা একটা মান দেখা মাত্র।"],
+  ["৫ বছরের রসিদ ঘেঁটে বের হলো, বৃষ্টির দিনে খিচুড়ির চাল-ডাল বেশি বিক্রি হয়","Data Mining","আগে কেউ জানত না, কিন্তু জানলে দোকানের কাজে লাগে। ঠিক সংজ্ঞার মতো।"]]},
+ task:{title:"নিজে যাচাই: কোন কাজ (task)?",opts:["Classification","Clustering","Association","Sequential","Regression","Deviation"],q:[
+  ["নতুন ইমেইল spam কিনা বলা, আগের লেবেল দেওয়া ইমেইল থেকে শিখে","Classification","উত্তরটা কয়েকটা নির্দিষ্ট দলের একটা (spam / not spam), আর আগের লেবেল থেকে শেখা।"],
+  ["কোনো লেবেল ছাড়াই গ্রাহকদের কেনাকাটার ধরন দেখে দলে ভাগ করা","Clustering","দলের নাম আগে থেকে ঠিক নেই। মিল দেখে দল তৈরি হচ্ছে।"],
+  ["যারা পাউরুটি কেনে তারা প্রায়ই ডিমও কেনে","Association","একই রসিদে কোন জিনিস একসাথে আসে।"],
+  ["আগে C বই, কয়েক মাস পর C++ বই, তারপর Perl বই কেনে","Sequential","কোনটার পর কোনটা, সেই ক্রমই আসল।"],
+  ["বিজ্ঞাপনে খরচ দেখে আগামী মাসের বিক্রি কত টাকা হবে বলা","Regression","উত্তরটা একটা সংখ্যা, কোনো দল না।"],
+  ["রাত ৩টায় হঠাৎ বিদেশ থেকে বড় একটা কার্ড লেনদেন ধরা","Deviation","স্বাভাবিক আচরণের সাথে মিলছে না, তাই সন্দেহজনক।"],
+  ["আকাশের ঝাপসা বস্তুটা তারা না গ্যালাক্সি বলা","Classification","দুইটা জানা দলের যেকোনো একটায় বসানো।"],
+  ["তাপমাত্রা, আর্দ্রতা আর বায়ুচাপ দেখে বাতাসের গতি অনুমান","Regression","গতি একটা সংখ্যা।"]]}
 };
 const NOTES=[
-{id:1,t:"কেন Data Mining?",en:"Why mine data",sl:"2–4",faq:[1,2,3,4,5,6,7],h:`
-<div class="grid2">
-  <div class="mini c1"><b>বাণিজ্যিক দৃষ্টিকোণ</b>১. প্রচুর ডেটা জমছে: ওয়েব, ই-কমার্স, দোকানের কেনাকাটা, ব্যাংক/কার্ডের লেনদেন<br>২. কম্পিউটার সস্তা ও শক্তিশালী<br>৩. প্রতিযোগিতা তীব্র, তাই গ্রাহককে ব্যক্তিগত সেবা (যেমন CRM)</div>
-  <div class="mini c2"><b>বৈজ্ঞানিক দৃষ্টিকোণ</b>ঘণ্টায় GB হারে ডেটা আসে: স্যাটেলাইট সেন্সর, টেলিস্কোপ, জিনের microarray, simulation (terabyte)। পুরোনো পদ্ধতি অচল।<br>Data mining সাহায্য করে: <b>classify/segment</b> করতে আর <b>hypothesis</b> তৈরিতে।</div>
+{id:1,t:"শুরুর আগে: পুরো অধ্যায়টা এক নজরে",en:"The big picture",sl:"1",faq:[],h:`
+<p>এই অধ্যায় Tan, Steinbach আর Kumar-এর বই <b>Introduction to Data Mining</b>-এর প্রথম অধ্যায় থেকে। পুরো অধ্যায়টা আসলে চারটা প্রশ্নের উত্তর দেয়:</p>
+<div class="road">
+  <div><b>১</b><span><b>কেন?</b> এত ডেটা জমছে, কিন্তু কেউ দেখছে না।</span></div>
+  <div><b>২</b><span><b>কী?</b> ডেটা থেকে লুকানো, নতুন, কাজের তথ্য বের করা।</span></div>
+  <div><b>৩</b><span><b>কী কী কাজ করা যায়?</b> ছয়টা task: Classification, Clustering, Association, Sequential, Regression, Deviation।</span></div>
+  <div><b>৪</b><span><b>সমস্যা কী?</b> সাতটা challenge।</span></div>
 </div>
-<h3>বড় ডেটা mining-এর কারণ (Motivation)</h3>
-<ul class="pts">
-  <li>ডেটায় অনেক তথ্য <b>লুকিয়ে</b> থাকে, সহজে চোখে পড়ে না।</li>
-  <li>মানুষ বিশ্লেষকের দরকারি তথ্য খুঁজতে <b>সপ্তাহের পর সপ্তাহ</b> লাগে।</li>
-  <li>অনেক ডেটা <b>কখনো বিশ্লেষণই হয় না</b>।</li>
-</ul>
-<div class="callout key"><b>The Data Gap (স্লাইড ৪)</b>১৯৯৫ থেকে নতুন ডেটা স্টোরেজ (TB) আকাশছোঁয়া হারে বাড়ছে, কিন্তু বিশ্লেষকের সংখ্যা প্রায় একই। এই ফাঁক পূরণ করতেই স্বয়ংক্রিয় data mining।</div>`},
-{id:2,t:"Data Mining কী?",en:"Definition",sl:"5–6",faq:[8,9,10,11],h:`
-<div class="callout key"><b>সংজ্ঞা ১ (পরীক্ষার জন্য মুখস্থ)</b>Non-trivial extraction of <u>implicit</u>, <u>previously unknown</u> and <u>potentially useful</u> information from data.</div>
-<div class="callout key"><b>সংজ্ঞা ২</b>Exploration &amp; analysis, by automatic or semi-automatic means, of large quantities of data in order to discover meaningful patterns.</div>
-<dl class="gloss">
-  <dt>Non-trivial</dt><dd>সহজ কাজ না; সরল query দিয়ে পাওয়া যায় না।</dd>
-  <dt>Implicit</dt><dd>ডেটায় লুকানো, সরাসরি লেখা নেই।</dd>
-  <dt>Previously unknown</dt><dd>নতুন আবিষ্কার, আগে জানা ছিল না।</dd>
-  <dt>Potentially useful</dt><dd>কাজে লাগানো যায় (সিদ্ধান্ত, ব্যবসা, গবেষণায়)।</dd>
-</dl>
-<div class="grid2">
-  <div class="mini good"><b>Data Mining</b>বোস্টনে O’Brien, O’Reilly নাম বেশি, এই pattern খোঁজা।<br>সার্চ রেজাল্টকে প্রসঙ্গ অনুযায়ী দলে ভাগ (Amazon বন বনাম Amazon.com)।</div>
-  <div class="mini bad"><b>Data Mining না</b>ফোন ডিরেক্টরিতে নম্বর খোঁজা।<br>সার্চ ইঞ্জিনে “Amazon” লিখে query করা।</div>
+<div class="story"><b>পুরো পাঠে আমাদের সঙ্গী: রহিম চাচার সুপারশপ</b>সাভারে, জাহাঙ্গীরনগরের গেটের কাছে রহিম চাচার একটা সুপারশপ। প্রতিদিন ৫০০ জন কেনাকাটা করে, প্রতিটা বিলের রসিদ কম্পিউটারে জমা হয়। ৫ বছরে লাখ লাখ রসিদ। চাচা ভাবেন, “এই এত রসিদ দিয়ে কি কিছু করা যায়?”<br><br>এই অধ্যায়ের প্রতিটা ধারণা আমরা চাচার দোকান দিয়েই বুঝব। তারপর স্লাইডের নিজের উদাহরণগুলোও দেখব।</div>
+<div class="flow">
+  <div class="fbox">Data<small>লাখ লাখ রসিদ</small></div><div class="farr">Mining</div>
+  <div class="fbox dark">Knowledge<small>“বৃষ্টির দিনে খিচুড়ির চাল বেশি চলে”</small></div>
 </div>
-<div class="callout tip"><b>এক লাইনে পার্থক্য</b>জানা জিনিস <b>খোঁজা</b> = query। অজানা জিনিস <b>আবিষ্কার</b> = mining।</div>
+<p>নামটা খেয়াল করুন: খনি থেকে যেমন মাটি সরিয়ে সোনা বের করা হয় (gold mining), তেমনি বিশাল ডেটার স্তূপ থেকে দামি তথ্য বের করাই <b>Data Mining</b>।</p>`},
+{id:2,t:"কেন Data Mining দরকার?",en:"Why mine data",sl:"2–4",faq:[1,2,3,4,5,6,7],h:`
+<div class="slide"><b>স্লাইড ২: Commercial Viewpoint</b>Lots of data is being collected and warehoused · Computers have become cheaper and more powerful · Competitive pressure is strong</div>
+<h3>সহজ করে বলি</h3>
+<p>ব্যবসার দিক থেকে তিনটা জিনিস একসাথে ঘটছে:</p>
+<ol class="pts">
+  <li><b>ডেটা জমছে পাহাড়ের মতো।</b> ওয়েবসাইটে ক্লিক, Daraz-এর অর্ডার, দোকানের রসিদ, ব্যাংক আর কার্ডের লেনদেন, সব রেকর্ড হয়।</li>
+  <li><b>কম্পিউটার সস্তা আর শক্তিশালী হয়েছে।</b> আগে যে হিসাব করতে বড় কোম্পানির সার্ভার লাগত, এখন একটা ল্যাপটপেই হয়।</li>
+  <li><b>প্রতিযোগিতা তীব্র।</b> গ্রাহক ধরে রাখতে প্রত্যেককে তার মতো করে সেবা দিতে হয় (একে বলে CRM, Customer Relationship Management)।</li>
+</ol>
+<div class="story"><b>রহিম চাচার দোকানে</b>পাশে নতুন আরেকটা সুপারশপ খুলেছে। চাচা যদি জানতে পারেন কোন গ্রাহক কী পছন্দ করে, তাহলে তাদের জন্য ঠিক সেই অফার দিতে পারবেন। ডেটা তো আছেই, কম্পিউটারও আছে। দরকার শুধু ডেটা থেকে কথা বের করার উপায়।</div>
+<div class="slide"><b>স্লাইড ৩: Scientific Viewpoint</b>Data collected and stored at enormous speeds (GB/hour): remote sensors on a satellite, telescopes scanning the skies, microarrays generating gene expression data, scientific simulations generating terabytes of data</div>
+<p>বিজ্ঞানেও একই অবস্থা, বরং আরও বেশি। স্যাটেলাইট প্রতি ঘণ্টায় গিগাবাইট ছবি পাঠায়, টেলিস্কোপ সারারাত আকাশ স্ক্যান করে। এত কাঁচা ডেটা পুরোনো পদ্ধতিতে (traditional techniques) সামলানো সম্ভব না। Data mining বিজ্ঞানীদের দুইভাবে সাহায্য করে:</p>
+<ul class="pts"><li><b>ডেটা ভাগ করা (classifying and segmenting)</b>, যেমন কোটি নক্ষত্রকে ধরন অনুযায়ী সাজানো।</li><li><b>নতুন ধারণা দাঁড় করানো (hypothesis formation)</b>, যেমন “এই ধরনের নক্ষত্র এই এলাকায় বেশি কেন?”</li></ul>
+<div class="slide"><b>স্লাইড ৪: Mining Large Data Sets, Motivation</b>There is often information “hidden” in the data that is not readily evident · Human analysts may take weeks to discover useful information · Much of the data is never analyzed at all</div>
+<p>স্লাইড ৪-এর গ্রাফটার নাম <b>The Data Gap</b>। একটা রেখা দেখায় ১৯৯৫ সাল থেকে নতুন ডেটা (TB) কত দ্রুত বেড়েছে, প্রায় খাড়া উপরে উঠেছে। আরেকটা রেখা দেখায় বিশ্লেষকের (analyst) সংখ্যা, প্রায় সমান। মাঝের ফাঁকটাই সমস্যা।</p>
+<div class="gap"><div class="gbar"><i style="height:92%"></i><span>নতুন ডেটা</span></div><div class="gbar an"><i style="height:14%"></i><span>বিশ্লেষক</span></div><p>ক্লাসে ১০০০ খাতা, শিক্ষক একজন। যন্ত্রের সাহায্য ছাড়া খাতা দেখা কোনোদিন শেষ হবে না। অনেক খাতা না দেখাই থেকে যাবে।</p></div>
+<div class="write"><b>পরীক্ষায় লিখুন</b>We mine data because huge amounts of data are being collected (web, e-commerce, bank transactions, scientific instruments), computers are now cheap and powerful, and competition is strong. Useful information is often hidden in the data, human analysts are too slow, and much of the data is never analyzed (the data gap).</div>
+<div class="callout tip"><b>এক লাইনে মনে রাখুন</b>ডেটা অনেক, মানুষ কম, সময় নেই। তাই যন্ত্র দিয়ে খনন।</div>`},
+{id:3,t:"Data Mining আসলে কী?",en:"Definition",sl:"5–6",faq:[8,9,10,11],h:`
+<div class="slide"><b>স্লাইড ৫: সংজ্ঞা</b>Non-trivial extraction of implicit, previously unknown and potentially useful information from data.<br><br>Exploration &amp; analysis, by automatic or semi-automatic means, of large quantities of data in order to discover meaningful patterns.</div>
+<p>প্রথম সংজ্ঞাটা পরীক্ষায় সবচেয়ে বেশি আসে। এর চারটা শব্দই চাবি। রহিম চাচার দোকান দিয়ে প্রতিটা শব্দ ভেঙে দেখি:</p>
+<div class="wordbreak">
+  <div><b>Non-trivial</b><span>সহজ কাজ না।</span><small>“আজ কত টাকা বিক্রি হলো” যোগ করা trivial, এক লাইনের হিসাব। Mining তার চেয়ে গভীর।</small></div>
+  <div><b>Implicit</b><span>লুকানো, কোথাও সরাসরি লেখা নেই।</span><small>কোনো রসিদে লেখা নেই “বৃষ্টির দিনে খিচুড়ি চলে”। কিন্তু লাখ রসিদের মধ্যে কথাটা লুকিয়ে আছে।</small></div>
+  <div><b>Previously unknown</b><span>আগে জানা ছিল না।</span><small>চাচা নিজেও এটা জানতেন না।</small></div>
+  <div><b>Potentially useful</b><span>কাজে লাগানো যায়।</span><small>এখন বৃষ্টির পূর্বাভাস দেখলেই চাচা চাল-ডাল সামনে সাজিয়ে রাখেন।</small></div>
+</div>
+<p>দ্বিতীয় সংজ্ঞাটা একই কথা অন্যভাবে বলে: <b>বিশাল ডেটা</b> (large quantities), <b>স্বয়ংক্রিয় বা আধা-স্বয়ংক্রিয়ভাবে</b> (automatic or semi-automatic) খুঁজে <b>অর্থপূর্ণ pattern</b> বের করা।</p>
+<h3>কোনটা Data Mining, কোনটা না (স্লাইড ৬)</h3>
+<p>সবচেয়ে সহজ পরীক্ষা: <b>আপনি কি জানা জিনিস খুঁজছেন, নাকি অজানা জিনিস আবিষ্কার করছেন?</b></p>
+<div class="vs">
+  <div class="no"><b>Data Mining না: শুধু খোঁজা</b>ফোন ডিরেক্টরিতে নম্বর দেখা। নম্বরটা আগে থেকেই লেখা।<br><br>Search engine-এ “Amazon” লিখে খোঁজা। যা চাইলেন তা-ই পেলেন।</div>
+  <div class="yes"><b>Data Mining: নতুন কিছু আবিষ্কার</b>আমেরিকার বোস্টন এলাকায় O’Brien, O’Rurke, O’Reilly এই ধরনের নাম বেশি। কোথাও লেখা ছিল না, নাম ঘেঁটে বের হয়েছে।<br><br>“Amazon” সার্চের ফলাফল নিজে নিজে দুই দলে ভাগ: Amazon বন আর Amazon.com।</div>
+</div>
+<div class="write"><b>পরীক্ষায় লিখুন</b>Data mining is the non-trivial extraction of implicit, previously unknown and potentially useful information from data. Looking up a phone number is not data mining because it only retrieves known information; discovering that certain names are common in certain areas is data mining.</div>
 <div class="tool" data-tool="sorter" data-set="isdm"></div>`},
-{id:3,t:"Data Mining-এর উৎস",en:"Origins of data mining",sl:"7",faq:[12,13,14],h:`
-<p>Data mining চারটা ক্ষেত্রের ধারণা মিলিয়ে তৈরি:</p>
+{id:4,t:"Data Mining কোথা থেকে এল?",en:"Origins",sl:"7",faq:[12,13,14],h:`
+<div class="slide"><b>স্লাইড ৭</b>Draws ideas from machine learning/AI, pattern recognition, statistics, and database systems</div>
+<p>Data mining হঠাৎ জন্মানো নতুন বিষয় না। চারটা পুরোনো বিষয়ের মিলনে তৈরি। প্রত্যেকে একটা করে জিনিস দিয়েছে:</p>
 <div class="venn">
-  <span class="v1">Machine Learning / AI</span><span class="v2">Pattern Recognition</span><span class="v3">Statistics</span><span class="v4">Database Systems</span>
+  <span class="v1">Machine Learning / AI<small>যন্ত্রকে শেখানো</small></span><span class="v2">Pattern Recognition<small>মিল চেনা</small></span><span class="v3">Statistics<small>হিসাব আর সম্ভাবনা</small></span><span class="v4">Database Systems<small>বিশাল ডেটা রাখা ও খোঁজা</small></span>
   <b class="vc">Data Mining</b>
 </div>
-<h3>পুরোনো পদ্ধতি কেন চলে না?</h3>
+<h3>তাহলে পুরোনো পদ্ধতিগুলোই কেন যথেষ্ট না?</h3>
+<p>স্লাইড বলছে তিনটা কারণে পুরোনো (traditional) পদ্ধতি অচল হয়ে যায়। রহিম চাচার দোকান বড় হয়ে Daraz-এর মতো হয়ে গেলে কী হবে, ভাবুন:</p>
 <div class="grid2">
-  <div class="mini c1"><b>Enormity of data</b>ডেটা বিশাল, terabyte-petabyte।</div>
-  <div class="mini c2"><b>High dimensionality</b>প্রতি রেকর্ডে শত-হাজার attribute।</div>
-  <div class="mini c3"><b>Heterogeneous, distributed</b>নানা ধরনের ডেটা, নানা জায়গায় ছড়ানো।</div>
+  <div class="mini c1"><b>Enormity of data</b>ডেটা বিশাল। ৫০০ রসিদ না, প্রতিদিন ৫ লাখ অর্ডার। Excel খুলতেই বসে যাবে।</div>
+  <div class="mini c2"><b>High dimensionality</b>প্রতিটা গ্রাহকের শত শত তথ্য (কলাম): বয়স, এলাকা, কী দেখেছে, কতক্ষণ দেখেছে, কোন ফোনে… কলাম যত বেশি, হিসাব তত কঠিন।</div>
+  <div class="mini c3"><b>Heterogeneous, distributed</b>ডেটা নানা ধরনের (লেখা, ছবি, রিভিউ) আর নানা জায়গায় ছড়ানো (অ্যাপ, ওয়েবসাইট, গুদাম, পেমেন্ট সার্ভার)।</div>
 </div>
-<div class="callout tip"><b>মনে রাখার কৌশল</b>পুরোনো পদ্ধতির তিন শত্রু: <b>বড়</b> (enormity), <b>চওড়া</b> (dimensionality), <b>এলোমেলো</b> (heterogeneous)।</div>`},
-{id:4,t:"Data Mining Tasks",en:"Prediction vs description",sl:"8–9",faq:[15,16,17,18,19,20,21],h:`
-<div class="grid2">
-  <div class="mini c1"><b>Prediction methods</b>কিছু variable দিয়ে অন্য variable-এর অজানা বা ভবিষ্যৎ মান অনুমান।</div>
-  <div class="mini c3"><b>Description methods</b>ডেটা বর্ণনা করে এমন মানুষের বোঝার মতো pattern খোঁজা।</div>
+<div class="callout tip"><b>এক লাইনে মনে রাখুন</b>পুরোনো পদ্ধতির তিন শত্রু: <b>বড়</b> (enormity), <b>চওড়া</b> (dimensionality), <b>এলোমেলো-ছড়ানো</b> (heterogeneous, distributed)।</div>`},
+{id:5,t:"Data Mining দিয়ে কী কী কাজ করা যায়?",en:"Tasks: predict vs describe",sl:"8–9",faq:[15,16,17,18,19,20,21],h:`
+<div class="slide"><b>স্লাইড ৮</b>Prediction Methods: use some variables to predict unknown or future values of other variables.<br>Description Methods: find human-interpretable patterns that describe the data.</div>
+<p>সব কাজকে দুই ভাগে ফেলা যায়। পার্থক্যটা বোঝার সহজ উপায়: <b>আপনি কি একটা নির্দিষ্ট প্রশ্নের উত্তর অনুমান করতে চান, নাকি ডেটার চেহারাটা বুঝতে চান?</b></p>
+<div class="vs">
+  <div class="yes"><b>Predictive: “এটা কী হবে?”</b>চাচা জানতে চান, “এই নতুন গ্রাহক কি মাসিক প্যাকেজ নেবে?” উত্তর অনুমান করতে হবে।</div>
+  <div class="mid"><b>Descriptive: “এখানে কী আছে?”</b>চাচা জানতে চান, “আমার গ্রাহকরা কয় ধরনের?” কোনো নির্দিষ্ট উত্তর নেই, ডেটা নিজেই বলবে।</div>
 </div>
-<div class="tbl">${COMPARE_HTML}</div>
-<div class="callout tip"><b>মনে রাখার কৌশল</b>Predictive তিনটা = <b>CRD</b> (Classification, Regression, Deviation)। বাকি তিনটা Descriptive (Clustering, Association, Sequential)।</div>
-<div class="tool" data-tool="sorter" data-set="task"></div>`},
-{id:5,t:"Classification",en:"Predictive · labeled data",sl:"10–16",faq:[22,23,24,25,26,27,28,29,30],h:`
-<div class="callout key"><b>সংজ্ঞা</b>Given a collection of records (<b>training set</b>), each with a set of attributes, one of which is the <b>class</b>: find a <b>model</b> for the class attribute as a function of the other attributes. Goal: previously unseen records should be assigned a class as accurately as possible. A <b>test set</b> is used to determine the accuracy of the model.</div>
-<div class="flow">
-  <div class="fbox">Training Set<small>লেবেলসহ ডেটা</small></div><div class="farr">Learn</div>
-  <div class="fbox acc">Classifier / Model</div><div class="farr">Apply</div>
-  <div class="fbox dark">Test Set<small>নতুন ডেটার class</small></div>
+<h3>ছয়টা কাজ, রহিম চাচার দোকানে (স্লাইড ৯)</h3>
+<div class="tasks">
+  <div class="p"><b>Classification</b><i>Predictive</i><span>নতুন গ্রাহক প্যাকেজ নেবে কি নেবে না?</span></div>
+  <div class="p"><b>Regression</b><i>Predictive</i><span>আগামী মাসে বিক্রি কত টাকা হবে?</span></div>
+  <div class="p"><b>Deviation Detection</b><i>Predictive</i><span>আজকের এই বিলটা কি অস্বাভাবিক (জালিয়াতি)?</span></div>
+  <div class="d"><b>Clustering</b><i>Descriptive</i><span>গ্রাহকরা কয় দলে ভাগ হয়? (ছাত্র, পরিবার, অফিসের লোক)</span></div>
+  <div class="d"><b>Association Rule</b><i>Descriptive</i><span>কোন জিনিস একসাথে কেনা হয়? (পাউরুটি + ডিম)</span></div>
+  <div class="d"><b>Sequential Pattern</b><i>Descriptive</i><span>কোনটা কেনার পরে কোনটা কেনে? (দোলনা → কয়েক মাস পর বাচ্চার জুতা)</span></div>
 </div>
-<h3>স্লাইড ১১-এর উদাহরণ: কর ফাঁকি (Cheat) অনুমান</h3>
+<div class="callout tip"><b>মনে রাখার কৌশল</b>Predictive তিনটা = <b>CRD</b>: <b>C</b>lassification, <b>R</b>egression, <b>D</b>eviation। বাকি তিনটা Descriptive।</div>
+<div class="tool" data-tool="sorter" data-set="task"></div>
+<p>পরের পাঁচটা অধ্যায়ে এই ছয়টা কাজ একটা একটা করে খুলে দেখব।</p>`},
+{id:6,t:"Classification: আগের উদাহরণ দেখে শেখা",en:"Predictive · learn from labeled examples",sl:"10–16",faq:[22,23,24,25,26,27,28,29,30],h:`
+<h3>আগে একটা গল্প</h3>
+<div class="story"><b>ডাক্তার কীভাবে শেখেন?</b>একজন নতুন ডাক্তার হাজারো আগের রোগীর রেকর্ড পড়েন: জ্বর কত, কাশি আছে কিনা, বয়স কত, আর <u>শেষে কী রোগ ধরা পড়েছিল</u>। এভাবে শেখার পর নতুন রোগী এলে লক্ষণ দেখেই বলে দিতে পারেন কী রোগ। এটাই Classification।</div>
+<div class="slide"><b>স্লাইড ১০: Classification-এর সংজ্ঞা</b>Given a collection of records (training set): each record contains a set of attributes, one of the attributes is the class. Find a model for class attribute as a function of the values of other attributes. Goal: previously unseen records should be assigned a class as accurately as possible. A test set is used to determine the accuracy of the model.</div>
+<p>এখানে চারটা শব্দ বুঝলেই পুরো সংজ্ঞা পরিষ্কার:</p>
+<dl class="gloss">
+  <dt>Record</dt><dd>একজন রোগী বা একজন গ্রাহক, মানে টেবিলের একটা সারি।</dd>
+  <dt>Attribute</dt><dd>তার তথ্যগুলো, মানে টেবিলের কলাম (জ্বর, বয়স…)।</dd>
+  <dt>Class</dt><dd>যে কলামটা আমরা অনুমান করতে চাই (কী রোগ)। আগের রেকর্ডে এটা লেখা থাকে, নতুনটায় থাকে না।</dd>
+  <dt>Model</dt><dd>আগের রেকর্ড থেকে শেখা নিয়ম, যেটা দিয়ে নতুন রেকর্ডের class বলা হয়।</dd>
+</dl>
+<h3>Training set আর Test set</h3>
+<p>পরীক্ষার প্রস্তুতির মতো ভাবুন। ডেটাকে দুই ভাগ করা হয়:</p>
+<div class="vs"><div class="yes"><b>Training set = প্র্যাকটিস প্রশ্ন</b>এগুলো দেখে model শেখে।</div><div class="mid"><b>Test set = আসল পরীক্ষা</b>model আগে কখনো দেখেনি। এখানে কতগুলো ঠিক বলল, সেটাই model-এর accuracy।</div></div>
+<h3>স্লাইড ১১-এর উদাহরণ ধাপে ধাপে</h3>
+<p>এখানে ১০ জন করদাতার তথ্য আছে। প্রশ্ন: কে কর ফাঁকি দেবে (<b>Cheat</b>)? নিচের টেবিলটা মন দিয়ে দেখুন, নিজে কোনো pattern খুঁজে পান কিনা:</p>
 <div class="tool" data-tool="classify"></div>
-<h3>চারটা প্রয়োগ</h3>
-<div class="grid2">
-  <div class="mini c1"><b>1. Direct Marketing</b>লক্ষ্য: যারা কেনার সম্ভাবনা বেশি শুধু তাদের মেইল পাঠিয়ে খরচ কমানো। Class = {buy, don’t buy}।</div>
-  <div class="mini c2"><b>2. Fraud Detection</b>ক্রেডিট কার্ডে জালিয়াতি অনুমান। আগের লেনদেন fraud/fair লেবেল করা।</div>
-  <div class="mini c3"><b>3. Customer Churn</b>গ্রাহক প্রতিযোগীর কাছে চলে যাবে কিনা। Class = loyal/disloyal।</div>
-  <div class="mini c4"><b>4. Sky Survey</b>ঝাপসা বস্তু তারা না গ্যালাক্সি। ৩০০০ ছবি, ২৩,০৪০×২৩,০৪০ পিক্সেল, প্রতি বস্তুতে ৪০টা feature। ১৬টা নতুন quasar পাওয়া গেছে।</div>
+<p>খেয়াল করুন model-টা কী শিখল: যারা Refund নিয়েছে তারা কেউ ফাঁকি দেয়নি; বিবাহিতরাও না; বাকিদের মধ্যে যাদের আয় ৮০K-এর বেশি, তারাই ফাঁকি দিয়েছে। এই নিয়মটা কেউ হাতে লিখে দেয়নি, ১০টা উদাহরণ থেকে বের হয়েছে।</p>
+<h3>বাস্তবে কোথায় লাগে (স্লাইড ১২–১৬)</h3>
+<div class="apps">
+  <div><b>Direct Marketing</b><span>নতুন ফোনের বিজ্ঞাপন সবাইকে না পাঠিয়ে শুধু যারা কিনবে বলে মনে হয় তাদের পাঠানো, খরচ বাঁচে। আগের একই ধরনের পণ্যে কে কিনেছে, কে কেনেনি, সেই <i>{buy, don’t buy}</i>-ই class।</span></div>
+  <div><b>Fraud Detection</b><span>আগের কার্ড লেনদেনগুলোকে fraud বা fair লেবেল দিয়ে model শেখানো। নতুন লেনদেন এলে model বলে সন্দেহজনক কিনা।</span></div>
+  <div><b>Customer Churn</b><span>কোন গ্রাহক অন্য কোম্পানিতে চলে যাবে? কে কখন কোথায় কল করে, আর্থিক অবস্থা কেমন, এসব দেখে loyal বা disloyal অনুমান। চলে যাওয়ার আগেই অফার।</span></div>
+  <div><b>Sky Survey</b><span>টেলিস্কোপের ৩০০০টা বিশাল ছবি (প্রতিটা ২৩,০৪০ × ২৩,০৪০ পিক্সেল)। প্রতিটা বস্তুর ৪০টা feature মেপে বলা হয় এটা তারা নাকি গ্যালাক্সি। এভাবে ১৬টা নতুন quasar পাওয়া গেছে, যেগুলো মহাবিশ্বের সবচেয়ে দূরের বস্তুগুলোর মধ্যে পড়ে।</span></div>
 </div>
-<p><b>Classifying Galaxies (স্লাইড ১৬):</b> ৭.২ কোটি তারা, ২ কোটি গ্যালাক্সি; Object Catalog 9 GB, Image Database 150 GB। Class = গঠনের ধাপ (Early, Intermediate, Late)।</p>`},
-{id:6,t:"Clustering",en:"Descriptive · no labels",sl:"17–22",faq:[31,32,33,34,35,36,37],h:`
-<div class="callout key"><b>সংজ্ঞা</b>Given a set of data points with attributes and a similarity measure, find clusters such that points in one cluster are <b>more similar</b> to one another, and points in separate clusters are <b>less similar</b>.</div>
-<p>Similarity measure: attribute continuous হলে <b>Euclidean distance</b>, নইলে সমস্যা অনুযায়ী অন্য measure।</p>
+<p>স্লাইড ১৬-তে গ্যালাক্সিকে গঠনের ধাপ (Early, Intermediate, Late) অনুযায়ী classify করা হয়েছে: ৭.২ কোটি তারা, ২ কোটি গ্যালাক্সি, ১৫০ GB ছবি।</p>
+<div class="write"><b>পরীক্ষায় লিখুন</b>Classification: given a training set of records, where each record has attributes and one class attribute, find a model for the class as a function of the other attributes, so that previously unseen records are assigned a class as accurately as possible. A test set is used to measure accuracy. Applications: direct marketing, fraud detection, customer churn, sky survey cataloging.</div>
+<div class="callout tip"><b>এক লাইনে মনে রাখুন</b>লেবেলসহ পুরোনো উদাহরণ দেখে শেখো, তারপর নতুনটার লেবেল বলো।</div>`},
+{id:7,t:"Clustering: মিল দেখে দল বানানো",en:"Descriptive · no labels",sl:"17–22",faq:[31,32,33,34,35,36,37],h:`
+<div class="story"><b>প্রথম দিনের ক্লাস</b>নতুন ক্লাসে কেউ কাউকে চেনে না। এক সপ্তাহ পর দেখবেন নিজে নিজেই দল হয়ে গেছে: যারা একসাথে চা খায়, যারা পেছনের বেঞ্চে বসে, যারা সামনে বসে নোট নেয়। কেউ দলের নাম ঠিক করে দেয়নি। মিল থেকেই দল। এটাই Clustering।</div>
+<p>Classification-এর সাথে বড় পার্থক্য: এখানে আগে থেকে কোনো লেবেল (class) নেই। কোন দল কী, সেটাও আমরা জানি না। শুধু মিল দেখে ভাগ করি।</p>
+<div class="slide"><b>স্লাইড ১৭: Clustering-এর সংজ্ঞা</b>Given a set of data points, each having a set of attributes, and a similarity measure among them, find clusters such that data points in one cluster are more similar to one another, and data points in separate clusters are less similar to one another.</div>
+<p>“মিল” মাপা হবে কীভাবে? সংখ্যার ডেটা হলে সবচেয়ে সহজ উপায় দুই বিন্দুর দূরত্ব, যাকে বলে <b>Euclidean distance</b>। দূরত্ব কম মানে মিল বেশি। অন্য ধরনের ডেটার জন্য সমস্যা অনুযায়ী অন্য মাপ লাগে।</p>
 <div class="tool" data-tool="cluster"></div>
-<div class="callout tip"><b>মনে রাখুন</b><b>Intra</b>cluster দূরত্ব <b>কম</b> (দলের ভেতরে ঘনিষ্ঠ), <b>Inter</b>cluster দূরত্ব <b>বেশি</b> (দলে দলে দূরে)।</div>
-<h3>প্রয়োগ</h3>
-<div class="grid2">
-  <div class="mini c1"><b>Market Segmentation</b>গ্রাহকদের ভৌগোলিক ও জীবনযাত্রার তথ্য দিয়ে দল বানানো; প্রতিটা দলের জন্য আলাদা মার্কেটিং।</div>
-  <div class="mini c2"><b>Document Clustering</b>বারবার আসা শব্দের frequency দিয়ে মিল মাপা। উদাহরণ: LA Times-এর ৩২০৪টা আর্টিকেল।</div>
-  <div class="mini c3"><b>S&amp;P 500 Stocks</b>একই দিনে প্রায়ই একসাথে UP/DOWN হয় এমন স্টক এক দলে (association rule দিয়ে মিল মাপা)।</div>
+<div class="vs"><div class="yes"><b>Intracluster distance: কম</b>একই দলের ভেতরের দূরত্ব। কম হলে দলটা আঁটসাঁট।</div><div class="mid"><b>Intercluster distance: বেশি</b>এক দল থেকে আরেক দলের দূরত্ব। বেশি হলে দলগুলো পরিষ্কার আলাদা।</div></div>
+<p class="hint-line">মনে রাখার উপায়: <b>intra</b> = ভেতরে (intranet যেমন অফিসের ভেতরের নেটওয়ার্ক), <b>inter</b> = মাঝে (international যেমন দেশে দেশে)।</p>
+<h3>বাস্তবে কোথায় লাগে (স্লাইড ১৯–২২)</h3>
+<div class="apps">
+  <div><b>Market Segmentation</b><span>রহিম চাচা গ্রাহকদের এলাকা আর জীবনযাত্রা দেখে দল বানালেন: হলের ছাত্র, স্থানীয় পরিবার, অফিসের লোক। প্রতিটা দলের জন্য আলাদা অফার (distinct marketing mix)। দল ঠিক হলো কিনা বোঝা যায় একই দলের লোকের কেনাকাটার মিল দেখে।</span></div>
+  <div><b>Document Clustering</b><span>প্রতিটা লেখায় কোন শব্দ কতবার আছে, তা দিয়ে মিল মাপা। LA Times-এর ৩২০৪টা খবর এভাবে খেলা, অর্থনীতি, বিনোদন এরকম দলে ভাগ হয়েছে। নতুন খবর বা সার্চ এলে মিলে যাওয়া দলের লেখাগুলো একসাথে দেখানো যায়।</span></div>
+  <div><b>S&amp;P 500 Stock Data</b><span>যেসব শেয়ারের দাম প্রায়ই একই দিনে একসাথে ওঠে বা নামে, সেগুলো এক দলে। যেমন সব ব্যাংকের শেয়ার একসাথে চলে।</span></div>
 </div>
-<div class="callout key"><b>Classification বনাম Clustering (খুব গুরুত্বপূর্ণ)</b>Classification-এ আগে থেকে লেবেল (class) থাকে, model শেখে। Clustering-এ কোনো লেবেল থাকে না, ডেটা নিজেই দলে ভাগ হয়।</div>`},
-{id:7,t:"Association Rule Discovery",en:"Items that go together",sl:"23–26",faq:[38,39,40,41,42,43],h:`
-<div class="callout key"><b>সংজ্ঞা</b>Given a set of records, each containing some items from a collection, produce <b>dependency rules</b> which predict occurrence of an item based on occurrences of other items.</div>
+<div class="callout key"><b>সবচেয়ে বেশি জিজ্ঞেস করা হয়: Classification বনাম Clustering</b>Classification: লেবেল আগে থেকে আছে, নতুনটার লেবেল <b>অনুমান</b> করি (predictive)।<br>Clustering: লেবেল নেই, ডেটা নিজেই দলে ভাগ হয় (descriptive)।</div>
+<div class="write"><b>পরীক্ষায় লিখুন</b>Clustering: given a set of data points with attributes and a similarity measure, find clusters such that points in the same cluster are more similar to one another and points in different clusters are less similar. Intracluster distances are minimized and intercluster distances are maximized. Euclidean distance is used for continuous attributes. Applications: market segmentation, document clustering.</div>`},
+{id:8,t:"Association Rule: কী কী একসাথে কেনা হয়",en:"Descriptive · items that go together",sl:"23–26",faq:[38,39,40,41,42,43],h:`
+<div class="story"><b>রহিম চাচার আবিষ্কার</b>রসিদ ঘেঁটে দেখা গেল: যারা পাউরুটি কেনে, তাদের বেশিরভাগই ডিমও কেনে। চাচা পাউরুটির তাকের পাশেই ডিম রাখলেন। বিক্রি বাড়ল। এই “পাউরুটি → ডিম” ধরনের নিয়ম খুঁজে বের করাই Association Rule Discovery।</div>
+<div class="slide"><b>স্লাইড ২৩: সংজ্ঞা</b>Given a set of records each of which contain some number of items from a given collection, produce dependency rules which will predict occurrence of an item based on occurrences of other items.</div>
+<p>সহজ বাংলায়: প্রতিটা রসিদে কয়েকটা জিনিস আছে। এমন নিয়ম বানাও যেটা বলে, “<b>এটা থাকলে ওটাও থাকার সম্ভাবনা বেশি</b>”। নিয়মটা লেখা হয় এভাবে: {যা আছে} → {যা আসবে}।</p>
+<h3>স্লাইডের ৫টা রসিদ নিজে ঘেঁটে দেখুন</h3>
 <div class="tool" data-tool="basket"></div>
-<h3>Rule-এর দুই পাশ</h3>
-<div class="flow"><div class="fbox acc">Antecedent (বাম পাশ)<small>{Bagels, …}</small></div><div class="farr"></div><div class="fbox dark">Consequent (ডান পাশ)<small>{Potato Chips}</small></div></div>
+<p>স্লাইডে দুইটা নিয়ম পাওয়া গেছে: <b>{Milk} → {Coke}</b> আর <b>{Diaper, Milk} → {Beer}</b>। উপরের টুলে বাম পাশে Diaper ও Milk, ডান পাশে Beer বেছে দেখুন কয়টা রসিদে মিলছে।</p>
+<h3>নিয়মের দুই পাশের নাম</h3>
+<div class="flow"><div class="fbox acc">Antecedent<small>বাম পাশ: “যদি এটা কেনে”</small></div><div class="farr"></div><div class="fbox dark">Consequent<small>ডান পাশ: “তাহলে এটাও কেনে”</small></div></div>
+<p>স্লাইড ২৪-এর নিয়ম <b>{Bagels, …} → {Potato Chips}</b> থেকে তিনটা ব্যবসায়িক প্রশ্নের উত্তর পাওয়া যায়:</p>
 <ul class="pts">
-  <li><b>Consequent-এ Potato Chips:</b> চিপসের বিক্রি বাড়াতে কী করা যায়।</li>
-  <li><b>Antecedent-এ Bagels:</b> bagel বিক্রি বন্ধ করলে কোন পণ্য প্রভাবিত হবে।</li>
-  <li><b>দুটো একসাথে:</b> চিপসের বিক্রি বাড়াতে bagel-এর সাথে কী বিক্রি করা উচিত।</li>
+  <li><b>Consequent দেখে:</b> চিপসের বিক্রি বাড়াতে কী করা যায়? (যা আগে কেনে, সেগুলোর বিক্রি বাড়াও)</li>
+  <li><b>Antecedent দেখে:</b> bagel বিক্রি বন্ধ করলে কোন জিনিসের বিক্রি কমবে? (চিপস)</li>
+  <li><b>দুটো মিলিয়ে:</b> চিপসের বিক্রি বাড়াতে bagel-এর সাথে কী বিক্রি করা উচিত?</li>
 </ul>
-<div class="grid2">
-  <div class="mini c1"><b>Shelf Management</b>barcode scanner-এর POS ডেটা থেকে: diaper + milk কিনলে beer কেনার সম্ভাবনা বেশি, তাই ডায়াপারের পাশে beer।</div>
-  <div class="mini c2"><b>Inventory Management</b>রিপেয়ার কোম্পানি আগের মেরামতে একসাথে লাগা যন্ত্রাংশ দেখে গাড়িতে ঠিক যন্ত্রাংশ রাখে, বাসায় কম যাওয়া লাগে।</div>
-</div>`},
-{id:8,t:"Sequential Pattern Discovery",en:"Order of events",sl:"27–28",faq:[44,45],h:`
-<div class="callout key"><b>সংজ্ঞা</b>Given a set of objects, each with its own <b>timeline of events</b>, find rules that predict strong <b>sequential dependencies</b> among different events. Rules are formed by first discovering patterns; event occurrences are governed by <b>timing constraints</b>.</div>
-<div class="grid2">
-  <div class="mini"><b>Telecom alarm logs</b><span class="mono">(Inverter_Problem, Excessive_Line_Current) (Rectifier_Alarm) → (Fire_Alarm)</span></div>
-  <div class="mini"><b>Computer bookstore</b><span class="mono">(Intro_To_Visual_C) (C++_Primer) → (Perl_for_dummies, Tcl_Tk)</span></div>
-  <div class="mini"><b>Athletic store</b><span class="mono">(Shoes) (Racket, Racketball) → (Sports_Jacket)</span></div>
+<h3>বাস্তবে কোথায় লাগে (স্লাইড ২৫–২৬)</h3>
+<div class="apps">
+  <div><b>Supermarket Shelf Management</b><span>Barcode scanner-এর বিক্রির ডেটা থেকে বিখ্যাত আবিষ্কার: যারা diaper আর দুধ কেনে, তারা প্রায়ই beer-ও কেনে। তাই ডায়াপারের পাশে beer সাজানো। আমাদের দোকানে এর সহজ রূপ: নুডলসের পাশে ডিম।</span></div>
+  <div><b>Inventory Management</b><span>AC-ফ্রিজ মেরামতের কোম্পানি দেখে কোন যন্ত্রাংশ প্রায়ই একসাথে লাগে। টেকনিশিয়ানের গাড়িতে সেগুলো একসাথে রাখলে গ্রাহকের বাসায় দ্বিতীয়বার যেতে হয় না।</span></div>
 </div>
-<div class="callout tip"><b>Association বনাম Sequential</b>Association: একই ব্যাগে কী কী একসাথে (সময় নেই)। Sequential: আগে কী, পরে কী (সময়ের ক্রম আছে)।</div>`},
-{id:9,t:"Regression ও Anomaly Detection",en:"Predictive tasks",sl:"29–30",faq:[46,47,48,49],h:`
-<div class="grid2">
-  <div class="mini c1"><b>Regression</b>অন্য variable দেখে একটা <b>continuous</b> সংখ্যা অনুমান (linear বা nonlinear model)। Statistics আর neural network-এ বহুল পঠিত।<small>উদাহরণ: বিজ্ঞাপন খরচ → বিক্রি; তাপমাত্রা-আর্দ্রতা-চাপ → বাতাসের গতি; শেয়ার সূচকের time series</small></div>
-  <div class="mini c4"><b>Deviation / Anomaly Detection</b>স্বাভাবিক আচরণ থেকে <b>বড় বিচ্যুতি</b> খোঁজা।<small>প্রয়োগ: Credit card fraud, network intrusion। বিশ্ববিদ্যালয়ের নেটওয়ার্কে দিনে ১০ কোটির বেশি কানেকশন হতে পারে।</small></div>
+<div class="write"><b>পরীক্ষায় লিখুন</b>Association rule discovery: given a set of records, each containing some items from a collection, produce dependency rules that predict the occurrence of an item based on the occurrences of other items, e.g. {Diaper, Milk} → {Beer}. Applications: marketing and sales promotion, supermarket shelf management, inventory management.</div>`},
+{id:9,t:"Sequential Pattern: কোনটার পরে কোনটা",en:"Descriptive · order in time",sl:"27–28",faq:[44,45],h:`
+<p>Association rule-এ সময়ের কোনো ভূমিকা নেই, একই রসিদে কী কী আছে শুধু সেটা দেখি। কিন্তু অনেক সময় <b>ক্রমটাই আসল কথা</b>।</p>
+<div class="story"><b>CSE-র ছাত্রের বই কেনা</b>প্রথম সেমিস্টারে কেনে C প্রোগ্রামিং বই। পরের সেমিস্টারে C++। তারপর অন্য ভাষা। কোনো বইয়ের দোকান এই ক্রম জানলে, কেউ C++ কিনলেই পরের বইয়ের অফার দিতে পারে।</div>
+<div class="slide"><b>স্লাইড ২৭: সংজ্ঞা</b>Given is a set of objects, with each object associated with its own timeline of events, find rules that predict strong sequential dependencies among different events. Rules are formed by first discovering patterns. Event occurrences in the patterns are governed by timing constraints.</div>
+<p>“Timing constraint” মানে সময়ের একটা সীমা: যেমন “C++ কেনার ৬ মাসের মধ্যে Perl কেনে”। ১০ বছর পরে কিনলে সেটা আর এই pattern-এ পড়ে না।</p>
+<h3>স্লাইড ২৮-এর উদাহরণ</h3>
+<div class="seq">
+  <div><b>টেলিকম অ্যালার্ম লগ</b><span><em>Inverter Problem, Excessive Line Current</em> → <em>Rectifier Alarm</em> → <em>Fire Alarm</em></span><small>এই অ্যালার্মগুলো এই ক্রমে বাজলে আগুন লাগার আগেই সতর্ক হওয়া যায়।</small></div>
+  <div><b>কম্পিউটার বইয়ের দোকান</b><span><em>Intro to Visual C</em> → <em>C++ Primer</em> → <em>Perl for Dummies, Tcl/Tk</em></span></div>
+  <div><b>খেলার সামগ্রীর দোকান</b><span><em>Shoes</em> → <em>Racket, Racketball</em> → <em>Sports Jacket</em></span></div>
 </div>
-<div class="callout tip"><b>Classification বনাম Regression</b>Classification-এর উত্তর একটা <b>শ্রেণি</b> (হ্যাঁ/না, তারা/গ্যালাক্সি)। Regression-এর উত্তর একটা <b>সংখ্যা</b> (৫৭,৩০০ টাকা, ১২ কিমি/ঘণ্টা)।</div>`},
-{id:10,t:"Data Mining-এর চ্যালেঞ্জ",en:"Challenges",sl:"31",faq:[50,51],h:`
-<div class="grid2">
-  <div class="mini c1"><b>1. Scalability</b>ডেটা বাড়লেও অ্যালগরিদমকে দ্রুত চলতে হবে।</div>
-  <div class="mini c2"><b>2. Dimensionality</b>হাজার হাজার attribute সামলানো।</div>
-  <div class="mini c3"><b>3. Complex &amp; Heterogeneous Data</b>লেখা, ছবি, গ্রাফ, নানা ফরম্যাট।</div>
-  <div class="mini c4"><b>4. Data Quality</b>ভুল, অসম্পূর্ণ, noisy ডেটা।</div>
-  <div class="mini c1"><b>5. Data Ownership &amp; Distribution</b>ডেটা নানা প্রতিষ্ঠানে, নানা মালিকের কাছে ছড়ানো।</div>
-  <div class="mini c2"><b>6. Privacy Preservation</b>মানুষের ব্যক্তিগত তথ্য গোপন রেখে বিশ্লেষণ।</div>
-  <div class="mini c3"><b>7. Streaming Data</b>অবিরাম আসা ডেটা সাথে সাথে বিশ্লেষণ।</div>
+<div class="callout key"><b>Association বনাম Sequential</b>Association: একই ব্যাগে কী কী একসাথে (সময় নেই)।<br>Sequential: আগে কী, পরে কী (সময়ের ক্রম আছে)।</div>
+<div class="write"><b>পরীক্ষায় লিখুন</b>Sequential pattern discovery: given a set of objects, each with its own timeline of events, find rules that predict strong sequential dependencies among different events, subject to timing constraints. Example: (Shoes) (Racket, Racketball) → (Sports_Jacket).</div>`},
+{id:10,t:"Regression ও Anomaly Detection",en:"Predict a number · catch the unusual",sl:"29–30",faq:[46,47,48,49],h:`
+<h3>Regression: একটা সংখ্যা অনুমান করা</h3>
+<p>Classification-এর উত্তর একটা দল: হ্যাঁ/না, তারা/গ্যালাক্সি। কিন্তু চাচা যদি জানতে চান “আগামী মাসে বিক্রি <b>কত টাকা</b> হবে?”, উত্তরটা একটা সংখ্যা। সংখ্যা অনুমানের কাজটাই <b>Regression</b>।</p>
+<div class="slide"><b>স্লাইড ২৯</b>Predict a value of a given continuous valued variable based on the values of other variables, assuming a linear or nonlinear model of dependency.</div>
+<div class="tool" data-tool="regress"></div>
+<p>স্লাইডের উদাহরণ: বিজ্ঞাপনের খরচ দেখে নতুন পণ্যের বিক্রি; তাপমাত্রা, আর্দ্রতা আর বায়ুচাপ দেখে বাতাসের গতি; শেয়ার বাজারের সূচক কোথায় যাবে (time series)। Statistics আর neural network-এ এটা অনেক পড়ানো হয়।</p>
+<h3>Deviation / Anomaly Detection: অস্বাভাবিক কিছু ধরা</h3>
+<div class="story"><b>ব্যাংকের SMS</b>আপনি সারা মাস ২০০–৫০০ টাকার কেনাকাটা করেন, সবই সাভারে। হঠাৎ রাত ৩টায় দুবাই থেকে আপনার কার্ডে ২ লাখ টাকার কেনাকাটা। ব্যাংক সাথে সাথে কার্ড আটকে SMS দেয়। কারণ এটা আপনার স্বাভাবিক আচরণের সাথে একদমই মেলে না।</div>
+<div class="slide"><b>স্লাইড ৩০</b>Detect significant deviations from normal behavior. Applications: Credit Card Fraud Detection, Network Intrusion Detection.</div>
+<p>Network intrusion-এর উদাহরণ: বিশ্ববিদ্যালয়ের নেটওয়ার্কে দিনে ১০ কোটিরও বেশি কানেকশন হতে পারে। তার মধ্যে হঠাৎ একটা কম্পিউটার থেকে হাজার হাজার অচেনা কানেকশন গেলে সেটা হ্যাকিংয়ের লক্ষণ। এত কানেকশন মানুষের পক্ষে দেখা সম্ভব না।</p>
+<div class="callout tip"><b>এক লাইনে মনে রাখুন</b>Classification বলে “কোন দল?”, Regression বলে “কত?”, Deviation বলে “অস্বাভাবিক কিনা?”। তিনটাই Predictive।</div>`},
+{id:11,t:"Data Mining-এর ৭টা চ্যালেঞ্জ",en:"Challenges",sl:"31",faq:[50,51],h:`
+<p>রহিম চাচার ছোট দোকানে data mining সহজ। কিন্তু দোকানটা যদি সারা দেশে ছড়ানো বিশাল অনলাইন শপ হয়ে যায়, তখন সাতটা সমস্যা দেখা দেয়:</p>
+<div class="chal">
+  <div><b>Scalability</b><span>ডেটা ১০০০ গুণ বাড়লেও অ্যালগরিদমকে সময়মতো উত্তর দিতে হবে।</span></div>
+  <div><b>Dimensionality</b><span>প্রতিটা গ্রাহকের হাজার হাজার তথ্য (কলাম)। সব কলাম একসাথে বিবেচনা করা কঠিন।</span></div>
+  <div><b>Complex &amp; Heterogeneous Data</b><span>শুধু সংখ্যা না: রিভিউয়ের লেখা, পণ্যের ছবি, কে কার বন্ধু এমন সম্পর্ক।</span></div>
+  <div><b>Data Quality</b><span>ভুল ঠিকানা, খালি ঘর, একই গ্রাহক দুইবার। নোংরা ডেটা থেকে ভুল সিদ্ধান্ত।</span></div>
+  <div><b>Data Ownership &amp; Distribution</b><span>পেমেন্টের ডেটা এক কোম্পানির, ডেলিভারির ডেটা কুরিয়ারের। নানা মালিক, নানা জায়গা।</span></div>
+  <div><b>Privacy Preservation</b><span>কে কী ওষুধ কিনেছে, এমন ব্যক্তিগত তথ্য গোপন রেখেই বিশ্লেষণ করতে হবে।</span></div>
+  <div><b>Streaming Data</b><span>অর্ডার থামে না, প্রতি সেকেন্ডে আসছে। থামিয়ে রেখে বিশ্লেষণের সুযোগ নেই।</span></div>
 </div>
-<div class="callout tip"><b>মনে রাখার কৌশল (৭টা)</b>“<b>বড়</b> (Scalability), <b>চওড়া</b> (Dimensionality), <b>জটিল</b> (Complex), <b>নোংরা</b> (Quality), <b>ছড়ানো</b> (Ownership), <b>গোপন</b> (Privacy), <b>চলমান</b> (Streaming)।”</div>`}
+<div class="callout tip"><b>মনে রাখার কৌশল</b>ডেটা <b>বড়</b> (Scalability), <b>চওড়া</b> (Dimensionality), <b>জটিল</b> (Complex), <b>নোংরা</b> (Quality), <b>ছড়ানো</b> (Ownership), <b>গোপন</b> (Privacy), <b>চলমান</b> (Streaming)।</div>`},
+{id:12,t:"শেষে: পুরো অধ্যায় এক পাতায়",en:"Revision sheet",sl:"1–31",faq:[],h:`
+<p>পরীক্ষার আগের রাতে শুধু এই পাতাটা পড়লেই পুরো অধ্যায় মনে পড়বে।</p>
+<div class="sheet">
+  <div><b>কেন</b><span>ডেটা অনেক, বিশ্লেষক কম (data gap); তথ্য লুকানো; অনেক ডেটা কেউ দেখেই না।</span></div>
+  <div><b>কী</b><span>Non-trivial extraction of <u>implicit</u>, <u>previously unknown</u> and <u>potentially useful</u> information from data.</span></div>
+  <div><b>যা না</b><span>ফোনবুকে নম্বর খোঁজা, সার্চ ইঞ্জিনে query: এগুলো mining না।</span></div>
+  <div><b>উৎস</b><span>ML/AI + Pattern Recognition + Statistics + Database। পুরোনো পদ্ধতি অচল: বড়, চওড়া, এলোমেলো ডেটা।</span></div>
+  <div><b>Predictive</b><span>Classification (কোন দল?), Regression (কত?), Deviation (অস্বাভাবিক?)।</span></div>
+  <div><b>Descriptive</b><span>Clustering (কয় দল?), Association (কী একসাথে?), Sequential (কোনটার পরে কী?)।</span></div>
+  <div><b>Classification</b><span>Training set থেকে model, test set দিয়ে accuracy। Cheat উদাহরণ। Marketing, fraud, churn, sky survey।</span></div>
+  <div><b>Clustering</b><span>লেবেল নেই। Intra কম, inter বেশি। Euclidean distance। Market segmentation, documents।</span></div>
+  <div><b>Association</b><span>{Diaper, Milk} → {Beer}। Antecedent → consequent। Shelf, inventory।</span></div>
+  <div><b>Sequential</b><span>সময়ের ক্রম + timing constraint। (Shoes)(Racket) → (Jacket)।</span></div>
+  <div><b>চ্যালেঞ্জ ৭</b><span>Scalability, Dimensionality, Complex data, Quality, Ownership, Privacy, Streaming।</span></div>
+</div>
+<div class="callout key"><b>এবার চাইলে নিজেকে যাচাই করুন</b>নিচের মেনুর <b>প্রশ্ন</b> অংশে ৫১টা প্রশ্নোত্তর, আর <b>পরীক্ষা</b> অংশে MCQ আছে। এগুলো ঐচ্ছিক, আসল কাজ উপরের পাঠটা বোঝা।</div>`}
 ];
 const STEPS={};
 
@@ -984,6 +1129,23 @@ Refund = No:
     const svg=el.querySelector("svg");let on=false;
     const draw=()=>{svg.innerHTML=(on?C.map((c,k)=>`<circle cx="${c[0]}" cy="${c[1]}" r="52" fill="${col[k]}" fill-opacity=".08" stroke="${col[k]}" stroke-dasharray="4 3"/>`).join("")+`<line x1="${C[0][0]}" y1="${C[0][1]}" x2="${C[1][0]}" y2="${C[1][1]}" stroke="var(--muted)" stroke-width="1"/><text x="145" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">intercluster: বেশি</text>`:"")+P.map(p=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="5" fill="${on?col[p[2]]:"#9aa3b8"}"/>`).join("");};
     el.querySelector('[data-k="go"]').addEventListener("click",e=>{on=!on;e.target.textContent=on?"আবার এলোমেলো দেখুন":"Cluster করুন";el.querySelector('[data-k="n"]').textContent=on?"৩টা দল তৈরি হলো। দলের ভেতরের point-গুলো কাছাকাছি (intracluster দূরত্ব কম), দলগুলো একে অপর থেকে দূরে (intercluster দূরত্ব বেশি)।":"এখন সব point ধূসর, কোনো লেবেল নেই। বোতাম চাপলে কাছাকাছি point-গুলো এক দলে যাবে।";draw();});draw();
+  });
+  root.querySelectorAll('.tool[data-tool="regress"]').forEach(el=>{
+    const D=[[5,32],[10,41],[15,55],[20,60],[25,72],[30,78],[35,92],[40,97]];
+    const n=D.length,mx=D.reduce((a,d)=>a+d[0],0)/n,my=D.reduce((a,d)=>a+d[1],0)/n,b1=D.reduce((a,d)=>a+(d[0]-mx)*(d[1]-my),0)/D.reduce((a,d)=>a+(d[0]-mx)**2,0),b0=my-b1*mx;
+    el.innerHTML=`<div class="th">রহিম চাচার ৮ মাসের হিসাব <span class="badge">TRY</span></div>
+    <svg viewBox="0 0 300 190" style="width:100%;max-width:440px;display:block;margin:0 auto;background:var(--bg);border-radius:10px" role="img" aria-label="Advertising spend versus sales"></svg>
+    <label class="tl">বিজ্ঞাপনে খরচ (হাজার টাকা): <b data-r="v">45</b></label><input type="range" data-r="x" min="0" max="50" step="1" value="45">
+    <div class="regout"><div><b data-r="y"></b><span>অনুমিত বিক্রি (হাজার টাকা)</span></div><div><b style="font-size:15px;font-family:var(--f-mono)">y = ${b0.toFixed(1)} + ${b1.toFixed(2)}x</b><span>ডেটা থেকে শেখা সরলরেখা (linear model)</span></div></div>
+    <div class="note">বিন্দুগুলো আগের ৮ মাসের আসল হিসাব। কম্পিউটার এমন একটা রেখা টানে যা সব বিন্দুর যত কাছ দিয়ে সম্ভব যায়। তারপর নতুন খরচ দিলে রেখা থেকে বিক্রি পড়ে নেয়। উত্তরটা একটা সংখ্যা, তাই এটা regression।</div>`;
+    const svg=el.querySelector("svg"),X=x=>30+x*4.3,Y=y=>170-y*1.3;
+    const draw=()=>{const x=+el.querySelector('[data-r="x"]').value,y=b0+b1*x;el.querySelector('[data-r="v"]').textContent=x;el.querySelector('[data-r="y"]').textContent=Math.round(y);
+      svg.innerHTML=`<line x1="30" y1="170" x2="290" y2="170" stroke="var(--line)"/><line x1="30" y1="10" x2="30" y2="170" stroke="var(--line)"/>
+      <text x="160" y="186" font-size="10" fill="var(--muted)" text-anchor="middle">বিজ্ঞাপন খরচ</text><text x="12" y="90" font-size="10" fill="var(--muted)" text-anchor="middle" transform="rotate(-90 12 90)">বিক্রি</text>
+      <line x1="${X(0)}" y1="${Y(b0)}" x2="${X(55)}" y2="${Y(b0+b1*55)}" stroke="var(--accent)" stroke-width="2"/>
+      ${D.map(d=>`<circle cx="${X(d[0])}" cy="${Y(d[1])}" r="4.5" fill="var(--ink)"/>`).join("")}
+      <line x1="${X(x)}" y1="170" x2="${X(x)}" y2="${Y(y)}" stroke="var(--key)" stroke-dasharray="3 3"/><circle cx="${X(x)}" cy="${Y(y)}" r="6" fill="var(--key)"/>`;};
+    el.querySelector('[data-r="x"]').addEventListener("input",draw);draw();
   });
   root.querySelectorAll('.tool[data-tool="basket"]').forEach(el=>{
     const B=[["Bread","Coke","Milk"],["Beer","Bread"],["Beer","Coke","Diaper","Milk"],["Beer","Bread","Diaper","Milk"],["Coke","Diaper","Milk"]],I=["Beer","Bread","Coke","Diaper","Milk"];
