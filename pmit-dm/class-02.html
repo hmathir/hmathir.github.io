@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Mining Class 2: Introduction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: app-style single column. Home screen with three big mode cards; fixed bottom nav (Home / Study / Exam / Cards); study list = collapsible question cards. */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --ink:#141b2d; --muted:#5b6478; --line:#dde2ec;
+  --accent:#2f4fd8; --accent-soft:#e8ecfd; --on-accent:#ffffff;
+  --key:#b26a00; --key-soft:#fdf1de;
+  --good:#1d7a46; --good-soft:#e3f4ea; --bad:#c0362c; --bad-soft:#fbe6e4;
+  --f-display:"Sora","Segoe UI",system-ui,sans-serif;
+  --f-body:"Hind Siliguri","IBM Plex Sans","Noto Sans Bengali","Segoe UI",system-ui,sans-serif;
+  --f-en:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --nav-h:66px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
+  --accent:#8ea2ff; --accent-soft:#222b4d; --on-accent:#0e1220; --key:#f0b35a; --key-soft:#3a2c16;
+  --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf4; --muted:#9aa3b8; --line:#2a3148;
+  --accent:#8ea2ff; --accent-soft:#222b4d; --on-accent:#0e1220; --key:#f0b35a; --key-soft:#3a2c16;
+  --good:#5fd08f; --good-soft:#163323; --bad:#ff8a80; --bad-soft:#3d1c1a; color-scheme:dark;}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--nav-h) + 16px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:720px;margin:0 auto;padding-left:16px;padding-right:16px}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.en{font-family:var(--f-en)}
+.mono{font-family:var(--f-mono)}
+
+/* Top bar */
+.topbar{background:var(--surface);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.brand .course{font:500 12px var(--f-mono);color:var(--muted)}
+.brand .course a{color:var(--accent);text-decoration:none;font-weight:600}
+.brand .name{font:600 16px var(--f-display);line-height:1.3}
+.langbtn{flex:none;display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.langbtn button{border:0;background:transparent;color:var(--muted);font-size:13px;font-weight:600;padding:7px 10px;cursor:pointer}
+.langbtn button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+
+main{padding-top:20px}
+.view[hidden]{display:none}
+h2.vtitle{font-size:22px;font-weight:600;margin:0 0 4px;text-wrap:balance}
+p.vsub{color:var(--muted);margin:0 0 18px;font-size:15px}
+
+/* Home */
+.hello{margin-bottom:18px}
+.hello h1{font:700 clamp(24px,6vw,30px)/1.25 var(--f-display);margin:0 0 6px;text-wrap:balance}
+.hello p{margin:0;color:var(--muted);font-size:15.5px}
+.modes{display:grid;gap:12px}
+.mode{display:grid;grid-template-columns:52px 1fr 20px;align-items:center;gap:14px;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;color:inherit;transition:border-color .15s,transform .15s}
+.mode:hover{border-color:var(--accent)}
+.mode:active{transform:scale(.99)}
+.mode .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
+.mode .ic svg{width:26px;height:26px}
+.mode.m0 .ic{background:var(--ink);color:var(--surface)}
+.mode.m1 .ic{background:var(--accent-soft);color:var(--accent)}
+.mode.m2 .ic{background:var(--good-soft);color:var(--good)}
+.mode.m3 .ic{background:var(--key-soft);color:var(--key)}
+.mode .t{display:block;font-size:18px;font-weight:600;line-height:1.3}
+.mode .t small{font:500 12.5px var(--f-en);color:var(--muted);margin-left:6px}
+.mode .d{display:block;font-size:14.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+.mode .arr{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font:600 22px var(--f-display);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+.tip{margin-top:16px;font-size:14px;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:10px 12px}
+
+/* Study */
+.studybar{position:sticky;top:0;z-index:4;background:var(--bg);padding:10px 0 8px;margin:-10px 0 6px}
+.search{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font-size:14px;font-weight:500;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.listhead{display:flex;justify-content:space-between;align-items:center;margin:6px 0 10px;font-size:14px;color:var(--muted)}
+.linkbtn{background:none;border:0;color:var(--accent);font-weight:600;font-size:14px;cursor:pointer;padding:4px 0}
+.sec-title{font-size:15px;font-weight:600;color:var(--muted);margin:22px 0 8px;display:flex;gap:8px;align-items:baseline}
+.sec-title:first-child{margin-top:4px}
+.sec-title .cnt{font:500 12px var(--f-mono)}
+.qcards{display:grid;gap:10px}
+.qc{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.qc>button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:34px 1fr 18px;gap:10px;width:100%;padding:14px;cursor:pointer;align-items:start}
+.qc>button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:14px}
+.qn{font:500 12.5px var(--f-mono);color:var(--muted);background:var(--bg);border-radius:8px;text-align:center;padding:3px 0;margin-top:2px}
+.qq{font-weight:600;font-size:15.5px;line-height:1.5}
+.qq .qen{font-family:var(--f-en)}
+.qq .qbn{display:block;font-weight:500;color:var(--muted);margin-top:3px;font-size:15px}
+.chev{color:var(--muted);transition:transform .2s;margin-top:3px}
+.qc.open .chev{transform:rotate(180deg)}
+.qbody{display:none;padding:0 14px 14px 58px}
+.qc.open .qbody{display:block}
+.ansbox{background:var(--good-soft);border-radius:10px;padding:10px 12px}
+.lbl{display:block;font-size:12.5px;font-weight:600;letter-spacing:.02em;margin-bottom:2px}
+.ansbox .lbl{color:var(--good)}
+.ansbox .aen{font:600 15px var(--f-en)}
+.ansbox .abn{display:block;font-weight:600;margin-top:2px}
+.exbox{margin-top:8px;background:var(--accent-soft);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.6}
+.exbox .lbl{color:var(--accent)}
+.empty{padding:28px;text-align:center;color:var(--muted);background:var(--surface);border-radius:14px;border:1px solid var(--line)}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow-x:auto;margin-top:10px}
+.compare{width:100%;border-collapse:collapse;font-size:14px;font-family:var(--f-en)}
+.compare th,.compare td{padding:10px 12px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.compare thead th{border-top:0;background:var(--accent-soft);font-weight:600}
+.compare td:first-child{color:var(--muted);font-weight:500;width:34%}
+
+/* Buttons and fields */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.btn{font-size:16px;font-weight:600;border-radius:12px;padding:13px 18px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.block{width:100%}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.field{margin-bottom:18px}
+.field>.fl{display:block;font-weight:600;font-size:15px;margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{flex:1 1 0;min-width:64px;font-size:15px;font-weight:600;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 8px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+select{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;cursor:pointer}
+.switch input{width:20px;height:20px;accent-color:var(--accent)}
+
+/* Exam run */
+.meta{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.meta .score{color:var(--good);font-weight:600}
+.progress{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 16px}
+.progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.qorig{font-size:13px;color:var(--muted);margin-bottom:6px}
+.qtext{font-size:18px;font-weight:600;line-height:1.45;margin:0 0 16px}
+.qtext .qen{font-family:var(--f-en)}
+.qtext .qbn{display:block;font-size:16px;font-weight:500;color:var(--muted);margin-top:6px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;font:15.5px var(--f-en);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;cursor:pointer;width:100%}
+.opt .letter{flex:none;font:600 13px var(--f-mono);width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--good);background:var(--good-soft)}
+.opt.correct .letter{background:var(--good);color:#fff;border-color:var(--good)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .letter{background:var(--bad);color:#fff;border-color:var(--bad)}
+.feedback{margin-top:14px;border-radius:12px;padding:12px 14px;font-size:15px;border-left:4px solid}
+.feedback.ok{background:var(--good-soft);border-color:var(--good)}
+.feedback.no{background:var(--bad-soft);border-color:var(--bad)}
+.feedback .fh{font-weight:600;font-size:16px;margin-bottom:4px}
+.feedback .fexp{font-family:var(--f-en);font-size:14.5px}
+.feedback .fbex{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);line-height:1.6}
+.next{margin-top:16px}
+.quit{display:block;margin:12px auto 0}
+.big{font:700 48px/1 var(--f-display);margin:8px 0 6px;font-variant-numeric:tabular-nums}
+.verdict{color:var(--muted);margin:0 0 16px}
+.res-btns{display:grid;gap:10px}
+.review{margin-top:18px;display:grid;gap:10px}
+.rv{border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:10px 12px;font-size:14.5px;background:var(--bg)}
+.rv .rq{font-weight:600;margin-bottom:4px;font-family:var(--f-en)}
+.rv .ry{color:var(--bad);font-family:var(--f-en)} .rv .rc{color:var(--good);font-family:var(--f-en)}
+
+/* Flashcards */
+.fc-top{display:flex;gap:10px;margin-bottom:12px}
+.fc-top select{flex:1}
+.fc-top .btn{flex:none;padding:10px 14px;font-size:14.5px}
+.fcard{min-height:280px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;text-align:left;color:inherit;font:inherit}
+.fcard .side{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:10px}
+.fcard .fq{font-size:19px;font-weight:600;line-height:1.45}
+.fcard .fq .qen,.fcard .fq .aen{font-family:var(--f-en)}
+.fcard .fq .qbn,.fcard .fq .abn{display:block;font-size:16.5px;font-weight:500;margin-top:6px}
+.fcard .fq .qbn{color:var(--muted)}
+.fcard.back{background:var(--good-soft);border-color:var(--good)}
+.fcard.back .side{color:var(--good)}
+.fcard .hint{margin-top:18px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.fcard .exbox{background:var(--surface)}
+.fc-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:12px}
+.fc-count{font:500 14px var(--f-mono);color:var(--muted);text-align:center}
+
+/* Notes */
+.nprog{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:14px;color:var(--muted)}
+.nprog .bar{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.nprog .bar i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
+.toc{display:grid;gap:8px}
+.tocitem{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;color:inherit}
+.tocitem:hover{border-color:var(--accent)}
+.tocitem .no{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:600 15px var(--f-display)}
+.tocitem.done .no{background:var(--good);color:#fff}
+.tocitem .tt{font-weight:600;font-size:16px;line-height:1.35}
+.tocitem .ts{display:block;font:400 12.5px var(--f-en);color:var(--muted);margin-top:1px}
+.tocitem .sl{font:500 12px var(--f-mono);color:var(--muted);white-space:nowrap}
+.chhead{margin-bottom:14px}
+.back{background:none;border:0;color:var(--accent);font-weight:600;font-size:15px;cursor:pointer;padding:4px 0;margin-bottom:8px}
+.chhead .k{font:500 12.5px var(--f-mono);color:var(--muted)}
+.chhead h2{font-size:24px;font-weight:600;margin:2px 0 0;line-height:1.3;text-wrap:balance}
+.chbody{font-size:16px;line-height:1.7}
+.chbody p{margin:0 0 12px}
+.chbody h3{font-size:17px;font-weight:600;margin:22px 0 10px}
+.chbody .pts{margin:0 0 14px;padding-left:22px;display:grid;gap:6px}
+.callout{border-radius:12px;padding:12px 14px;margin:14px 0;font-size:15.5px;line-height:1.65}
+.callout b:first-child{display:block;font-size:13.5px;margin-bottom:2px}
+.callout.key{background:var(--key-soft);border-left:4px solid var(--key)}
+.callout.key b:first-child{color:var(--key)}
+.callout.tip{background:var(--accent-soft);border-left:4px solid var(--accent)}
+.callout.tip b:first-child{color:var(--accent)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0 14px}
+.fbox{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font:600 14px var(--f-en);text-align:center}
+.fbox small{display:block;font:400 12.5px var(--f-mono);color:var(--muted);margin-top:2px}
+.fbox.dark{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.fbox.dark small{color:var(--line)}
+.fbox.acc{border-color:var(--accent);color:var(--accent)}
+.farr{font-size:13.5px;color:var(--muted);font-weight:500}
+.farr::after{content:" →"}
+@media (max-width:560px){.flow{flex-direction:column;align-items:stretch;gap:4px}.farr{text-align:center}.farr::after{content:" ↓"}}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6}
+.mini b{display:block;font-family:var(--f-en);font-size:15.5px;margin-bottom:2px}
+.mini .mono{display:block;margin:6px 0;color:var(--accent);font-size:14px}
+.mini small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px}
+.mini.good{border-top:3px solid var(--good)} .mini.bad{border-top:3px solid var(--bad)}
+.mini.c1{border-top:3px solid var(--accent)} .mini.c2{border-top:3px solid var(--good)} .mini.c3{border-top:3px solid var(--key)} .mini.c4{border-top:3px solid var(--bad)}
+.mini .tag{display:inline-block;font:500 11px var(--f-en);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle}
+.mini b .tag{margin-left:6px}
+.gloss{margin:0;display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gloss dt{font:600 14.5px var(--f-en);padding:10px 14px 0;border-top:1px solid var(--line)}
+.gloss dt:first-child{border-top:0}
+.gloss dd{margin:0;padding:2px 14px 10px;font-size:15px;color:var(--ink)}
+.tree{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.tnode{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font:600 14.5px var(--f-en)}
+.tnode small{display:block;font:400 13px var(--f-body);color:var(--muted)}
+.tnode.root{background:var(--ink);color:var(--surface);border-color:var(--ink);text-align:center;margin-bottom:12px}
+.tkids{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.tcol{display:grid;gap:8px;align-content:start;border-left:2px solid var(--line);padding-left:12px}
+.tlabel{font-size:13.5px;font-weight:600;color:var(--accent)}
+.tsub{display:flex;flex-wrap:wrap;gap:6px;padding-left:14px}
+.tsub span{font:500 13px var(--f-en);background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 10px}
+.modes2{display:flex;gap:6px;margin:6px 0 10px;flex-wrap:wrap}
+.mtab{flex:1 1 auto;font-size:14.5px;font-weight:600;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 10px;cursor:pointer}
+.mtab[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.mpanel[hidden]{display:none}
+.stepper{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+.scene{display:grid;grid-template-columns:1fr 1.4fr 1fr;align-items:center;text-align:center;background:var(--bg);border-radius:10px;padding:16px 8px;font-size:26px;min-height:76px}
+.scene span:nth-child(2){font-size:22px}
+.scene small{display:block;font-size:12px;color:var(--muted)}
+.stext{font-size:15.5px;line-height:1.6;margin:12px 0;min-height:3.2em}
+.sctl{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sdots{display:flex;gap:6px}
+.sdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.sdots i.on{background:var(--accent)}
+.sctl .btn{padding:9px 14px;font-size:14.5px}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0}
+.tool .th{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15.5px;margin-bottom:10px}
+.tool .th .badge{font:600 11px var(--f-en);background:var(--good-soft);color:var(--good);border-radius:6px;padding:2px 7px}
+.tool label.tl{display:block;font-size:13.5px;color:var(--muted);margin:8px 0 4px}
+.tool input[type=text],.tool input[type=number]{width:100%;font:15px var(--f-mono);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.tool input[type=range]{width:100%;accent-color:var(--accent)}
+.tool .out{margin-top:10px;background:var(--ink);color:var(--surface);border-radius:10px;padding:12px;font:500 16px var(--f-mono);word-break:break-all}
+.tool .out small{display:block;font:400 12px var(--f-body);color:var(--line);margin-bottom:2px}
+.tool .note{font-size:13.5px;color:var(--muted);margin-top:8px}
+.bits{font:500 14.5px var(--f-mono);background:var(--bg);border-radius:10px;padding:10px 12px;overflow-x:auto;white-space:pre;line-height:1.8}
+.bits .r{color:var(--accent)} .bits .g{color:var(--good)}
+.kc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.kc div{background:var(--bg);border-radius:10px;padding:10px;text-align:center}
+.kc b{display:block;font:700 26px var(--f-display);font-variant-numeric:tabular-nums}
+.kc span{font-size:13px;color:var(--muted)}
+.chfoot{display:grid;gap:10px;margin-top:22px}
+.chnav{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chnav .btn{font-size:14.5px;padding:11px 10px}
+.donebtn[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:#fff}
+
+.pyr{display:grid;gap:6px;justify-items:center;margin:12px 0}
+.pyr .pl{border-radius:10px;padding:10px 14px;text-align:center;color:#fff}
+.pyr .pl b{display:block;font:700 17px var(--f-display)}
+.pyr .pl span{display:block;font:500 12.5px var(--f-en);opacity:.9}
+.pyr .pl small{display:block;font-size:13.5px;margin-top:3px;opacity:.95;line-height:1.5}
+.pyr .p1{width:62%;background:#7a3fd0}.pyr .p2{width:80%;background:var(--accent)}.pyr .p3{width:100%;background:#1d7a46}
+:root[data-theme="dark"] .pyr .p2{background:#3f5ee0}
+@media (max-width:420px){.pyr .p1{width:78%}.pyr .p2{width:90%}}
+details.qa{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:10px 0;padding:0 14px}
+details.qa summary{cursor:pointer;font:600 15.5px var(--f-en);padding:12px 0;list-style-position:inside}
+details.qa[open] summary{border-bottom:1px solid var(--line);margin-bottom:10px}
+details.qa p{font-size:15px}
+body.pdf details.qa{display:block}
+.srt-q{font-size:15.5px;font-weight:600;margin:4px 0 10px;min-height:2.6em}
+.srt-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.srt-btns button{font:700 15px var(--f-display);padding:12px 6px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.srt-btns button.ok{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.srt-btns button.no{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.srt-fb{font-size:14.5px;margin-top:10px;min-height:1.5em}
+.srt-meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.proc-tbl{width:100%;border-collapse:collapse;font:14px var(--f-en)}
+.proc-tbl td,.proc-tbl th{border-top:1px solid var(--line);padding:6px 8px;text-align:left}
+.proc-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-top:10px}
+.proc-out div{background:var(--good-soft);border-radius:10px;padding:10px;text-align:center}
+.proc-out b{display:block;font:700 20px var(--f-display);color:var(--good)}
+.proc-out span{font-size:13px;color:var(--muted)}
+
+.venn{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0;padding:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.venn span{background:var(--accent-soft);color:var(--accent);border-radius:12px;padding:16px 10px;text-align:center;font:600 14px var(--f-en)}
+.venn .v2{background:var(--good-soft);color:var(--good)}.venn .v3{background:var(--key-soft);color:var(--key)}.venn .v4{background:var(--bad-soft);color:var(--bad)}
+.venn .vc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--ink);color:var(--surface);border-radius:999px;padding:8px 16px;font:700 14px var(--f-display);box-shadow:0 0 0 4px var(--surface)}
+.cl-in{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cl-in label{font-size:13.5px;color:var(--muted);display:grid;gap:4px}
+.tool .chips{flex-wrap:wrap;overflow:visible}
+.tool .chips .chip{font-family:var(--f-en)}
+footer .credit{display:block;margin-top:6px}
+footer .credit a{color:var(--accent);font-weight:600;text-decoration:none}
+
+/* Bottom nav */
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bnav .wrap{display:grid;grid-template-columns:repeat(5,1fr);height:var(--nav-h);padding-left:4px;padding-right:4px}
+.bnav button{border:0;background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12.5px;font-weight:600;cursor:pointer}
+.bnav svg{width:22px;height:22px}
+.bnav button[aria-current="page"]{color:var(--accent)}
+.bnav button[aria-current="page"] .pill{background:var(--accent-soft)}
+.bnav .pill{display:grid;place-items:center;width:48px;height:28px;border-radius:999px}
+
+/* Intro overlay */
+.intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(14,18,32,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-y:auto}
+.intro[hidden]{display:none}
+.intro-card{width:100%;max-width:440px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:22px 20px 20px;box-shadow:0 20px 50px rgba(0,0,0,.25);animation:pop .35s ease-out}
+@keyframes pop{from{transform:translateY(12px) scale(.98);opacity:.6}to{transform:none;opacity:1}}
+.cipher-box{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;text-align:center}
+.cipher-txt{font:500 24px var(--f-mono);letter-spacing:.06em;color:var(--accent)}
+.cipher-txt.done{color:var(--key)}
+.cipher-hint{font-size:13px;color:var(--muted);margin-top:4px}
+.intro-card h2{font-size:21px;font-weight:600;margin:16px 0 6px}
+.intro-card p{margin:0 0 10px;font-size:15.5px;line-height:1.6}
+.rules{list-style:none;padding:0;margin:0 0 12px;display:grid;gap:8px}
+.rules li{font-size:15px;line-height:1.55;padding:9px 12px;border-radius:10px;background:var(--bg);border-left:3px solid var(--line)}
+.rules li.good{border-left-color:var(--good)} .rules li.bad{border-left-color:var(--bad)} .rules li.mid{border-left-color:var(--key)}
+.sign{font-size:15px;color:var(--muted);text-align:right}
+.sign b{color:var(--ink);font-weight:600}
+.intro-btns{display:grid;gap:8px;margin-top:8px}
+.thanks{margin-top:10px;font-size:14.5px;text-align:center;color:var(--good);min-height:1.2em}
+body.noscroll{overflow:hidden}
+
+footer{color:var(--muted);font-size:12.5px;text-align:center;padding:28px 0 10px;font-family:var(--f-en)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* PDF export */
+body.pdf{padding-bottom:0}
+body.pdf .bnav,body.pdf .studybar,body.pdf .listhead,body.pdf .intro,body.pdf .langbtn,body.pdf #home,body.pdf .chev{display:none!important}
+body.pdf .qbody{display:block!important}
+body.pdf .tocwrap,body.pdf .back,body.pdf .chfoot,body.pdf .sctl{display:none!important}
+body.pdf .mini,body.pdf .tool,body.pdf .flow,body.pdf .stepper,body.pdf .callout,body.pdf .gloss,body.pdf .tree{break-inside:avoid}
+body.pdf .chapter{margin-bottom:28px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+body.pdf .pdfsteps{display:grid;gap:8px}
+body.pdf .pdfsteps div{background:var(--bg);border-radius:10px;padding:8px 12px;font-size:14.5px}
+body.pdf .qc{break-inside:avoid}
+@media print{.bnav,.intro{display:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="course"><a href="./">‹ সব ক্লাস</a> · Data Mining</div>
+      <div class="name">Class 2: Introduction to Data Mining</div>
+    </div>
+    <div class="langbtn" id="langSeg" role="group" aria-label="প্রশ্নের ভাষা">
+      <button type="button" data-l="both" aria-pressed="true" title="English + বাংলা">EN+বাং</button>
+      <button type="button" data-l="en" aria-pressed="false">EN</button>
+      <button type="button" data-l="bn" aria-pressed="false">বাং</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HOME -->
+  <section class="view" id="home">
+    <div class="hello">
+      <h1>কী করতে চান?</h1>
+      <p>সহজ পথ: আগে <b>নোট</b> পড়ুন, তারপর <b>প্রশ্নোত্তর</b>, শেষে <b>পরীক্ষা</b>।</p>
+    </div>
+    <div class="modes">
+      <button class="mode m0" type="button" data-go="notes">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+        <span><span class="t">সহজ নোট<small>Lesson</small></span><span class="d" id="homeNoteTxt">পুরো স্লাইড 10টা ছোট চ্যাপ্টারে, খেলার টুলসহ</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
+      <button class="mode m1" type="button" data-go="study">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>
+        <span><span class="t">প্রশ্নোত্তর<small>FAQ</small></span><span class="d">স্লাইড থেকে বানানো 51টা প্রশ্ন, ট্যাপ করলে উত্তর আর উদাহরণ</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
+      <button class="mode m2" type="button" data-go="exam">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+        <span><span class="t">পরীক্ষা দিন<small>Exam</small></span><span class="d">MCQ, সাথে সাথে ঠিক-ভুল আর শেষে স্কোর</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
+      <button class="mode m3" type="button" data-go="cards">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 6V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-3"/></svg></span>
+        <span><span class="t">ফ্ল্যাশকার্ড<small>Flashcards</small></span><span class="d">দ্রুত রিভিশন: কার্ড উল্টে উত্তর দেখুন</span></span>
+        <span class="arr" aria-hidden="true">›</span>
+      </button>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>51</b><span>প্রশ্ন</span></div>
+      <div class="stat"><b id="statNotes">0/10</b><span>চ্যাপ্টার পড়া</span></div>
+      <div class="stat"><b id="bestScore">–</b><span>আপনার সেরা স্কোর</span></div>
+    </div>
+    <div class="tip">নিচের বার থেকে যেকোনো সময় এক অংশ থেকে আরেক অংশে যেতে পারবেন। উপরের ডানে <b>EN / বাং</b> চেপে প্রশ্নের ভাষা বদলান।</div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="view" id="notes" hidden>
+    <div class="tocwrap" id="tocwrap">
+      <h2 class="vtitle">সহজ নোট</h2>
+      <p class="vsub">স্লাইডের পুরো লেকচার ছোট ছোট চ্যাপ্টারে। পড়া শেষ হলে “পড়া শেষ” চাপুন।</p>
+      <div class="nprog"><span id="nprogTxt"></span><div class="bar"><i id="nprogBar"></i></div></div>
+      <div class="toc" id="toc"></div>
+    </div>
+    <div id="chapterView" hidden></div>
+    <div id="allChapters" hidden></div>
+  </section>
+
+  <!-- STUDY -->
+  <section class="view" id="study" hidden>
+    <div class="studybar">
+      <input class="search" id="search" type="search" placeholder="প্রশ্ন খুঁজুন… যেমন: private key" aria-label="প্রশ্ন খুঁজুন">
+      <div class="chips" id="chips" role="group" aria-label="টপিক"></div>
+    </div>
+    <div class="listhead"><span id="countTxt"></span><button class="linkbtn" type="button" id="toggleAll">সব উত্তর খুলুন</button></div>
+    <div id="sections"></div>
+    <div id="compareWrap">
+      <div class="sec-title">এক নজরে: ৬টা Data Mining Task</div>
+      <div class="tbl"><table class="compare"><thead><tr><th>Task</th><th>Type</th><th>এক লাইনে</th><th>উদাহরণ</th></tr></thead><tbody>
+<tr><td>Classification</td><td>Predictive</td><td>লেবেলসহ ডেটা থেকে শিখে নতুন রেকর্ডের class বলা</td><td>Fraud, churn, direct marketing</td></tr>
+<tr><td>Regression</td><td>Predictive</td><td>একটা continuous সংখ্যা অনুমান</td><td>বিজ্ঞাপন খরচ → বিক্রি</td></tr>
+<tr><td>Deviation Detection</td><td>Predictive</td><td>স্বাভাবিকের চেয়ে অস্বাভাবিক কিছু ধরা</td><td>Card fraud, network intrusion</td></tr>
+<tr><td>Clustering</td><td>Descriptive</td><td>লেবেল ছাড়া মিল অনুযায়ী দলে ভাগ</td><td>Market segmentation, documents</td></tr>
+<tr><td>Association Rule</td><td>Descriptive</td><td>কোন item একসাথে আসে, rule বানানো</td><td>{Diaper, Milk} → {Beer}</td></tr>
+<tr><td>Sequential Pattern</td><td>Descriptive</td><td>সময়ের ক্রমে কোন ঘটনার পর কোনটা</td><td>(Shoes)(Racket) → (Jacket)</td></tr>
+</tbody></table></div>
+    </div>
+  </section>
+
+  <!-- EXAM -->
+  <section class="view" id="exam" hidden>
+    <div id="examSetup">
+      <h2 class="vtitle">পরীক্ষা দিন</h2>
+      <p class="vsub">প্রতিটা উত্তর দেওয়ার সাথে সাথে দেখবেন ঠিক না ভুল, সাথে ব্যাখ্যা।</p>
+      <div class="card">
+        <div class="field"><span class="fl">কয়টা প্রশ্ন?</span>
+          <div class="seg" id="countSeg">
+            <button type="button" data-n="10" aria-pressed="true">10</button>
+            <button type="button" data-n="20" aria-pressed="false">20</button>
+            <button type="button" data-n="30" aria-pressed="false">30</button>
+            <button type="button" data-n="0" aria-pressed="false">সব (51)</button>
+          </div>
+        </div>
+        <div class="field"><label class="fl" for="topicSel">কোন টপিক থেকে?</label>
+          <select id="topicSel"><option value="all">সব টপিক</option></select>
+        </div>
+        <label class="switch" for="shufQ"><span>প্রশ্ন এলোমেলো করুন (shuffle)</span><input type="checkbox" id="shufQ" checked></label>
+        <label class="switch" for="shufO"><span>অপশন এলোমেলো করুন</span><input type="checkbox" id="shufO" checked></label>
+        <button class="btn block" id="startBtn" type="button" style="margin-top:14px">পরীক্ষা শুরু করুন</button>
+      </div>
+    </div>
+
+    <div class="card" id="examRun" hidden>
+      <div class="meta"><span id="qPos"></span><span class="score" id="qScore"></span></div>
+      <div class="progress"><i id="bar"></i></div>
+      <div class="qorig" id="qOrig"></div>
+      <div class="qtext" id="qText"></div>
+      <div class="opts" id="opts"></div>
+      <div id="fb"></div>
+      <div class="next"><button class="btn block" id="nextBtn" type="button" hidden>পরের প্রশ্ন</button></div>
+      <button class="linkbtn quit" id="quitBtn" type="button">পরীক্ষা বাদ দিন</button>
+    </div>
+
+    <div class="card" id="examResult" hidden>
+      <h2 class="vtitle">আপনার ফলাফল</h2>
+      <div class="big" id="resBig"></div>
+      <p class="verdict" id="resVerdict"></p>
+      <div class="res-btns">
+        <button class="btn block" id="retryWrong" type="button">শুধু ভুলগুলো আবার দিন</button>
+        <button class="btn ghost block" id="newExam" type="button">নতুন পরীক্ষা</button>
+      </div>
+      <div class="review" id="review"></div>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS -->
+  <section class="view" id="cards" hidden>
+    <h2 class="vtitle">ফ্ল্যাশকার্ড</h2>
+    <p class="vsub">কার্ডে ট্যাপ করলে উল্টে যাবে।</p>
+    <div class="fc-top">
+      <select id="fcTopic" aria-label="টপিক"><option value="all">সব টপিক</option></select>
+      <button class="btn ghost" id="fcShuffle" type="button">এলোমেলো</button>
+    </div>
+    <button class="fcard" id="fcard" type="button" aria-live="polite"></button>
+    <div class="fc-nav">
+      <button class="btn ghost" id="fcPrev" type="button">‹ আগের</button>
+      <span class="fc-count" id="fcCount"></span>
+      <button class="btn" id="fcNext" type="button">পরের ›</button>
+    </div>
+  </section>
+
+  <footer>Source: Chapter 1 lecture slides, Introduction to Data Mining (Tan, Steinbach, Kumar).<span class="credit">Made with AI · Made by <a href="https://facebook.com/athirofficial">HM Athir</a></span></footer>
+</main>
+
+<nav class="bnav" aria-label="মেনু">
+  <div class="wrap">
+    <button type="button" data-go="home"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>হোম</button>
+    <button type="button" data-go="notes"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>নোট</button>
+    <button type="button" data-go="study"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg></span>প্রশ্ন</button>
+    <button type="button" data-go="exam"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>পরীক্ষা</button>
+    <button type="button" data-go="cards"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 6V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-3"/></svg></span>কার্ড</button>
+  </div>
+</nav>
+
+<script>
+const PAGE={key:"dm02",compareSec:"tasks",nq:0};
+const SECTIONS=[
+ {id:"why",title:"Why mine data",range:"Q 1–7"},
+ {id:"what",title:"What is data mining",range:"Q 8–14"},
+ {id:"tasks",title:"Tasks",range:"Q 15–21"},
+ {id:"classif",title:"Classification",range:"Q 22–30"},
+ {id:"cluster",title:"Clustering",range:"Q 31–37"},
+ {id:"assoc",title:"Association & sequential",range:"Q 38–45"},
+ {id:"more",title:"Regression, anomaly, challenges",range:"Q 46–51"}
+];
+const SEC_BN={why:"কেন Data Mining",what:"Data Mining কী",tasks:"Data Mining Tasks",classif:"Classification",cluster:"Clustering",assoc:"Association ও Sequential",more:"Regression, Anomaly, Challenges"};
+const RAW=[
+["why","Give three reasons for mining data from a commercial viewpoint.","বাণিজ্যিক দৃষ্টিকোণ থেকে Data Mining-এর তিনটা কারণ বলো।","(1) Lots of data is being collected and warehoused (web, e-commerce, store purchases, bank/credit card transactions); (2) computers have become cheaper and more powerful; (3) competitive pressure is strong, so companies want better, customized services (e.g. CRM).","(১) প্রচুর ডেটা জমা হচ্ছে (ওয়েব, ই-কমার্স, দোকানের কেনাকাটা, ব্যাংক/কার্ডের লেনদেন); (২) কম্পিউটার সস্তা ও শক্তিশালী হয়েছে; (৩) প্রতিযোগিতা বেশি, তাই গ্রাহককে আলাদা করে ভালো সেবা দিতে হয় (যেমন CRM)।",
+ ["Lots of data, cheaper powerful computers, strong competition","Less data, expensive computers, no competition","Only government rules","Only for scientific research"],
+ "Slide 2: commercial viewpoint.","Daraz আপনার আগের কেনাকাটা দেখে “আপনার জন্য” পণ্য দেখায়। প্রতিযোগিতায় টিকতেই এই ব্যক্তিগত সেবা।"],
+["why","Which of these is an example of commercial data being collected?","বাণিজ্যিক ডেটা সংগ্রহের উদাহরণ কোনটা?","Bank and credit card transactions (also web data, e-commerce and grocery purchases)","ব্যাংক ও ক্রেডিট কার্ডের লেনদেন (এছাড়া ওয়েব ডেটা, ই-কমার্স, মুদি দোকানের কেনাকাটা)",
+ ["Bank/credit card transactions","Telescope images of stars","Gene expression microarrays","Satellite sensor readings"],
+ "The other three are scientific data (slide 3).","প্রতিবার কার্ডে কেনাকাটা করলে কোথায়, কখন, কত টাকা, সব রেকর্ড হয়।"],
+["why","Why do scientists need data mining?","বিজ্ঞানীদের Data Mining কেন দরকার?","Scientific data is collected at enormous speeds (GB/hour) from satellites, telescopes, microarrays and simulations; traditional techniques are infeasible for such raw data. Data mining helps in classifying/segmenting data and in hypothesis formation.","স্যাটেলাইট, টেলিস্কোপ, microarray, simulation থেকে ঘণ্টায় GB হারে ডেটা আসে; পুরোনো পদ্ধতিতে এত কাঁচা ডেটা সামলানো যায় না। Data mining ডেটা ভাগ (classify/segment) করতে আর hypothesis তৈরিতে সাহায্য করে।",
+ ["Data comes too fast (GB/hour) for traditional techniques","Scientists have too little data","Scientific data never changes","To print research papers faster"],
+ "Slide 3: scientific viewpoint.","আবহাওয়া স্যাটেলাইট প্রতি ঘণ্টায় হাজার হাজার ছবি পাঠায়; মানুষ বসে বসে দেখে শেষ করতে পারবে না।"],
+["why","Data mining helps scientists in which two ways?","Data mining বিজ্ঞানীদের কোন দুইভাবে সাহায্য করে?","In classifying and segmenting data, and in hypothesis formation","ডেটা classify ও segment করতে, এবং hypothesis তৈরিতে",
+ ["Classifying/segmenting data and hypothesis formation","Building telescopes and satellites","Writing grant proposals","Replacing all experiments"],
+ "Slide 3.","লাখ লাখ নক্ষত্রকে ধরন অনুযায়ী ভাগ করা (classify), তারপর “এই ধরনের নক্ষত্র কেন বেশি?” প্রশ্ন (hypothesis) দাঁড় করানো।"],
+["why","What is the motivation for mining large data sets?","বড় ডেটাসেট mining-এর পেছনের কারণ (motivation) কী?","Information is often hidden in the data and not readily evident; human analysts may take weeks to find useful information; much of the data is never analyzed at all.","ডেটার মধ্যে অনেক তথ্য লুকিয়ে থাকে যা চোখে পড়ে না; মানুষ বিশ্লেষক সপ্তাহের পর সপ্তাহ লাগায়; অনেক ডেটা কখনো বিশ্লেষণই হয় না।",
+ ["Hidden information, slow human analysts, much data never analyzed","Data is always small and easy","Analysts are faster than computers","All data is already analyzed"],
+ "Slide 4: Mining Large Data Sets, Motivation.","একটা সুপারশপের ৫ বছরের রসিদ জমে আছে, কেউ কোনোদিন খুলে দেখেনি। ওখানেই লুকিয়ে আছে কোন পণ্য একসাথে বিক্রি হয়।"],
+["why","What does “The Data Gap” graph show?","“The Data Gap” গ্রাফ কী দেখায়?","Total new disk storage (TB) since 1995 grows much faster than the number of analysts, so data far outnumbers the people who can analyze it.","১৯৯৫ থেকে নতুন ডেটা স্টোরেজ (TB) যত দ্রুত বেড়েছে, বিশ্লেষকের সংখ্যা তত বাড়েনি; ডেটা আর বিশ্লেষকের মধ্যে বিশাল ফাঁক।",
+ ["Data grows much faster than the number of analysts","Analysts grow faster than data","Disk prices are rising","Data is shrinking every year"],
+ "This gap is why automatic mining is needed.","ক্লাসে ১০০০ খাতা, শিক্ষক মাত্র ১ জন। যন্ত্রের সাহায্য ছাড়া খাতা দেখা শেষই হবে না।"],
+["why","Which of these is NOT a scientific data source mentioned in the slides?","স্লাইডে বলা বৈজ্ঞানিক ডেটার উৎস কোনটা নয়?","Grocery store purchases","মুদি দোকানের কেনাকাটা",
+ ["Grocery store purchases","Remote sensors on a satellite","Telescopes scanning the skies","Microarrays generating gene expression data"],
+ "Grocery purchases are commercial data.","মনে রাখুন: দোকান-ব্যাংক-ওয়েব = commercial; স্যাটেলাইট-টেলিস্কোপ-জিন-simulation = scientific।"],
+["what","Define data mining.","Data Mining-এর সংজ্ঞা দাও।","(1) Non-trivial extraction of implicit, previously unknown and potentially useful information from data. (2) Exploration and analysis, by automatic or semi-automatic means, of large quantities of data in order to discover meaningful patterns.","(১) ডেটা থেকে লুকানো (implicit), আগে অজানা (previously unknown) এবং সম্ভাব্য কাজের (potentially useful) তথ্য বের করা, যা সহজ কাজ না (non-trivial)। (২) স্বয়ংক্রিয় বা আধা-স্বয়ংক্রিয় উপায়ে বিপুল ডেটা খুঁজে-বিশ্লেষণ করে অর্থপূর্ণ pattern বের করা।",
+ ["Non-trivial extraction of implicit, previously unknown, potentially useful information","Looking up a value in a database","Storing data in a warehouse","Drawing a chart of known values"],
+ "Slide 5 gives both definitions; learn the first word by word.","দোকানের রসিদ থেকে আবিষ্কার: “যারা ডায়াপার কেনে তারা প্রায়ই দুধও কেনে।” আগে কেউ জানত না, কিন্তু কাজে লাগে।"],
+["what","In the definition, what do “implicit” and “previously unknown” mean?","সংজ্ঞায় “implicit” আর “previously unknown” মানে কী?","Implicit: hidden in the data, not stated directly. Previously unknown: a new finding, not something we already knew.","Implicit: ডেটায় লুকিয়ে আছে, সরাসরি লেখা নেই। Previously unknown: নতুন আবিষ্কার, আগে জানা ছিল না।",
+ ["Hidden in the data, and newly discovered","Already written and well known","Deleted and lost","Encrypted and secret"],
+ "Key words of the first definition.","ফোনবুকে নম্বর লেখাই আছে (explicit, জানা), তাই ওটা খোঁজা data mining না।"],
+["what","Which is an example of data mining according to the slides?","স্লাইড অনুযায়ী Data Mining-এর উদাহরণ কোনটা?","Finding that certain names are more common in certain US locations (O’Brien, O’Rurke, O’Reilly in Boston), or grouping search results by context (Amazon rainforest vs Amazon.com)","কিছু নাম নির্দিষ্ট এলাকায় বেশি দেখা যায় এটা খুঁজে পাওয়া (বোস্টনে O’Brien, O’Reilly), বা সার্চ রেজাল্টকে প্রসঙ্গ অনুযায়ী ভাগ করা (Amazon বন বনাম Amazon.com)",
+ ["Discovering that certain names are common in certain areas","Looking up a phone number in a directory","Searching “Amazon” on a web search engine","Sorting a list alphabetically"],
+ "Slide 6: discovering a pattern is mining; looking up a fact is not.","চট্টগ্রামে “চৌধুরী” পদবী বেশি, এটা হাজার নাম বিশ্লেষণ করে বের করা একটা pattern।"],
+["what","Why is looking up a phone number in a directory NOT data mining?","ফোন ডিরেক্টরিতে নম্বর খোঁজা কেন Data Mining নয়?","It only retrieves information that is already explicitly stored; nothing new, hidden or previously unknown is discovered.","এখানে শুধু আগে থেকে সরাসরি লেখা তথ্য বের করা হয়; নতুন বা লুকানো কিছু আবিষ্কার হয় না।",
+ ["It only retrieves known, stored facts","It is too fast","It uses a computer","It involves too many people"],
+ "Simple retrieval/query is not mining.","Google-এ “Amazon” লিখে খোঁজা = query। হাজার রেজাল্টকে “বন” আর “দোকান” দুই দলে ভাগ করা = mining।"],
+["what","Data mining draws ideas from which fields?","Data Mining কোন কোন ক্ষেত্র থেকে ধারণা নেয়?","Machine learning/AI, pattern recognition, statistics and database systems","Machine learning/AI, pattern recognition, statistics এবং database systems",
+ ["ML/AI, pattern recognition, statistics, database systems","Only accounting","Only networking","Graphic design and animation"],
+ "Slide 7: Origins of Data Mining.","Data mining হলো চার বন্ধুর মিলনস্থল: ML, Pattern Recognition, Statistics, Database।"],
+["what","Why may traditional techniques be unsuitable for data mining?","Data Mining-এ পুরোনো (traditional) পদ্ধতি কেন অনুপযোগী হতে পারে?","Because of the enormity of data, high dimensionality of data, and the heterogeneous, distributed nature of data","ডেটার বিশালতা (enormity), অনেক বেশি attribute/dimension, আর বিভিন্ন ধরনের ও ছড়িয়ে থাকা (heterogeneous, distributed) ডেটার কারণে",
+ ["Enormity, high dimensionality, heterogeneous distributed data","Data is too small","Data has only one column","Computers are too fast"],
+ "Slide 7.","একজন রোগীর ১০,০০০ জিনের তথ্য = high dimensionality; হাসপাতাল, ল্যাব, ফার্মেসিতে আলাদা ফরম্যাটে = heterogeneous, distributed।"],
+["what","What does “high dimensionality” of data mean?","ডেটার “high dimensionality” মানে কী?","Each record has a very large number of attributes (columns/features)","প্রতিটা রেকর্ডে অনেক বেশি attribute (কলাম/feature) থাকে",
+ ["Each record has very many attributes","The data is printed in 3D","The file size is small","The data has only one row"],
+ "One of the reasons traditional techniques fail.","Excel শিটে ১০ কলাম হলে সহজ; ১০,০০০ কলাম হলে সেটাই high dimensional।"],
+["tasks","What are the two broad categories of data mining tasks?","Data Mining task-এর প্রধান দুই ভাগ কী?","Prediction methods (use some variables to predict unknown or future values of other variables) and description methods (find human-interpretable patterns that describe the data)","Prediction methods (কিছু variable দিয়ে অন্য variable-এর অজানা বা ভবিষ্যৎ মান অনুমান) এবং Description methods (ডেটা বর্ণনা করে এমন মানুষের বোঝার মতো pattern খোঁজা)",
+ ["Prediction methods and description methods","Input and output methods","Storage and retrieval","Encryption and decryption"],
+ "Slide 8, from Fayyad et al. 1996.","Prediction: “কাল বৃষ্টি হবে কিনা?” Description: “এই শহরের মানুষ কয় ধরনের?”"],
+["tasks","Name the six data mining tasks given in the lecture.","লেকচারে বলা Data Mining-এর ছয়টা task-এর নাম লেখো।","Classification, Clustering, Association Rule Discovery, Sequential Pattern Discovery, Regression, Deviation Detection","Classification, Clustering, Association Rule Discovery, Sequential Pattern Discovery, Regression, Deviation Detection",
+ ["Classification, Clustering, Association, Sequential Pattern, Regression, Deviation Detection","Encryption, Hashing, Signing, Compression, Backup, Restore","TPS, MIS, DSS, POS, CRM, ERP","Insert, Update, Delete, Select, Join, Sort"],
+ "Slide 9.","মনে রাখার কৌশল: “CCARSD”: Classification, Clustering, Association, Regression, Sequential, Deviation।"],
+["tasks","Which data mining tasks are predictive?","কোন কোন Data Mining task Predictive?","Classification, Regression, Deviation Detection","Classification, Regression, Deviation Detection",
+ ["Classification, Regression, Deviation Detection","Clustering, Association, Sequential Pattern","Clustering, Regression, Association","Only Clustering"],
+ "Slide 9 marks each task [Predictive] or [Descriptive].","Predictive-এর তিনটা মনে রাখুন “CRD”: Classification, Regression, Deviation। বাকি তিনটা Descriptive।"],
+["tasks","Which data mining tasks are descriptive?","কোন কোন Data Mining task Descriptive?","Clustering, Association Rule Discovery, Sequential Pattern Discovery","Clustering, Association Rule Discovery, Sequential Pattern Discovery",
+ ["Clustering, Association Rule, Sequential Pattern","Classification, Regression, Deviation","Classification and Clustering","Regression only"],
+ "They describe patterns rather than predict a target.","এরা কোনো নির্দিষ্ট উত্তর অনুমান করে না, শুধু ডেটার ভেতরের দল বা সম্পর্ক দেখায়।"],
+["tasks","Classification is a ________ task.","Classification একটা ________ task।","Predictive","Predictive",["Predictive","Descriptive"],
+ "It predicts the class of new records.","নতুন ইমেইল আসলে সেটা spam না not-spam, অনুমান করা।"],
+["tasks","Clustering is a ________ task.","Clustering একটা ________ task।","Descriptive","Descriptive",["Descriptive","Predictive"],
+ "It describes groups in the data; there is no class label to predict.","গ্রাহকদের মিল অনুযায়ী দলে ভাগ করা; আগে থেকে কোনো দলের নাম দেওয়া থাকে না।"],
+["tasks","Deviation (anomaly) detection is a ________ task according to the slides.","স্লাইড অনুযায়ী Deviation (anomaly) detection একটা ________ task।","Predictive","Predictive",["Predictive","Descriptive"],
+ "Slide 9 lists it as [Predictive].","এই লেনদেনটা অস্বাভাবিক (fraud) কিনা, সেটা অনুমান করা।"],
+["classif","Define classification.","Classification-এর সংজ্ঞা দাও।","Given a collection of records (training set), where each record contains a set of attributes and one of the attributes is the class, find a model for the class attribute as a function of the values of other attributes. Goal: previously unseen records should be assigned a class as accurately as possible.","কিছু রেকর্ড (training set) দেওয়া আছে, প্রতিটায় কিছু attribute আর একটা class attribute। বাকি attribute-এর মান দিয়ে class নির্ণয়ের একটা model বানাতে হবে, যাতে নতুন অদেখা রেকর্ডের class যতটা সম্ভব নির্ভুলভাবে বলা যায়।",
+ ["Building a model from labeled training records to assign classes to unseen records","Grouping unlabeled points by similarity","Finding items bought together","Predicting a continuous number"],
+ "Slide 10.","আগের ১০০০ ইমেইল (spam/not spam লেবেলসহ) দেখে model শিখল, নতুন ইমেইলে লেবেল বসায়।"],
+["classif","What is the class attribute?","Class attribute কী?","The one attribute in each record whose value (label) the model must predict","প্রতিটা রেকর্ডের যে attribute-এর মান (লেবেল) model-কে অনুমান করতে হবে",
+ ["The attribute whose value the model predicts","The first column of every table","The record's ID number","The attribute with the most values"],
+ "In the slide example, “Cheat” is the class.","শিক্ষার্থীর ডেটায় “পাস/ফেল” কলামটা class; বাকি কলাম (উপস্থিতি, CT নম্বর) দিয়ে সেটা অনুমান।"],
+["classif","What are the training set and test set used for?","Training set আর test set কী কাজে লাগে?","The training set is used to build (learn) the model; the test set is used to validate it and determine its accuracy.","Training set দিয়ে model বানানো (শেখানো) হয়; test set দিয়ে model যাচাই করে তার accuracy মাপা হয়।",
+ ["Training builds the model, test checks its accuracy","Test builds the model, training checks it","Both are only for storage","They are the same thing"],
+ "Usually the given data set is divided into the two.","পরীক্ষার আগে প্র্যাকটিস প্রশ্ন (training) দিয়ে শেখা, তারপর নতুন প্রশ্নে (test) পরীক্ষা।"],
+["classif","In the slide’s classification example, which attribute is the class?","স্লাইডের classification উদাহরণে কোন attribute-টা class?","Cheat","Cheat",["Cheat","Refund","Marital Status","Taxable Income"],
+ "Refund and Marital Status are categorical, Taxable Income is continuous, Cheat is the class.","Refund, Marital Status, Income দেখে বলতে হবে লোকটা কর ফাঁকি (Cheat) দেবে কিনা।"],
+["classif","In the example, Refund and Marital Status are ________ attributes, Taxable Income is ________.","উদাহরণে Refund ও Marital Status ________ attribute, আর Taxable Income ________।","Categorical; continuous","Categorical; continuous",["Categorical; continuous","Continuous; categorical","Both continuous","Both class attributes"],
+ "Categorical = fixed categories; continuous = numeric range.","Categorical: হ্যাঁ/না, বিবাহিত/অবিবাহিত। Continuous: ৭০K, ৯৫K, ১২০K এর মতো যেকোনো সংখ্যা।"],
+["classif","In the direct marketing application, what forms the class attribute?","Direct marketing প্রয়োগে class attribute কী?","The {buy, don’t buy} decision of customers for a similar earlier product","আগের একই ধরনের পণ্যে গ্রাহক কিনেছে কি কেনেনি {buy, don’t buy}",
+ ["{buy, don’t buy}","Customer’s name","Mailing cost","Phone model"],
+ "Goal: reduce mailing cost by targeting likely buyers.","নতুন ফোনের বিজ্ঞাপন সবাইকে না পাঠিয়ে শুধু যারা কেনার সম্ভাবনা বেশি তাদের পাঠানো; খরচ কমে।"],
+["classif","What is the goal of classification in fraud detection?","Fraud detection-এ classification-এর লক্ষ্য কী?","To predict fraudulent cases in credit card transactions, using past transactions labeled as fraud or fair","আগের লেনদেনগুলোকে fraud/fair লেবেল দিয়ে, নতুন ক্রেডিট কার্ড লেনদেনে জালিয়াতি অনুমান করা",
+ ["Predict fraudulent credit card transactions","Group customers by age","Find items bought together","Predict stock prices"],
+ "Attributes: when a customer buys, what, how often he pays on time, etc.","রাত ৩টায় হঠাৎ বিদেশ থেকে বড় কেনাকাটা? model বলে “সন্দেহজনক”, ব্যাংক কার্ড আটকায়।"],
+["classif","What is customer attrition (churn) prediction?","Customer attrition (churn) prediction কী?","Predicting whether a customer is likely to be lost to a competitor, by labeling customers loyal/disloyal and finding a model for loyalty","গ্রাহক প্রতিযোগীর কাছে চলে যাবে কিনা অনুমান করা; গ্রাহকদের loyal/disloyal লেবেল দিয়ে loyalty-র model বানানো",
+ ["Predicting if a customer will leave for a competitor","Counting new customers","Grouping documents","Detecting network intrusions"],
+ "Slide 14.","Grameenphone দেখল কেউ কল কমিয়ে দিয়েছে, রাতে অন্য অপারেটরে বেশি কল করছে; চলে যাওয়ার আগেই অফার পাঠায়।"],
+["classif","What was the success story of sky survey cataloging?","Sky survey cataloging-এর সাফল্য কী ছিল?","It found 16 new high red-shift quasars, some of the farthest objects that are difficult to find","১৬টা নতুন high red-shift quasar খুঁজে পেয়েছে, যেগুলো সবচেয়ে দূরের ও খুঁজে পাওয়া কঠিন বস্তু",
+ ["Found 16 new high red-shift quasars","Found a new planet in our solar system","Built a new telescope","Counted all stars exactly"],
+ "Classes: star or galaxy; 3000 images of 23,040×23,040 pixels; 40 attributes per object.","কোটি কোটি ঝাপসা বিন্দুর মধ্যে কোনটা তারা, কোনটা গ্যালাক্সি, model বলে দেয়।"],
+["cluster","Define clustering.","Clustering-এর সংজ্ঞা দাও।","Given a set of data points, each having a set of attributes, and a similarity measure among them, find clusters such that data points in one cluster are more similar to one another, and data points in separate clusters are less similar to one another.","কিছু data point (প্রতিটার attribute আছে) আর তাদের মধ্যে মিল মাপার একটা উপায় (similarity measure) দেওয়া থাকলে এমন দল (cluster) খোঁজা, যাতে একই দলের point-গুলো একে অপরের বেশি কাছাকাছি, আর আলাদা দলের point-গুলো কম মিলের।",
+ ["Grouping points so same-cluster points are similar and different clusters are dissimilar","Assigning known labels to new records","Predicting a continuous value","Finding rules like {Milk} → {Coke}"],
+ "Slide 17.","ক্লাসের সবার উচ্চতা-ওজন দেখে কোনো নাম না দিয়েই তিন দলে ভাগ করা: ছোট, মাঝারি, বড়।"],
+["cluster","Which similarity measure is used if attributes are continuous?","Attribute continuous হলে কোন similarity measure ব্যবহার হয়?","Euclidean distance","Euclidean distance",["Euclidean distance","Phone number","Alphabetical order","File size"],
+ "Other problem-specific measures exist too.","দুই বিন্দুর সরলরেখায় দূরত্ব: √((x₁−x₂)² + (y₁−y₂)²)। দূরত্ব কম মানে মিল বেশি।"],
+["cluster","In good clustering, intracluster distances are ________ and intercluster distances are ________.","ভালো clustering-এ intracluster দূরত্ব ________ আর intercluster দূরত্ব ________।","Minimized; maximized","Minimized (কম); maximized (বেশি)",["Minimized; maximized","Maximized; minimized","Both maximized","Both minimized"],
+ "Slide 18.","দলের ভেতরে সবাই গা ঘেঁষে (intra কম), দল থেকে দল অনেক দূরে (inter বেশি)।"],
+["cluster","What is the goal of market segmentation using clustering?","Clustering দিয়ে market segmentation-এর লক্ষ্য কী?","To subdivide a market into distinct subsets of customers, where each subset may be targeted with a distinct marketing mix","বাজারকে গ্রাহকদের আলাদা আলাদা দলে ভাগ করা, যাতে প্রতিটা দলের জন্য আলাদা মার্কেটিং কৌশল নেওয়া যায়",
+ ["Divide customers into distinct groups for targeted marketing","Predict whether one customer will buy","Find fraud in transactions","Predict wind speed"],
+ "Quality is measured by comparing buying patterns within vs between clusters.","ছাত্র, চাকরিজীবী, গৃহিণী: তিন দলের জন্য তিন রকম মোবাইল প্যাকেজ।"],
+["cluster","How is document clustering done?","Document clustering কীভাবে করা হয়?","Identify frequently occurring terms in each document, form a similarity measure based on the frequencies of different terms, and use it to cluster.","প্রতিটা ডকুমেন্টে বারবার আসা শব্দগুলো বের করা, শব্দের frequency দিয়ে similarity measure বানানো, তারপর সেটা দিয়ে cluster করা।",
+ ["Using frequencies of important terms to measure similarity","By file size","By author name only","By the date of writing"],
+ "Example: 3204 Los Angeles Times articles; similarity = how many words are common.","খবরের কাগজের লেখা: “গোল, ম্যাচ, খেলোয়াড়” বেশি থাকলে খেলা দলে; “বাজেট, ভ্যাট” থাকলে অর্থনীতি দলে।"],
+["cluster","What is the gain from document clustering?","Document clustering-এর লাভ কী?","Information retrieval can use the clusters to relate a new document or search term to clustered documents","Information retrieval নতুন ডকুমেন্ট বা সার্চ শব্দকে মিলে যাওয়া cluster-এর ডকুমেন্টের সাথে যুক্ত করতে পারে",
+ ["Better information retrieval for new documents or search terms","Smaller files","Faster typing","Automatic translation"],
+ "Slide 20.","নতুন খবর এলেই সেটা “খেলা” দলে চলে যায়, আর পাঠক মিলে যাওয়া খবরগুলো একসাথে পায়।"],
+["cluster","In clustering S&P 500 stock data, what is the similarity measure?","S&P 500 স্টক ডেটা clustering-এ similarity measure কী?","Two points (stock UP/DOWN events) are more similar if they frequently happen together on the same day; association rules were used to quantify it","দুইটা ঘটনা (স্টক UP/DOWN) একই দিনে প্রায়ই একসাথে ঘটলে তারা বেশি মিলের; এটা মাপতে association rule ব্যবহার করা হয়েছে",
+ ["Events that frequently happen together on the same day","Stocks with similar names","Stocks with the same price","Stocks listed in the same year"],
+ "Slide 22.","একই দিনে প্রায়ই একসাথে দাম বাড়ে-কমে এমন কোম্পানিগুলো (যেমন সব ব্যাংকের শেয়ার) এক দলে।"],
+["assoc","Define association rule discovery.","Association rule discovery-এর সংজ্ঞা দাও।","Given a set of records, each containing some number of items from a given collection, produce dependency rules which will predict occurrence of an item based on occurrences of other items.","কিছু রেকর্ড (প্রতিটায় কয়েকটা item) দেওয়া থাকলে এমন dependency rule বের করা, যা অন্য item-এর উপস্থিতি দেখে একটা item-এর উপস্থিতি অনুমান করে।",
+ ["Producing rules that predict an item from other items in the same record","Grouping points by distance","Labeling new records with a class","Predicting a continuous value"],
+ "Slide 23.","বাজারের ব্যাগে চাল আর ডাল থাকলে প্রায়ই তেলও থাকে: {চাল, ডাল} → {তেল}।"],
+["assoc","Which rules were discovered in the slide’s market-basket example?","স্লাইডের market-basket উদাহরণে কোন rule-গুলো পাওয়া গেছে?","{Milk} → {Coke} and {Diaper, Milk} → {Beer}","{Milk} → {Coke} এবং {Diaper, Milk} → {Beer}",
+ ["{Milk} → {Coke} and {Diaper, Milk} → {Beer}","{Bread} → {Beer} only","{Coke} → {Diaper}","{Beer} → {Bread, Milk}"],
+ "From 5 transactions (TID 1–5).","নিচের “নোট”-এর টুলে ৫টা লেনদেন থেকে নিজে গুনে দেখুন।"],
+["assoc","In the rule {Bagels, …} → {Potato Chips}, what can the consequent tell us?","{Bagels, …} → {Potato Chips} rule-এ consequent (Potato Chips) থেকে কী জানা যায়?","What should be done to boost the sales of potato chips","Potato chips-এর বিক্রি বাড়াতে কী করা উচিত",
+ ["What can boost potato chip sales","Which products are affected if bagels are discontinued","The price of bagels","The store’s location"],
+ "Antecedent (left side) = bagels; consequent (right side) = potato chips.","Consequent মানে rule-এর ডান পাশ, মানে “ফলাফল” পণ্য।"],
+["assoc","With bagels in the antecedent, what can we learn?","Antecedent-এ Bagels থাকলে কী জানা যায়?","Which products would be affected if the store discontinues selling bagels","দোকান bagel বিক্রি বন্ধ করলে কোন কোন পণ্যের বিক্রি কমবে",
+ ["Which products are affected if bagels are discontinued","How to boost potato chip sales","The cost of potato chips","Nothing useful"],
+ "Slide 24.","চা-পাতা বিক্রি বন্ধ করলে চিনি আর বিস্কুটের বিক্রিও কমতে পারে।"],
+["assoc","What is the classic supermarket shelf management rule?","Supermarket shelf management-এর বিখ্যাত rule কোনটা?","If a customer buys diaper and milk, then he is very likely to buy beer, so six-packs may be stacked next to diapers","যে গ্রাহক diaper আর দুধ কেনে সে খুব সম্ভবত beer-ও কেনে; তাই ডায়াপারের পাশে beer রাখা হয়",
+ ["Diaper and milk buyers are likely to buy beer","Bread buyers never buy milk","Coke buyers buy diapers","Beer buyers buy bagels"],
+ "Point-of-sale data from barcode scanners is processed.","বাংলাদেশি উদাহরণ: নুডলস যে কেনে, সে প্রায়ই ডিমও কেনে; তাই দুটো পাশাপাশি সাজানো।"],
+["assoc","How is association rule discovery used in inventory management?","Inventory management-এ association rule কীভাবে কাজে লাগে?","A repair company analyses tools and parts used in previous repairs to find co-occurrence patterns, so service vehicles carry the right parts and fewer visits are needed","রিপেয়ার কোম্পানি আগের মেরামতে কোন যন্ত্রাংশ একসাথে লেগেছে তা দেখে গাড়িতে ঠিক যন্ত্রাংশ রাখে; ফলে গ্রাহকের বাসায় বারবার যেতে হয় না",
+ ["Carrying the right parts based on co-occurring repair parts","Predicting the weather","Clustering news articles","Detecting credit card fraud"],
+ "Slide 26.","AC মেরামতে গ্যাস লাগলে প্রায়ই ফিল্টারও লাগে; টেকনিশিয়ান দুটো একসাথেই নিয়ে যায়।"],
+["assoc","Define sequential pattern discovery.","Sequential pattern discovery-এর সংজ্ঞা দাও।","Given a set of objects, each with its own timeline of events, find rules that predict strong sequential dependencies among different events; event occurrences are governed by timing constraints.","প্রতিটা বস্তুর নিজস্ব সময়ক্রমে ঘটনা আছে; বিভিন্ন ঘটনার মধ্যে শক্তিশালী ক্রমিক (sequential) সম্পর্ক অনুমান করে এমন rule খোঁজা, যেখানে সময়ের সীমা (timing constraint) থাকে।",
+ ["Finding rules about the order of events over time","Finding items bought in the same basket","Grouping similar documents","Predicting a class label"],
+ "Unlike association rules, order and timing matter.","আগে C বই কিনলে কয়েক মাস পর C++ বই কেনে: ক্রমটাই আসল।"],
+["assoc","Give an example of a sequential pattern from the slides.","স্লাইড থেকে একটা sequential pattern-এর উদাহরণ দাও।","(Rectifier_Alarm) → (Fire_Alarm) in telecom alarm logs; or (Shoes) (Racket, Racketball) → (Sports_Jacket) in an athletic store","টেলিকম অ্যালার্ম লগে (Rectifier_Alarm) → (Fire_Alarm); বা খেলার দোকানে (Shoes) (Racket, Racketball) → (Sports_Jacket)",
+ ["(Shoes) (Racket, Racketball) → (Sports_Jacket)","{Milk} → {Coke}","Euclidean distance","Training set → Test set"],
+ "Also: (Intro_To_Visual_C) (C++_Primer) → (Perl_for_dummies, Tcl_Tk).","আগে জুতা, তারপর র‍্যাকেট, তারপর কেনে জ্যাকেট। সময়ের ক্রমে কেনাকাটা।"],
+["more","What is regression?","Regression কী?","Predicting a value of a given continuous-valued variable based on the values of other variables, assuming a linear or nonlinear model of dependency","অন্য variable-এর মান দেখে একটা continuous (সংখ্যাসূচক) variable-এর মান অনুমান করা, linear বা nonlinear সম্পর্ক ধরে",
+ ["Predicting a continuous value from other variables","Predicting a category label","Grouping similar items","Finding items bought together"],
+ "Greatly studied in statistics and neural networks.","বিজ্ঞাপনে কত টাকা খরচ করলে বিক্রি কত হবে, সেই সংখ্যাটা অনুমান করা।"],
+["more","Which is an example of regression?","Regression-এর উদাহরণ কোনটা?","Predicting sales of a new product from advertising expenditure (also wind velocity from temperature, humidity and pressure; stock index time series)","বিজ্ঞাপন খরচ দেখে নতুন পণ্যের বিক্রির পরিমাণ অনুমান (এছাড়া তাপমাত্রা, আর্দ্রতা, বায়ুচাপ দেখে বাতাসের গতি; শেয়ার সূচকের time series)",
+ ["Predicting sales from advertising spend","Deciding if an email is spam","Grouping customers","Finding {Diaper, Milk} → {Beer}"],
+ "The output is a number, not a category.","Classification বলে “হ্যাঁ/না”; regression বলে “৫৭,৩০০ টাকা”।"],
+["more","What is deviation/anomaly detection?","Deviation/Anomaly detection কী?","Detecting significant deviations from normal behavior","স্বাভাবিক আচরণ থেকে বড় ধরনের বিচ্যুতি খুঁজে বের করা",
+ ["Detecting significant deviations from normal behavior","Grouping normal records","Predicting sales","Sorting data alphabetically"],
+ "Slide 30.","সারা মাস ৫০০ টাকার কেনাকাটা, হঠাৎ এক রাতে ২ লাখ: অস্বাভাবিক।"],
+["more","Give two applications of anomaly detection.","Anomaly detection-এর দুইটা প্রয়োগ বলো।","Credit card fraud detection and network intrusion detection","Credit card fraud detection এবং network intrusion detection",
+ ["Credit card fraud and network intrusion detection","Market segmentation and document clustering","Sky survey and galaxy classification","Shelf management and inventory"],
+ "University network traffic may exceed 100 million connections per day.","বিশ্ববিদ্যালয়ের নেটওয়ার্কে হঠাৎ একটা কম্পিউটার থেকে হাজার হাজার কানেকশন: হ্যাকিংয়ের সন্দেহ।"],
+["more","List the challenges of data mining.","Data Mining-এর চ্যালেঞ্জগুলো লেখো।","Scalability, Dimensionality, Complex and Heterogeneous Data, Data Quality, Data Ownership and Distribution, Privacy Preservation, Streaming Data","Scalability, Dimensionality, Complex ও Heterogeneous Data, Data Quality, Data Ownership ও Distribution, Privacy Preservation, Streaming Data",
+ ["Scalability, dimensionality, complex data, quality, ownership, privacy, streaming","Encryption, hashing, signing","Cost, color, font size","Only slow internet"],
+ "Seven challenges on slide 31.","মনে রাখার কৌশল নোটের চ্যাপ্টার ১০-এ আছে।"],
+["more","Which challenge deals with data that arrives continuously and must be processed on the fly?","কোন চ্যালেঞ্জে ডেটা অবিরাম আসতে থাকে আর সাথে সাথে প্রসেস করতে হয়?","Streaming data","Streaming data",["Streaming data","Data ownership","Dimensionality","Privacy preservation"],
+ "One of the seven challenges.","লাইভ ক্রিকেট স্কোর বা Facebook-এর প্রতি সেকেন্ডের পোস্ট: থামিয়ে রেখে বিশ্লেষণ করা যায় না।"]
+];
+const FAQ=RAW.map((r,i)=>({n:i+1,sec:r[0],q:r[1],qb:r[2],a:r[3],ab:r[4],opts:r[5],ok:r[5][0],exp:r[6],ex:r[7]}));
+PAGE.nq=FAQ.length;
+const COMPARE_TITLE="এক নজরে: ৬টা Data Mining Task";
+const COMPARE_HTML=`<table class="compare"><thead><tr><th>Task</th><th>Type</th><th>এক লাইনে</th><th>উদাহরণ</th></tr></thead><tbody>
+<tr><td>Classification</td><td>Predictive</td><td>লেবেলসহ ডেটা থেকে শিখে নতুন রেকর্ডের class বলা</td><td>Fraud, churn, direct marketing</td></tr>
+<tr><td>Regression</td><td>Predictive</td><td>একটা continuous সংখ্যা অনুমান</td><td>বিজ্ঞাপন খরচ → বিক্রি</td></tr>
+<tr><td>Deviation Detection</td><td>Predictive</td><td>স্বাভাবিকের চেয়ে অস্বাভাবিক কিছু ধরা</td><td>Card fraud, network intrusion</td></tr>
+<tr><td>Clustering</td><td>Descriptive</td><td>লেবেল ছাড়া মিল অনুযায়ী দলে ভাগ</td><td>Market segmentation, documents</td></tr>
+<tr><td>Association Rule</td><td>Descriptive</td><td>কোন item একসাথে আসে, rule বানানো</td><td>{Diaper, Milk} → {Beer}</td></tr>
+<tr><td>Sequential Pattern</td><td>Descriptive</td><td>সময়ের ক্রমে কোন ঘটনার পর কোনটা</td><td>(Shoes)(Racket) → (Jacket)</td></tr>
+</tbody></table>`;
+
+const SORTERS={
+ isdm:{title:"এটা কি Data Mining?",opts:["Data Mining","Data Mining না"],q:[
+  ["ফোনবুকে বন্ধুর নম্বর খোঁজা","Data Mining না","শুধু আগে থেকে লেখা তথ্য বের করা, নতুন কিছু আবিষ্কার হয়নি।"],
+  ["হাজার হাজার নাম বিশ্লেষণ করে দেখা গেল কিছু পদবী নির্দিষ্ট জেলায় বেশি","Data Mining","লুকানো, আগে অজানা pattern আবিষ্কার হয়েছে।"],
+  ["Google-এ “Amazon” লিখে সার্চ করা","Data Mining না","এটা শুধু একটা query।"],
+  ["সার্চের ফলাফলগুলোকে “Amazon বন” আর “Amazon.com” এই দুই দলে নিজে নিজে ভাগ করা","Data Mining","প্রসঙ্গ অনুযায়ী দল বানানো (clustering) একটা mining কাজ।"],
+  ["ব্যাংকের ডেটাবেস থেকে একজন গ্রাহকের ব্যালেন্স দেখা","Data Mining না","আগে থেকে জানা মান খুঁজে বের করা মাত্র।"],
+  ["৫ বছরের রসিদ ঘেঁটে বের করা যে বৃষ্টির দিনে খিচুড়ির চাল বেশি বিক্রি হয়","Data Mining","আগে অজানা কিন্তু কাজের তথ্য, ঠিক সংজ্ঞার মতো।"]],
+  why:{}},
+ task:{title:"কোন Data Mining task?",opts:["Classification","Clustering","Association","Sequential","Regression","Deviation"],q:[
+  ["নতুন ইমেইল spam কিনা বলা (আগের লেবেলসহ ইমেইল থেকে শিখে)","Classification","লেবেলসহ ডেটা থেকে শিখে নতুন রেকর্ডের class বলা।"],
+  ["গ্রাহকদের কোনো লেবেল ছাড়াই কেনাকাটার ধরন অনুযায়ী দলে ভাগ করা","Clustering","লেবেল নেই, শুধু মিল অনুযায়ী দল।"],
+  ["যারা পাউরুটি কেনে তারা প্রায়ই ডিমও কেনে","Association","একই লেনদেনে কোন item একসাথে আসে।"],
+  ["আগে C বই, তারপর C++ বই, তারপর Perl বই কেনে","Sequential","ঘটনার সময়ক্রম গুরুত্বপূর্ণ।"],
+  ["বিজ্ঞাপনে খরচ দেখে আগামী মাসের বিক্রি কত টাকা হবে বলা","Regression","উত্তর একটা continuous সংখ্যা।"],
+  ["রাত ৩টায় হঠাৎ বিদেশ থেকে বড় কার্ড লেনদেন ধরা","Deviation","স্বাভাবিক আচরণ থেকে বড় বিচ্যুতি।"],
+  ["আকাশের ঝাপসা বস্তুটা তারা না গ্যালাক্সি বলা","Classification","দুইটা পরিচিত class-এর একটায় বসানো।"],
+  ["বাতাসের গতি অনুমান (তাপমাত্রা, আর্দ্রতা, চাপ দেখে)","Regression","গতি একটা সংখ্যা।"]]}
+};
+const NOTES=[
+{id:1,t:"কেন Data Mining?",en:"Why mine data",sl:"2–4",faq:[1,2,3,4,5,6,7],h:`
+<div class="grid2">
+  <div class="mini c1"><b>বাণিজ্যিক দৃষ্টিকোণ</b>১. প্রচুর ডেটা জমছে: ওয়েব, ই-কমার্স, দোকানের কেনাকাটা, ব্যাংক/কার্ডের লেনদেন<br>২. কম্পিউটার সস্তা ও শক্তিশালী<br>৩. প্রতিযোগিতা তীব্র, তাই গ্রাহককে ব্যক্তিগত সেবা (যেমন CRM)</div>
+  <div class="mini c2"><b>বৈজ্ঞানিক দৃষ্টিকোণ</b>ঘণ্টায় GB হারে ডেটা আসে: স্যাটেলাইট সেন্সর, টেলিস্কোপ, জিনের microarray, simulation (terabyte)। পুরোনো পদ্ধতি অচল।<br>Data mining সাহায্য করে: <b>classify/segment</b> করতে আর <b>hypothesis</b> তৈরিতে।</div>
+</div>
+<h3>বড় ডেটা mining-এর কারণ (Motivation)</h3>
+<ul class="pts">
+  <li>ডেটায় অনেক তথ্য <b>লুকিয়ে</b> থাকে, সহজে চোখে পড়ে না।</li>
+  <li>মানুষ বিশ্লেষকের দরকারি তথ্য খুঁজতে <b>সপ্তাহের পর সপ্তাহ</b> লাগে।</li>
+  <li>অনেক ডেটা <b>কখনো বিশ্লেষণই হয় না</b>।</li>
+</ul>
+<div class="callout key"><b>The Data Gap (স্লাইড ৪)</b>১৯৯৫ থেকে নতুন ডেটা স্টোরেজ (TB) আকাশছোঁয়া হারে বাড়ছে, কিন্তু বিশ্লেষকের সংখ্যা প্রায় একই। এই ফাঁক পূরণ করতেই স্বয়ংক্রিয় data mining।</div>`},
+{id:2,t:"Data Mining কী?",en:"Definition",sl:"5–6",faq:[8,9,10,11],h:`
+<div class="callout key"><b>সংজ্ঞা ১ (পরীক্ষার জন্য মুখস্থ)</b>Non-trivial extraction of <u>implicit</u>, <u>previously unknown</u> and <u>potentially useful</u> information from data.</div>
+<div class="callout key"><b>সংজ্ঞা ২</b>Exploration &amp; analysis, by automatic or semi-automatic means, of large quantities of data in order to discover meaningful patterns.</div>
+<dl class="gloss">
+  <dt>Non-trivial</dt><dd>সহজ কাজ না; সরল query দিয়ে পাওয়া যায় না।</dd>
+  <dt>Implicit</dt><dd>ডেটায় লুকানো, সরাসরি লেখা নেই।</dd>
+  <dt>Previously unknown</dt><dd>নতুন আবিষ্কার, আগে জানা ছিল না।</dd>
+  <dt>Potentially useful</dt><dd>কাজে লাগানো যায় (সিদ্ধান্ত, ব্যবসা, গবেষণায়)।</dd>
+</dl>
+<div class="grid2">
+  <div class="mini good"><b>Data Mining</b>বোস্টনে O’Brien, O’Reilly নাম বেশি, এই pattern খোঁজা।<br>সার্চ রেজাল্টকে প্রসঙ্গ অনুযায়ী দলে ভাগ (Amazon বন বনাম Amazon.com)।</div>
+  <div class="mini bad"><b>Data Mining না</b>ফোন ডিরেক্টরিতে নম্বর খোঁজা।<br>সার্চ ইঞ্জিনে “Amazon” লিখে query করা।</div>
+</div>
+<div class="callout tip"><b>এক লাইনে পার্থক্য</b>জানা জিনিস <b>খোঁজা</b> = query। অজানা জিনিস <b>আবিষ্কার</b> = mining।</div>
+<div class="tool" data-tool="sorter" data-set="isdm"></div>`},
+{id:3,t:"Data Mining-এর উৎস",en:"Origins of data mining",sl:"7",faq:[12,13,14],h:`
+<p>Data mining চারটা ক্ষেত্রের ধারণা মিলিয়ে তৈরি:</p>
+<div class="venn">
+  <span class="v1">Machine Learning / AI</span><span class="v2">Pattern Recognition</span><span class="v3">Statistics</span><span class="v4">Database Systems</span>
+  <b class="vc">Data Mining</b>
+</div>
+<h3>পুরোনো পদ্ধতি কেন চলে না?</h3>
+<div class="grid2">
+  <div class="mini c1"><b>Enormity of data</b>ডেটা বিশাল, terabyte-petabyte।</div>
+  <div class="mini c2"><b>High dimensionality</b>প্রতি রেকর্ডে শত-হাজার attribute।</div>
+  <div class="mini c3"><b>Heterogeneous, distributed</b>নানা ধরনের ডেটা, নানা জায়গায় ছড়ানো।</div>
+</div>
+<div class="callout tip"><b>মনে রাখার কৌশল</b>পুরোনো পদ্ধতির তিন শত্রু: <b>বড়</b> (enormity), <b>চওড়া</b> (dimensionality), <b>এলোমেলো</b> (heterogeneous)।</div>`},
+{id:4,t:"Data Mining Tasks",en:"Prediction vs description",sl:"8–9",faq:[15,16,17,18,19,20,21],h:`
+<div class="grid2">
+  <div class="mini c1"><b>Prediction methods</b>কিছু variable দিয়ে অন্য variable-এর অজানা বা ভবিষ্যৎ মান অনুমান।</div>
+  <div class="mini c3"><b>Description methods</b>ডেটা বর্ণনা করে এমন মানুষের বোঝার মতো pattern খোঁজা।</div>
+</div>
+<div class="tbl">${COMPARE_HTML}</div>
+<div class="callout tip"><b>মনে রাখার কৌশল</b>Predictive তিনটা = <b>CRD</b> (Classification, Regression, Deviation)। বাকি তিনটা Descriptive (Clustering, Association, Sequential)।</div>
+<div class="tool" data-tool="sorter" data-set="task"></div>`},
+{id:5,t:"Classification",en:"Predictive · labeled data",sl:"10–16",faq:[22,23,24,25,26,27,28,29,30],h:`
+<div class="callout key"><b>সংজ্ঞা</b>Given a collection of records (<b>training set</b>), each with a set of attributes, one of which is the <b>class</b>: find a <b>model</b> for the class attribute as a function of the other attributes. Goal: previously unseen records should be assigned a class as accurately as possible. A <b>test set</b> is used to determine the accuracy of the model.</div>
+<div class="flow">
+  <div class="fbox">Training Set<small>লেবেলসহ ডেটা</small></div><div class="farr">Learn</div>
+  <div class="fbox acc">Classifier / Model</div><div class="farr">Apply</div>
+  <div class="fbox dark">Test Set<small>নতুন ডেটার class</small></div>
+</div>
+<h3>স্লাইড ১১-এর উদাহরণ: কর ফাঁকি (Cheat) অনুমান</h3>
+<div class="tool" data-tool="classify"></div>
+<h3>চারটা প্রয়োগ</h3>
+<div class="grid2">
+  <div class="mini c1"><b>1. Direct Marketing</b>লক্ষ্য: যারা কেনার সম্ভাবনা বেশি শুধু তাদের মেইল পাঠিয়ে খরচ কমানো। Class = {buy, don’t buy}।</div>
+  <div class="mini c2"><b>2. Fraud Detection</b>ক্রেডিট কার্ডে জালিয়াতি অনুমান। আগের লেনদেন fraud/fair লেবেল করা।</div>
+  <div class="mini c3"><b>3. Customer Churn</b>গ্রাহক প্রতিযোগীর কাছে চলে যাবে কিনা। Class = loyal/disloyal।</div>
+  <div class="mini c4"><b>4. Sky Survey</b>ঝাপসা বস্তু তারা না গ্যালাক্সি। ৩০০০ ছবি, ২৩,০৪০×২৩,০৪০ পিক্সেল, প্রতি বস্তুতে ৪০টা feature। ১৬টা নতুন quasar পাওয়া গেছে।</div>
+</div>
+<p><b>Classifying Galaxies (স্লাইড ১৬):</b> ৭.২ কোটি তারা, ২ কোটি গ্যালাক্সি; Object Catalog 9 GB, Image Database 150 GB। Class = গঠনের ধাপ (Early, Intermediate, Late)।</p>`},
+{id:6,t:"Clustering",en:"Descriptive · no labels",sl:"17–22",faq:[31,32,33,34,35,36,37],h:`
+<div class="callout key"><b>সংজ্ঞা</b>Given a set of data points with attributes and a similarity measure, find clusters such that points in one cluster are <b>more similar</b> to one another, and points in separate clusters are <b>less similar</b>.</div>
+<p>Similarity measure: attribute continuous হলে <b>Euclidean distance</b>, নইলে সমস্যা অনুযায়ী অন্য measure।</p>
+<div class="tool" data-tool="cluster"></div>
+<div class="callout tip"><b>মনে রাখুন</b><b>Intra</b>cluster দূরত্ব <b>কম</b> (দলের ভেতরে ঘনিষ্ঠ), <b>Inter</b>cluster দূরত্ব <b>বেশি</b> (দলে দলে দূরে)।</div>
+<h3>প্রয়োগ</h3>
+<div class="grid2">
+  <div class="mini c1"><b>Market Segmentation</b>গ্রাহকদের ভৌগোলিক ও জীবনযাত্রার তথ্য দিয়ে দল বানানো; প্রতিটা দলের জন্য আলাদা মার্কেটিং।</div>
+  <div class="mini c2"><b>Document Clustering</b>বারবার আসা শব্দের frequency দিয়ে মিল মাপা। উদাহরণ: LA Times-এর ৩২০৪টা আর্টিকেল।</div>
+  <div class="mini c3"><b>S&amp;P 500 Stocks</b>একই দিনে প্রায়ই একসাথে UP/DOWN হয় এমন স্টক এক দলে (association rule দিয়ে মিল মাপা)।</div>
+</div>
+<div class="callout key"><b>Classification বনাম Clustering (খুব গুরুত্বপূর্ণ)</b>Classification-এ আগে থেকে লেবেল (class) থাকে, model শেখে। Clustering-এ কোনো লেবেল থাকে না, ডেটা নিজেই দলে ভাগ হয়।</div>`},
+{id:7,t:"Association Rule Discovery",en:"Items that go together",sl:"23–26",faq:[38,39,40,41,42,43],h:`
+<div class="callout key"><b>সংজ্ঞা</b>Given a set of records, each containing some items from a collection, produce <b>dependency rules</b> which predict occurrence of an item based on occurrences of other items.</div>
+<div class="tool" data-tool="basket"></div>
+<h3>Rule-এর দুই পাশ</h3>
+<div class="flow"><div class="fbox acc">Antecedent (বাম পাশ)<small>{Bagels, …}</small></div><div class="farr"></div><div class="fbox dark">Consequent (ডান পাশ)<small>{Potato Chips}</small></div></div>
+<ul class="pts">
+  <li><b>Consequent-এ Potato Chips:</b> চিপসের বিক্রি বাড়াতে কী করা যায়।</li>
+  <li><b>Antecedent-এ Bagels:</b> bagel বিক্রি বন্ধ করলে কোন পণ্য প্রভাবিত হবে।</li>
+  <li><b>দুটো একসাথে:</b> চিপসের বিক্রি বাড়াতে bagel-এর সাথে কী বিক্রি করা উচিত।</li>
+</ul>
+<div class="grid2">
+  <div class="mini c1"><b>Shelf Management</b>barcode scanner-এর POS ডেটা থেকে: diaper + milk কিনলে beer কেনার সম্ভাবনা বেশি, তাই ডায়াপারের পাশে beer।</div>
+  <div class="mini c2"><b>Inventory Management</b>রিপেয়ার কোম্পানি আগের মেরামতে একসাথে লাগা যন্ত্রাংশ দেখে গাড়িতে ঠিক যন্ত্রাংশ রাখে, বাসায় কম যাওয়া লাগে।</div>
+</div>`},
+{id:8,t:"Sequential Pattern Discovery",en:"Order of events",sl:"27–28",faq:[44,45],h:`
+<div class="callout key"><b>সংজ্ঞা</b>Given a set of objects, each with its own <b>timeline of events</b>, find rules that predict strong <b>sequential dependencies</b> among different events. Rules are formed by first discovering patterns; event occurrences are governed by <b>timing constraints</b>.</div>
+<div class="grid2">
+  <div class="mini"><b>Telecom alarm logs</b><span class="mono">(Inverter_Problem, Excessive_Line_Current) (Rectifier_Alarm) → (Fire_Alarm)</span></div>
+  <div class="mini"><b>Computer bookstore</b><span class="mono">(Intro_To_Visual_C) (C++_Primer) → (Perl_for_dummies, Tcl_Tk)</span></div>
+  <div class="mini"><b>Athletic store</b><span class="mono">(Shoes) (Racket, Racketball) → (Sports_Jacket)</span></div>
+</div>
+<div class="callout tip"><b>Association বনাম Sequential</b>Association: একই ব্যাগে কী কী একসাথে (সময় নেই)। Sequential: আগে কী, পরে কী (সময়ের ক্রম আছে)।</div>`},
+{id:9,t:"Regression ও Anomaly Detection",en:"Predictive tasks",sl:"29–30",faq:[46,47,48,49],h:`
+<div class="grid2">
+  <div class="mini c1"><b>Regression</b>অন্য variable দেখে একটা <b>continuous</b> সংখ্যা অনুমান (linear বা nonlinear model)। Statistics আর neural network-এ বহুল পঠিত।<small>উদাহরণ: বিজ্ঞাপন খরচ → বিক্রি; তাপমাত্রা-আর্দ্রতা-চাপ → বাতাসের গতি; শেয়ার সূচকের time series</small></div>
+  <div class="mini c4"><b>Deviation / Anomaly Detection</b>স্বাভাবিক আচরণ থেকে <b>বড় বিচ্যুতি</b> খোঁজা।<small>প্রয়োগ: Credit card fraud, network intrusion। বিশ্ববিদ্যালয়ের নেটওয়ার্কে দিনে ১০ কোটির বেশি কানেকশন হতে পারে।</small></div>
+</div>
+<div class="callout tip"><b>Classification বনাম Regression</b>Classification-এর উত্তর একটা <b>শ্রেণি</b> (হ্যাঁ/না, তারা/গ্যালাক্সি)। Regression-এর উত্তর একটা <b>সংখ্যা</b> (৫৭,৩০০ টাকা, ১২ কিমি/ঘণ্টা)।</div>`},
+{id:10,t:"Data Mining-এর চ্যালেঞ্জ",en:"Challenges",sl:"31",faq:[50,51],h:`
+<div class="grid2">
+  <div class="mini c1"><b>1. Scalability</b>ডেটা বাড়লেও অ্যালগরিদমকে দ্রুত চলতে হবে।</div>
+  <div class="mini c2"><b>2. Dimensionality</b>হাজার হাজার attribute সামলানো।</div>
+  <div class="mini c3"><b>3. Complex &amp; Heterogeneous Data</b>লেখা, ছবি, গ্রাফ, নানা ফরম্যাট।</div>
+  <div class="mini c4"><b>4. Data Quality</b>ভুল, অসম্পূর্ণ, noisy ডেটা।</div>
+  <div class="mini c1"><b>5. Data Ownership &amp; Distribution</b>ডেটা নানা প্রতিষ্ঠানে, নানা মালিকের কাছে ছড়ানো।</div>
+  <div class="mini c2"><b>6. Privacy Preservation</b>মানুষের ব্যক্তিগত তথ্য গোপন রেখে বিশ্লেষণ।</div>
+  <div class="mini c3"><b>7. Streaming Data</b>অবিরাম আসা ডেটা সাথে সাথে বিশ্লেষণ।</div>
+</div>
+<div class="callout tip"><b>মনে রাখার কৌশল (৭টা)</b>“<b>বড়</b> (Scalability), <b>চওড়া</b> (Dimensionality), <b>জটিল</b> (Complex), <b>নোংরা</b> (Quality), <b>ছড়ানো</b> (Ownership), <b>গোপন</b> (Privacy), <b>চলমান</b> (Streaming)।”</div>`}
+];
+const STEPS={};
+
+
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const store={get(k){try{return localStorage.getItem(k);}catch(e){return null;}},set(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
+
+/* ---------- Language ---------- */
+let lang=["both","en","bn"].includes(store.get(PAGE.key+"-lang"))?store.get(PAGE.key+"-lang"):"both";
+const qHTML=f=>lang==="en"?`<span class="qen">${esc(f.q)}</span>`:lang==="bn"?`<span>${f.qb}</span>`:`<span class="qen">${esc(f.q)}</span><span class="qbn">${f.qb}</span>`;
+const aHTML=f=>lang==="en"?`<span class="aen">${f.a}</span>`:lang==="bn"?`<span class="abn" style="margin-top:0">${f.ab}</span>`:`<span class="aen">${f.a}</span><span class="abn">${f.ab}</span>`;
+
+/* ---------- Navigation ---------- */
+const VIEWS=["home","notes","study","exam","cards"];
+function show(v,push){
+  let ch=null;const m=/^note-(\d+)$/.exec(v||"");if(m){ch=+m[1];v="notes";}
+  if(!VIEWS.includes(v))v="home";
+  if(v==="notes"){if(ch&&NOTES.some(n=>n.id===ch))openChapter(ch);else showToc();}
+  VIEWS.forEach(x=>{$("#"+x).hidden=x!==v;});
+  document.querySelectorAll(".bnav button").forEach(b=>b.toggleAttribute("aria-current",b.dataset.go===v)||b.dataset.go===v&&b.setAttribute("aria-current","page"));
+  document.querySelectorAll(".bnav button").forEach(b=>{if(b.dataset.go===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
+  if(push){try{history.replaceState(null,"","#"+v);}catch(e){}}
+  window.scrollTo(0,0);
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)show(b.dataset.go,true);});
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+/* ---------- Notes ---------- */
+let doneSet=new Set();try{doneSet=new Set(JSON.parse(store.get(PAGE.key+"-notes")||"[]"));}catch(e){}
+function saveDone(){store.set(PAGE.key+"-notes",JSON.stringify([...doneSet]));updateNoteProg();}
+function updateNoteProg(){
+  const n=doneSet.size,t=NOTES.length;
+  $("#nprogTxt").textContent=`${n}/${t} পড়া শেষ`;$("#nprogBar").style.width=(n/t*100)+"%";
+  $("#statNotes").textContent=`${n}/${t}`;
+  document.querySelectorAll(".tocitem").forEach(b=>b.classList.toggle("done",doneSet.has(+b.dataset.ch)));
+}
+$("#toc").innerHTML=NOTES.map(n=>`<button class="tocitem" type="button" data-ch="${n.id}"><span class="no">${n.id}</span><span><span class="tt">${n.t}</span><span class="ts">${n.en}</span></span><span class="sl">${PAGE.slLabel||"স্লাইড"} ${n.sl}</span></button>`).join("");
+$("#toc").addEventListener("click",e=>{const b=e.target.closest(".tocitem");if(b){openChapter(+b.dataset.ch);try{history.replaceState(null,"","#note-"+b.dataset.ch);}catch(er){}}});
+function chapterHTML(n,withNav){
+  const i=NOTES.indexOf(n),prev=NOTES[i-1],next=NOTES[i+1];
+  return `<article class="chapter"><div class="chhead">${withNav?`<button class="back" type="button" data-act="toc">‹ সব চ্যাপ্টার</button>`:""}<div class="k">চ্যাপ্টার ${n.id} · ${PAGE.slLabel||"স্লাইড"} ${n.sl}</div><h2>${n.t}</h2></div>
+  <div class="chbody">${n.h}</div>
+  ${withNav?`<div class="chfoot">
+    <button class="btn ghost block donebtn" type="button" data-act="done" aria-pressed="${doneSet.has(n.id)}">${doneSet.has(n.id)?"✓ পড়া শেষ":"পড়া শেষ হলে চাপুন"}</button>
+    ${n.faq.length?`<button class="btn block" type="button" data-act="practice">এই চ্যাপ্টারের ${n.faq.length}টা প্রশ্নে পরীক্ষা দিন</button>`:""}
+    <div class="chnav"><button class="btn ghost" type="button" data-act="prev" ${prev?"":"disabled"}>‹ আগের</button><button class="btn ghost" type="button" data-act="next" ${next?"":"disabled"}>পরের ›</button></div>
+  </div>`:""}</article>`;
+}
+let curCh=null;
+function showToc(){$("#tocwrap").hidden=false;$("#chapterView").hidden=true;updateNoteProg();}
+function openChapter(id){
+  const n=NOTES.find(x=>x.id===id);if(!n)return showToc();curCh=n;
+  $("#tocwrap").hidden=true;const cv=$("#chapterView");cv.hidden=false;cv.innerHTML=chapterHTML(n,true);initTools(cv);
+  VIEWS.forEach(x=>{$("#"+x).hidden=x!=="notes";});
+  document.querySelectorAll(".bnav button").forEach(b=>{if(b.dataset.go==="notes")b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
+  window.scrollTo(0,0);
+}
+$("#chapterView").addEventListener("click",e=>{
+  const b=e.target.closest("[data-act]");if(!b)return;const a=b.dataset.act,i=NOTES.indexOf(curCh);
+  if(a==="toc"){showToc();try{history.replaceState(null,"","#notes");}catch(er){}window.scrollTo(0,0);}
+  if(a==="done"){if(doneSet.has(curCh.id))doneSet.delete(curCh.id);else doneSet.add(curCh.id);saveDone();b.setAttribute("aria-pressed",doneSet.has(curCh.id));b.textContent=doneSet.has(curCh.id)?"✓ পড়া শেষ":"পড়া শেষ হলে চাপুন";}
+  if(a==="prev"&&i>0){openChapter(NOTES[i-1].id);try{history.replaceState(null,"","#note-"+NOTES[i-1].id);}catch(er){}}
+  if(a==="next"&&i<NOTES.length-1){if(!doneSet.has(curCh.id)){doneSet.add(curCh.id);saveDone();}openChapter(NOTES[i+1].id);try{history.replaceState(null,"","#note-"+NOTES[i+1].id);}catch(er){}}
+  if(a==="practice"){const pool=curCh.faq.map(k=>FAQ[k-1]);show("exam",true);startExam(pool,true);}
+});
+/* interactive bits inside chapters */
+const shiftTxt=(t,k)=>t.replace(/[a-z]/gi,c=>{const b=c<="Z"?65:97;return String.fromCharCode((c.charCodeAt(0)-b+((k%26)+26))%26+b);});
+function initTools(root){
+  root.querySelectorAll('.tool[data-tool="caesar"],.tool[data-tool="caesar2"]').forEach((el,ix)=>{
+    const id="cz"+Math.random().toString(36).slice(2,7),def=el.dataset.tool==="caesar"?"Happy Valentine's Day":"go back",k0=el.dataset.tool==="caesar"?-1:1;
+    el.innerHTML=`<div class="th">নিজে চেষ্টা করুন: Shift (Caesar) cipher <span class="badge">TRY</span></div>
+    <label class="tl" for="${id}t">আপনার মেসেজ</label><input type="text" id="${id}t" value="${def}">
+    <label class="tl" for="${id}k">কত ঘর সরাবেন: <b id="${id}v">${k0}</b> <span id="${id}d"></span></label><input type="range" id="${id}k" min="-5" max="5" value="${k0}">
+    <div class="out"><small>Ciphertext</small><span id="${id}o"></span></div>
+    <div class="note">মাইনাস মানে বামে (আগের অক্ষর), প্লাস মানে ডানে (পরের অক্ষর)। ডিক্রিপ্ট করতে উল্টো দিকে একই ঘর সরান।</div>`;
+    const t=el.querySelector("#"+id+"t"),k=el.querySelector("#"+id+"k");
+    const upd=()=>{const v=+k.value;el.querySelector("#"+id+"v").textContent=v>0?"+"+v:v;el.querySelector("#"+id+"d").textContent=v<0?"(বামে)":v>0?"(ডানে)":"";el.querySelector("#"+id+"o").textContent=shiftTxt(t.value,v);};
+    t.addEventListener("input",upd);k.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll('.tool[data-tool="keys"]').forEach(el=>{
+    const id="kc"+Math.random().toString(36).slice(2,7);
+    el.innerHTML=`<div class="th">কতগুলো key লাগবে? <span class="badge">TRY</span></div>
+    <label class="tl" for="${id}n">গ্রুপে কতজন মানুষ (n)</label><input type="number" id="${id}n" min="2" max="1000" value="10">
+    <div class="kc"><div><b id="${id}s"></b><span>Symmetric: n(n−1)/2টা shared key</span></div><div><b id="${id}a"></b><span>Asymmetric: nটা personal secret</span></div></div>
+    <div class="note" id="${id}x"></div>`;
+    const n=el.querySelector("#"+id+"n");
+    const upd=()=>{let v=Math.max(2,Math.min(1000,Math.floor(+n.value||2)));const s=v*(v-1)/2;el.querySelector("#"+id+"s").textContent=s;el.querySelector("#"+id+"a").textContent=v;el.querySelector("#"+id+"x").textContent=`${v} জনের জন্য: ${v}×${v-1}/2 = ${s}টা key। মানুষ বাড়লে symmetric-এ key খুব দ্রুত বাড়ে।`;};
+    n.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll('.tool[data-tool="xor"]').forEach(el=>{
+    const id="xr"+Math.random().toString(36).slice(2,7);
+    el.innerHTML=`<label class="tl" for="${id}p">Plaintext (শুধু 0 আর 1)</label><input type="text" id="${id}p" value="10011011110100001" inputmode="numeric">
+    <label class="tl" for="${id}k">Keystream-এর প্যাটার্ন (বারবার রিপিট হবে)</label><input type="text" id="${id}k" value="10" inputmode="numeric">
+    <div class="bits" id="${id}o" style="margin-top:10px"></div>
+    <div class="note">XOR নিয়ম: দুইটা bit একই হলে 0, আলাদা হলে 1। Ciphertext-কে আবার একই keystream দিয়ে XOR করলে plaintext ফিরে আসে।</div>`;
+    const p=el.querySelector("#"+id+"p"),k=el.querySelector("#"+id+"k");
+    const upd=()=>{const pt=p.value.replace(/[^01]/g,"")||"0",pat=k.value.replace(/[^01]/g,"")||"1";
+      const ks=Array.from(pt,(c,i)=>pat[i%pat.length]).join("");const ct=Array.from(pt,(c,i)=>c===ks[i]?"0":"1").join("");
+      el.querySelector("#"+id+"o").innerHTML=`Plaintext  : ${pt}\nKeystream  : <span class="r">${ks}</span>\nCiphertext : <span class="g">${ct}</span>  (XOR)\n\nCiphertext : ${ct}\nKeystream  : <span class="r">${ks}</span>\nPlaintext  : ${pt}  (আবার XOR)`;};
+    p.addEventListener("input",upd);k.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll('.tool[data-tool="block"]').forEach(el=>{
+    const id="bk"+Math.random().toString(36).slice(2,7);
+    el.innerHTML=`<label class="tl" for="${id}t">Plaintext</label><input type="text" id="${id}t" value="The only thing we have to fear is fear itself">
+    <label class="tl" for="${id}n">Block size (কয় অক্ষর): <b id="${id}v">8</b></label><input type="range" id="${id}n" min="3" max="10" value="8">
+    <div class="bits" id="${id}o" style="margin-top:10px;white-space:pre-wrap;word-break:break-all"></div>
+    <div class="note">পদ্ধতি: স্পেস বাদ দিন → নির্দিষ্ট সাইজের block-এ ভাগ করুন → শেষ block ছোট হলে X দিয়ে padding → প্রতিটা block উল্টে দিন। (স্লাইডে শেষ block-এ padding হিসেবে “Xend” লেখা হয়েছে।)</div>`;
+    const t=el.querySelector("#"+id+"t"),n=el.querySelector("#"+id+"n");
+    const upd=()=>{const sz=+n.value;el.querySelector("#"+id+"v").textContent=sz;const s=t.value.replace(/\s+/g,"")||"X";const bl=[];for(let i=0;i<s.length;i+=sz)bl.push(s.slice(i,i+sz).padEnd(sz,"X"));
+      const cb=bl.map(b=>[...b].reverse().join(""));
+      el.querySelector("#"+id+"o").innerHTML=`Blocks     : ${bl.join(" ")}\nউল্টানো    : <span class="g">${cb.join(" ")}</span>\nCiphertext : <span class="g">${cb.join("")}</span>`;};
+    t.addEventListener("input",upd);n.addEventListener("input",upd);upd();
+  });
+  root.querySelectorAll('.tool[data-tool="process"]').forEach(el=>{
+    const rows=[["সকাল 9:10","চা","২","৳৩০"],["সকাল 9:40","পাউরুটি","১","৳৬০"],["দুপুর 12:05","চা","৩","৳৪৫"],["দুপুর 1:30","বিস্কুট","২","৳৪০"],["বিকাল 4:15","চা","৪","৳৬০"],["সন্ধ্যা 6:50","পাউরুটি","২","৳১২০"]];
+    el.innerHTML=`<div class="th">একটা চায়ের দোকানের আজকের ডেটা <span class="badge">TRY</span></div>
+    <div style="overflow-x:auto"><table class="proc-tbl"><thead><tr><th>সময়</th><th>পণ্য</th><th>পরিমাণ</th><th>দাম</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <div class="note">এগুলো কাঁচা <b>Data</b>: আলাদা আলাদা লেনদেন, একা দেখে কোনো সিদ্ধান্ত নেওয়া কঠিন।</div>
+    <button class="btn block" type="button" style="margin-top:10px" data-p="go">MIS দিয়ে প্রসেস করুন →</button><div class="pout"></div>`;
+    el.querySelector('[data-p="go"]').addEventListener("click",e=>{e.target.hidden=true;el.querySelector(".pout").innerHTML=`<div class="proc-out"><div><b>৳৩৫৫</b><span>আজকের মোট বিক্রি</span></div><div><b>চা</b><span>সবচেয়ে বেশি বিক্রি (৯ কাপ)</span></div><div><b>বিকাল</b><span>সবচেয়ে ব্যস্ত সময়</span></div></div>
+      <div class="callout tip" style="margin-bottom:0"><b>এটাই Information → Decision</b>কাল বিকালে চা বেশি বানিয়ে রাখি, আর পাউরুটির দাম বেশি হলেও চলছে, স্টক বাড়াই।</div>`;});
+  });
+  root.querySelectorAll('.tool[data-tool="sorter"]').forEach(el=>{
+    const cfg=(typeof SORTERS!=="undefined"&&SORTERS[el.dataset.set])||null;if(!cfg)return;
+    const Q=cfg.q,O=cfg.opts;let i=0,sc=0,done=false;
+    el.innerHTML=`<div class="th">${cfg.title} <span class="badge">GAME</span></div><div class="srt-meta"><span class="sp"></span><span class="ss"></span></div><div class="srt-q"></div><div class="srt-btns" style="grid-template-columns:repeat(${Math.min(3,O.length)},1fr)">${O.map(o=>`<button type="button">${o}</button>`).join("")}</div><div class="srt-fb"></div><button class="btn ghost block" type="button" data-n="1" style="margin-top:8px" hidden>পরেরটা ›</button>`;
+    const draw=()=>{done=false;el.querySelector(".sp").textContent=`${i+1} / ${Q.length}`;el.querySelector(".ss").textContent=`${sc}টা সঠিক`;el.querySelector(".srt-q").textContent=Q[i][0];el.querySelector(".srt-fb").textContent="";el.querySelectorAll(".srt-btns button").forEach(b=>{b.className="";b.disabled=false;});el.querySelector('[data-n]').hidden=true;};
+    el.querySelector(".srt-btns").addEventListener("click",e=>{const b=e.target.closest("button");if(!b||done)return;done=true;const r=Q[i][1];el.querySelectorAll(".srt-btns button").forEach(x=>{x.disabled=true;if(x.textContent===r)x.className="ok";});if(b.textContent===r)sc++;else b.className="no";
+      el.querySelector(".srt-fb").textContent=(b.textContent===r?"সঠিক! ":"উত্তর: "+r+"। ")+(Q[i][2]||"");el.querySelector(".ss").textContent=`${sc}টা সঠিক`;const nb=el.querySelector('[data-n]');nb.hidden=false;nb.textContent=i===Q.length-1?`শেষ! ${sc}/${Q.length} · আবার খেলুন ↺`:"পরেরটা ›";});
+    el.querySelector('[data-n]').addEventListener("click",()=>{if(i===Q.length-1){i=0;sc=0;}else i++;draw();});draw();
+  });
+  root.querySelectorAll('.tool[data-tool="classify"]').forEach(el=>{
+    const T=[["Yes","Single","125K","No"],["No","Married","100K","No"],["No","Single","70K","No"],["Yes","Married","120K","No"],["No","Divorced","95K","Yes"],["No","Married","60K","No"],["Yes","Divorced","220K","No"],["No","Single","85K","Yes"],["No","Married","75K","No"],["No","Single","90K","Yes"]];
+    el.innerHTML=`<div class="th">Training set (১০টা রেকর্ড) <span class="badge">TRY</span></div>
+    <div style="overflow-x:auto"><table class="proc-tbl"><thead><tr><th>Tid</th><th>Refund</th><th>Marital</th><th>Income</th><th>Cheat (class)</th></tr></thead><tbody>${T.map((r,k)=>`<tr><td>${k+1}</td>${r.map((c,j)=>`<td${j===3?` style="font-weight:600;color:var(--${c==="Yes"?"bad":"good"})"`:""}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <div class="note">Refund ও Marital = categorical, Income = continuous, Cheat = class। এই ডেটা থেকে শেখা একটা সহজ model (decision tree):</div>
+    <div class="bits" style="margin-top:8px;white-space:pre-wrap">Refund = Yes → Cheat = No
+Refund = No:
+   Married → Cheat = No
+   Single/Divorced:
+      Income &lt; 80K → No
+      Income &gt; 80K → Yes</div>
+    <div class="th" style="margin-top:14px">এবার নতুন (test) রেকর্ড দিয়ে দেখুন</div>
+    <div class="cl-in"><label>Refund<select data-c="r"><option>No</option><option>Yes</option></select></label><label>Marital<select data-c="m"><option>Single</option><option>Married</option><option>Divorced</option></select></label></div>
+    <label class="tl">Taxable Income: <b data-c="iv">90</b>K</label><input type="range" data-c="i" min="30" max="250" step="5" value="90">
+    <div class="out"><small>Model-এর অনুমান</small><span data-c="o"></span></div>`;
+    const g=k=>el.querySelector(`[data-c="${k}"]`);
+    const upd=()=>{const r=g("r").value,m=g("m").value,i=+g("i").value;g("iv").textContent=i;let p,why;
+      if(r==="Yes"){p="No";why="Refund = Yes";}else if(m==="Married"){p="No";why="Refund = No → Married";}else if(i<80){p="No";why=`Refund = No → ${m} → Income ${i}K < 80K`;}else{p="Yes";why=`Refund = No → ${m} → Income ${i}K > 80K`;}
+      g("o").innerHTML=`Cheat = ${p} <small style="display:inline;color:var(--line)">(${why})</small>`;};
+    el.querySelectorAll("select,input").forEach(x=>x.addEventListener("input",upd));upd();
+  });
+  root.querySelectorAll('.tool[data-tool="cluster"]').forEach(el=>{
+    const C=[[70,70],[220,60],[150,180]],col=["#2f4fd8","#1d7a46","#b26a00"];let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+    const P=[];C.forEach((c,k)=>{for(let j=0;j<9;j++)P.push([c[0]+(rnd()-.5)*70,c[1]+(rnd()-.5)*60,k]);});
+    el.innerHTML=`<div class="th">Clustering নিজে দেখুন <span class="badge">TRY</span></div><svg viewBox="0 0 300 240" style="width:100%;max-width:420px;display:block;margin:0 auto;background:var(--bg);border-radius:10px" role="img" aria-label="Clustering demo"></svg>
+    <button class="btn block" type="button" style="margin-top:10px" data-k="go">Cluster করুন</button><div class="note" data-k="n">এখন সব point ধূসর, কোনো লেবেল নেই। বোতাম চাপলে কাছাকাছি point-গুলো এক দলে যাবে।</div>`;
+    const svg=el.querySelector("svg");let on=false;
+    const draw=()=>{svg.innerHTML=(on?C.map((c,k)=>`<circle cx="${c[0]}" cy="${c[1]}" r="52" fill="${col[k]}" fill-opacity=".08" stroke="${col[k]}" stroke-dasharray="4 3"/>`).join("")+`<line x1="${C[0][0]}" y1="${C[0][1]}" x2="${C[1][0]}" y2="${C[1][1]}" stroke="var(--muted)" stroke-width="1"/><text x="145" y="40" font-size="10" fill="var(--muted)" text-anchor="middle">intercluster: বেশি</text>`:"")+P.map(p=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="5" fill="${on?col[p[2]]:"#9aa3b8"}"/>`).join("");};
+    el.querySelector('[data-k="go"]').addEventListener("click",e=>{on=!on;e.target.textContent=on?"আবার এলোমেলো দেখুন":"Cluster করুন";el.querySelector('[data-k="n"]').textContent=on?"৩টা দল তৈরি হলো। দলের ভেতরের point-গুলো কাছাকাছি (intracluster দূরত্ব কম), দলগুলো একে অপর থেকে দূরে (intercluster দূরত্ব বেশি)।":"এখন সব point ধূসর, কোনো লেবেল নেই। বোতাম চাপলে কাছাকাছি point-গুলো এক দলে যাবে।";draw();});draw();
+  });
+  root.querySelectorAll('.tool[data-tool="basket"]').forEach(el=>{
+    const B=[["Bread","Coke","Milk"],["Beer","Bread"],["Beer","Coke","Diaper","Milk"],["Beer","Bread","Diaper","Milk"],["Coke","Diaper","Milk"]],I=["Beer","Bread","Coke","Diaper","Milk"];
+    const L=new Set(["Diaper","Milk"]),R=new Set(["Beer"]);
+    el.innerHTML=`<div class="th">স্লাইড ২৩-এর ৫টা লেনদেন <span class="badge">TRY</span></div>
+    <div style="overflow-x:auto"><table class="proc-tbl"><thead><tr><th>TID</th><th>Items</th></tr></thead><tbody data-b="t"></tbody></table></div>
+    <label class="tl">বাম পাশ (antecedent) বাছুন</label><div class="chips" data-b="l" style="padding-top:2px"></div>
+    <label class="tl">ডান পাশ (consequent) বাছুন</label><div class="chips" data-b="r" style="padding-top:2px"></div>
+    <div class="out"><small>Rule</small><span data-b="o"></span></div><div class="note" data-b="x"></div>`;
+    const chips=(k,S)=>el.querySelector(`[data-b="${k}"]`).innerHTML=I.map(it=>`<button type="button" class="chip" aria-pressed="${S.has(it)}" data-it="${it}">${it}</button>`).join("");
+    const upd=()=>{chips("l",L);chips("r",R);const has=(b,S)=>[...S].every(x=>b.includes(x));
+      const nl=B.filter(b=>L.size&&has(b,L)).length,nb=B.filter(b=>L.size&&R.size&&has(b,L)&&has(b,R)).length;
+      el.querySelector('[data-b="t"]').innerHTML=B.map((b,k)=>{const a=L.size&&has(b,L),c=a&&R.size&&has(b,R);return `<tr style="background:${c?"var(--good-soft)":a?"var(--accent-soft)":"transparent"}"><td>${k+1}</td><td>${b.join(", ")}</td></tr>`;}).join("");
+      el.querySelector('[data-b="o"]').textContent=`{${[...L].join(", ")}} → {${[...R].join(", ")}}`;
+      el.querySelector('[data-b="x"]').innerHTML=!L.size||!R.size?"দুই পাশেই অন্তত একটা item বাছুন।":`নীল সারি: যেসব লেনদেনে বাম পাশের সব item আছে (${nl}টা)। সবুজ: তার মধ্যে যেগুলোতে ডান পাশও আছে (${nb}টা)।<br><b>${nl}টার মধ্যে ${nb}টায় মিলেছে = ${nl?Math.round(nb/nl*100):0}%</b> বার rule-টা সত্যি। (এই হিসাবকে পরের অধ্যায়ে confidence বলা হবে।)`;};
+    el.addEventListener("click",e=>{const b=e.target.closest("[data-it]");if(!b)return;const S=b.parentElement.dataset.b==="l"?L:R,O=S===L?R:L,it=b.dataset.it;if(S.has(it))S.delete(it);else{S.add(it);O.delete(it);}upd();});upd();
+  });
+  root.querySelectorAll(".stepper").forEach(el=>{
+    const st=STEPS[el.dataset.steps];let i=0;
+    if(!st)return;if(document.body.classList.contains("pdf")){el.innerHTML=`<div class="pdfsteps">${st.map((x,k)=>`<div><span style="font-size:20px">${x.s.join(" ")}</span><br><b>ধাপ ${k+1}:</b> ${x.t}</div>`).join("")}</div>`;return;}
+    el.innerHTML=`<div class="scene"></div><div class="stext"></div><div class="sctl"><button class="btn ghost" type="button" data-s="-1">‹ আগে</button><div class="sdots">${st.map(()=>"<i></i>").join("")}</div><button class="btn" type="button" data-s="1">পরের ধাপ ›</button></div>`;
+    const draw=()=>{const s=st[i];el.querySelector(".scene").innerHTML=`<span>${s.s[0]}<small>Alice</small></span><span>${s.s[1]}</span><span>${s.s[2]}<small>Bob</small></span>`;
+      el.querySelector(".stext").innerHTML=`<b>ধাপ ${i+1}/${st.length}:</b> ${s.t}`;el.querySelectorAll(".sdots i").forEach((d,k)=>d.classList.toggle("on",k===i));
+      el.querySelector('[data-s="-1"]').disabled=i===0;const nx=el.querySelector('[data-s="1"]');nx.textContent=i===st.length-1?"আবার দেখুন ↺":"পরের ধাপ ›";};
+    el.addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(!b)return;if(+b.dataset.s>0)i=i===st.length-1?0:i+1;else if(i>0)i--;draw();});draw();
+  });
+  root.querySelectorAll(".modes2").forEach(g=>{
+    const panels=g.parentElement.querySelectorAll(".mpanel");
+    g.addEventListener("click",e=>{const b=e.target.closest(".mtab");if(!b)return;g.querySelectorAll(".mtab").forEach(x=>x.setAttribute("aria-pressed",x===b));panels.forEach(p=>p.hidden=p.dataset.m!==b.dataset.m);});
+  });
+}
+function renderAllChapters(){const w=$("#allChapters");w.innerHTML=NOTES.map(n=>chapterHTML(n,false)).join("");initTools(w);}
+
+/* ---------- Study ---------- */
+let curTopic="all",allOpen=false;const openSet=new Set();
+$("#chips").innerHTML=`<button class="chip" type="button" data-t="all" aria-pressed="true">সব</button>`+SECTIONS.map(s=>`<button class="chip" type="button" data-t="${s.id}" aria-pressed="false">${SEC_BN[s.id]}</button>`).join("");
+$("#chips").addEventListener("click",e=>{const c=e.target.closest(".chip");if(!c)return;curTopic=c.dataset.t;$("#chips").querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===c));renderStudy();});
+function cardHTML(f){
+  const open=allOpen||openSet.has(f.n);
+  return `<div class="qc${open?" open":""}" data-n="${f.n}"><button type="button" aria-expanded="${open}"><span class="qn">${f.n}</span><span class="qq">${qHTML(f)}</span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="qbody"><div class="ansbox"><span class="lbl">উত্তর</span>${aHTML(f)}</div><div class="exbox"><span class="lbl">উদাহরণ</span>${f.ex}</div></div></div>`;
+}
+function renderStudy(){
+  const term=$("#search").value.trim().toLowerCase();
+  let html="",total=0;
+  SECTIONS.forEach(s=>{
+    if(curTopic!=="all"&&curTopic!==s.id)return;
+    const items=FAQ.filter(f=>f.sec===s.id&&(!term||(f.q+" "+f.a+" "+f.qb+" "+f.ab).toLowerCase().includes(term)));
+    if(!items.length)return;total+=items.length;
+    html+=`<div class="sec-title">${SEC_BN[s.id]} <span class="cnt">${s.range}</span></div><div class="qcards">${items.map(cardHTML).join("")}</div>`;
+  });
+  $("#sections").innerHTML=total?html:`<div class="empty">“${esc(term)}” দিয়ে কোনো প্রশ্ন পাওয়া যায়নি।</div>`;
+  $("#countTxt").textContent=`${total}টা প্রশ্ন`;
+  $("#compareWrap").hidden=!(curTopic==="all"||curTopic===PAGE.compareSec)||!!term;
+  $("#toggleAll").textContent=allOpen?"সব উত্তর বন্ধ করুন":"সব উত্তর খুলুন";
+}
+$("#search").addEventListener("input",renderStudy);
+$("#toggleAll").addEventListener("click",()=>{allOpen=!allOpen;openSet.clear();renderStudy();});
+$("#sections").addEventListener("click",e=>{
+  const b=e.target.closest(".qc>button");if(!b)return;
+  const c=b.parentElement,n=+c.dataset.n,open=!c.classList.contains("open");
+  c.classList.toggle("open",open);b.setAttribute("aria-expanded",open);
+  if(open)openSet.add(n);else openSet.delete(n);
+});
+
+/* ---------- Exam ---------- */
+const selOpts=SECTIONS.map(s=>`<option value="${s.id}">${SEC_BN[s.id]}</option>`).join("");
+$("#topicSel").insertAdjacentHTML("beforeend",selOpts);
+$("#fcTopic").insertAdjacentHTML("beforeend",selOpts);
+let count=10,ex=null;
+$("#countSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;count=+b.dataset.n;$("#countSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));});
+function startExam(pool,retry){
+  let qs=$("#shufQ").checked?shuffle(pool):pool.slice();
+  if(count&&!retry)qs=qs.slice(0,count);
+  ex={qs,i:0,score:0,wrong:[],answered:false};
+  $("#examSetup").hidden=true;$("#examResult").hidden=true;$("#examRun").hidden=false;renderQ();
+}
+$("#startBtn").addEventListener("click",()=>{const t=$("#topicSel").value;startExam(FAQ.filter(f=>t==="all"||f.sec===t));});
+function renderQ(){
+  const f=ex.qs[ex.i];ex.answered=false;
+  $("#qPos").textContent=`প্রশ্ন ${ex.i+1} / ${ex.qs.length}`;
+  $("#qScore").textContent=`${ex.score}টা সঠিক`;
+  $("#bar").style.width=(ex.i/ex.qs.length*100)+"%";
+  $("#qOrig").textContent=`FAQ ${f.n} · ${SEC_BN[f.sec]}`;
+  $("#qText").innerHTML=qHTML(f);
+  let opts=f.opts.slice();
+  const isTF=opts.length===2&&opts.includes("True")&&opts.includes("False");
+  if(isTF)opts=["True","False"];else if($("#shufO").checked)opts=shuffle(opts);
+  $("#opts").innerHTML=opts.map((o,k)=>`<button class="opt" type="button" data-v="${esc(o)}"><span class="letter">${"ABCD"[k]}</span><span>${esc(o)}</span></button>`).join("");
+  $("#fb").innerHTML="";$("#nextBtn").hidden=true;
+}
+$("#opts").addEventListener("click",e=>{
+  const b=e.target.closest(".opt");if(!b||ex.answered)return;ex.answered=true;
+  const f=ex.qs[ex.i],pick=b.dataset.v,right=pick===f.ok;
+  document.querySelectorAll(".opt").forEach(o=>{o.disabled=true;if(o.dataset.v===f.ok)o.classList.add("correct");});
+  if(right)ex.score++;else{b.classList.add("wrong");ex.wrong.push({f,pick});}
+  $("#qScore").textContent=`${ex.score}টা সঠিক`;
+  $("#fb").innerHTML=`<div class="feedback ${right?"ok":"no"}" role="status"><div class="fh">${right?"সঠিক! ✓":"ভুল হয়েছে। সঠিক উত্তর: <span class='en'>"+esc(f.ok)+"</span>"}</div><div class="fexp">${f.exp}</div><div class="fbex">${f.ex}</div></div>`;
+  const nb=$("#nextBtn");nb.hidden=false;nb.textContent=ex.i===ex.qs.length-1?"ফলাফল দেখুন":"পরের প্রশ্ন";nb.focus();
+});
+$("#nextBtn").addEventListener("click",()=>{ex.i++;if(ex.i<ex.qs.length){renderQ();window.scrollTo(0,0);}else finish();});
+$("#quitBtn").addEventListener("click",()=>{$("#examRun").hidden=true;$("#examSetup").hidden=false;});
+function finish(){
+  $("#examRun").hidden=true;$("#examResult").hidden=false;window.scrollTo(0,0);
+  const n=ex.qs.length,p=Math.round(ex.score/n*100);
+  $("#resBig").textContent=`${ex.score} / ${n}`;
+  $("#resVerdict").textContent=p===100?"ফুল মার্ক! এই লেকচার আপনার হাতের মুঠোয়।":p>=80?`${p}%। দারুণ! নিচের অল্প কয়টা আরেকবার দেখে নিন।`:p>=50?`${p}%। ভালো চলছে। ভুলগুলো দেখে আবার চেষ্টা করুন।`:`${p}%। আরেকবার "পড়ুন" অংশটা দেখে তারপর আবার চেষ্টা করুন।`;
+  $("#retryWrong").hidden=!ex.wrong.length;
+  $("#review").innerHTML=ex.wrong.length?`<div class="sec-title">যেগুলো ভুল হয়েছে</div>`+ex.wrong.map(w=>`<div class="rv"><div class="rq">FAQ ${w.f.n}. ${esc(w.f.q)}</div><div class="ry">আপনার উত্তর: ${esc(w.pick)}</div><div class="rc">সঠিক: ${esc(w.f.ok)}</div></div>`).join(""):"";
+  const best=+store.get(PAGE.key+"-best")||0;if(p>best)store.set(PAGE.key+"-best",p);updateBest();
+}
+$("#retryWrong").addEventListener("click",()=>startExam(ex.wrong.map(w=>w.f),true));
+$("#newExam").addEventListener("click",()=>{$("#examResult").hidden=true;$("#examSetup").hidden=false;});
+function updateBest(){const b=store.get(PAGE.key+"-best");$("#bestScore").textContent=b!==null?b+"%":"–";}
+
+/* ---------- Flashcards ---------- */
+let fc={list:FAQ.slice(),i:0,back:false};
+function renderFC(){
+  const f=fc.list[fc.i],c=$("#fcard");c.classList.toggle("back",fc.back);
+  c.innerHTML=fc.back?`<div class="side">উত্তর · FAQ ${f.n}</div><div class="fq">${aHTML(f)}</div><div class="exbox" style="margin-top:14px"><span class="lbl">উদাহরণ</span>${f.ex}</div>`
+    :`<div class="side">প্রশ্ন · FAQ ${f.n}</div><div class="fq">${qHTML(f)}</div><div class="hint">↻ ট্যাপ করে উত্তর দেখুন</div>`;
+  $("#fcCount").textContent=`${fc.i+1} / ${fc.list.length}`;
+  $("#fcPrev").disabled=fc.i===0;$("#fcNext").disabled=fc.i===fc.list.length-1;
+}
+$("#fcard").addEventListener("click",()=>{fc.back=!fc.back;renderFC();});
+$("#fcNext").addEventListener("click",()=>{if(fc.i<fc.list.length-1){fc.i++;fc.back=false;renderFC();}});
+$("#fcPrev").addEventListener("click",()=>{if(fc.i>0){fc.i--;fc.back=false;renderFC();}});
+$("#fcShuffle").addEventListener("click",()=>{fc.list=shuffle(fc.list);fc.i=0;fc.back=false;renderFC();});
+$("#fcTopic").addEventListener("change",e=>{const t=e.target.value;fc.list=FAQ.filter(f=>t==="all"||f.sec===t);fc.i=0;fc.back=false;renderFC();});
+document.addEventListener("keydown",e=>{if($("#cards").hidden||e.target.tagName==="SELECT")return;if(e.key==="ArrowRight")$("#fcNext").click();if(e.key==="ArrowLeft")$("#fcPrev").click();});
+
+/* ---------- Language switch ---------- */
+function setLang(l){
+  lang=l;store.set(PAGE.key+"-lang",l);
+  $("#langSeg").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.l===l));
+  renderStudy();renderFC();if(ex&&!$("#examRun").hidden)$("#qText").innerHTML=qHTML(ex.qs[ex.i]);
+}
+$("#langSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setLang(b.dataset.l);});
+
+setLang(lang);updateBest();updateNoteProg();show(location.hash.slice(1));
+
+
+</script>
+</body>
+</html>
