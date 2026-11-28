@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kingdom Press | Illustrated Novels by Duane C. McDermott</title>
+<meta name="description" content="Kingdom Press: illustrated novels of faith, freedom and true stories by Duane C. McDermott. The Jubilee Kingdom, Track Record and The Whispers of Gabriel.">
+<meta property="og:image" content="img/cover-jubilee.jpg">
+<style>
+@font-face{font-family:"Cinzel";src:url(fonts/Cinzel-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Cinzel";src:url(fonts/Cinzel-SemiBold.ttf) format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Cardo";src:url(fonts/Cardo-Regular.ttf) format("truetype");font-display:swap}
+@font-face{font-family:"Cardo";src:url(fonts/Cardo-Italic.ttf) format("truetype");font-style:italic;font-display:swap}
+:root{--night:#0a0c15;--navy:#111829;--deep:#171f36;--gold:#d6a84c;--gold2:#f0cf7a;--amethyst:#6b3aa0;--parch:#f4ecdc;--ink:#e9e4d8;--muted:#a7a9b6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:"Cardo",Georgia,serif;background:var(--night);color:var(--ink);font-size:19px;line-height:1.7}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+.cz{font-family:"Cinzel",serif}
+.eyebrow{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.gold{background:linear-gradient(180deg,var(--gold2),var(--gold) 55%,#a7782a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);margin:18px 0}
+.rule:before,.rule:after{content:"";height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold))}
+.rule:after{transform:scaleX(-1)}
+.rule i{width:8px;height:8px;border:1px solid currentColor;transform:rotate(45deg)}
+
+nav{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 0}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:46px}
+.logo span{font-family:"Cinzel",serif;font-weight:600;letter-spacing:.24em;font-size:15px;color:var(--gold2)}
+nav ul{display:flex;gap:30px;list-style:none}
+nav ul a{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:#cfc8b6}
+nav ul a:hover{color:var(--gold2)}
+
+.btn{font-family:"Cinzel",serif;display:inline-flex;align-items:center;gap:10px;padding:15px 28px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1a1207;box-shadow:0 12px 30px -10px rgba(214,168,76,.6)}
+.btn.line{border:1px solid rgba(214,168,76,.6);color:var(--gold2)}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+
+/* HERO */
+.hero{position:relative;padding:150px 0 120px;background:
+  radial-gradient(900px 500px at 75% 30%,rgba(107,58,160,.35),transparent 65%),
+  linear-gradient(180deg,rgba(10,12,21,.6),var(--night) 92%),url(img/hero-bg.jpg) center/cover}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.hero h1{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(40px,5vw,64px);line-height:1.08;margin:20px 0 22px}
+.hero p{font-size:21px;color:#d6d2c6;max-width:520px;margin-bottom:34px}
+.fan{position:relative;height:500px}
+.fan img{position:absolute;width:250px;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:0 30px 60px rgba(0,0,0,.65),0 0 0 1px rgba(214,168,76,.25);transition:transform .5s}
+.fan .f1{left:0;top:70px;transform:rotate(-9deg)}
+.fan .f2{left:150px;top:20px;z-index:2}
+.fan .f3{left:300px;top:70px;transform:rotate(9deg)}
+.fan:hover .f1{transform:rotate(-12deg) translateX(-14px)}
+.fan:hover .f3{transform:rotate(12deg) translateX(14px)}
+
+section{padding:110px 0}
+h2{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.15;margin:12px 0 10px}
+.center{text-align:center}
+.lead{color:var(--muted);max-width:640px;font-size:20px}
+.center .lead{margin:0 auto}
+
+/* BOOKS */
+.book{display:grid;grid-template-columns:330px 1fr;gap:70px;align-items:center;margin-top:90px}
+.book:nth-child(even){grid-template-columns:1fr 330px}
+.book:nth-child(even) .cover{order:2}
+.cover img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:0 34px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(214,168,76,.3)}
+.book .num{font-family:"Cinzel",serif;font-size:13px;letter-spacing:.3em;color:var(--gold)}
+.book h3{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(30px,3.2vw,42px);line-height:1.1;margin:10px 0 6px}
+.book .sub{font-style:italic;color:var(--gold2);font-size:20px;margin-bottom:20px}
+.book p{color:#cfcabd;margin-bottom:16px}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 26px}
+.tags span{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(214,168,76,.35);color:#d9cfb6;padding:6px 12px;border-radius:99px}
+
+/* GALLERY */
+.gallery{background:linear-gradient(180deg,var(--night),var(--navy))}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:300px;gap:14px;margin-top:56px}
+.grid figure{position:relative;overflow:hidden;border-radius:4px}
+.grid img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.grid figure:hover img{transform:scale(1.05)}
+.grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-family:"Cinzel",serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
+
+
+/* COMING */
+.coming{background:var(--navy)}
+.cbox{border:1px solid rgba(214,168,76,.35);background:radial-gradient(600px 300px at 20% 0,rgba(107,58,160,.3),transparent 70%),var(--deep);padding:60px;display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:center;border-radius:6px}
+.pcover{aspect-ratio:2/3;background:linear-gradient(170deg,#2b1d3f,#0d0f1a);border:1px solid rgba(214,168,76,.4);display:flex;flex-direction:column;justify-content:space-between;padding:26px 18px;text-align:center;box-shadow:0 30px 50px -20px rgba(0,0,0,.8)}
+.pcover b{font-family:"Cinzel",serif;font-size:32px;line-height:1.05}
+.pcover small{font-family:"Cinzel",serif;font-size:10px;letter-spacing:.24em;color:var(--gold)}
+.cbox p{color:#cfcabd;margin-bottom:22px}
+.notify{display:flex;gap:10px;max-width:460px;background:rgba(255,255,255,.06);padding:8px;border-radius:4px}
+.notify input{flex:1;background:transparent;border:0;color:#fff;font:inherit;font-size:16px;padding:10px 14px;outline:none}
+.notify input::placeholder{color:#8e90a0}
+.notify button{border:0;cursor:pointer;white-space:nowrap}
+
+/* AUTHOR */
+.author .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.portrait{aspect-ratio:4/5;border-radius:4px;background:linear-gradient(160deg,var(--deep),var(--night));border:1px solid rgba(214,168,76,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+.portrait img{width:150px;opacity:.9}
+.portrait span{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.24em;color:var(--muted)}
+.author p{color:#cfcabd;margin-bottom:16px}
+.press{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+.press div b{display:block;font-family:"Cinzel",serif;font-size:40px;line-height:1}
+.press div span{font-family:"Cinzel",serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+footer{border-top:1px solid rgba(214,168,76,.2);padding:40px 0;font-size:15px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer .logo img{width:34px}
+
+@media(max-width:900px){
+  nav ul{display:none}
+  .hero{padding:110px 0 70px}
+  .hero .wrap,.book,.book:nth-child(even),.cbox,.author .wrap{grid-template-columns:1fr}
+  .book:nth-child(even) .cover{order:0}
+  .cover{max-width:280px}
+  .fan{height:360px;width:100%;max-width:340px;margin:0 auto}
+  .fan img{width:170px}
+  .fan .f2{left:85px}.fan .f3{left:170px}
+  .grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .cbox{padding:32px}
+  .pcover{max-width:220px}
+  section{padding:76px 0}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#"><img src="img/crown.png" alt=""><span>Kingdom Press</span></a>
+  <ul><li><a href="#books">Books</a></li><li><a href="#inside">Inside</a></li><li><a href="#coming">Coming Soon</a></li><li><a href="#author">Author</a></li></ul>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Kingdom Press · Illustrated novels</div>
+      <h1><span class="gold">Stories of faith, freedom</span> and the streets that shaped us.</h1>
+      <p>Richly illustrated novels by Duane C. McDermott, from a biblical Jubilee to Houston's Fifth Ward to the prophecies of Revelation.</p>
+      <div class="btns">
+        <a class="btn solid" href="#books">Explore the books</a>
+        <a class="btn line" href="#author">Meet the author</a>
+      </div>
+    </div>
+    <div class="fan" aria-hidden="true">
+      <img class="f1" src="img/cover-track-record.jpg" alt="">
+      <img class="f2" src="img/cover-jubilee.jpg" alt="">
+      <img class="f3" src="img/cover-whispers.jpg" alt="">
+    </div>
+  </div>
+</header>
+
+<section id="books">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">The collection</div>
+      <h2>Three books. One Kingdom.</h2>
+      <div class="rule"><i></i></div>
+      <p class="lead">Every Kingdom Press title pairs a powerful story with full-page artwork, so each chapter reads like a scene you can see.</p>
+    </div>
+
+    <div>
+      <article class="book">
+        <div class="cover"><img src="img/cover-jubilee.jpg" alt="The Jubilee Kingdom by Duane C. McDermott" loading="lazy"></div>
+        <div>
+          <div class="num">Book · Kingdom Press</div>
+          <h3>The Jubilee Kingdom</h3>
+          <div class="sub">A Story of Freedom, Restoration, and the Reign of Grace</div>
+          <p>Across seven years and seven cycles, a divided land burdened by debt, exile and forgotten promises watches a hidden Kingdom begin to rise. It comes not through conquest, but through forgiveness, release and restoration.</p>
+          <p>Each year becomes a gate and each cycle a test, until the eighth year opens into worship, fire and unity.</p>
+          <div class="tags"><span>Faith fiction</span><span>8 chapters</span><span>Fully illustrated</span></div>
+          <a class="btn solid" href="https://www.amazon.com/s?k=The+Jubilee+Kingdom+Duane+McDermott" target="_blank" rel="noopener">Get it on Amazon</a>
+        </div>
+      </article>
+
+      <article class="book">
+        <div class="cover"><img src="img/cover-track-record.jpg" alt="Track Record, the collected graphic novel" loading="lazy"></div>
+        <div>
+          <div class="num">The collected graphic novel</div>
+          <h3>Track Record</h3>
+          <div class="sub">Memoir of James Prince · There is gold in the ghetto</div>
+          <p>A dramatic, memoir-inspired story of Houston's Fifth Ward: ambition, faith, street history and the people and places that built a legacy.</p>
+          <p>Every scene is built as a memory in motion, bold, detailed and emotionally grounded.</p>
+          <div class="tags"><span>Graphic novel</span><span>Inspired by true events</span><span>Houston</span></div>
+          <a class="btn solid" href="https://www.amazon.com/s?k=Track+Record+Collected+Graphic+Novel+McDermott" target="_blank" rel="noopener">Get it on Amazon</a>
+        </div>
+      </article>
+
+      <article class="book">
+        <div class="cover"><img src="img/cover-whispers.jpg" alt="The Whispers of Gabriel by Duane C. McDermott" loading="lazy"></div>
+        <div>
+          <div class="num">A prophetic graphic novel</div>
+          <h3>The Whispers of Gabriel</h3>
+          <div class="sub">Wake, stand, follow the Lamb, and listen for the whisper</div>
+          <p>In 2028, Micah begins hearing a mysterious ring followed by a heavenly whisper. Called to awaken seven people, he must first become an awakened messenger himself.</p>
+          <p>From the seven seals to the seven bowls, the story shows that prophecy is a call to discernment, courage, faithful living and hope.</p>
+          <div class="tags"><span>Prophetic fiction</span><span>Part One</span><span>Fully illustrated</span></div>
+          <a class="btn solid" href="https://www.amazon.com/s?k=The+Whispers+of+Gabriel+Duane+McDermott" target="_blank" rel="noopener">Get it on Amazon</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="inside">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Inside the books</div>
+      <h2>Every chapter, a painting</h2>
+      <div class="rule"><i></i></div>
+    </div>
+    <div class="grid">
+      <figure class="g1"><img src="img/g-jubilee-1.jpg" alt="" loading="lazy"><figcaption>The Jubilee Kingdom</figcaption></figure>
+      <figure class="g2"><img src="img/g-track-1.jpg" alt="" loading="lazy"><figcaption>Track Record</figcaption></figure>
+      <figure class="g3"><img src="img/g-whispers-1.jpg" alt="" loading="lazy"><figcaption>The Whispers of Gabriel</figcaption></figure>
+      <figure class="g4"><img src="img/g-jubilee-2.jpg" alt="" loading="lazy"><figcaption>The Jubilee Kingdom</figcaption></figure>
+      <figure class="g5"><img src="img/g-track-2.jpg" alt="" loading="lazy" style="object-position:30% 50%"><figcaption>Track Record</figcaption></figure>
+      <figure class="g6"><img src="img/g-whispers-2.jpg" alt="" loading="lazy"><figcaption>The Whispers of Gabriel</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="coming" id="coming">
+  <div class="wrap">
+    <div class="cbox">
+      <div class="pcover"><small>KINGDOM PRESS</small><b class="gold">The<br>Blount<br>Truth</b><small>GHETTO DREAMS</small></div>
+      <div>
+        <div class="eyebrow">Coming soon</div>
+        <h2>The Blount Truth: Ghetto Dreams</h2>
+        <p>A Southside Houston story inspired by the life of Cory Blount, and by the music, streets and legacy of an era that changed a city's sound.</p>
+        <form class="notify" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you!'">
+          <input type="email" placeholder="Your email address" aria-label="Email address">
+          <button class="btn solid" type="submit">Notify me</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="author" id="author">
+  <div class="wrap">
+    <div class="portrait"><img src="img/crown.png" alt=""><span>AUTHOR PHOTO</span></div>
+    <div>
+      <div class="eyebrow">The author</div>
+      <h2>Duane C. McDermott</h2>
+      <p>Duane C. McDermott is a writer and visual storyteller whose work blends memoir, cinematic imagery, street history, faith and ambition.</p>
+      <p>Through Kingdom Press, he tells stories of restoration and purpose, from biblical history to the neighbourhoods of Houston, with artwork on every page.</p>
+      <div class="press">
+        <div><b class="gold">3</b><span>illustrated books</span></div>
+        <div><b class="gold">1</b><span>coming soon</span></div>
+        <div><b class="gold">100+</b><span>illustrations</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <a class="logo" href="#"><img src="img/crown.png" alt=""><span>Kingdom Press</span></a>
+  <span>© Duane C. McDermott · Kingdom Press. All rights reserved.</span>
+</div></footer>
+
+</body>
+</html>

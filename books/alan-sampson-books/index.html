@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gypsy Chase, Edition 2 | Alan Sampson</title>
+<meta name="description" content="Gypsy Chase, Edition 2: the true sequel to the prize-winning memoir Schools of Fish, by Australian author Alan Sampson.">
+<meta property="og:title" content="Gypsy Chase, Edition 2 by Alan Sampson">
+<meta property="og:image" content="img/cover-gypsy-chase.jpg">
+<style>
+@font-face{font-family:"Pagella";src:url(fonts/texgyrepagella-regular.otf) format("opentype");font-display:swap}
+@font-face{font-family:"Pagella";src:url(fonts/texgyrepagella-italic.otf) format("opentype");font-style:italic;font-display:swap}
+@font-face{font-family:"Anton";src:url(fonts/Anton-Regular.ttf) format("truetype");font-display:swap}
+@font-face{font-family:"Poppins";src:url(fonts/Poppins-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Poppins";src:url(fonts/Poppins-Medium.ttf) format("truetype");font-weight:500 700;font-display:swap}
+:root{
+  --night:#0f1313; --lake:#162225; --slate:#25343a; --mist:#9fb0b2;
+  --gold:#ddae4f; --gold2:#c8952f; --paper:#f7f3ea; --paper2:#efe8d9; --ink:#1d1f1e; --muted:#5f625d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:"Pagella","Palatino Linotype",Palatino,Georgia,serif;color:var(--ink);background:var(--paper);font-size:18px;line-height:1.7}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.sans{font-family:"Poppins",system-ui,sans-serif}
+.label{font-family:"Poppins",sans-serif;font-size:12px;letter-spacing:.32em;text-transform:uppercase}
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold2)}
+.orn:before,.orn:after{content:"";height:1px;width:56px;background:currentColor;opacity:.7}
+.orn i{width:7px;height:7px;transform:rotate(45deg);border:1px solid currentColor;display:block}
+
+/* NAV */
+nav{position:absolute;top:0;left:0;right:0;z-index:5;padding:26px 0}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:"Poppins",sans-serif;font-weight:500;font-size:15px;letter-spacing:.28em;text-transform:uppercase;color:#fff;text-decoration:none}
+nav ul{display:flex;gap:30px;list-style:none}
+nav ul a{font-family:"Poppins",sans-serif;color:#c9d3d3;text-decoration:none;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+nav ul a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{position:relative;color:#fff;padding:150px 0 110px;background:
+  linear-gradient(90deg,rgba(15,19,19,.95) 0%,rgba(15,19,19,.75) 45%,rgba(15,19,19,.35) 100%),
+  url(img/hero-bg.jpg) center/cover no-repeat, var(--night)}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(transparent,var(--night))}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.hero .label{color:var(--gold);margin-bottom:22px}
+.title{font-family:"Anton",Impact,sans-serif;font-weight:400;line-height:.88;letter-spacing:.01em;text-transform:uppercase}
+.hero h1{font-size:clamp(72px,10vw,138px);margin-bottom:6px}
+.hero h1 .w1{color:#fff;display:block}
+.hero h1 .w2{color:var(--gold);display:block}
+.ed{font-family:"Poppins",sans-serif;font-weight:500;letter-spacing:.2em;font-size:16px;color:#fff;margin-bottom:26px}
+.hero p.lead{font-size:20px;color:#d7dede;max-width:520px;margin-bottom:12px}
+.award{display:inline-flex;align-items:center;gap:10px;font-family:"Poppins",sans-serif;font-size:14px;color:var(--gold);margin:8px 0 34px}
+.award svg{width:18px;height:18px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:"Poppins",sans-serif;display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:2px;font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:transform .2s, background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:var(--gold);color:#16110a}
+.btn.gold:hover{background:#e8bd62}
+.btn.ghost{border:1px solid rgba(255,255,255,.45);color:#fff}
+.btn.dark{background:var(--lake);color:#fff}
+.btn.line{border:1px solid var(--ink);color:var(--ink)}
+
+/* 3D book */
+.bookwrap{perspective:1800px;display:flex;justify-content:center}
+.book3d{position:relative;width:330px;aspect-ratio:900/1345;transform:rotateY(-24deg) rotateX(3deg);transform-style:preserve-3d;transition:transform .7s ease}
+.bookwrap:hover .book3d{transform:rotateY(-10deg) rotateX(1deg)}
+.book3d img{position:absolute;inset:0;width:100%;height:100%;border-radius:2px 4px 4px 2px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.05),0 40px 70px rgba(0,0,0,.6)}
+.book3d:before{content:"";position:absolute;inset:0;z-index:2;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,.18) 0,rgba(0,0,0,.25) 2.5%,transparent 6%)}
+.book3d .pages{position:absolute;top:5px;bottom:5px;right:-26px;width:28px;background:repeating-linear-gradient(90deg,#f4efe4 0 2px,#d9d1c1 2px 3px);transform:rotateY(90deg);transform-origin:left}
+
+/* SECTIONS */
+section{padding:110px 0}
+h2{font-weight:400;font-size:clamp(34px,4vw,50px);line-height:1.12;margin-bottom:18px;letter-spacing:.01em}
+.sc{font-variant:small-caps;letter-spacing:.08em}
+.center{text-align:center}
+.intro{max-width:660px;color:var(--muted);font-size:19px}
+.center .intro{margin:0 auto}
+
+/* STORY */
+.story{background:var(--night);color:#e7ecec;padding-top:40px}
+.story .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.story h2{color:#fff}
+.story .label{color:var(--gold);margin-bottom:14px}
+.story p{color:#c2cccc;margin-bottom:18px}
+.story p.big{font-size:23px;line-height:1.55;color:#fff}
+.dropcap:first-letter{float:left;font-size:78px;line-height:.82;padding:6px 10px 0 0;color:var(--gold)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px;border-top:1px solid rgba(255,255,255,.12);padding-top:28px}
+.facts b{display:block;font-family:"Anton",sans-serif;font-weight:400;font-size:40px;color:var(--gold);line-height:1}
+.facts span{font-family:"Poppins",sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+
+/* JOURNEY */
+.journey{background:var(--lake);color:#fff;position:relative;overflow:hidden}
+.journey h2{color:#fff}.journey .intro{color:#b7c4c5}
+.journey .label{color:var(--gold);margin-bottom:14px}
+.stops{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;position:relative}
+.stops:before{content:"";position:absolute;left:12%;right:12%;top:15px;border-top:2px dashed rgba(221,174,79,.55)}
+.stop{text-align:center;padding:0 14px;position:relative}
+.stop .dot{width:32px;height:32px;border-radius:50%;margin:0 auto 22px;background:var(--lake);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center}
+.stop .dot:after{content:"";width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.stop .where{font-family:"Poppins",sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.stop b{display:block;font-weight:400;font-size:24px;margin-bottom:6px}
+.stop span{color:#b7c4c5;font-size:16px;line-height:1.5;display:block}
+
+/* INSIDE */
+.inside{background:var(--paper)}
+.inside .label{color:var(--gold2);margin-bottom:14px}
+.pages3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:56px}
+.pg{background:#fff;padding:0;box-shadow:0 1px 0 rgba(0,0,0,.05),0 30px 50px -28px rgba(0,0,0,.45);transform:rotate(-1deg)}
+.pg:nth-child(2){transform:translateY(-16px)}
+.pg:nth-child(3){transform:rotate(1.2deg)}
+.pg img{width:100%;display:block}
+.pg figcaption{font-family:"Poppins",sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;padding:12px 0 14px;background:var(--paper2)}
+
+.contents{max-width:620px;margin:90px auto 0;background:#fff;padding:54px 60px;box-shadow:0 30px 60px -40px rgba(0,0,0,.4)}
+.contents h3{font-weight:400;text-align:center;font-size:30px;font-variant:small-caps;letter-spacing:.1em;margin:14px 0 26px}
+.contents ol{list-style:none;columns:1}
+.contents li{display:flex;align-items:baseline;gap:12px;font-size:17px;line-height:2.05}
+.contents li .n{font-family:"Poppins",sans-serif;font-size:11px;color:var(--gold2);width:20px;text-align:right}
+.contents li .t{white-space:nowrap}
+.contents li .dots{flex:1;border-bottom:1px dotted #b9b2a3;transform:translateY(-5px)}
+.contents li .p{font-size:14px;color:var(--muted)}
+.contents .more{text-align:center;font-style:italic;color:var(--muted);margin-top:18px;font-size:16px}
+
+/* QUOTE (Robert Service, 1907 – public domain; the book's epigraph) */
+.epi{background:var(--night);color:#fff;text-align:center;padding:100px 0}
+.epi blockquote{font-style:italic;font-size:clamp(24px,3vw,34px);line-height:1.5;max-width:780px;margin:22px auto 18px;color:#eef2f2}
+.epi cite{font-style:normal;font-variant:small-caps;letter-spacing:.14em;color:var(--gold)}
+
+/* SERIES */
+.series .label{color:var(--gold2);margin-bottom:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:50px}
+.card{display:grid;grid-template-columns:160px 1fr;gap:28px;background:#fff;padding:34px;box-shadow:0 26px 50px -36px rgba(0,0,0,.5)}
+.card img,.card .ph{width:160px;aspect-ratio:900/1345;object-fit:cover;box-shadow:0 18px 30px -14px rgba(0,0,0,.6)}
+.card .ph{background:linear-gradient(170deg,#24363b,#0f1313);display:flex;flex-direction:column;justify-content:space-between;padding:20px 12px;text-align:center;color:#fff}
+.card .ph .title{font-size:34px;color:var(--gold)}
+.card .ph small{font-family:"Poppins",sans-serif;font-size:9px;letter-spacing:.2em}
+.card .tag{font-family:"Poppins",sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
+.card h3{font-weight:400;font-size:30px;line-height:1.1;margin-bottom:10px}
+.card p{color:var(--muted);font-size:17px;margin-bottom:20px}
+
+/* AUTHOR */
+.author{background:var(--paper2)}
+.author .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.portrait{aspect-ratio:4/5;background:linear-gradient(160deg,var(--slate),var(--night));display:flex;align-items:flex-end;justify-content:center;padding:26px;position:relative;box-shadow:0 30px 60px -36px rgba(0,0,0,.6)}
+.portrait:before{content:"AS";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Anton",sans-serif;font-size:130px;color:rgba(221,174,79,.16)}
+.portrait span{position:relative;font-family:"Poppins",sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+.author .label{color:var(--gold2);margin-bottom:14px}
+
+/* BUY */
+.buy{background:var(--night);color:#fff;text-align:center}
+.buy h2{color:#fff}.buy .intro{color:#b7c4c5;margin:0 auto 38px}
+.buy .btns{justify-content:center}
+.buy .label{color:var(--gold);margin-bottom:14px}
+.formats{font-family:"Poppins",sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-top:26px}
+
+footer{background:#0a0d0d;color:#7f8d8e;padding:34px 0;font-family:"Poppins",sans-serif;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){
+  nav ul{display:none}
+  .hero{padding:110px 0 70px;background:linear-gradient(180deg,rgba(15,19,19,.9),rgba(15,19,19,.7)),url(img/hero-bg.jpg) center/cover}
+  .hero .wrap,.story .grid,.author .wrap,.two{grid-template-columns:1fr}
+  .book3d{width:230px}
+  .stops{grid-template-columns:1fr 1fr;row-gap:40px}
+  .stops:before{display:none}
+  .pages3{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}
+  .pg,.pg:nth-child(2),.pg:nth-child(3){transform:none}
+  .card{grid-template-columns:1fr}
+  .contents{padding:36px 22px}
+  .contents li .t{white-space:normal}
+  section{padding:76px 0}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#">Alan Sampson</a>
+  <ul><li><a href="#story">The Story</a></li><li><a href="#journey">The Journey</a></li><li><a href="#inside">Look Inside</a></li><li><a href="#author">Author</a></li><li><a href="#buy">Buy</a></li></ul>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="label">A true story · The sequel to Schools of Fish</div>
+      <h1 class="title"><span class="w1">Gypsy</span><span class="w2">Chase</span></h1>
+      <div class="ed">EDITION 2</div>
+      <p class="lead">A runaway son. A father who won't stop looking. From the Yukon wilderness to the coast of Australia.</p>
+      <div class="award"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg>By the winner of the Finch Memoir Prize</div>
+      <div class="btns">
+        <a class="btn gold" href="https://www.amazon.com/dp/1984326600" target="_blank" rel="noopener">Buy on Amazon</a>
+        <a class="btn ghost" href="#inside">Look inside</a>
+      </div>
+    </div>
+    <div class="bookwrap"><div class="book3d"><img src="img/cover-gypsy-chase.jpg" alt="Gypsy Chase, Edition 2 by Alan Sampson, book cover"><div class="pages"></div></div></div>
+  </div>
+</header>
+
+<section class="story" id="story">
+  <div class="wrap grid">
+    <div>
+      <div class="label">The story</div>
+      <h2>Some sons are born to wander.</h2>
+      <p class="big dropcap">Greg Sampson is a runaway, escaping a controlling father's expectations and a world that wants him to conform.</p>
+    </div>
+    <div>
+      <p>His father follows him across the Yukon wilderness and all the way to Australia, determined to bring him back into line. On the way, the two of them face bears, criminals and their own inner demons.</p>
+      <p>By the end of the chase, neither man sees life, or love, the way he did when it began.</p>
+      <div class="facts">
+        <div><b>19</b><span>chapters</span></div>
+        <div><b>2</b><span>continents</span></div>
+        <div><b>1</b><span>father &amp; son</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="center">
+      <div class="label">The journey</div>
+      <h2>Where the chase goes</h2>
+      <p class="intro">Every chapter in <em>Gypsy Chase</em> opens with a place. Here are a few of them.</p>
+    </div>
+    <div class="stops">
+      <div class="stop"><div class="dot"></div><div class="where">Chapter 1</div><b>Whitehorse</b><span>Yukon, Canada. Where the chase begins.</span></div>
+      <div class="stop"><div class="dot"></div><div class="where">Chapter 3</div><b>Dawson City</b><span>Down the river, from Whitehorse to Dawson.</span></div>
+      <div class="stop"><div class="dot"></div><div class="where">Chapter 10</div><b>Moreton Island</b><span>Queensland, Australia. Back on home waters.</span></div>
+      <div class="stop"><div class="dot"></div><div class="where">Chapter 15</div><b>The Search</b><span>A search that turns the story upside down.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="epi">
+  <div class="wrap">
+    <div class="orn"><i></i></div>
+    <blockquote>“There's a whisper on the night-wind, there's a star agleam to guide us, And the Wild is calling, calling… let us go.”</blockquote>
+    <cite>Robert Service · The Call of the Wild</cite>
+  </div>
+</section>
+
+<section class="inside" id="inside">
+  <div class="wrap">
+    <div class="center">
+      <div class="label">Look inside</div>
+      <h2>Designed to be read, and kept</h2>
+      <p class="intro">A classic, elegant interior in 6 × 9 print, with chapter openers that tell you exactly where you are on the journey.</p>
+    </div>
+    <div class="pages3">
+      <figure class="pg"><img src="img/inside-title.jpg" alt="Gypsy Chase title page" loading="lazy"><figcaption>Title page</figcaption></figure>
+      <figure class="pg"><img src="img/inside-chapter1.jpg" alt="Chapter One, True North" loading="lazy"><figcaption>Chapter One · True North</figcaption></figure>
+      <figure class="pg"><img src="img/inside-epigraph.jpg" alt="Epigraph page" loading="lazy"><figcaption>The epigraph</figcaption></figure>
+    </div>
+
+    <div class="contents">
+      <div class="orn"><i></i></div>
+      <h3>Contents</h3>
+      <ol>
+        <li><span class="n"></span><span class="t">Prologue</span><span class="dots"></span><span class="p">1</span></li>
+        <li><span class="n">1</span><span class="t">True North</span><span class="dots"></span><span class="p">5</span></li>
+        <li><span class="n">2</span><span class="t">There's A Bear In There</span><span class="dots"></span><span class="p">15</span></li>
+        <li><span class="n">3</span><span class="t">Whitewater Worries</span><span class="dots"></span><span class="p">21</span></li>
+        <li><span class="n">4</span><span class="t">The Search For Simple</span><span class="dots"></span><span class="p">27</span></li>
+        <li><span class="n">5</span><span class="t">Trespassing</span><span class="dots"></span><span class="p">31</span></li>
+        <li><span class="n">6</span><span class="t">Uncle Jim The Giant Killer</span><span class="dots"></span><span class="p">35</span></li>
+        <li><span class="n">7</span><span class="t">End Of Days</span><span class="dots"></span><span class="p">39</span></li>
+      </ol>
+      <p class="more">… and twelve more chapters, through to the Epilogue: Where They Are Now.</p>
+    </div>
+  </div>
+</section>
+
+<section class="series" id="books">
+  <div class="wrap">
+    <div class="center">
+      <div class="label">The books</div>
+      <h2>Read the whole story</h2>
+    </div>
+    <div class="two">
+      <article class="card">
+        <div class="ph"><small>A TRUE STORY</small><div class="title">Schools<br>of Fish</div><small>ALAN SAMPSON</small></div>
+        <div>
+          <div class="tag">Book 1 · Finch Memoir Prize winner</div>
+          <h3>Schools of Fish</h3>
+          <p>The prize-winning first book, where the Sampson family's story begins.</p>
+          <a class="btn line" href="https://www.amazon.com/stores/author/B07CWPJT72" target="_blank" rel="noopener">See on Amazon</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/cover-gypsy-chase.jpg" alt="Gypsy Chase cover" loading="lazy">
+        <div>
+          <div class="tag">Book 2 · Edition 2</div>
+          <h3>Gypsy Chase</h3>
+          <p>The sequel. A father, a runaway son, and a chase from the Yukon to Australia. Now in paperback and hardcover.</p>
+          <a class="btn dark" href="https://www.amazon.com/dp/1984326600" target="_blank" rel="noopener">Buy on Amazon</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="author" id="author">
+  <div class="wrap">
+    <div class="portrait"><span>Author photo</span></div>
+    <div>
+      <div class="label">About the author</div>
+      <h2>Alan Sampson</h2>
+      <p class="intro">Alan Sampson is an Australian writer whose books come straight from real life. His first book, <em>Schools of Fish</em>, won the Finch Memoir Prize, and <em>Gypsy Chase</em> carries the family's story on, from the Yukon to the Queensland coast. First and foremost, Alan is a proud father.</p>
+    </div>
+  </div>
+</section>
+
+<section class="buy" id="buy">
+  <div class="wrap">
+    <div class="label">Get your copy</div>
+    <h2>Start the chase</h2>
+    <p class="intro">Gypsy Chase, Edition 2 is available on Amazon.</p>
+    <div class="btns">
+      <a class="btn gold" href="https://www.amazon.com/dp/1984326600" target="_blank" rel="noopener">Amazon US</a>
+      <a class="btn ghost" href="https://www.amazon.com.au/s?k=Gypsy+Chase+Alan+Sampson" target="_blank" rel="noopener">Amazon Australia</a>
+      <a class="btn ghost" href="https://www.amazon.com/stores/author/B07CWPJT72" target="_blank" rel="noopener">All books by Alan</a>
+    </div>
+    <div class="formats">Paperback · Hardcover</div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© Alan Sampson. All rights reserved.</span>
+  <span>Gypsy Chase · Schools of Fish</span>
+</div></footer>
+
+</body>
+</html>
